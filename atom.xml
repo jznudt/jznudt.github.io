@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-20T05:19:38.583Z</updated>
+  <updated>2016-07-20T15:08:36.545Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -16,14 +16,115 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>屏蔽C++开发的功能模型API中的实现细节</title>
+    <link href="http://jznudt.github.io/2016/07/20/APIDesign/"/>
+    <id>http://jznudt.github.io/2016/07/20/APIDesign/</id>
+    <published>2016-07-20T14:38:02.000Z</published>
+    <updated>2016-07-20T15:08:36.545Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;屏蔽C-开发的功能模型API中的实现细节&quot;&gt;&lt;a href=&quot;#屏蔽C-开发的功能模型API中的实现细节&quot; class=&quot;headerlink&quot; title=&quot;屏蔽C++开发的功能模型API中的实现细节&quot;&gt;&lt;/a&gt;屏蔽C++开发的功能模型API中的实现细节&lt;/h1&gt;&lt;p&gt;最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+ &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; CAntenna;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; CReciver;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; CDigitalProcessor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; RADAR_API RADARDLL&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	RADARDLL();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//其它构造函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; ~RADARDLL();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//执行初始化操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt;	&lt;span class=&quot;title&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; INITPATAM&amp;amp; param)&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//执行时间迭代步进操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;	&lt;span class=&quot;title&quot;&gt;Advance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	CAntenna*		m_Antenna;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	CReciver*			m_Receiver;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	CDigitalProcessor*	m_DigitalProcessor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;感觉在头文件中暴露了太多的实现细节，例如把XX仿真模型拆分成了&lt;strong&gt;天线&lt;/strong&gt;等多个子系统。有没有一种设计思路，能尽量在头文件&lt;em&gt;屏蔽实现细节&lt;/em&gt;？最理想的情况是，除了暴露出来的公有接口外，基本上不包含任何的私有变量。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;屏蔽C-开发的功能模型API中的实现细节&quot;&gt;&lt;a href=&quot;#屏蔽C-开发的功能模型API中的实现细节&quot; class=&quot;headerlink&quot; title=&quot;屏蔽C++开发的功能模型API中的实现细节&quot;&gt;&lt;/a&gt;屏蔽C++开发的功能模型API中的实现细节&lt;/h1&gt;&lt;p&gt;最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：
+    
+    </summary>
+    
+      <category term="编程杂感" scheme="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
+    
+    
+      <category term="API设计" scheme="http://jznudt.github.io/tags/API%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="C++" scheme="http://jznudt.github.io/tags/C/"/>
+    
+      <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电子战系统仿真与测试的发展</title>
+    <link href="http://jznudt.github.io/2016/07/20/EWSimTest/"/>
+    <id>http://jznudt.github.io/2016/07/20/EWSimTest/</id>
+    <published>2016-07-20T14:13:28.000Z</published>
+    <updated>2016-07-20T15:07:04.676Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;a href=&quot;#电子战系统仿真与测试的发展&quot; class=&quot;headerlink&quot; title=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;/a&gt;电子战系统仿真与测试的发展&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://p14.qhimg.com/t01f0a3251589b147df.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+&lt;p&gt;电子战系统的测试一直以来都是一项举足轻重的工程挑战，并且随着电子战系统的技术水平和预期性能的提高以及不断增强的相控阵（AESA）雷达威胁而迅速发展。每种新型电子战系统都将在试验靶场上面临最后一关，在这里必须测试系统在实际作战使用中可能面临的各种情况。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;但是，电子战系统在进入试验靶场前，首先要在具有复杂威胁环境模拟器的安装系统测试设备中进行全面的评估。甚至在电子战系统达到这些测试处理阶段前，还必须先在系统集成实验室和半实物的测试设备中完成许多测试。这些测试阶段极其重要，因为测试期间能发现问题并使研发人员在转向上述更昂贵的测试阶段前解决问题。其目的就是要经常进行测试和早期测试，特别是在实验室里进行测试。幸好，软件仿真工具和商用现货测试系统日趋成熟，现在已经成为成本高度敏感的电子战开发环境的必备工具。&lt;/p&gt;
+&lt;h2 id=&quot;电子战测试机制&quot;&gt;&lt;a href=&quot;#电子战测试机制&quot; class=&quot;headerlink&quot; title=&quot;电子战测试机制&quot;&gt;&lt;/a&gt;电子战测试机制&lt;/h2&gt;&lt;p&gt;由于试验靶场非常少，几乎一直处于&lt;em&gt;使用中&lt;/em&gt;状态，&lt;em&gt;预订&lt;/em&gt;测试时间如同预约顶级医疗专家一样难。因此，美国国防部、主承包商和测试设备制造商迫于压力，只好将仿真与测试尽量从试验靶场转移回实验室。这就推动了对实验室具备更复杂先进测试能力的需求。不管怎样，由于这些基于商用现货的仿真与测试平台已经取得了长足的进步，所以现在的电子战系统在面临最终的验证挑战前就能得到更全面更好的评估。&lt;/p&gt;
+&lt;p&gt;上述想法旨在利用仿真软件和商用测试设备，在设计过程的早期进行绝大多数的仿真、测试和分析。必须进行大量测试，让电子战系统在最大带宽范围内经受最大容量信号的考验，包括信号环境中频繁变化的波形、干扰、已知的威胁以及其他动态变化的因素。&lt;/p&gt;
+&lt;p&gt;这种测试系统的能力是全面的，必须能正确模拟实时雷达脉冲特征、干扰和传播异常，包括如下方面：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;脉冲上升沿和下降沿时间&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;脉冲宽度, 脉冲重复频率及模式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;每个脉冲的调制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;频率和频谱特征&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;信号幅度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;雷达天线方向图&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;天线扫描方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这些测试系统还必须能产生和动态改变辐射源类型，对模式的变化进行仿真并实现其他功能，与先进威胁系统（例如相控阵雷达）不断增强的能力同步发展。&lt;/p&gt;
+&lt;p&gt;对于仿真测试工程师来说幸运的是，这种需要大型数/模数据库、射频和微波测试装备（大多数为用户定制并且专用于特殊项目）的情况正在慢慢改变。这是由于美国国防部缩减预算引起的成本限制需要一种新途径，另外美国国防部还希望尽快扭转电子战技术多年以来在研究开发和采办预算中不受重视的局面。时间就是生命，而测试是系统研发耗时较多并且价格高企的部分之一，因此，业界加强了简化测试的开发工作。想要通过增强实验室部分的测试来达到目的，就必须了解需求是什么。&lt;/p&gt;
+&lt;h2 id=&quot;基于商用现货的方法&quot;&gt;&lt;a href=&quot;#基于商用现货的方法&quot; class=&quot;headerlink&quot; title=&quot;基于商用现货的方法&quot;&gt;&lt;/a&gt;基于商用现货的方法&lt;/h2&gt;&lt;p&gt;一种典型的基于实验室的闭环电子战仿真与评估系统包括以下主要特征：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;信号波形的宽频带序列，产生新波形的软件，用于回放信号波形的一个或多个矢量信号发生器，其频率可以是从高频到&lt;strong&gt;18GHz&lt;/strong&gt; (有时更高)且调制带宽超过&lt;strong&gt;1GHz&lt;/strong&gt;的任意频率。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;系统能在尽可能短的反应时间内对波形进行数字化、记录、存储和回放。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;软件工具能快速对几小时的波形文件进行分类整理，识别出感兴趣的部分并加以修改，产生只包含特定波形的文件，最终生成了仿真但却是很“真”的信号环境。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;截获威胁并对其分类是一项艰巨的工作，需要经年累月对信号情报进行搜集、利用与分析，从而构建包含了特定雷达系统的极其详细信息的数据库，如友方的、敌方的和疑似敌方的雷达系统信息。所幸由于美国国防部长期致力于数据搜集，这样的数据库已经建成并持续更新。&lt;/p&gt;
+&lt;p&gt;然而，威胁“前景”处于持续变化的状态，因为世界先进军事技术不断产生新的威胁雷达和雷达波形，一些先进雷达在作战期间能够实时（脉冲到脉冲）改变现有波形。因此，识别出全部可能存在的威胁是不现实的，先进电子战系统必须依靠高速数字信号处理能力和软件实时动态生成对抗手段。&lt;/p&gt;
+&lt;p&gt;为了产生能反映实际情况的仿真威胁环境，必须考虑所有因素，例如信号传播和干扰的各种变化。利用信号生成和通道仿真软件来产生信号波形或波形序列，可以非常有效地仿真威胁环境。离散的任意波形发生器(AWG)或矢量信号发生器(VSG)可以实现合成信号的重构。&lt;/p&gt;
+&lt;p&gt;在电子战系统仿真与评估的所有阶段中，实验室方法花费最少，虽然AVG和VSG通常只具备有限的多辐射源评估能力，却减轻了在较复杂威胁环境发生器上以及在安装系统测试设备上和开放空间试验靶场中进行测试所需要的工作量，还减少了重新设计和重编程所需要的工作量。就这一点来说，AVG和VSG是早期的评估系统，是试验靶场的补充而不是替换。他们的好处是闭环系统，使设计者们能完全控制研发期间所需要的测试、评估及“优化”，并且以很小的代价或者无需额外的费用就能重用或另作他用。&lt;/p&gt;
+&lt;h2 id=&quot;像变色龙一样的相控阵雷达&quot;&gt;&lt;a href=&quot;#像变色龙一样的相控阵雷达&quot; class=&quot;headerlink&quot; title=&quot;像变色龙一样的相控阵雷达&quot;&gt;&lt;/a&gt;像变色龙一样的相控阵雷达&lt;/h2&gt;&lt;p&gt;由于两种不可控变数的存在，任何测试设备制造商、软件销售商、主承包商或其他机构都不可能产生针对电子战系统仿真与测试的理想解决方案。第一个变数是技术的变革，这种变革是如此之快，以至于今天的尖端科技明天就成了标准配置。主导这些进步的是所有电子战和雷达系统的核心组件：模-数转换器(ADC)、数-模转换器(DAC)、FPGA、GPU和通用处理器。&lt;/p&gt;
+&lt;p&gt;第二个变数是对手们每年也在加速取得技术进步。尤其是相控阵雷达。多模式相控阵雷达正在进入世界上许多国家的军队。这些雷达常常表现出相似于变色龙的能力，这种能力使他们成为强大的威胁。除了具有许多其他雷达的功能外，相控阵雷达还能同时工作于许多不同的频率，采用有源波束形成方式产生多个子波束（每个子波束在不同频率上发射信号），随机改变每个脉冲的频率和其他特征，增大或减小每个天线单元的发射功率以免受到探测，采用包括各种扩谱技术在内的多种调制样式，在一些扇区以被动方式工作而在其他扇区以主动方式工作，还有许多其他特征。&lt;/p&gt;
+&lt;p&gt;也许最令人惊异的是相控阵雷达日益增强的这种能力：搜集到足够多的目标相关信息就能推算出该目标的雷达截面积，从接收到的回波信号可得出发动机调制和通道效应，能有效产生目标的三维图像。相控阵雷达利用存储的已知目标信息，能识别出正在跟踪的飞机类型以及飞机配置的电子战和电子对抗能力。这一切使得相控阵雷达具有明显的优势。&lt;/p&gt;
+&lt;h2 id=&quot;带宽的挑战&quot;&gt;&lt;a href=&quot;#带宽的挑战&quot; class=&quot;headerlink&quot; title=&quot;带宽的挑战&quot;&gt;&lt;/a&gt;带宽的挑战&lt;/h2&gt;&lt;p&gt;电子战测试中使用的大多数先进商用现货仪器的性能通常必须等于或优于待测的电子战系统，达到这个要求是仪器制造商的首要目标。最使人畏缩的挑战之一是带宽似乎将无限增大。电子战系统覆盖了宽广的频率范围，雷达与之相比以前一直是窄带的，工作频率范围只有几百兆赫兹。如今这种情况已经显著改变了，因为现在的雷达系统带宽一般能达到1GHz或甚至2GHz，预计2020年前带宽将扩大到&lt;strong&gt;4GHz&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;雷达信号和工作带宽的每次进步都会全面影响电子战系统，波及到系统的所有功能。例如，较大的带宽和较快的采样率明显增加了电子战系统必须采集和处理的样本数，而系统的处理容量和速度是有限的。电子战系统采集的数据（即I/Q采样）不仅要进行处理，还必须能够存储，这就需要超高性能（价格昂贵）的固态存储器和高速系统总线。&lt;/p&gt;
+&lt;p&gt;记录带宽为2GHz的信号，即使时间很短也会产生几百万兆字节数据，唯一有效的处理办法就是利用FPGA和（或）GPU这样的高速信号处理工具。这种硬件在软件的协助下能分选出感兴趣的信号，只传送那些选中了（数量更少因此数据量更小）的信号到其他的信号处理器进行更详细处理。然后，电子战系统必须做出响应，这就需要更多的分析和处理。通常必须近实时完成这一切处理，因为响应时间“窗口”受控于敌方威胁系统。因此，不管电子战系统必须处理多少数据，它仍然只有相同的限定时间来进行处理。&lt;/p&gt;
+&lt;p&gt;反应时间是影响电子战系统性能的另一个关键因素，它对于模拟电子战系统性能的测试系统同样重要。反应时间来源于信号处理设备引起的延时和将数据从一个功能模块传输到另一个功能模块（或从一台仪器到另一台仪器）引起的延时。在电子战系统设计中，尽可能缩短反应时间是绝对有必要的，因为响应时间是以微秒为测量单位。所以，即使逐渐缩短反应时间也是受欢迎的。缩短电子战测试系统的反应时间也很关键，通过选择高速通信总线以实现系统内点对点数据传输可以极大缩短反应时间。目前有代表性的是PCI快速总线(PCI)，它已经发展成能更好地集成进PC环境并能提供高达几千兆字节/秒的通用传输率。&lt;/p&gt;
+&lt;p&gt;有效应对更大带宽和更短反应时间提出的挑战，以及对其他诸如无杂散动态范围(SFDR)和转换器分辨率这样很重要参数的测量，对于电子战仿真系统设计与电子战系统自身设计来说都同样重要。&lt;/p&gt;
+&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;通过在试验靶场上和在即将部署的平台上评估电子战系统（或者说雷达系统），全仪器控制的开放空间试验靶场是最有效的评估手段，这一说法是经得起论证的。然而，在设计和开发过程的早期，试验靶场并不是理想的评估场所，利用商用现货测试设备和仿真软件结合起来进行评估能够提供更强的灵活性、可重复性及进行特殊测试的能力。&lt;/p&gt;
+&lt;p&gt;任何基于商用现货的测试解决方案都不是完美无缺的，虽然使用了设备和软件，这种测试系统还是像待评估系统一样复杂。然而，这种方案与五角大楼实现更高性价比的研究、测试、开发与评估（RTD&amp;amp;E）的目标是一致的,因为测试系统是一次性购买并在多次测试电子战和雷达系统时分期付款的，所以必定会在未来得到更广泛的使用。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;原作者简介：JohnHansen，现为&lt;a href=&quot;http://www.keysight.com/main/home.jspx?cc=CN&amp;amp;lc=chi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;是德技术公司（Keysight）&lt;/a&gt;解决方案规划工程师，在无线电、微波电子及防御行业内的系统工程和新产品开发领域拥有30多年的经验。&lt;/em&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;a href=&quot;#电子战系统仿真与测试的发展&quot; class=&quot;headerlink&quot; title=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;/a&gt;电子战系统仿真与测试的发展&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://p14.qhimg.com/t01f0a3251589b147df.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
+&lt;p&gt;电子战系统的测试一直以来都是一项举足轻重的工程挑战，并且随着电子战系统的技术水平和预期性能的提高以及不断增强的相控阵（AESA）雷达威胁而迅速发展。每种新型电子战系统都将在试验靶场上面临最后一关，在这里必须测试系统在实际作战使用中可能面临的各种情况。
+    
+    </summary>
+    
+      <category term="行业综述" scheme="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
+    
+    
+      <category term="电子战仿真" scheme="http://jznudt.github.io/tags/%E7%94%B5%E5%AD%90%E6%88%98%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Markdown文件语法学习</title>
     <link href="http://jznudt.github.io/2016/07/20/MarkDownSyntax/"/>
     <id>http://jznudt.github.io/2016/07/20/MarkDownSyntax/</id>
     <published>2016-07-20T05:08:24.000Z</published>
-    <updated>2016-07-20T05:19:38.583Z</updated>
+    <updated>2016-07-20T14:58:59.780Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Markdown-文件&quot;&gt;&lt;a href=&quot;#Markdown-文件&quot; class=&quot;headerlink&quot; title=&quot;Markdown 文件&quot;&gt;&lt;/a&gt;Markdown 文件&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://markdown.tw/images/208x128.png&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Traditional Chinese Edition Document of&lt;br&gt;Markdown Syntax. If you are seeking for English Edition&lt;br&gt;Document. Please refer to &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Markdown: Syntax&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Simplified Chinese Edition Document of&lt;br&gt;Markdown Syntax. If you are seeking for English Edition&lt;br&gt;Document. Please refer to &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Markdown: Syntax&lt;/a&gt;.&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h1 id=&quot;Markdown-Syntax&quot;&gt;&lt;a href=&quot;#Markdown-Syntax&quot; class=&quot;headerlink&quot; title=&quot;Markdown: Syntax&quot;&gt;&lt;/a&gt;Markdown: Syntax&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;#overview&quot;&gt;概述&lt;/a&gt;&lt;ul&gt;
@@ -504,7 +605,7 @@ _   底线
     <summary type="html">
     
       &lt;h1 id=&quot;Markdown-文件&quot;&gt;&lt;a href=&quot;#Markdown-文件&quot; class=&quot;headerlink&quot; title=&quot;Markdown 文件&quot;&gt;&lt;/a&gt;Markdown 文件&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://markdown.tw/images/208x128.png&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Traditional Chinese Edition Document of&lt;br&gt;Markdown Syntax. If you are seeking for English Edition&lt;br&gt;Document. Please refer to &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown: Syntax&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Simplified Chinese Edition Document of&lt;br&gt;Markdown Syntax. If you are seeking for English Edition&lt;br&gt;Document. Please refer to &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown: Syntax&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
