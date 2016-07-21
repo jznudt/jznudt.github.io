@@ -11,15 +11,15 @@
     
 
     
-    <meta name="description" content="雷达电子战综合仿真供应商">
+    <meta name="description" content="致力于雷达电子战仿真评估">
 <meta property="og:type" content="website">
 <meta property="og:title" content="品创信联">
 <meta property="og:url" content="http://jznudt.github.io/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="雷达电子战综合仿真供应商">
+<meta property="og:description" content="致力于雷达电子战仿真评估">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="品创信联">
-<meta name="twitter:description" content="雷达电子战综合仿真供应商">
+<meta name="twitter:description" content="致力于雷达电子战仿真评估">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -76,6 +76,198 @@
     </header>
     <div id="container">
       <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/21/MultiThreadCtrl/" title="多线程控制问题" itemprop="url">多线程控制问题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-21T04:32:35.000Z" itemprop="datePublished"> 发表于 2016-07-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="自组织线程设计"><a href="#自组织线程设计" class="headerlink" title="自组织线程设计"></a>自组织线程设计</h2><p>在开发某业务系统过程中，遇到了多线程开发的问题。由于业务逻辑较为复杂，系统中使用了接近50个线程，它们有着不同的业务逻辑和线程执行函数（ProcFunction），所以无法通过for循环方式来创建。由于每个线程的创建、同步、退出/销毁等操作都需要外部手动控制，造成了代码的混乱和重复。为了避免上述问题，想到了设计一个自组织、功能完善的工作线程类WorkThread，它的骨干代码如下所示：</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2016/07/21/MultiThreadCtrl/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/编程杂感/">编程杂感</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/多线程/">多线程</a><a href="/tags/并行仿真/">并行仿真</a><a href="/tags/仿真引擎/">仿真引擎</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/07/21/MultiThreadCtrl/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/21/MultiThreadCtrl/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/21/SingletonStatic/" title="单例模式中的静态变量冲突" itemprop="url">单例模式中的静态变量冲突</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-21T04:24:53.000Z" itemprop="datePublished"> 发表于 2016-07-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>采用模块化设计思想，把XX仿真模型拆分成了若干个分系统，在每个分系统中可能都会使用到初始化参数（即INITPATAM），所以用单例模式构建了一个“<strong>全局可见、全局唯一</strong>”的参数集合（除了INITPATAM外，还包含其它很多公共参数，不再赘述），同时为了进一步提升安全性，采用了操作接口（即Set/Get函数），如下面的代码段。
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2016/07/21/SingletonStatic/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/编程杂感/">编程杂感</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/C/">C++</a><a href="/tags/设计模式/">设计模式</a><a href="/tags/单例模式/">单例模式</a><a href="/tags/静态变量/">静态变量</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/07/21/SingletonStatic/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/21/SingletonStatic/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/21/DLLModify/" title="闭源库的功能扩展与完善" itemprop="url">闭源库的功能扩展与完善</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-21T04:09:01.000Z" itemprop="datePublished"> 发表于 2016-07-21</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h2 id="功能库构建"><a href="#功能库构建" class="headerlink" title="功能库构建"></a>功能库构建</h2><p>利用策略与工厂模式，构建了某闭源的功能模型库，主要用于无人飞行器上的自主寻的制导。现将骨干程序抽离如下：首先定义了导引律接口（Interface），在C++中采用了纯虚函数来实现，然后采用公有继承的方法，实现了三种典型的导引律，包括：比例导引律（PN）、修正比例导引律（APN）和追踪法导引律（TPN）。相关代码如下图所示：
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2016/07/21/DLLModify/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/编程杂感/">编程杂感</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/设计模式/">设计模式</a><a href="/tags/策略模式/">策略模式</a><a href="/tags/功能扩展/">功能扩展</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/07/21/DLLModify/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/21/DLLModify/" data-count-type="comments">&nbsp;</a>
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
 
    
     
@@ -299,7 +491,7 @@
 		  
 		
 		  
-			<li><a href="/categories/编程杂感/" title="编程杂感">编程杂感<sup>1</sup></a></li>
+			<li><a href="/categories/编程杂感/" title="编程杂感">编程杂感<sup>4</sup></a></li>
 		  
 		
 		  
@@ -316,7 +508,23 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/电子战仿真/" title="电子战仿真">电子战仿真<sup>1</sup></a></li>
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/单例模式/" title="单例模式">单例模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/策略模式/" title="策略模式">策略模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/功能扩展/" title="功能扩展">功能扩展<sup>1</sup></a></li>
 			
 		
 			
@@ -328,11 +536,23 @@
 			
 		
 			
-				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+				<li><a href="/tags/静态变量/" title="静态变量">静态变量<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>1</sup></a></li>
+				<li><a href="/tags/多线程/" title="多线程">多线程<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/并行仿真/" title="并行仿真">并行仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/仿真引擎/" title="仿真引擎">仿真引擎<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/电子战仿真/" title="电子战仿真">电子战仿真<sup>1</sup></a></li>
 			
 		
 			
@@ -346,7 +566,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">6</span></li></ul>
   </div>
 
 
@@ -354,7 +574,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/API设计/" style="font-size: 10px;">API设计</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/发展综述/" style="font-size: 10px;">发展综述</a> <a href="/tags/电子战仿真/" style="font-size: 10px;">电子战仿真</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+       <a href="/tags/API设计/" style="font-size: 10px;">API设计</a> <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/仿真引擎/" style="font-size: 10px;">仿真引擎</a> <a href="/tags/功能扩展/" style="font-size: 10px;">功能扩展</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/发展综述/" style="font-size: 10px;">发展综述</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/并行仿真/" style="font-size: 10px;">并行仿真</a> <a href="/tags/电子战仿真/" style="font-size: 10px;">电子战仿真</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/静态变量/" style="font-size: 10px;">静态变量</a>
     </div>
   </div>
 
@@ -391,8 +611,8 @@
 	
 	
 	<section class="info">
-		<p> 雷达电子战综合仿真供应商 <br/>
-			Where there is a will, there is a way.</p>
+		<p> 致力于雷达电子战仿真评估 <br/>
+			Swear is the lubricant of success</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">

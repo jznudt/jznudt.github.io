@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>屏蔽C++开发的功能模型API中的实现细节 | 品创信联</title>
+    <title>闭源库的功能扩展与完善 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="屏蔽C++开发的功能模型API中的实现细节最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：">
+    <meta name="description" content="功能库构建利用策略与工厂模式，构建了某闭源的功能模型库，主要用于无人飞行器上的自主寻的制导。现将骨干程序抽离如下：首先定义了导引律接口（Interface），在C++中采用了纯虚函数来实现，然后采用公有继承的方法，实现了三种典型的导引律，包括：比例导引律（PN）、修正比例导引律（APN）和追踪法导引律（TPN）。相关代码如下图所示：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="屏蔽C++开发的功能模型API中的实现细节">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/20/APIDesign/index.html">
+<meta property="og:title" content="闭源库的功能扩展与完善">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/21/DLLModify/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="屏蔽C++开发的功能模型API中的实现细节最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：">
-<meta property="og:updated_time" content="2016-07-20T15:08:36.545Z">
+<meta property="og:description" content="功能库构建利用策略与工厂模式，构建了某闭源的功能模型库，主要用于无人飞行器上的自主寻的制导。现将骨干程序抽离如下：首先定义了导引律接口（Interface），在C++中采用了纯虚函数来实现，然后采用公有继承的方法，实现了三种典型的导引律，包括：比例导引律（PN）、修正比例导引律（APN）和追踪法导引律（TPN）。相关代码如下图所示：">
+<meta property="og:updated_time" content="2016-07-21T04:22:03.823Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="屏蔽C++开发的功能模型API中的实现细节">
-<meta name="twitter:description" content="屏蔽C++开发的功能模型API中的实现细节最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：">
+<meta name="twitter:title" content="闭源库的功能扩展与完善">
+<meta name="twitter:description" content="功能库构建利用策略与工厂模式，构建了某闭源的功能模型库，主要用于无人飞行器上的自主寻的制导。现将骨干程序抽离如下：首先定义了导引律接口（Interface），在C++中采用了纯虚函数来实现，然后采用公有继承的方法，实现了三种典型的导引律，包括：比例导引律（PN）、修正比例导引律（APN）和追踪法导引律（TPN）。相关代码如下图所示：">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/20/APIDesign/" title="屏蔽C++开发的功能模型API中的实现细节" itemprop="url">屏蔽C++开发的功能模型API中的实现细节</a>
+      <a href="/2016/07/21/DLLModify/" title="闭源库的功能扩展与完善" itemprop="url">闭源库的功能扩展与完善</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-20T14:38:02.000Z" itemprop="datePublished"> 发表于 2016-07-20</time>
+    <time datetime="2016-07-21T04:09:01.000Z" itemprop="datePublished"> 发表于 2016-07-21</time>
     
   </p>
 </header>
@@ -98,13 +98,14 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#屏蔽C-开发的功能模型API中的实现细节"><span class="toc-number">1.</span> <span class="toc-text">屏蔽C++开发的功能模型API中的实现细节</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#功能库构建"><span class="toc-number">1.</span> <span class="toc-text">功能库构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#策略模式"><span class="toc-number">2.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能扩展完善"><span class="toc-number">3.</span> <span class="toc-text">功能扩展完善</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="屏蔽C-开发的功能模型API中的实现细节"><a href="#屏蔽C-开发的功能模型API中的实现细节" class="headerlink" title="屏蔽C++开发的功能模型API中的实现细节"></a>屏蔽C++开发的功能模型API中的实现细节</h1><p>最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：<a id="more"></a></p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> CAntenna;</div><div class="line"><span class="keyword">class</span> CReciver;</div><div class="line"><span class="keyword">class</span> CDigitalProcessor;</div><div class="line">……</div><div class="line"></div><div class="line"><span class="keyword">class</span> RADAR_API RADARDLL</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	RADARDLL();</div><div class="line">	<span class="comment">//其它构造函数</span></div><div class="line">	……</div><div class="line">	<span class="keyword">virtual</span> ~RADARDLL();</div><div class="line"></div><div class="line">	<span class="comment">//执行初始化操作</span></div><div class="line">	<span class="function"><span class="keyword">bool</span>	<span class="title">Initialize</span><span class="params">(<span class="keyword">const</span> INITPATAM&amp; param)</span></span>;</div><div class="line"></div><div class="line">	<span class="comment">//执行时间迭代步进操作</span></div><div class="line">	<span class="function"><span class="keyword">void</span>	<span class="title">Advance</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="keyword">protected</span>:</div><div class="line">	……</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">	CAntenna*		m_Antenna;</div><div class="line">	CReciver*			m_Receiver;</div><div class="line">	CDigitalProcessor*	m_DigitalProcessor;</div><div class="line">	……</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>感觉在头文件中暴露了太多的实现细节，例如把XX仿真模型拆分成了<strong>天线</strong>等多个子系统。有没有一种设计思路，能尽量在头文件<em>屏蔽实现细节</em>？最理想的情况是，除了暴露出来的公有接口外，基本上不包含任何的私有变量。</p>
+		<h2 id="功能库构建"><a href="#功能库构建" class="headerlink" title="功能库构建"></a>功能库构建</h2><p>利用策略与工厂模式，构建了某闭源的功能模型库，主要用于无人飞行器上的自主寻的制导。现将骨干程序抽离如下：首先定义了导引律接口（Interface），在C++中采用了纯虚函数来实现，然后采用公有继承的方法，实现了三种典型的导引律，包括：比例导引律（PN）、修正比例导引律（APN）和追踪法导引律（TPN）。相关代码如下图所示：<a id="more"></a></p>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//导引律枚举</span></div><div class="line"><span class="keyword">enum</span> HOMINGLAW</div><div class="line">&#123;</div><div class="line">	PN,		<span class="comment">//比例导引律</span></div><div class="line">	APN,	<span class="comment">//修正比例导引律</span></div><div class="line">	TPN,	<span class="comment">//追踪法导引律</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">class</span> GuidanceLaw</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	GuidanceLaw();</div><div class="line">	<span class="keyword">virtual</span> ~GuidanceLaw();</div><div class="line"></div><div class="line"><span class="keyword">public</span>:</div><div class="line">	<span class="function"><span class="keyword">virtual</span>	BOOL <span class="title">Initialize</span><span class="params">()</span> </span>= <span class="number">0</span>;</div><div class="line">	<span class="function"><span class="keyword">virtual</span>	<span class="keyword">void</span> <span class="title">Advance</span><span class="params">()</span> </span>= <span class="number">0</span>;</div><div class="line"></div><div class="line">	<span class="comment">//其它代码</span></div><div class="line">	…………</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> PNGuidanceLaw : <span class="keyword">public</span> GuidanceLaw</div><div class="line">&#123;</div><div class="line"></div><div class="line">	<span class="comment">//具体实现</span></div><div class="line">	<span class="function">BOOL <span class="title">Initialize</span><span class="params">()</span></span>;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Advance</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> APNGuidanceLaw : <span class="keyword">public</span> GuidanceLaw</div><div class="line">&#123;</div><div class="line">	<span class="comment">//具体实现</span></div><div class="line">	<span class="function">BOOL <span class="title">Initialize</span><span class="params">()</span></span>;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Advance</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">class</span> TPNGuidanceLaw : <span class="keyword">public</span> GuidanceLaw</div><div class="line">&#123;	</div><div class="line">	<span class="comment">//具体实现</span></div><div class="line">	<span class="function">BOOL <span class="title">Initialize</span><span class="params">()</span></span>;</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">Advance</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>在实现了上述三种典型的导引律基础上，采用策略与简单工厂模式，完成了自主寻的制导功能模型的开发，概述如下：<br> <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Guidance</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	Guidance() : pGuidanceLaw(<span class="literal">NULL</span>)</div><div class="line">	&#123;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">	Guidance(HOMINGLAW law)</div><div class="line">	&#123;</div><div class="line">		<span class="keyword">switch</span>(law)</div><div class="line">		&#123;</div><div class="line">		<span class="keyword">case</span> PN:</div><div class="line">			pGuidanceLaw = <span class="keyword">new</span> PNGuidanceLaw;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		</div><div class="line">		<span class="keyword">case</span> APN:</div><div class="line">			pGuidanceLaw = <span class="keyword">new</span> APNGuidanceLaw;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line"></div><div class="line">		<span class="keyword">case</span> TPN;</div><div class="line">			pGuidanceLaw = <span class="keyword">new</span> TPNGuidanceLaw;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line"></div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			pGuidanceLaw = <span class="keyword">new</span> PNGuidanceLaw; <span class="comment">//默认采用比例导引律</span></div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="keyword">virtual</span> ~Guidance();</div><div class="line"></div><div class="line">	<span class="comment">//其它操作代码</span></div><div class="line">	…………</div><div class="line"></div><div class="line"><span class="keyword">protected</span>:</div><div class="line">	GuidanceLaw*	pGuidanceLaw;</div><div class="line"></div><div class="line">	…………</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<h2 id="功能扩展完善"><a href="#功能扩展完善" class="headerlink" title="功能扩展完善"></a>功能扩展完善</h2><p>在实际使用上述闭源模型过程中，用户提出需要新增一至两种导引律（也就是要增加GuidanceLaw的若干种具体实现）。因为提供的功能库仅为二进制形式，无法直接修改源码，造成了功能扩展的不便。那么，应该如何才能够便捷地实现上述功能呢？或者说，在设计功能模型时，应该如何优化实现方案，以便满足用户实际使用过程中的快捷功能扩展？</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -118,7 +119,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/API设计/">API设计</a><a href="/tags/C/">C++</a><a href="/tags/设计模式/">设计模式</a>
+  <span></span> <a href="/tags/设计模式/">设计模式</a><a href="/tags/策略模式/">策略模式</a><a href="/tags/功能扩展/">功能扩展</a>
   </div>
 
 </div>
@@ -127,7 +128,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/20/APIDesign/" data-title="屏蔽C++开发的功能模型API中的实现细节 | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/07/21/DLLModify/" data-title="闭源库的功能扩展与完善 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -141,18 +142,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2016/07/21/DLLModify/" title="闭源库的功能扩展与完善">
+ <a href="/2016/07/21/SingletonStatic/" title="单例模式中的静态变量冲突">
   <strong>上一篇：</strong><br/>
   <span>
-  闭源库的功能扩展与完善</span>
+  单例模式中的静态变量冲突</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2016/07/20/EWSimTest/"  title="电子战系统仿真与测试的发展">
+<a href="/2016/07/20/APIDesign/"  title="屏蔽C++开发的功能模型API中的实现细节">
  <strong>下一篇：</strong><br/> 
- <span>电子战系统仿真与测试的发展
+ <span>屏蔽C++开发的功能模型API中的实现细节
 </span>
 </a>
 </div>
@@ -161,7 +162,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/20/APIDesign/" data-title="屏蔽C++开发的功能模型API中的实现细节" data-url="http://jznudt.github.io/2016/07/20/APIDesign/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/21/DLLModify/" data-title="闭源库的功能扩展与完善" data-url="http://jznudt.github.io/2016/07/21/DLLModify/"></div>
 </section>
 
 
@@ -171,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#屏蔽C-开发的功能模型API中的实现细节"><span class="toc-number">1.</span> <span class="toc-text">屏蔽C++开发的功能模型API中的实现细节</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#功能库构建"><span class="toc-number">1.</span> <span class="toc-text">功能库构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#策略模式"><span class="toc-number">2.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能扩展完善"><span class="toc-number">3.</span> <span class="toc-text">功能扩展完善</span></a></li></ol>
  
   </div>
 

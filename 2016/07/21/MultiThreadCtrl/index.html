@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>屏蔽C++开发的功能模型API中的实现细节 | 品创信联</title>
+    <title>多线程控制问题 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="屏蔽C++开发的功能模型API中的实现细节最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：">
+    <meta name="description" content="自组织线程设计在开发某业务系统过程中，遇到了多线程开发的问题。由于业务逻辑较为复杂，系统中使用了接近50个线程，它们有着不同的业务逻辑和线程执行函数（ProcFunction），所以无法通过for循环方式来创建。由于每个线程的创建、同步、退出/销毁等操作都需要外部手动控制，造成了代码的混乱和重复。为了避免上述问题，想到了设计一个自组织、功能完善的工作线程类WorkThread，它的骨干代码如下所示">
 <meta property="og:type" content="article">
-<meta property="og:title" content="屏蔽C++开发的功能模型API中的实现细节">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/20/APIDesign/index.html">
+<meta property="og:title" content="多线程控制问题">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/21/MultiThreadCtrl/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="屏蔽C++开发的功能模型API中的实现细节最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：">
-<meta property="og:updated_time" content="2016-07-20T15:08:36.545Z">
+<meta property="og:description" content="自组织线程设计在开发某业务系统过程中，遇到了多线程开发的问题。由于业务逻辑较为复杂，系统中使用了接近50个线程，它们有着不同的业务逻辑和线程执行函数（ProcFunction），所以无法通过for循环方式来创建。由于每个线程的创建、同步、退出/销毁等操作都需要外部手动控制，造成了代码的混乱和重复。为了避免上述问题，想到了设计一个自组织、功能完善的工作线程类WorkThread，它的骨干代码如下所示">
+<meta property="og:updated_time" content="2016-07-21T04:38:08.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="屏蔽C++开发的功能模型API中的实现细节">
-<meta name="twitter:description" content="屏蔽C++开发的功能模型API中的实现细节最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：">
+<meta name="twitter:title" content="多线程控制问题">
+<meta name="twitter:description" content="自组织线程设计在开发某业务系统过程中，遇到了多线程开发的问题。由于业务逻辑较为复杂，系统中使用了接近50个线程，它们有着不同的业务逻辑和线程执行函数（ProcFunction），所以无法通过for循环方式来创建。由于每个线程的创建、同步、退出/销毁等操作都需要外部手动控制，造成了代码的混乱和重复。为了避免上述问题，想到了设计一个自组织、功能完善的工作线程类WorkThread，它的骨干代码如下所示">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/20/APIDesign/" title="屏蔽C++开发的功能模型API中的实现细节" itemprop="url">屏蔽C++开发的功能模型API中的实现细节</a>
+      <a href="/2016/07/21/MultiThreadCtrl/" title="多线程控制问题" itemprop="url">多线程控制问题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-20T14:38:02.000Z" itemprop="datePublished"> 发表于 2016-07-20</time>
+    <time datetime="2016-07-21T04:32:35.000Z" itemprop="datePublished"> 发表于 2016-07-21</time>
     
   </p>
 </header>
@@ -98,13 +98,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#屏蔽C-开发的功能模型API中的实现细节"><span class="toc-number">1.</span> <span class="toc-text">屏蔽C++开发的功能模型API中的实现细节</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自组织线程设计"><span class="toc-number">1.</span> <span class="toc-text">自组织线程设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计问题"><span class="toc-number">2.</span> <span class="toc-text">设计问题</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="屏蔽C-开发的功能模型API中的实现细节"><a href="#屏蔽C-开发的功能模型API中的实现细节" class="headerlink" title="屏蔽C++开发的功能模型API中的实现细节"></a>屏蔽C++开发的功能模型API中的实现细节</h1><p>最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：<a id="more"></a></p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> CAntenna;</div><div class="line"><span class="keyword">class</span> CReciver;</div><div class="line"><span class="keyword">class</span> CDigitalProcessor;</div><div class="line">……</div><div class="line"></div><div class="line"><span class="keyword">class</span> RADAR_API RADARDLL</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">	RADARDLL();</div><div class="line">	<span class="comment">//其它构造函数</span></div><div class="line">	……</div><div class="line">	<span class="keyword">virtual</span> ~RADARDLL();</div><div class="line"></div><div class="line">	<span class="comment">//执行初始化操作</span></div><div class="line">	<span class="function"><span class="keyword">bool</span>	<span class="title">Initialize</span><span class="params">(<span class="keyword">const</span> INITPATAM&amp; param)</span></span>;</div><div class="line"></div><div class="line">	<span class="comment">//执行时间迭代步进操作</span></div><div class="line">	<span class="function"><span class="keyword">void</span>	<span class="title">Advance</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="keyword">protected</span>:</div><div class="line">	……</div><div class="line"></div><div class="line"><span class="keyword">private</span>:</div><div class="line">	CAntenna*		m_Antenna;</div><div class="line">	CReciver*			m_Receiver;</div><div class="line">	CDigitalProcessor*	m_DigitalProcessor;</div><div class="line">	……</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>感觉在头文件中暴露了太多的实现细节，例如把XX仿真模型拆分成了<strong>天线</strong>等多个子系统。有没有一种设计思路，能尽量在头文件<em>屏蔽实现细节</em>？最理想的情况是，除了暴露出来的公有接口外，基本上不包含任何的私有变量。</p>
+		<h2 id="自组织线程设计"><a href="#自组织线程设计" class="headerlink" title="自组织线程设计"></a>自组织线程设计</h2><p>在开发某业务系统过程中，遇到了多线程开发的问题。由于业务逻辑较为复杂，系统中使用了接近50个线程，它们有着不同的业务逻辑和线程执行函数（ProcFunction），所以无法通过for循环方式来创建。由于每个线程的创建、同步、退出/销毁等操作都需要外部手动控制，造成了代码的混乱和重复。为了避免上述问题，想到了设计一个自组织、功能完善的工作线程类WorkThread，它的骨干代码如下所示：</p>
+<a id="more"></a>
+ <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//设计完善的自组织工作线程</span></div><div class="line"><span class="keyword">class</span> WorkThread</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    WorkThread() : m_hThread(<span class="literal">NULL</span>)</div><div class="line">    &#123;</div><div class="line">        m_hEvent = CreateEvent(<span class="literal">NULL</span>, TRUE, FALSE, <span class="literal">NULL</span>); <span class="comment">//初始无信号状态</span></div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">virtual</span> ~WorkThread()</div><div class="line">    &#123;</div><div class="line">        CloseHandle(m_hEvent);</div><div class="line"> </div><div class="line">        <span class="keyword">if</span> (<span class="literal">NULL</span> != m_hThread)</div><div class="line">        &#123;</div><div class="line">            CloseHandle(m_hThread);</div><div class="line">            m_hThread = <span class="literal">NULL</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="function"><span class="keyword">virtual</span>    BOOL    <span class="title">Create</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        DWORD dw;</div><div class="line">        m_hThread = ::CreateThread(<span class="literal">NULL</span>, <span class="literal">NULL</span>, ProcFunction, <span class="keyword">this</span>, <span class="literal">NULL</span>, &amp;dw);</div><div class="line"> </div><div class="line">        <span class="comment">//控制线程暂时不执行相关代码</span></div><div class="line"> </div><div class="line">        <span class="keyword">return</span> (<span class="literal">NULL</span> == m_hThread) ? FALSE : TRUE;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">virtual</span> BOOL    <span class="title">Start</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">int</span>        <span class="title">Execute</span><span class="params">()</span> </span>= <span class="number">0</span>; <span class="comment">//业务相关</span></div><div class="line">    <span class="function"><span class="keyword">virtual</span> BOOL    <span class="title">Pause</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">virtual</span> BOOL    <span class="title">Resume</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">virtual</span> BOOL    <span class="title">Terminate</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">virtual</span> BOOL    <span class="title">Destroy</span><span class="params">()</span></span>;</div><div class="line"> </div><div class="line">    <span class="function">BOOL            <span class="title">IsActive</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">BOOL            <span class="title">IsExit</span><span class="params">()</span></span>;</div><div class="line"> </div><div class="line"><span class="keyword">protected</span>:</div><div class="line">    HANDLE    m_hThread;</div><div class="line">    HANDLE  m_hEvent;</div><div class="line"> </div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="function"><span class="keyword">static</span> DWORD WINAPI <span class="title">ProcFunction</span><span class="params">(LPVOID lParam)</span></span></div><div class="line">    &#123;</div><div class="line">        WorkThread* pThread = (WorkThread*)lParam;</div><div class="line"> </div><div class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == pThread)     <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line"> </div><div class="line">        DWORD dw = pThread-&gt;Execute();</div><div class="line"> </div><div class="line">        <span class="keyword">return</span> dw;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="设计问题"><a href="#设计问题" class="headerlink" title="设计问题"></a>设计问题</h2><p>在上述代码的实现过程中，有下面一些疑问，具体包括：</p>
+<ul>
+<li>工作线程类中采用何种方式进行同步较为便捷，例如互斥、事件、信号量或者是临界区？</li>
+<li>如果想实现线程创建后暂不执行，应该如何实现？在MFC中可以通过AfxBeginThread()函数实现，但不知晓具体的实现方式。</li>
+<li>在线程函数执行完毕后不自动销毁，因为要执行额外的清理操作，那么应该如何实现？</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -118,7 +124,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/API设计/">API设计</a><a href="/tags/C/">C++</a><a href="/tags/设计模式/">设计模式</a>
+  <span></span> <a href="/tags/多线程/">多线程</a><a href="/tags/并行仿真/">并行仿真</a><a href="/tags/仿真引擎/">仿真引擎</a>
   </div>
 
 </div>
@@ -127,7 +133,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/20/APIDesign/" data-title="屏蔽C++开发的功能模型API中的实现细节 | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/07/21/MultiThreadCtrl/" data-title="多线程控制问题 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -140,19 +146,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/07/21/DLLModify/" title="闭源库的功能扩展与完善">
-  <strong>上一篇：</strong><br/>
-  <span>
-  闭源库的功能扩展与完善</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/07/20/EWSimTest/"  title="电子战系统仿真与测试的发展">
+<a href="/2016/07/21/SingletonStatic/"  title="单例模式中的静态变量冲突">
  <strong>下一篇：</strong><br/> 
- <span>电子战系统仿真与测试的发展
+ <span>单例模式中的静态变量冲突
 </span>
 </a>
 </div>
@@ -161,7 +159,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/20/APIDesign/" data-title="屏蔽C++开发的功能模型API中的实现细节" data-url="http://jznudt.github.io/2016/07/20/APIDesign/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/21/MultiThreadCtrl/" data-title="多线程控制问题" data-url="http://jznudt.github.io/2016/07/21/MultiThreadCtrl/"></div>
 </section>
 
 
@@ -171,7 +169,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#屏蔽C-开发的功能模型API中的实现细节"><span class="toc-number">1.</span> <span class="toc-text">屏蔽C++开发的功能模型API中的实现细节</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自组织线程设计"><span class="toc-number">1.</span> <span class="toc-text">自组织线程设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计问题"><span class="toc-number">2.</span> <span class="toc-text">设计问题</span></a></li></ol>
  
   </div>
 
