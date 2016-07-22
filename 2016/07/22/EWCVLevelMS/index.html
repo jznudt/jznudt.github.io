@@ -1,0 +1,638 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>信号级仿真中的时效性问题初探 | 品创信联</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Zhao Jing">
+    
+
+    
+    <meta name="description" content="信号级仿真中的时效性问题初探
+引言对雷达系统（本博文特指末制导雷达、雷达导引头）的建模仿真一般有两种思路：功能级仿真、信号级仿真。前者采用解析的方法，定量地表述各因素（例如目标运动特性、电磁散射特性、地海杂波、气象杂波、导引头技战术参数、弹载环境、人为对抗环境等）对雷达系统探测威力、测量精度、工作特性等的影响效应。这种解析表达式一般以雷达方程为基础，将各种因素的影响效应体现为相应的因子加以修正。因">
+<meta property="og:type" content="article">
+<meta property="og:title" content="信号级仿真中的时效性问题初探">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/22/EWCVLevelMS/index.html">
+<meta property="og:site_name" content="品创信联">
+<meta property="og:description" content="信号级仿真中的时效性问题初探
+引言对雷达系统（本博文特指末制导雷达、雷达导引头）的建模仿真一般有两种思路：功能级仿真、信号级仿真。前者采用解析的方法，定量地表述各因素（例如目标运动特性、电磁散射特性、地海杂波、气象杂波、导引头技战术参数、弹载环境、人为对抗环境等）对雷达系统探测威力、测量精度、工作特性等的影响效应。这种解析表达式一般以雷达方程为基础，将各种因素的影响效应体现为相应的因子加以修正。因">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_RadarCVLevelSim.jpg">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_MultiAntPatterns.jpg">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GPUConfigChart.png">
+<meta property="og:updated_time" content="2016-07-22T04:54:10.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="信号级仿真中的时效性问题初探">
+<meta name="twitter:description" content="信号级仿真中的时效性问题初探
+引言对雷达系统（本博文特指末制导雷达、雷达导引头）的建模仿真一般有两种思路：功能级仿真、信号级仿真。前者采用解析的方法，定量地表述各因素（例如目标运动特性、电磁散射特性、地海杂波、气象杂波、导引头技战术参数、弹载环境、人为对抗环境等）对雷达系统探测威力、测量精度、工作特性等的影响效应。这种解析表达式一般以雷达方程为基础，将各种因素的影响效应体现为相应的因子加以修正。因">
+<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_RadarCVLevelSim.jpg">
+
+    
+    <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/RecoveryMgr.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/F22.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/F22.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/Fighter.gif" alt="品创信联" title="品创信联"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="品创信联">品创信联</a></h1>
+				<h2 class="blog-motto">品创世界，信联天下</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:jznudt.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/22/EWCVLevelMS/" title="信号级仿真中的时效性问题初探" itemprop="url">信号级仿真中的时效性问题初探</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-22T02:15:12.000Z" itemprop="datePublished"> 发表于 2016-07-22</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信号级仿真中的时效性问题初探"><span class="toc-number">1.</span> <span class="toc-text">信号级仿真中的时效性问题初探</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能级仿真缺点"><span class="toc-number">1.2.</span> <span class="toc-text">功能级仿真缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信号级仿真特点"><span class="toc-number">1.3.</span> <span class="toc-text">信号级仿真特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信号级仿真基本概念"><span class="toc-number">1.3.1.</span> <span class="toc-text">信号级仿真基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真时效性问题"><span class="toc-number">1.3.2.</span> <span class="toc-text">仿真时效性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时效性影响因素"><span class="toc-number">1.3.3.</span> <span class="toc-text">时效性影响因素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提高时效性思路"><span class="toc-number">1.4.</span> <span class="toc-text">提高时效性思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程处理"><span class="toc-number">1.4.1.</span> <span class="toc-text">多线程处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向GPU的并行计算"><span class="toc-number">1.4.2.</span> <span class="toc-text">面向GPU的并行计算</span></a></li></ol></li></ol></li></ol>
+		
+		</div>
+		
+		<h1 id="信号级仿真中的时效性问题初探"><a href="#信号级仿真中的时效性问题初探" class="headerlink" title="信号级仿真中的时效性问题初探"></a>信号级仿真中的时效性问题初探</h1><p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_RadarCVLevelSim.jpg" alt="EWCVLevelMSDemo"></p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>对雷达系统（本博文特指末制导雷达、雷达导引头）的建模仿真一般有两种思路：<strong>功能级仿真、信号级仿真</strong>。前者采用<em>解析</em>的方法，定量地表述各因素（例如目标运动特性、电磁散射特性、地海杂波、气象杂波、导引头技战术参数、弹载环境、人为对抗环境等）对雷达系统探测威力、测量精度、工作特性等的影响效应。这种解析表达式一般以<strong>雷达方程</strong>为基础，将各种因素的影响效应体现为相应的因子加以修正。因为直接采用了定量表述的方式，所以雷达系统的功能级仿真执行效率很高、仿真时效性好。</p>
+<a id="more"></a>
+<h2 id="功能级仿真缺点"><a href="#功能级仿真缺点" class="headerlink" title="功能级仿真缺点"></a>功能级仿真缺点</h2><p>随着各类精确打击武器面临的实战环境愈发复杂，由导弹、目标、人为干扰以及自然背景相互影响、密切关联、动态演化所形成的战场电磁环境对导弹的实战性能产生了巨大影响。很多情况下，功能级仿真对上述现状显得无能为力。例如，传统的功能级仿真中对于干扰的描述主要利用<strong>压制比系数</strong>，这对于噪声压制式干扰较为有效，但对于其它类型的干扰样式，例如距离密集假目标、多普勒压制干扰、距离速度联合拖引干扰、拖曳式诱饵相干角度欺骗干扰等，压制比便不能够全面地反映这些因素对末制导雷达的影响效应了。为了完整、科学、全面地评估贴近于实战环境下的末制导雷达作战效能，需要另寻其它的技术途径。</p>
+<h2 id="信号级仿真特点"><a href="#信号级仿真特点" class="headerlink" title="信号级仿真特点"></a>信号级仿真特点</h2><p>直观上理解，功能级仿真无法准确、全面地描述各环境因素对末制导雷达的影响效应，本质上是因为各种要素对雷达系统的作用机理<em>无法简单地揭示</em>。尤其是动态演化的战场电磁环境对于末制导雷达的影响效应，更难通过简单的公式来进行描述。这也就是我们常说的“<strong>复杂系统必须用复杂的手段来进行描述</strong>”。所以我们将目光更多地瞄准了信号级仿真。</p>
+<h3 id="信号级仿真基本概念"><a href="#信号级仿真基本概念" class="headerlink" title="信号级仿真基本概念"></a>信号级仿真基本概念</h3><p>信号级仿真一般采用相干视频方法，完整地复现导引头信号调制、发射、前向传输、电波衰减、目标后向散射、大气传输效应、天线接收、接收机处理、信号处理、数据处理的全过程。从这个流程我们就可清晰地看出，信号级仿真实质上采用了一种复杂描述的手段，以此完成对原本复杂的战场电磁环境影响末制导雷达这个过程的描述与模拟近似。</p>
+<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_MultiAntPatterns.jpg" alt="MultiAntPatterns"></p>
+<p>直观上看，我们首先需要在理想工作条件下（不考虑人为对抗、地海杂波等因素）完成导引头与弹道解算的闭环仿真，然后在准确完成各类环境因素建模的基础上，从而定量地描述它们对末制导雷达探测、跟踪、识别、抗干扰等各个环节的影响。实际上，因为战场电磁环境影响末制导雷达这个过程本身是非常复杂的，我们无法期望通过几个简单的公式来进行解析的表述。信号级仿真通过增加了仿真系统的<em>复杂度</em>，很好地解决了这个问题，它实质上是一种通过“细粒度仿真+多轮次统计评估”的思路来准确、全面地描述各环境因素对末制导雷达的影响效应的技术途径。</p>
+<h3 id="仿真时效性问题"><a href="#仿真时效性问题" class="headerlink" title="仿真时效性问题"></a>仿真时效性问题</h3><p>遗憾的是，信号级仿真大大地增加了仿真的复杂度，尤其是模拟信号/信息处理链路过程中需要的海量数据，造成了仿真的时效性大大降低。一般地，雷达系统建模仿真领域的人员均认为，“仿真粒度与时效性是一对不可调和的矛盾”，这个问题长期地困扰着该领域的科技人员。仿真时效性的降低，严重地影响了仿真进程的直观提现，不利于深刻地揭示各环境因素对末制导雷达的作用机理和影响效应。</p>
+<h3 id="时效性影响因素"><a href="#时效性影响因素" class="headerlink" title="时效性影响因素"></a>时效性影响因素</h3><p>在实践过程中，通过对信号级仿真过程的深入剖析，我们发现影响时效性的主要因素有两个：</p>
+<ol>
+<li>整个信号级仿真从本质上是一种<em>串行执行流程</em>，“发射信号——目标散射——接收机处理”这个信号/信息处理链路是串行的，某个耗时严重的处理环节会影响后续所有环节的处理时效；</li>
+<li>为了完整地体现信号特性，尤其是宽带信号的时频域特性，采用了较高的采样频率（系统中的采样率高达0.5GHz），以一个典型的CPI（相干处理周期）为例，32ms内的采样点高达1.6e+7点，每个采样点包含同相、正交两个分量（即I、Q分量），并以double类型存储，简单计算可知，一个CPI内的信号采样值耗费的内存空间已经超过了256MB。更为困难的时，要完成对这些海量信号采样值的卷积、混频、乘方、幂次等计算，从而造成了时效性的严重下降。</li>
+</ol>
+<h2 id="提高时效性思路"><a href="#提高时效性思路" class="headerlink" title="提高时效性思路"></a>提高时效性思路</h2><p>从上面的分析中可看出，为了有效地提升信号级仿真的时效性，需要从两个方面入手：一是尽量采用并行化处理，二是采用高性能计算方法。这也就是采用“<strong>多核多线程与GPU并行计算</strong>”的本意所在。</p>
+<p>现今的高性能处理平台一般都包含多个处理核心（CPU），并配备了性能强大的图形处理单元（GPU），从而为多核多线程与GPU并行计算奠定了坚实基础。下面结合具体实践过程，对上述方法进行展开叙述。</p>
+<h3 id="多线程处理"><a href="#多线程处理" class="headerlink" title="多线程处理"></a>多线程处理</h3><p>首先，采用多线程体系结构，改写了原有的串行执行流程。雷达导引头多采用单脉冲测角技术，以提取弹目视线角。为了实现单脉冲测角，一般设置四个接收通道（接收波束），并通过和差波束形成网络来完成形成和通道、方位差通道、俯仰差通道的接收信号。直观上理解，上述四个接收通道中的处理流程完全一致，包括下变频（混频）、匹配接收、自动增益控制、A/D采样、相干解调、包络检波、MTI、MTD、距离-多普勒联合处理等，完全可以用四个独立的线程来实现其中的功能，这种多线程并行处理方式的采用，将大大缩短原有的处理耗时（处理时间大约可达到原来的1/4）。</p>
+<h3 id="面向GPU的并行计算"><a href="#面向GPU的并行计算" class="headerlink" title="面向GPU的并行计算"></a>面向GPU的并行计算</h3><p>其次，针对信号级仿真中的数据吞吐量大、存储器访问频繁、数据密集等典型特点，采用了面向GPU的并行计算方法，旨在借助GPU的高效数值计算能力，进一步提升仿真系统的时效性。</p>
+<p>GPU实际上是一个流多处理器（SM，Streaming Multiprocessor）的阵列加存储器组成，下图为一个由14个SM以及存储器组成的GPU的结构简图。在GPU里面包含大量的SM单元，因此GPU的浮点计算能力已经远超CPU。在通用计算技术、并行计算中的应用， GPU表现优异，甚至可以提供数十倍乃至于上百倍CPU的性能。无源干扰和有源干扰的数学仿真算法，涉及到对大量信号数据的处理和计算，必须以高性能的处理计算机和高速数据存储器为基础。现代GPU计算技术的迅速发展，支撑了高性能数学仿真的发展，基于GPU的干扰数学仿真构架以其独特的优势：高性能、可重用性、互操作性和开放性为仿真系统提供高性能的干扰模块。</p>
+<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GPUConfigChart.png" alt="GPUConfigChart"></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/深沉思索/">深沉思索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/信号级仿真/">信号级仿真</a><a href="/tags/时效性/">时效性</a><a href="/tags/多线程/">多线程</a><a href="/tags/CUDA/">CUDA</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://jznudt.github.io/2016/07/22/EWCVLevelMS/" data-title="信号级仿真中的时效性问题初探 | 品创信联" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/22/CTreeCtrlExpand/" title="展开CTreeCtrl控件全部节点">
+  <strong>上一篇：</strong><br/>
+  <span>
+  展开CTreeCtrl控件全部节点</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/07/22/SeaBattlefieldEM/"  title="海战场电磁环境初步认知">
+ <strong>下一篇：</strong><br/> 
+ <span>海战场电磁环境初步认知
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/07/22/EWCVLevelMS/" data-title="信号级仿真中的时效性问题初探" data-url="http://jznudt.github.io/2016/07/22/EWCVLevelMS/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信号级仿真中的时效性问题初探"><span class="toc-number">1.</span> <span class="toc-text">信号级仿真中的时效性问题初探</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#功能级仿真缺点"><span class="toc-number">1.2.</span> <span class="toc-text">功能级仿真缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#信号级仿真特点"><span class="toc-number">1.3.</span> <span class="toc-text">信号级仿真特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#信号级仿真基本概念"><span class="toc-number">1.3.1.</span> <span class="toc-text">信号级仿真基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真时效性问题"><span class="toc-number">1.3.2.</span> <span class="toc-text">仿真时效性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时效性影响因素"><span class="toc-number">1.3.3.</span> <span class="toc-text">时效性影响因素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提高时效性思路"><span class="toc-number">1.4.</span> <span class="toc-text">提高时效性思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多线程处理"><span class="toc-number">1.4.1.</span> <span class="toc-text">多线程处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向GPU的并行计算"><span class="toc-number">1.4.2.</span> <span class="toc-text">面向GPU的并行计算</span></a></li></ol></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="jznudt" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/代码分享/" title="代码分享">代码分享<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/关键技术/" title="关键技术">关键技术<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础学习/" title="基础学习">基础学习<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/奇思妙想/" title="奇思妙想">奇思妙想<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术前沿/" title="技术前沿">技术前沿<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/深沉思索/" title="深沉思索">深沉思索<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/点滴随笔/" title="点滴随笔">点滴随笔<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程杂感/" title="编程杂感">编程杂感<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/行业综述/" title="行业综述">行业综述<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/防务观察/" title="防务观察">防务观察<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多线程/" title="多线程">多线程<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CUDA/" title="CUDA">CUDA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/功能扩展/" title="功能扩展">功能扩展<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C-源码/" title="C++源码">C++源码<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计与实现/" title="设计与实现">设计与实现<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信号级仿真/" title="信号级仿真">信号级仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时效性/" title="时效性">时效性<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MFC控件/" title="MFC控件">MFC控件<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/六自由度/" title="六自由度">六自由度<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/电子战仿真/" title="电子战仿真">电子战仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/发展综述/" title="发展综述">发展综述<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/重构/" title="重构">重构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面向对象分析与设计/" title="面向对象分析与设计">面向对象分析与设计<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/电磁环境/" title="电磁环境">电磁环境<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/反舰导弹/" title="反舰导弹">反舰导弹<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/GDI/" title="GDI">GDI<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/雷达P显/" title="雷达P显">雷达P显<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/闭环仿真/" title="闭环仿真">闭环仿真<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">19</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/AIM-120/" style="font-size: 10px;">AIM-120</a> <a href="/tags/API设计/" style="font-size: 10px;">API设计</a> <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/C-源码/" style="font-size: 10px;">C++源码</a> <a href="/tags/CUDA/" style="font-size: 13.33px;">CUDA</a> <a href="/tags/GDI/" style="font-size: 10px;">GDI</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/MFC控件/" style="font-size: 10px;">MFC控件</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/VR/" style="font-size: 10px;">VR</a> <a href="/tags/仿真引擎/" style="font-size: 10px;">仿真引擎</a> <a href="/tags/仿真评估/" style="font-size: 10px;">仿真评估</a> <a href="/tags/信号级仿真/" style="font-size: 10px;">信号级仿真</a> <a href="/tags/六自由度/" style="font-size: 10px;">六自由度</a> <a href="/tags/功能扩展/" style="font-size: 13.33px;">功能扩展</a> <a href="/tags/半实物仿真/" style="font-size: 10px;">半实物仿真</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/反舰导弹/" style="font-size: 10px;">反舰导弹</a> <a href="/tags/发展综述/" style="font-size: 10px;">发展综述</a> <a href="/tags/多线程/" style="font-size: 13.33px;">多线程</a> <a href="/tags/导引头/" style="font-size: 10px;">导引头</a> <a href="/tags/导航/" style="font-size: 10px;">导航</a> <a href="/tags/并行仿真/" style="font-size: 10px;">并行仿真</a> <a href="/tags/战术导弹/" style="font-size: 10px;">战术导弹</a> <a href="/tags/时效性/" style="font-size: 10px;">时效性</a> <a href="/tags/电子战仿真/" style="font-size: 10px;">电子战仿真</a> <a href="/tags/电磁环境/" style="font-size: 10px;">电磁环境</a> <a href="/tags/空空导弹/" style="font-size: 10px;">空空导弹</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/缓冲器/" style="font-size: 10px;">缓冲器</a> <a href="/tags/设计与实现/" style="font-size: 10px;">设计与实现</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/试验鉴定/" style="font-size: 10px;">试验鉴定</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a> <a href="/tags/闭环仿真/" style="font-size: 10px;">闭环仿真</a> <a href="/tags/雷达P显/" style="font-size: 10px;">雷达P显</a> <a href="/tags/雷达电子战/" style="font-size: 10px;">雷达电子战</a> <a href="/tags/静态变量/" style="font-size: 10px;">静态变量</a> <a href="/tags/面向对象分析与设计/" style="font-size: 10px;">面向对象分析与设计</a>
+    </div>
+  </div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/jznudt/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> 致力于雷达电子战仿真评估 <br/>
+			Sweat is the lubricant of success</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/jznudt" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/jznudt" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/jznudt" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:jznudt@126.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Zhao Jing">Zhao Jing</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jznudt"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
