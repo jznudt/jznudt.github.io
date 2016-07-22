@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-22T05:22:03.921Z</updated>
+  <updated>2016-07-22T05:29:33.277Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://jznudt.github.io/2016/07/22/AdapterModeDEV/"/>
     <id>http://jznudt.github.io/2016/07/22/AdapterModeDEV/</id>
     <published>2016-07-22T05:14:11.000Z</published>
-    <updated>2016-07-22T05:22:03.921Z</updated>
+    <updated>2016-07-22T05:29:33.277Z</updated>
     
-    <content type="html">&lt;p&gt;目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。出于保护知识产权的目的，上述软件中的模型体系大都自成体系，不便于进行集成开发。&lt;/p&gt;
+    <content type="html">&lt;p&gt;目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;出于保护知识产权的目的，上述软件中的模型体系大都自成体系，不便于进行集成开发。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;适配器模式&lt;/strong&gt;是一种典型的设计模式，用于进行不同接口之间的转换。将适配器模式应用于上述领域，自然地产生了一个想法：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;能否开发通用的中间件，完成上述COTS底层功能模型间的互联互通&lt;/p&gt;
@@ -32,7 +32,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。出于保护知识产权的目的，上述软件中
+      &lt;p&gt;目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。
     
     </summary>
     
@@ -50,18 +50,17 @@
     <link href="http://jznudt.github.io/2016/07/22/VRRadarEWWorld/"/>
     <id>http://jznudt.github.io/2016/07/22/VRRadarEWWorld/</id>
     <published>2016-07-22T05:04:41.000Z</published>
-    <updated>2016-07-22T05:13:15.453Z</updated>
+    <updated>2016-07-22T05:29:42.762Z</updated>
     
-    <content type="html">&lt;p&gt;随着VR领域内软、硬件技术的不断成熟，目前VR技术逐步地迈向“&lt;strong&gt;内容为王&lt;/strong&gt;”的阶段。如何将大热的VR技术与雷达电子战综合仿真领域相结合，逐渐地引起了大家的关注。&lt;/p&gt;
-&lt;p&gt;以&lt;em&gt;第一视角&lt;/em&gt;的身份，用VR技术构建一个完全虚拟的信号/信息处理世界。以雷达系统建模仿真为例，“&lt;strong&gt;我&lt;/strong&gt;”可能就是一串由任意波形发生器生成的们信号，在这个虚拟的世界里，将模拟出我是如何一步步地被生成、传输、变换的，直至最终寿命终结。&lt;/p&gt;
+    <content type="html">&lt;p&gt;随着VR领域内软、硬件技术的不断成熟，目前VR技术逐步地迈向“&lt;strong&gt;内容为王&lt;/strong&gt;”的阶段。如何将大热的VR技术与雷达电子战综合仿真领域相结合，逐渐地引起了大家的关注。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以&lt;em&gt;第一视角&lt;/em&gt;的身份，用VR技术构建一个完全虚拟的信号/信息处理世界。以雷达系统建模仿真为例，“&lt;strong&gt;我&lt;/strong&gt;”可能就是一串由任意波形发生器生成的门信号，在这个虚拟的世界里，将模拟出我是如何一步步地被生成、传输、变换的，直至最终寿命终结。&lt;/p&gt;
 &lt;p&gt;如果能够实现上述功能，一方面可以做模拟训练用，让受训者深刻地理解信号/信息处理流程；另一方面，可以把它与实际的硬件设备相连接，这样能够快速地检测、定位、排查故障。&lt;/p&gt;
 &lt;p&gt;这只是个人脑洞大开的想法，想要实现这个目标，必要下一番苦功夫。&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;随着VR领域内软、硬件技术的不断成熟，目前VR技术逐步地迈向“&lt;strong&gt;内容为王&lt;/strong&gt;”的阶段。如何将大热的VR技术与雷达电子战综合仿真领域相结合，逐渐地引起了大家的关注。&lt;/p&gt;
-&lt;p&gt;以&lt;em&gt;第一视角&lt;/em&gt;的身份，用VR技术构建一个完全虚拟的信号
+      &lt;p&gt;随着VR领域内软、硬件技术的不断成熟，目前VR技术逐步地迈向“&lt;strong&gt;内容为王&lt;/strong&gt;”的阶段。如何将大热的VR技术与雷达电子战综合仿真领域相结合，逐渐地引起了大家的关注。
     
     </summary>
     
@@ -121,14 +120,15 @@
     <link href="http://jznudt.github.io/2016/07/22/CTreeCtrlExpand/"/>
     <id>http://jznudt.github.io/2016/07/22/CTreeCtrlExpand/</id>
     <published>2016-07-22T02:45:12.000Z</published>
-    <updated>2016-07-22T04:57:08.139Z</updated>
+    <updated>2016-07-22T05:29:21.811Z</updated>
     
     <content type="html">&lt;p&gt;最近在使用&lt;code&gt;MFC&lt;/code&gt;中的&lt;code&gt;CTreeCtrl&lt;/code&gt;控件时，遇到了“&lt;strong&gt;一次性展开所有子节点&lt;/strong&gt;”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的&lt;em&gt;递归函数&lt;/em&gt;方式，实现了上述功能，分享给大家。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
  &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//MainFrame其它实现代码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;CTreeCtrl  m_TreeCtrl;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; MainFrame::ExpandTree(CTreeCtrl* pTreeCtrl, HTREEITEM hItem)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    HTREEITEM hChild, hNext;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//如果存在，则展开节点&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pTreeCtrl-&amp;gt;Expand(hItem, TVE_EXPAND);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    hChild = pTreeCtrl-&amp;gt;GetNextItem(hItem, TVGN_CHILD);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(hChild)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        ExpandTree(pTreeCtrl, hChild);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        hChild = pTreeCtrl-&amp;gt;GetNextItem(hChild, TVGN_NEXT);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//调用方法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ExpandTree(&amp;amp;m_TreeCtrl, TVI_ROOT);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ExpandTree(&amp;amp;m_TreeCtrl, m_TreeCtrl.GetRootItem());&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
     
     <summary type="html">
     
-      &lt;p&gt;最近在使用&lt;code&gt;MFC&lt;/code&gt;中的&lt;code&gt;CTreeCtrl&lt;/code&gt;控件时，遇到了“&lt;strong&gt;一次性展开所有子节点&lt;/strong&gt;”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的&lt;em&gt;递归函数&lt;/em&gt;方式，实现了上
+      &lt;p&gt;最近在使用&lt;code&gt;MFC&lt;/code&gt;中的&lt;code&gt;CTreeCtrl&lt;/code&gt;控件时，遇到了“&lt;strong&gt;一次性展开所有子节点&lt;/strong&gt;”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的&lt;em&gt;递归函数&lt;/em&gt;方式，实现了上述功能，分享给大家。&lt;/p&gt;
     
     </summary>
     
@@ -195,10 +195,11 @@
     <link href="http://jznudt.github.io/2016/07/22/SeaBattlefieldEM/"/>
     <id>http://jznudt.github.io/2016/07/22/SeaBattlefieldEM/</id>
     <published>2016-07-22T01:47:47.000Z</published>
-    <updated>2016-07-22T04:52:16.885Z</updated>
+    <updated>2016-07-22T05:29:10.735Z</updated>
     
     <content type="html">&lt;h1 id=&quot;海战场电磁环境初步认知&quot;&gt;&lt;a href=&quot;#海战场电磁环境初步认知&quot; class=&quot;headerlink&quot; title=&quot;海战场电磁环境初步认知&quot;&gt;&lt;/a&gt;海战场电磁环境初步认知&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_SeaBattlefieldEM.jpg&quot; alt=&quot;SeaBattlefieldEM&quot;&gt;&lt;/p&gt;
 &lt;p&gt;我们需要用一种多元、动态、定量的全新视角来认知反舰导弹实际作战中面临的海战场电磁环境。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;首先，反舰导弹面临的海战场电磁环境是&lt;strong&gt;错综复杂&lt;/strong&gt;的。时、空、频域上与反舰导弹探测信号相关的各类电磁环境构成要素，尤其是各类人为制造的各种有源、无源用频设备辐射或反射的电磁干扰营造的电磁干扰环境，日益影响反舰导弹雷达导引头的作战效能。对复杂系统或过程的认知必须是多元化的，所谓“偏听则暗、兼听则明”。用多元的观点来描述海战场电磁环境，不仅贴近现实战场，也符合未来战场，不仅有利于海战场电磁环境下的试验鉴定，也有利于研究对脉冲多普勒雷达等典型反舰导弹导引头的干扰技术发展。&lt;/p&gt;
 &lt;p&gt;其次，反舰导弹面临的海战场电磁环境是&lt;strong&gt;动态演进&lt;/strong&gt;的。电磁环境的营造不仅取决于敌我双方各类用频设备的战技指标，更与战术、战法、作战应用、交战规则等密切相关。反舰导弹面临的海战场电磁环境是由导弹、目标、人为干扰以及自然背景相互影响、密切关联、动态演化的结果，具有时变性，因此必须以动态的视角来考察海战场电磁环境。&lt;/p&gt;
 &lt;p&gt;最后，反舰导弹面临的海战场电磁环境是&lt;strong&gt;可以量化&lt;/strong&gt;的。建立海战场电磁环境的量化表征方法（即数学模型），是科学、有效地实施反舰导弹的海战场电磁环境适应性定量评估的关键。立足于海战场电磁环境的受体——反舰导弹雷达导引头，基于多元的观点来分析反舰导弹面临的海战场电磁环境，我们可以得到三点结论：&lt;/p&gt;
@@ -212,7 +213,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;海战场电磁环境初步认知&quot;&gt;&lt;a href=&quot;#海战场电磁环境初步认知&quot; class=&quot;headerlink&quot; title=&quot;海战场电磁环境初步认知&quot;&gt;&lt;/a&gt;海战场电磁环境初步认知&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clo
+      &lt;h1 id=&quot;海战场电磁环境初步认知&quot;&gt;&lt;a href=&quot;#海战场电磁环境初步认知&quot; class=&quot;headerlink&quot; title=&quot;海战场电磁环境初步认知&quot;&gt;&lt;/a&gt;海战场电磁环境初步认知&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_SeaBattlefieldEM.jpg&quot; alt=&quot;SeaBattlefieldEM&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们需要用一种多元、动态、定量的全新视角来认知反舰导弹实际作战中面临的海战场电磁环境。&lt;/p&gt;
     
     </summary>
     

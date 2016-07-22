@@ -11,19 +11,16 @@
     
 
     
-    <meta name="description" content="最近在使用MFC中的CTreeCtrl控件时，遇到了“一次性展开所有子节点”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的递归函数方式，实现了上述功能，分享给大家。
- 1234567891011121314151617181920212223//MainFrame其它实现代码 CTreeCtrl  m_TreeCtrl; void MainFrame::ExpandTre">
+    <meta name="description" content="最近在使用MFC中的CTreeCtrl控件时，遇到了“一次性展开所有子节点”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的递归函数方式，实现了上述功能，分享给大家。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="展开CTreeCtrl控件全部节点">
 <meta property="og:url" content="http://jznudt.github.io/2016/07/22/CTreeCtrlExpand/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="最近在使用MFC中的CTreeCtrl控件时，遇到了“一次性展开所有子节点”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的递归函数方式，实现了上述功能，分享给大家。
- 1234567891011121314151617181920212223//MainFrame其它实现代码 CTreeCtrl  m_TreeCtrl; void MainFrame::ExpandTre">
-<meta property="og:updated_time" content="2016-07-22T04:57:08.139Z">
+<meta property="og:description" content="最近在使用MFC中的CTreeCtrl控件时，遇到了“一次性展开所有子节点”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的递归函数方式，实现了上述功能，分享给大家。">
+<meta property="og:updated_time" content="2016-07-22T05:29:21.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="展开CTreeCtrl控件全部节点">
-<meta name="twitter:description" content="最近在使用MFC中的CTreeCtrl控件时，遇到了“一次性展开所有子节点”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的递归函数方式，实现了上述功能，分享给大家。
- 1234567891011121314151617181920212223//MainFrame其它实现代码 CTreeCtrl  m_TreeCtrl; void MainFrame::ExpandTre">
+<meta name="twitter:description" content="最近在使用MFC中的CTreeCtrl控件时，遇到了“一次性展开所有子节点”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的递归函数方式，实现了上述功能，分享给大家。">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -102,6 +99,7 @@
 		</div>
 		
 		<p>最近在使用<code>MFC</code>中的<code>CTreeCtrl</code>控件时，遇到了“<strong>一次性展开所有子节点</strong>”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的<em>递归函数</em>方式，实现了上述功能，分享给大家。</p>
+<a id="more"></a>
  <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//MainFrame其它实现代码</span></div><div class="line"> </div><div class="line">CTreeCtrl  m_TreeCtrl;</div><div class="line"> </div><div class="line"><span class="keyword">void</span> MainFrame::ExpandTree(CTreeCtrl* pTreeCtrl, HTREEITEM hItem)</div><div class="line">&#123;</div><div class="line">    HTREEITEM hChild, hNext;</div><div class="line"> </div><div class="line">    <span class="comment">//如果存在，则展开节点</span></div><div class="line">    pTreeCtrl-&gt;Expand(hItem, TVE_EXPAND);</div><div class="line"> </div><div class="line">    hChild = pTreeCtrl-&gt;GetNextItem(hItem, TVGN_CHILD);</div><div class="line"> </div><div class="line">    <span class="keyword">while</span>(hChild)</div><div class="line">    &#123;</div><div class="line">        ExpandTree(pTreeCtrl, hChild);</div><div class="line">        hChild = pTreeCtrl-&gt;GetNextItem(hChild, TVGN_NEXT);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">//调用方法</span></div><div class="line">ExpandTree(&amp;m_TreeCtrl, TVI_ROOT);</div><div class="line">ExpandTree(&amp;m_TreeCtrl, m_TreeCtrl.GetRootItem());</div></pre></td></tr></table></figure>  
 	</div>
 		<footer class="article-footer clearfix">

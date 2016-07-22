@@ -11,19 +11,16 @@
     
 
     
-    <meta name="description" content="目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。出于保护知识产权的目的，上述软件中的模型体系大都自成体系，不便于进行集成开发。
-适配器模式是一种典型的设计模式，用于进行不同接口之间的转换。将适配器模式应用于上">
+    <meta name="description" content="目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="适配器模式的妙用？">
 <meta property="og:url" content="http://jznudt.github.io/2016/07/22/AdapterModeDEV/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。出于保护知识产权的目的，上述软件中的模型体系大都自成体系，不便于进行集成开发。
-适配器模式是一种典型的设计模式，用于进行不同接口之间的转换。将适配器模式应用于上">
-<meta property="og:updated_time" content="2016-07-22T05:22:03.921Z">
+<meta property="og:description" content="目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。">
+<meta property="og:updated_time" content="2016-07-22T05:29:33.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="适配器模式的妙用？">
-<meta name="twitter:description" content="目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。出于保护知识产权的目的，上述软件中的模型体系大都自成体系，不便于进行集成开发。
-适配器模式是一种典型的设计模式，用于进行不同接口之间的转换。将适配器模式应用于上">
+<meta name="twitter:description" content="目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -101,7 +98,7 @@
 		
 		</div>
 		
-		<p>目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。出于保护知识产权的目的，上述软件中的模型体系大都自成体系，不便于进行集成开发。</p>
+		<p>目前，雷达电子战综合仿真领域已有很多的COTS，比如MATLAB、STK、SystemVUE、LabVIEW、SPW等。这些成熟的商用软件，大都按照面向对象分析与设计（OOAD）思路进行开发，基本上可以划分为数据层、模型层、用户层三个层次。<a id="more"></a>出于保护知识产权的目的，上述软件中的模型体系大都自成体系，不便于进行集成开发。</p>
 <p><strong>适配器模式</strong>是一种典型的设计模式，用于进行不同接口之间的转换。将适配器模式应用于上述领域，自然地产生了一个想法：</p>
 <blockquote>
 <p>能否开发通用的中间件，完成上述COTS底层功能模型间的互联互通</p>
