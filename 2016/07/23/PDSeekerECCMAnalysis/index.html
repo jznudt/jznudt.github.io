@@ -1,0 +1,623 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>脉冲多普勒导引头抗干扰技术概述 | 品创信联</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Zhao Jing">
+    
+
+    
+    <meta name="description" content="脉冲多普勒导引头（PD导引头）是一类典型的末制导雷达体制，本博文旨在对PD导引头的抗干扰特性进行简要叙述，从而为设计针对PD导引头的干扰技术提供一定的参考依据。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="脉冲多普勒导引头抗干扰技术概述">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/index.html">
+<meta property="og:site_name" content="品创信联">
+<meta property="og:description" content="脉冲多普勒导引头（PD导引头）是一类典型的末制导雷达体制，本博文旨在对PD导引头的抗干扰特性进行简要叙述，从而为设计针对PD导引头的干扰技术提供一定的参考依据。">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_PDRadarSeekerConfig.jpg">
+<meta property="og:updated_time" content="2016-07-23T02:37:28.945Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="脉冲多普勒导引头抗干扰技术概述">
+<meta name="twitter:description" content="脉冲多普勒导引头（PD导引头）是一类典型的末制导雷达体制，本博文旨在对PD导引头的抗干扰特性进行简要叙述，从而为设计针对PD导引头的干扰技术提供一定的参考依据。">
+<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_PDRadarSeekerConfig.jpg">
+
+    
+    <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/RecoveryMgr.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/F22.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/F22.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/Fighter.gif" alt="品创信联" title="品创信联"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="品创信联">品创信联</a></h1>
+				<h2 class="blog-motto">品创世界，信联天下</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:jznudt.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/23/PDSeekerECCMAnalysis/" title="脉冲多普勒导引头抗干扰技术概述" itemprop="url">脉冲多普勒导引头抗干扰技术概述</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-23T01:31:04.000Z" itemprop="datePublished"> 发表于 2016-07-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单脉冲处理"><span class="toc-number">1.</span> <span class="toc-text">单脉冲处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#频率选择"><span class="toc-number">2.</span> <span class="toc-text">频率选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加速度限制"><span class="toc-number">3.</span> <span class="toc-text">加速度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒置接收"><span class="toc-number">4.</span> <span class="toc-text">倒置接收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跟踪干扰源（HOJ）"><span class="toc-number">5.</span> <span class="toc-text">跟踪干扰源（HOJ）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#速度波门和天线位置预置"><span class="toc-number">6.</span> <span class="toc-text">速度波门和天线位置预置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变参数的跟踪回路"><span class="toc-number">7.</span> <span class="toc-text">变参数的跟踪回路</span></a></li></ol>
+		
+		</div>
+		
+		<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_PDRadarSeekerConfig.jpg" alt="PDRadarSeekerConfig"></p>
+<p>脉冲多普勒导引头（PD导引头）是一类典型的末制导雷达体制，本博文旨在对PD导引头的抗干扰特性进行简要叙述，从而为设计针对PD导引头的干扰技术提供一定的参考依据。</p>
+<a id="more"></a>
+<h2 id="单脉冲处理"><a href="#单脉冲处理" class="headerlink" title="单脉冲处理"></a>单脉冲处理</h2><p>PD导引头采用<strong>单脉冲测角体制</strong>，这是一种典型的同时多波束测角方法，这种同时波瓣的测角方法具有很强的抗干扰能力，如目标上的自卫式噪声干扰、转发式脉冲调幅干扰、逆增益应答式欺骗干扰都对单脉冲角度跟踪系统的工作影响很小，甚至没有影响。同时，受单脉冲测角的体制影响，这种测角体制本质上是跟踪目标回波信号的波前（等相位面），因此任何改变相位波前的因素，都会影响测角精度，这实际上为我们提供了针对PD导引头干扰的可能途径——角度欺骗干扰。</p>
+<h2 id="频率选择"><a href="#频率选择" class="headerlink" title="频率选择"></a>频率选择</h2><p>当PD导引头工作在HPRF波形（即准连续波波形）情形下，采用了<strong>频率选择</strong>方式。它是通过压窄接收机带宽来实现的。接收机带宽，可以利用高度稳定的发射频率和高度稳定的接收本振频率以及随着目标多普勒频率及其变化而变化的跟踪系统的调谐来压窄。频率选择能够有效地对抗有源和无源压制式干扰，还可以消除或大大地减小箔条、地物杂波的干扰。通过对PD导引头频率选择的特性分析可看出，采用宽带噪声压制式干扰并不能起到很好的干扰效果，因为其大部分干扰功率并不能够有效地进入接收机后端。因此，有效的针对PD导引头的干扰，应该能够保证频率上的对准。</p>
+<h2 id="加速度限制"><a href="#加速度限制" class="headerlink" title="加速度限制"></a>加速度限制</h2><p>为有效地抵御速度波门拖引干扰，PD导引头还采用了<strong>加速度限制</strong>方法。速度波门拖引干扰(VGPO)，就是在速度/频域上把速度波门脱离目标。因此，必须增大加速度。加速度限制，就是把速度门恩总的最大加速度能力加以限制，使得VGPO不能够超过这个限制。速度跟踪回路中，鉴频器输出的电压大小便代表了目标运动的加速度。在实际中，可按照实际目标可能的加速度边界值作为门限，一旦鉴频器输出的电压大小超过门限，即可认为是受到了VGPO干扰。此时，PD导引头可以迅速地转入重新搜索状态，从而使得高加速度的速度门拖引干扰，在拖引期间不被导引头跟踪。这个加速度跟踪能力的限制，在末段飞行时间内，减小了拖引次数，也就减小了拖引干扰的有效性。</p>
+<h2 id="倒置接收"><a href="#倒置接收" class="headerlink" title="倒置接收"></a>倒置接收</h2><p>PD导引头采用<strong>倒置接收</strong>技术，窄带滤波器位于中频放大器之前，窄带速度波门的跟踪环路通过微波本振直接闭合。窄带滤波器之前的前置放大，保持低的噪声系数，接收机的增益主要放在窄带滤波器之后获得，角度误差信号在中放之后提取。这种带宽的设置，与一般接收机中带宽逐渐变窄的情况恰好相反，非常有效的保护了窄带滤波器滞后的多普勒处理器和自动增益控制电路的正常工作。否则，目标信号必将与包含在中频带宽内的杂波和干扰信号混在一起，直到窄带速度波门位置。这样，多普勒滤波器和AGC电路的性能将受到这些强干扰的影响而明显地降低。</p>
+<h2 id="跟踪干扰源（HOJ）"><a href="#跟踪干扰源（HOJ）" class="headerlink" title="跟踪干扰源（HOJ）"></a>跟踪干扰源（HOJ）</h2><p>PD导引头的<strong>干扰源寻的</strong>，就是把目标发出的干扰信号作为导引导弹到目标的信号，实行无源被动角跟踪。一般地，有全程干扰源寻的和末段干扰源寻的两种方式。其中后者比前者有明显的优点，它大大地减少了自卫式速度波门拖引干扰的停拖次数，虚弱了速度波门拖引干扰和其它干扰的效果。末制导的导引头，一般的工作时间在几十左右，通常速度门拖引一周需要数秒钟，所以在末制导过程中，只能够拖引有限的几次。</p>
+<h2 id="速度波门和天线位置预置"><a href="#速度波门和天线位置预置" class="headerlink" title="速度波门和天线位置预置"></a>速度波门和天线位置预置</h2><p>导弹发射前，可以采用<strong>速度波门</strong>和<strong>天线位置预置</strong>。制导雷达通过连续地测量目标和导弹的运动参数，计算机可以不断地计算目标到导弹间的距离，到达拦截点的预计时间后，指令制导上行链路命令导弹进入末制导寻的工作状态。导引头的速度波门和天线位置均由上行指令进行预置。这样，导引头可以采用等待方式来截获目标，这样便提高了空间选择性和频率选择性。</p>
+<h2 id="变参数的跟踪回路"><a href="#变参数的跟踪回路" class="headerlink" title="变参数的跟踪回路"></a>变参数的跟踪回路</h2><p>提高跟踪系统的性能，是抗各种干扰的有效办法。PD导引头可以利用弹载视线加速度表，向跟踪回路提供修正电压，使系统带宽随目标运动规律而变化。因此，多普勒频率跟踪系统成为一个<strong>变参数系统</strong>。在导引头整个工作过程中，速度跟踪回路带宽在加速度滞后误差和噪声干扰误差的平衡中，处于最佳状态。同时，也可以限制各种突然性的干扰。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/关键技术/">关键技术</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/导引头/">导引头</a><a href="/tags/脉冲多普勒/">脉冲多普勒</a><a href="/tags/抗干扰/">抗干扰</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/" data-title="脉冲多普勒导引头抗干扰技术概述 | 品创信联" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2016/07/23/RadarEWSimDevelopment/" title="雷达电子战仿真系统发展现状">
+  <strong>上一篇：</strong><br/>
+  <span>
+  雷达电子战仿真系统发展现状</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2016/07/23/CloudBigDataThinking/"  title="关于云计算与大数据的一些思考">
+ <strong>下一篇：</strong><br/> 
+ <span>关于云计算与大数据的一些思考
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/07/23/PDSeekerECCMAnalysis/" data-title="脉冲多普勒导引头抗干扰技术概述" data-url="http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单脉冲处理"><span class="toc-number">1.</span> <span class="toc-text">单脉冲处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#频率选择"><span class="toc-number">2.</span> <span class="toc-text">频率选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加速度限制"><span class="toc-number">3.</span> <span class="toc-text">加速度限制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#倒置接收"><span class="toc-number">4.</span> <span class="toc-text">倒置接收</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#跟踪干扰源（HOJ）"><span class="toc-number">5.</span> <span class="toc-text">跟踪干扰源（HOJ）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#速度波门和天线位置预置"><span class="toc-number">6.</span> <span class="toc-text">速度波门和天线位置预置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变参数的跟踪回路"><span class="toc-number">7.</span> <span class="toc-text">变参数的跟踪回路</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="jznudt" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/代码分享/" title="代码分享">代码分享<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/关键技术/" title="关键技术">关键技术<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础学习/" title="基础学习">基础学习<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/奇思妙想/" title="奇思妙想">奇思妙想<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术前沿/" title="技术前沿">技术前沿<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/深沉思索/" title="深沉思索">深沉思索<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/点滴随笔/" title="点滴随笔">点滴随笔<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程杂感/" title="编程杂感">编程杂感<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/行业综述/" title="行业综述">行业综述<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/防务观察/" title="防务观察">防务观察<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/发展综述/" title="发展综述">发展综述<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/雷达电子战/" title="雷达电子战">雷达电子战<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/导引头/" title="导引头">导引头<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/功能扩展/" title="功能扩展">功能扩展<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CUDA/" title="CUDA">CUDA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多线程/" title="多线程">多线程<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MFC控件/" title="MFC控件">MFC控件<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/六自由度/" title="六自由度">六自由度<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/重构/" title="重构">重构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面向对象分析与设计/" title="面向对象分析与设计">面向对象分析与设计<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信号级仿真/" title="信号级仿真">信号级仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时效性/" title="时效性">时效性<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/闭环仿真/" title="闭环仿真">闭环仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/缓冲器/" title="缓冲器">缓冲器<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计与实现/" title="设计与实现">设计与实现<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/策略模式/" title="策略模式">策略模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模型校验/" title="模型校验">模型校验<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">25</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/AIM-120/" style="font-size: 10px;">AIM-120</a> <a href="/tags/API设计/" style="font-size: 10px;">API设计</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-源码/" style="font-size: 10px;">C++源码</a> <a href="/tags/CUDA/" style="font-size: 12.5px;">CUDA</a> <a href="/tags/GDI/" style="font-size: 10px;">GDI</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/MFC控件/" style="font-size: 10px;">MFC控件</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/VR/" style="font-size: 10px;">VR</a> <a href="/tags/云计算/" style="font-size: 10px;">云计算</a> <a href="/tags/仿真引擎/" style="font-size: 10px;">仿真引擎</a> <a href="/tags/仿真评估/" style="font-size: 10px;">仿真评估</a> <a href="/tags/信号级仿真/" style="font-size: 10px;">信号级仿真</a> <a href="/tags/六自由度/" style="font-size: 10px;">六自由度</a> <a href="/tags/功能扩展/" style="font-size: 12.5px;">功能扩展</a> <a href="/tags/半实物仿真/" style="font-size: 10px;">半实物仿真</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/反舰导弹/" style="font-size: 10px;">反舰导弹</a> <a href="/tags/发展综述/" style="font-size: 15px;">发展综述</a> <a href="/tags/多线程/" style="font-size: 12.5px;">多线程</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/导引头/" style="font-size: 12.5px;">导引头</a> <a href="/tags/导航/" style="font-size: 10px;">导航</a> <a href="/tags/并行仿真/" style="font-size: 10px;">并行仿真</a> <a href="/tags/战术导弹/" style="font-size: 10px;">战术导弹</a> <a href="/tags/抗干扰/" style="font-size: 10px;">抗干扰</a> <a href="/tags/数据校验/" style="font-size: 10px;">数据校验</a> <a href="/tags/数据验证/" style="font-size: 10px;">数据验证</a> <a href="/tags/时效性/" style="font-size: 10px;">时效性</a> <a href="/tags/模型校验/" style="font-size: 10px;">模型校验</a> <a href="/tags/模型验证/" style="font-size: 10px;">模型验证</a> <a href="/tags/电子战仿真/" style="font-size: 10px;">电子战仿真</a> <a href="/tags/电磁环境/" style="font-size: 10px;">电磁环境</a> <a href="/tags/空空导弹/" style="font-size: 10px;">空空导弹</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/缓冲器/" style="font-size: 10px;">缓冲器</a> <a href="/tags/脉冲多普勒/" style="font-size: 10px;">脉冲多普勒</a> <a href="/tags/设计与实现/" style="font-size: 10px;">设计与实现</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/试验鉴定/" style="font-size: 10px;">试验鉴定</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a> <a href="/tags/闭环仿真/" style="font-size: 10px;">闭环仿真</a> <a href="/tags/雷达P显/" style="font-size: 10px;">雷达P显</a> <a href="/tags/雷达电子战/" style="font-size: 15px;">雷达电子战</a> <a href="/tags/静态变量/" style="font-size: 10px;">静态变量</a> <a href="/tags/面向对象分析与设计/" style="font-size: 10px;">面向对象分析与设计</a>
+    </div>
+  </div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/jznudt/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> 致力于雷达电子战仿真评估 <br/>
+			Sweat is the lubricant of success</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/jznudt" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/jznudt" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/jznudt" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:jznudt@126.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Zhao Jing">Zhao Jing</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jznudt"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

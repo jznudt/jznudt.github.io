@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-22T05:29:33.277Z</updated>
+  <updated>2016-07-23T02:23:17.282Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -14,6 +14,226 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模型数据验证概述</title>
+    <link href="http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/"/>
+    <id>http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/</id>
+    <published>2016-07-23T02:04:14.000Z</published>
+    <updated>2016-07-23T02:23:17.282Z</updated>
+    
+    <content type="html">&lt;p&gt;从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;影响模型有效性的因素分析&quot;&gt;&lt;a href=&quot;#影响模型有效性的因素分析&quot; class=&quot;headerlink&quot; title=&quot;影响模型有效性的因素分析&quot;&gt;&lt;/a&gt;影响模型有效性的因素分析&lt;/h2&gt;&lt;p&gt;模型与实际系统无法完全吻合的主要因素总结如下：&lt;/p&gt;
+&lt;h3 id=&quot;建模过程中忽略了部分次要因素&quot;&gt;&lt;a href=&quot;#建模过程中忽略了部分次要因素&quot; class=&quot;headerlink&quot; title=&quot;建模过程中忽略了部分次要因素&quot;&gt;&lt;/a&gt;建模过程中忽略了部分次要因素&lt;/h3&gt;&lt;p&gt;一些因素因为对所研究的系统（建模对象），或对研究的目标相关性较小，因此在建模中可以忽略。这种忽略在一定程度上具有潜在的危险。&lt;/p&gt;
+&lt;h3 id=&quot;目前尚无一套完整评价方法来检验哪些约束可忽略&quot;&gt;&lt;a href=&quot;#目前尚无一套完整评价方法来检验哪些约束可忽略&quot; class=&quot;headerlink&quot; title=&quot;目前尚无一套完整评价方法来检验哪些约束可忽略&quot;&gt;&lt;/a&gt;目前尚无一套完整评价方法来检验哪些约束可忽略&lt;/h3&gt;&lt;p&gt;在建模过程中，常常是凭经验取舍，这不可避免地造成了模型与现实系统的差异。&lt;/p&gt;
+&lt;h3 id=&quot;模型仿真实验时间过短&quot;&gt;&lt;a href=&quot;#模型仿真实验时间过短&quot; class=&quot;headerlink&quot; title=&quot;模型仿真实验时间过短&quot;&gt;&lt;/a&gt;模型仿真实验时间过短&lt;/h3&gt;&lt;p&gt;模型所描述的系统通常是复杂、慢变过程，该类模型的实验、测试等往往需要许多时间。因各种条件限制，无法获取足够大的统计样本，导致输出数据严重不足，进而导致模型输出结果不可信。&lt;/p&gt;
+&lt;h3 id=&quot;模型初始数据确定失误&quot;&gt;&lt;a href=&quot;#模型初始数据确定失误&quot; class=&quot;headerlink&quot; title=&quot;模型初始数据确定失误&quot;&gt;&lt;/a&gt;模型初始数据确定失误&lt;/h3&gt;&lt;p&gt;模型的初始状态对其输出结果有着直接影响，特别是在运行时间较短的情况下，模型输出结果将具有较大的偏差。&lt;/p&gt;
+&lt;h3 id=&quot;输入随机数据分布的确定&quot;&gt;&lt;a href=&quot;#输入随机数据分布的确定&quot; class=&quot;headerlink&quot; title=&quot;输入随机数据分布的确定&quot;&gt;&lt;/a&gt;输入随机数据分布的确定&lt;/h3&gt;&lt;p&gt;模型中多含有一定数量的随机变量，它们分布确定的正确与否直接影响模型的质量。&lt;/p&gt;
+&lt;h3 id=&quot;模型输出结果的统计误差&quot;&gt;&lt;a href=&quot;#模型输出结果的统计误差&quot; class=&quot;headerlink&quot; title=&quot;模型输出结果的统计误差&quot;&gt;&lt;/a&gt;模型输出结果的统计误差&lt;/h3&gt;&lt;p&gt;对特定测试条件下模型输出结果的收集和统计有严格的要求。实际中，许多模型很难得到大量输出数据，因此导致其统计结果失效。&lt;/p&gt;
+&lt;h2 id=&quot;模型数据验证工作的难点&quot;&gt;&lt;a href=&quot;#模型数据验证工作的难点&quot; class=&quot;headerlink&quot; title=&quot;模型数据验证工作的难点&quot;&gt;&lt;/a&gt;模型数据验证工作的难点&lt;/h2&gt;&lt;p&gt;总体上看，模型数据校验工作的难点体现在以下方面：&lt;/p&gt;
+&lt;h3 id=&quot;模型的验证是一个逐步迭代的过程&quot;&gt;&lt;a href=&quot;#模型的验证是一个逐步迭代的过程&quot; class=&quot;headerlink&quot; title=&quot;模型的验证是一个逐步迭代的过程&quot;&gt;&lt;/a&gt;模型的验证是一个逐步迭代的过程&lt;/h3&gt;&lt;p&gt;模型是建模者依据特定目的，按照相似原理对实际系统的科学抽象与简化描述，它反映了建模者对实际系统由感性到理性人事的阶段，这种认识的正确、精确与否，需要经过实践检验。因此，模型验证工作实际上是“实践——理论——实践”的循环过程。&lt;/p&gt;
+&lt;h3 id=&quot;模型数据验证工作具有模糊性&quot;&gt;&lt;a href=&quot;#模型数据验证工作具有模糊性&quot; class=&quot;headerlink&quot; title=&quot;模型数据验证工作具有模糊性&quot;&gt;&lt;/a&gt;模型数据验证工作具有模糊性&lt;/h3&gt;&lt;p&gt;模型是原型的相似系统，这种相似具有一定的不确定性。这种不确定性不仅与建模者对原型认识的深刻程度有关，而且与他采用的方法、技巧等有关。&lt;/p&gt;
+&lt;h3 id=&quot;模型验证工作受到多种因素影响&quot;&gt;&lt;a href=&quot;#模型验证工作受到多种因素影响&quot; class=&quot;headerlink&quot; title=&quot;模型验证工作受到多种因素影响&quot;&gt;&lt;/a&gt;模型验证工作受到多种因素影响&lt;/h3&gt;&lt;p&gt;首先是模型本身的因素。一个完整的模型包含两个方面的内容：一方面是它的结构，另一方面是它的参数。结构往往可以代表某一类模型的共性，而参数的加入，体现的是模型的个性。这两方面是模型能否代表原型的决定因素，是内因。&lt;/p&gt;
+&lt;p&gt;其次是模型运行的环境即外因，其中最基本的是给模型系统施加的输入作用。这种作用应与给实际系统施加的作用相似，只有这样，才能为分析判断模型的有效性创造条件。&lt;/p&gt;
+&lt;h3 id=&quot;模型验证过程中往往存在大量的统计分析与计算&quot;&gt;&lt;a href=&quot;#模型验证过程中往往存在大量的统计分析与计算&quot; class=&quot;headerlink&quot; title=&quot;模型验证过程中往往存在大量的统计分析与计算&quot;&gt;&lt;/a&gt;模型验证过程中往往存在大量的统计分析与计算&lt;/h3&gt;&lt;p&gt;假设检验、统计判断、置信区间估计等都要涉及到复杂的计算。因此，模型验证工作需要付出很高的代价，特别是对于复杂的大型军用软件更是如此，以致模型的全面验证实际上成为不可能。&lt;/p&gt;
+&lt;h3 id=&quot;难以得到或者得不到实际系统输出行为的可靠结果&quot;&gt;&lt;a href=&quot;#难以得到或者得不到实际系统输出行为的可靠结果&quot; class=&quot;headerlink&quot; title=&quot;难以得到或者得不到实际系统输出行为的可靠结果&quot;&gt;&lt;/a&gt;难以得到或者得不到实际系统输出行为的可靠结果&lt;/h3&gt;&lt;p&gt;比如导弹武器系统，尽管可以通过打靶试验获得有关真实系统的一些行为特征数据，但这些参考数据是极其有限的，对进行全面的验证来说是不充分的。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模型数据校核基础概念</title>
+    <link href="http://jznudt.github.io/2016/07/23/ModelVVABasicConcepts/"/>
+    <id>http://jznudt.github.io/2016/07/23/ModelVVABasicConcepts/</id>
+    <published>2016-07-23T02:04:00.000Z</published>
+    <updated>2016-07-23T02:16:11.035Z</updated>
+    
+    <content type="html">&lt;p&gt;模型是对真实世界实体、对象、关系、过程等本质与内在的一种抽象与描述，各类软件系统本质上都是模型的有机构成。软件运行结果是否可信，一方面决定于模型对系统行为子集特性描述的正确性和精度，另一方面决定于模型实现时的准确度。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;只有建立能够准确反映对象系统内在特性和变化规律的模型，才可保证软件运行结果具有实际应用价值和意义。另一方面，大型软件系统中通常包含有多种辅助数据（例如地理信息数据、气象环境数据、武器装备参数等），它们是系统稳定、正常运行的基础，它们的逼真度、准确度同样直接影响软件系统运行结果的可信度。综上，为了确保软件质量，必须对其中的模型、数据进行评测，&lt;strong&gt;模型数据的校核、验证、测试、确认与可信度评估&lt;/strong&gt;便是要着重解决其中的精度评测问题，因而很早便受到国内外的广泛重视。&lt;/p&gt;
+&lt;p&gt;本文对模型、仿真、校核、验证、测试、确认、可信度等术语的基本概念进行简要分析。&lt;/p&gt;
+&lt;h2 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot; title=&quot;模型&quot;&gt;&lt;/a&gt;模型&lt;/h2&gt;&lt;p&gt;模型是对真实世界实体、对象、关系、过程等本质与内在的一种抽象与描述。它具有可构造性、语义性、表示多样性、可实现性等典型特征。借助于模型，可描述对象的本质和内在关系，无论是工程软件系统还是非工程软件系统，都可以建立起一定形式的模型。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;按照不同的划分准则，可对模型进行划分。按其属性，可分为物理模型、数学模型，前者与实际系统具有相似的物理性质，包括缩比实物模型（如风洞试验中的飞行器外形模型）、试制样机模型（导引头样机）、实物模型（导弹上的陀螺仪）等；数学模型是用抽象的数学方程描述系统内部物理变量之间的关系而建立的模型，它可完整地揭示系统的内在运动规律及其动态特性。数学模型又可分为静态模型（代数方程、逻辑表达关系式等）、动态模型（连续系统、离散系统）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;另外，按照模型在软件系统中的作用划分，可分为逻辑模型、实体模型。前者是指再抽象的概念模型基础上构造的、在原理上可行的，它考虑了模型总体的合理性、结构合理性和实现可行性；后者是一个完全确定的模型，一个可实现的实在模型，有具体细节。&lt;/p&gt;
+&lt;h2 id=&quot;仿真&quot;&gt;&lt;a href=&quot;#仿真&quot; class=&quot;headerlink&quot; title=&quot;仿真&quot;&gt;&lt;/a&gt;仿真&lt;/h2&gt;&lt;p&gt;仿真是用某种模型或模型体系，来模拟真实对象并对其进行研究以达到预定目的的过程，它是一个为了实现特定目的而进行的循环往复过程。&lt;/p&gt;
+&lt;p&gt;仿真与软件开发具有密切的联系。以上述作战武器任务规划软件系统为例，它包含了种类繁多的模型，相应地便实现了对实际过程的仿真模拟；同时，为了确保仿真系统的功能性、可靠性、易用性、高效性、维护性、可移植性等质量指标，需要充分借鉴软件工程相关体系。&lt;/p&gt;
+&lt;h2 id=&quot;模型校核&quot;&gt;&lt;a href=&quot;#模型校核&quot; class=&quot;headerlink&quot; title=&quot;模型校核&quot;&gt;&lt;/a&gt;模型校核&lt;/h2&gt;&lt;p&gt;模型在从一种形式转换到另一种形式时，需要保证足够的精度。例如，把流程图形式的模型转换为可执行的计算机程序过程中，其中的精度评估就是模型校核问题。&lt;/p&gt;
+&lt;h2 id=&quot;ModelVerify&quot;&gt;模型验证&lt;/h2&gt;
+
+&lt;p&gt;在适用范围内，针对建模对象，模型具有足够高的精度。模型验证要解决的问题，是建立与对象相对应的正确模型。&lt;/p&gt;
+&lt;h2 id=&quot;模型测试&quot;&gt;&lt;a href=&quot;#模型测试&quot; class=&quot;headerlink&quot; title=&quot;模型测试&quot;&gt;&lt;/a&gt;模型测试&lt;/h2&gt;&lt;p&gt;模型测试要解决的问题是模型是否存在不精确或误差，在特定的测试数据和测试条件下进行模型测试，以确定模型的功能是否正确。有些测试过程设计用于评估模型的输出精度，即验证；而有些测试过程设计用于评估模型从一种形式到另一种形式的转换精度，即校核。&lt;/p&gt;
+&lt;h2 id=&quot;模型确认&quot;&gt;&lt;a href=&quot;#模型确认&quot; class=&quot;headerlink&quot; title=&quot;模型确认&quot;&gt;&lt;/a&gt;模型确认&lt;/h2&gt;&lt;p&gt;针对特定目的，官方对模型是否可被接受使用进行认证。&lt;/p&gt;
+&lt;h2 id=&quot;模型可信度评估&quot;&gt;&lt;a href=&quot;#模型可信度评估&quot; class=&quot;headerlink&quot; title=&quot;模型可信度评估&quot;&gt;&lt;/a&gt;模型可信度评估&lt;/h2&gt;&lt;p&gt;针对特定目的，在特定测试条件下，依据某种准则对模型的可信程度进行的量化评价。需要指出的是，我们一般指的是广义定义，而不是&lt;a href=&quot;#ModelVerify&quot;&gt;狭义的模型验证&lt;/a&gt;定义。广义的模型验证则包括模型的校核、验证、确认与可信度评估。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;模型是对真实世界实体、对象、关系、过程等本质与内在的一种抽象与描述，各类软件系统本质上都是模型的有机构成。软件运行结果是否可信，一方面决定于模型对系统行为子集特性描述的正确性和精度，另一方面决定于模型实现时的准确度。
+    
+    </summary>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="模型校验" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E6%A0%A1%E9%AA%8C/"/>
+    
+      <category term="数据校验" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>雷达电子战仿真系统发展现状</title>
+    <link href="http://jznudt.github.io/2016/07/23/RadarEWSimDevelopment/"/>
+    <id>http://jznudt.github.io/2016/07/23/RadarEWSimDevelopment/</id>
+    <published>2016-07-23T01:43:05.000Z</published>
+    <updated>2016-07-23T02:00:47.599Z</updated>
+    
+    <content type="html">&lt;p&gt;近些，随着雷达电子战技术的发展，雷达电子战综合仿真系统、仿真实验室及环境仿真技术在国内外得到了广泛的关注，并迅速发展起来。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;美国国防部的先进电子对抗实验室由实时和非实时网络组成，采用的是开放性和高弹性架构，并大量采用商用产品，不但降低了成本还能够提高系统的更新换代速度。实验室提供对电子战系统性能评估、电子对抗战术评估和人员训练等多项功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_RadarEWForeignCorps.png&quot; alt=&quot;RadarEWForeignCorps&quot;&gt;&lt;/p&gt;
+&lt;p&gt;例如，美国阿莫斯特公司的作战电磁环境模拟系统可以模拟动态的作战环境，包括电子战系统在执行任务时会面临的敌方和友方电磁辐射；可以模拟各种辐射源类型，包括电子战/捕获/地面控制截获、地对空、地对地、导弹制导寻的器、机载电子战截获器、防空高炮、敌我识别及大气和导航雷达；目的是为雷达告警接收机、电子情报系统和干扰机等电子战系统提供激励，支持装备的研究、试验和操作员的训练。&lt;/p&gt;
+&lt;p&gt;南非科学工业研究理事会（CSIR）的雷达电子战仿真系统主要有三个产品，分别为通用雷达与电子战环境仿真系统（GREES），这是一个硬件在回路的仿真系统，为测试和评估雷达与电子战系统提供一个闭环仿真系统；雷达目标与电子对抗仿真系统（ENIGMA IV），该系统主要是用来生成雷达表面回波和先进对抗措施的场景；传感器与电子战作战仿真系统（&lt;strong&gt;SEWES&lt;/strong&gt;），这是一个多对多的电子战仿真环境，能够支持任意数量传感器和电子战系统在仿真环境中交战对抗。用户可以使用SEWES来仿真“如果……将会怎样”的问题，用以完善和评估被测系统的性能。&lt;/p&gt;
+&lt;p&gt;2005年安捷伦公司收购Elanix公司，将原先的SystemView软件改名为&lt;em&gt;SyetemVue&lt;/em&gt;，完善了功能组件库。内含大量可复用的雷达组件库，可以用于闭环的雷达仿真。&lt;/p&gt;
+&lt;p&gt;国内近些年，以弹道导弹攻防对抗、防空反导、区域防空、战略预警、体系对抗等为背景，在雷达电子战仿真领域也取得了众多进展。国防科技大学、西安电子科技大学、电子科技大学等单位都相继研发出了多套雷达仿真系统。其中国防科技大学电子科学与工程学院所研制的功能级和信号级雷达仿真系统已经大范围覆盖地基、舰载和机载雷达，以及美国NMD和TMD中的关键雷达系统和国内多种先进体制雷达系统，对于雷达系统仿真具备了丰富的经验和技术积累。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_RadarEWDomInsts.png&quot; alt=&quot;RadarEWDomesticCampus&quot;&gt;&lt;/p&gt;
+&lt;p&gt;此外，目前国内有许多从事的军事仿真科技方面的公司，经过多年的发展,也积累了大量的战役、战术级别的雷达电子战仿真系统成果。在开发过程中，尤其注重模型的可复用性。可复用的雷达仿真系统可以充分利用过去雷达仿真系统开发中积累的成果，减少重复开发的过程，从而能够保证仿真系统开发质量、降低开发成本。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_RadarEWDomCorps.png&quot; alt=&quot;RadarEWDomesticCorps&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近些，随着雷达电子战技术的发展，雷达电子战综合仿真系统、仿真实验室及环境仿真技术在国内外得到了广泛的关注，并迅速发展起来。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="行业综述" scheme="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
+    
+    
+      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>脉冲多普勒导引头抗干扰技术概述</title>
+    <link href="http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/"/>
+    <id>http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/</id>
+    <published>2016-07-23T01:31:04.000Z</published>
+    <updated>2016-07-23T02:37:28.945Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_PDRadarSeekerConfig.jpg&quot; alt=&quot;PDRadarSeekerConfig&quot;&gt;&lt;/p&gt;
+&lt;p&gt;脉冲多普勒导引头（PD导引头）是一类典型的末制导雷达体制，本博文旨在对PD导引头的抗干扰特性进行简要叙述，从而为设计针对PD导引头的干扰技术提供一定的参考依据。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;单脉冲处理&quot;&gt;&lt;a href=&quot;#单脉冲处理&quot; class=&quot;headerlink&quot; title=&quot;单脉冲处理&quot;&gt;&lt;/a&gt;单脉冲处理&lt;/h2&gt;&lt;p&gt;PD导引头采用&lt;strong&gt;单脉冲测角体制&lt;/strong&gt;，这是一种典型的同时多波束测角方法，这种同时波瓣的测角方法具有很强的抗干扰能力，如目标上的自卫式噪声干扰、转发式脉冲调幅干扰、逆增益应答式欺骗干扰都对单脉冲角度跟踪系统的工作影响很小，甚至没有影响。同时，受单脉冲测角的体制影响，这种测角体制本质上是跟踪目标回波信号的波前（等相位面），因此任何改变相位波前的因素，都会影响测角精度，这实际上为我们提供了针对PD导引头干扰的可能途径——角度欺骗干扰。&lt;/p&gt;
+&lt;h2 id=&quot;频率选择&quot;&gt;&lt;a href=&quot;#频率选择&quot; class=&quot;headerlink&quot; title=&quot;频率选择&quot;&gt;&lt;/a&gt;频率选择&lt;/h2&gt;&lt;p&gt;当PD导引头工作在HPRF波形（即准连续波波形）情形下，采用了&lt;strong&gt;频率选择&lt;/strong&gt;方式。它是通过压窄接收机带宽来实现的。接收机带宽，可以利用高度稳定的发射频率和高度稳定的接收本振频率以及随着目标多普勒频率及其变化而变化的跟踪系统的调谐来压窄。频率选择能够有效地对抗有源和无源压制式干扰，还可以消除或大大地减小箔条、地物杂波的干扰。通过对PD导引头频率选择的特性分析可看出，采用宽带噪声压制式干扰并不能起到很好的干扰效果，因为其大部分干扰功率并不能够有效地进入接收机后端。因此，有效的针对PD导引头的干扰，应该能够保证频率上的对准。&lt;/p&gt;
+&lt;h2 id=&quot;加速度限制&quot;&gt;&lt;a href=&quot;#加速度限制&quot; class=&quot;headerlink&quot; title=&quot;加速度限制&quot;&gt;&lt;/a&gt;加速度限制&lt;/h2&gt;&lt;p&gt;为有效地抵御速度波门拖引干扰，PD导引头还采用了&lt;strong&gt;加速度限制&lt;/strong&gt;方法。速度波门拖引干扰(VGPO)，就是在速度/频域上把速度波门脱离目标。因此，必须增大加速度。加速度限制，就是把速度门恩总的最大加速度能力加以限制，使得VGPO不能够超过这个限制。速度跟踪回路中，鉴频器输出的电压大小便代表了目标运动的加速度。在实际中，可按照实际目标可能的加速度边界值作为门限，一旦鉴频器输出的电压大小超过门限，即可认为是受到了VGPO干扰。此时，PD导引头可以迅速地转入重新搜索状态，从而使得高加速度的速度门拖引干扰，在拖引期间不被导引头跟踪。这个加速度跟踪能力的限制，在末段飞行时间内，减小了拖引次数，也就减小了拖引干扰的有效性。&lt;/p&gt;
+&lt;h2 id=&quot;倒置接收&quot;&gt;&lt;a href=&quot;#倒置接收&quot; class=&quot;headerlink&quot; title=&quot;倒置接收&quot;&gt;&lt;/a&gt;倒置接收&lt;/h2&gt;&lt;p&gt;PD导引头采用&lt;strong&gt;倒置接收&lt;/strong&gt;技术，窄带滤波器位于中频放大器之前，窄带速度波门的跟踪环路通过微波本振直接闭合。窄带滤波器之前的前置放大，保持低的噪声系数，接收机的增益主要放在窄带滤波器之后获得，角度误差信号在中放之后提取。这种带宽的设置，与一般接收机中带宽逐渐变窄的情况恰好相反，非常有效的保护了窄带滤波器滞后的多普勒处理器和自动增益控制电路的正常工作。否则，目标信号必将与包含在中频带宽内的杂波和干扰信号混在一起，直到窄带速度波门位置。这样，多普勒滤波器和AGC电路的性能将受到这些强干扰的影响而明显地降低。&lt;/p&gt;
+&lt;h2 id=&quot;跟踪干扰源（HOJ）&quot;&gt;&lt;a href=&quot;#跟踪干扰源（HOJ）&quot; class=&quot;headerlink&quot; title=&quot;跟踪干扰源（HOJ）&quot;&gt;&lt;/a&gt;跟踪干扰源（HOJ）&lt;/h2&gt;&lt;p&gt;PD导引头的&lt;strong&gt;干扰源寻的&lt;/strong&gt;，就是把目标发出的干扰信号作为导引导弹到目标的信号，实行无源被动角跟踪。一般地，有全程干扰源寻的和末段干扰源寻的两种方式。其中后者比前者有明显的优点，它大大地减少了自卫式速度波门拖引干扰的停拖次数，虚弱了速度波门拖引干扰和其它干扰的效果。末制导的导引头，一般的工作时间在几十左右，通常速度门拖引一周需要数秒钟，所以在末制导过程中，只能够拖引有限的几次。&lt;/p&gt;
+&lt;h2 id=&quot;速度波门和天线位置预置&quot;&gt;&lt;a href=&quot;#速度波门和天线位置预置&quot; class=&quot;headerlink&quot; title=&quot;速度波门和天线位置预置&quot;&gt;&lt;/a&gt;速度波门和天线位置预置&lt;/h2&gt;&lt;p&gt;导弹发射前，可以采用&lt;strong&gt;速度波门&lt;/strong&gt;和&lt;strong&gt;天线位置预置&lt;/strong&gt;。制导雷达通过连续地测量目标和导弹的运动参数，计算机可以不断地计算目标到导弹间的距离，到达拦截点的预计时间后，指令制导上行链路命令导弹进入末制导寻的工作状态。导引头的速度波门和天线位置均由上行指令进行预置。这样，导引头可以采用等待方式来截获目标，这样便提高了空间选择性和频率选择性。&lt;/p&gt;
+&lt;h2 id=&quot;变参数的跟踪回路&quot;&gt;&lt;a href=&quot;#变参数的跟踪回路&quot; class=&quot;headerlink&quot; title=&quot;变参数的跟踪回路&quot;&gt;&lt;/a&gt;变参数的跟踪回路&lt;/h2&gt;&lt;p&gt;提高跟踪系统的性能，是抗各种干扰的有效办法。PD导引头可以利用弹载视线加速度表，向跟踪回路提供修正电压，使系统带宽随目标运动规律而变化。因此，多普勒频率跟踪系统成为一个&lt;strong&gt;变参数系统&lt;/strong&gt;。在导引头整个工作过程中，速度跟踪回路带宽在加速度滞后误差和噪声干扰误差的平衡中，处于最佳状态。同时，也可以限制各种突然性的干扰。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_PDRadarSeekerConfig.jpg&quot; alt=&quot;PDRadarSeekerConfig&quot;&gt;&lt;/p&gt;
+&lt;p&gt;脉冲多普勒导引头（PD导引头）是一类典型的末制导雷达体制，本博文旨在对PD导引头的抗干扰特性进行简要叙述，从而为设计针对PD导引头的干扰技术提供一定的参考依据。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="导引头" scheme="http://jznudt.github.io/tags/%E5%AF%BC%E5%BC%95%E5%A4%B4/"/>
+    
+      <category term="脉冲多普勒" scheme="http://jznudt.github.io/tags/%E8%84%89%E5%86%B2%E5%A4%9A%E6%99%AE%E5%8B%92/"/>
+    
+      <category term="抗干扰" scheme="http://jznudt.github.io/tags/%E6%8A%97%E5%B9%B2%E6%89%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于云计算与大数据的一些思考</title>
+    <link href="http://jznudt.github.io/2016/07/23/CloudBigDataThinking/"/>
+    <id>http://jznudt.github.io/2016/07/23/CloudBigDataThinking/</id>
+    <published>2016-07-23T01:20:25.000Z</published>
+    <updated>2016-07-23T02:33:48.706Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_CloudBigDataInMil.jpg&quot; alt=&quot;BDataInMilitary&quot;&gt;&lt;/p&gt;
+&lt;p&gt;云计算和大数据正在深刻地影响、改变着我们身处的社会，如何将云计算和大数据应用于军事仿真领域，值得我们深入地思考。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;数据价值挖掘&quot;&gt;&lt;a href=&quot;#数据价值挖掘&quot; class=&quot;headerlink&quot; title=&quot;数据价值挖掘&quot;&gt;&lt;/a&gt;数据价值挖掘&lt;/h2&gt;&lt;p&gt;大数据着力于解决海量数据的采集、存储、检索、处理和挖掘，它是业务领域发展的必然产物。对于军事模拟、训练与测试领域，是否存在着这样的大数据？这是首先需要回答的问题。相较采集与存储而言，对已有数据的充分挖掘与揭示，可能更为重要，更能发挥数据本身蕴含的价值。&lt;/p&gt;
+&lt;h2 id=&quot;私有云&quot;&gt;&lt;a href=&quot;#私有云&quot; class=&quot;headerlink&quot; title=&quot;私有云&quot;&gt;&lt;/a&gt;私有云&lt;/h2&gt;&lt;p&gt;受各种条件限制，对于军事领域应用而言，私有云更为适合。如果要筹备一个情报数据中心，目前较好的整体解决方案有哪些？类似于&lt;a href=&quot;http://www.supermap.com.cn/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;超图公司&lt;/a&gt;提供的云GIS一体机（将云计算与GIS融合一体，对外呈现形式为一台机柜，以虚拟机形式对外部用户提供服务），这是否为发展的趋势？&lt;/p&gt;
+&lt;h2 id=&quot;业务辅助&quot;&gt;&lt;a href=&quot;#业务辅助&quot; class=&quot;headerlink&quot; title=&quot;业务辅助&quot;&gt;&lt;/a&gt;业务辅助&lt;/h2&gt;&lt;p&gt;以无人飞行器的航路规划为研究案例——业务人员在规划过程中需要考虑飞行器本身的飞行性能约束（高度、速度、转弯半径、制导方式、续航能力等），还需要考虑它面临的各类自然与人为环境。总体而言，其航路规划是需要大量实践经验的。那么，有没有可能通过大数据的相关理论与方法，从前期已保存的航路规划成果中，有效地提取一条优质航路的若干特征，从而实现自动规划辅助？这在实际应用中是个非常迫切的需求，而且对很多类似的&lt;code&gt;经验密集型&lt;/code&gt;业务领域都有极好的参考价值。现在火热的深度学习、机器学习等理论是否能够利用进来？&lt;/p&gt;
+&lt;h2 id=&quot;数据可视化&quot;&gt;&lt;a href=&quot;#数据可视化&quot; class=&quot;headerlink&quot; title=&quot;数据可视化&quot;&gt;&lt;/a&gt;数据可视化&lt;/h2&gt;&lt;p&gt;可视化是释放大数据价值的&lt;code&gt;最后一公里&lt;/code&gt;，对于我们关注的军事模拟、训练与测试业务领域，有必要设计一套完整的&lt;a href=&quot;http://www.digihail.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;可视化展现方式&lt;/a&gt;。一般而言，展示方式的设计是需要与用户密切沟通后完成的。&lt;/p&gt;
+&lt;h2 id=&quot;网络爬虫&quot;&gt;&lt;a href=&quot;#网络爬虫&quot; class=&quot;headerlink&quot; title=&quot;网络爬虫&quot;&gt;&lt;/a&gt;网络爬虫&lt;/h2&gt;&lt;p&gt;身处信息时代，对于我们关注业务领域内数据的长期搜集整理至关重要，有助于我们把握动态、了解前沿。除了传统的搜索引擎外，是否需要我们自己编写网络爬虫，来满足定制化的需要？是否已有成熟的爬虫可供使用，我们仅用关注于业务领域的本身？&lt;/p&gt;
+&lt;h2 id=&quot;数据采集与处理&quot;&gt;&lt;a href=&quot;#数据采集与处理&quot; class=&quot;headerlink&quot; title=&quot;数据采集与处理&quot;&gt;&lt;/a&gt;数据采集与处理&lt;/h2&gt;&lt;p&gt;关于数据采集的问题：很多时候，原始数据是通过多种渠道获取（例如态势数据可能由各类雷达、光电、声学等传感器搜集），不可避免地存在时空失配、野值、器件误差等因素。那么是否意味着我们研发的应用系统需要具备较强的原始数据处理能力（野值剔除、时空配置等），乃至多传感器信息融合能力？&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_CloudBigDataInMil.jpg&quot; alt=&quot;BDataInMilitary&quot;&gt;&lt;/p&gt;
+&lt;p&gt;云计算和大数据正在深刻地影响、改变着我们身处的社会，如何将云计算和大数据应用于军事仿真领域，值得我们深入地思考。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+    
+    
+      <category term="云计算" scheme="http://jznudt.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="大数据" scheme="http://jznudt.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>雷达电子战仿真若干思考</title>
+    <link href="http://jznudt.github.io/2016/07/23/RadarEWProblems/"/>
+    <id>http://jznudt.github.io/2016/07/23/RadarEWProblems/</id>
+    <published>2016-07-23T00:52:22.000Z</published>
+    <updated>2016-07-23T02:31:20.817Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160723_RadarEWDemo.jpg&quot; alt=&quot;RadarEWSimGUIDemo&quot;&gt;&lt;/p&gt;
+&lt;p&gt;对雷达电子战仿真领域中存在的一些问题进行简要分析，并给出了相应的建议。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;分布式仿真&quot;&gt;&lt;a href=&quot;#分布式仿真&quot; class=&quot;headerlink&quot; title=&quot;分布式仿真&quot;&gt;&lt;/a&gt;分布式仿真&lt;/h2&gt;&lt;p&gt;许多实际项目所采用的“分布式仿真”从&lt;em&gt;本质上&lt;/em&gt;讲是没有必要的。相比于分布式仿真系统的大投入、高成本、长周期，设计一套单机版的应用程序，无论是算法验证、数学仿真、半实物试验，还是外场试验，可能都更为有用，移植性也会更好。单机版程序的仿真时效性问题可通过优化算法、重构设计方案、高性能计算等方式进行提升与改进。&lt;/p&gt;
+&lt;h2 id=&quot;装备级模型&quot;&gt;&lt;a href=&quot;#装备级模型&quot; class=&quot;headerlink&quot; title=&quot;装备级模型&quot;&gt;&lt;/a&gt;装备级模型&lt;/h2&gt;&lt;p&gt;相对于战术、战役级仿真系统的高投入、高消耗，着眼于装备级模型的仿真，可能更为行之有效。无论是论证单位、生产部门、鉴定考核单位，还是实际使用部门，对细粒度内核模型的需求都非常迫切，尤其是模型的置信度，会直接影响装备的论证、研发、鉴定、训练和使用全寿命周期。&lt;/p&gt;
+&lt;h2 id=&quot;复杂战场环境&quot;&gt;&lt;a href=&quot;#复杂战场环境&quot; class=&quot;headerlink&quot; title=&quot;复杂战场环境&quot;&gt;&lt;/a&gt;复杂战场环境&lt;/h2&gt;&lt;p&gt;目前言必称“复杂电磁环境”，或是“复杂战场环境”，但对它们的认识大多停留在感性认识阶段，比如经常会引用的&lt;code&gt;时域密集、频域交叠、空域密度、功率参差&lt;/code&gt;等，但这种感性的认识对我们没并有实质的帮助。我们需要朝着“&lt;strong&gt;复杂战场环境定量化&lt;/strong&gt;”的方向努力，大致可分为三个层面，即：要素梳理、效应分析、改进措施。只有把握住了这个大的方向，研发出来的仿真系统才会真正地具备实用价值。但想要实现对复杂战场环境的量化分析并不容易，需要长期积累、持续投入。&lt;/p&gt;
+&lt;h2 id=&quot;仿真试验评估&quot;&gt;&lt;a href=&quot;#仿真试验评估&quot; class=&quot;headerlink&quot; title=&quot;仿真试验评估&quot;&gt;&lt;/a&gt;仿真试验评估&lt;/h2&gt;&lt;p&gt;仿真作为一种行之有效的手段，为有效地评估装备的实际效能提供了可行的技术实现方案，并不是仅有外场试验才能够用于装备的考核与鉴定。但目前仿真模型、仿真系统、仿真试验评估并未真正地得到广泛认可，究其原因可能有三点：模型置信度不够、仿真场景设置不合理、评估方法和指标体系不全面。有效地提升模型的置信度，还是有很多方法可资借鉴的。比如采用&lt;a href=&quot;https://jznudt.github.io/2016/07/22/EWCVLevelMS/&quot;&gt;相干视频信号级模型&lt;/a&gt;代替传统的功能级仿真模型，就能够充分地揭示各类环境因素对用频装备（如各类雷达导引头、制导雷达、监视雷达等）的影响机理，并能对影响效应进行定量评估。很多时候，模型置信度不高恰恰是因为我们在进行模型/系统的顶层设计时，没有赋予它们与实际装备相同的能力，比如各类抗干扰措施、状态切换逻辑等。仿真系统绝不应该是“金玉其外败絮其中”，而应该是内外兼修，这样才能真正地提升仿真的话语权。&lt;/p&gt;
+&lt;h2 id=&quot;粒度与时效性&quot;&gt;&lt;a href=&quot;#粒度与时效性&quot; class=&quot;headerlink&quot; title=&quot;粒度与时效性&quot;&gt;&lt;/a&gt;粒度与时效性&lt;/h2&gt;&lt;p&gt;&lt;code&gt;仿真粒度和时效性的结构性矛盾&lt;/code&gt;一度困扰了该领域内的大多数工程人员，直到现在都没有很好的解决方法，采用半实物仿真手段，将难以建模的部件或分系统直接用实物替代，这是一种非常有效的解决方案，但是实现难度非常大，对整个试验测试环境的要求也非常高。比如构建一整套射频制导半实物仿真系统，需要暗室、三轴转台、惯导、飞行模拟器等诸多条件的配合，系统复杂程度高。因此全数字仿真系统成为一种必须的解决方案（很多情况下甚至是唯一的方案）。多核多线程、面向GPU的高性能并行运算、硬件加速（DSP、FPGA或其它嵌入式硬件系统），是现在主流的三种解决方案，但目前该领域大体尚处于探索阶段，很少有成熟的设计方法和思路可供借鉴引用。尤其是面向GPU的高性能并行运算，虽然在信号处理、图像处理等领域得到了验证，但大多限于算法研究与验证，但将它完整地应用至应用系统中，还缺乏成熟的经验。&lt;/p&gt;
+&lt;h2 id=&quot;可复用性&quot;&gt;&lt;a href=&quot;#可复用性&quot; class=&quot;headerlink&quot; title=&quot;可复用性&quot;&gt;&lt;/a&gt;可复用性&lt;/h2&gt;&lt;p&gt;关于模型体系的可复用性，目前已经有很多类型的尝试，包括源码、函数、类库、组件、BOM等，但大多仅限于形式上的复用，并未带来任何&lt;strong&gt;实质上的可复用设计&lt;/strong&gt;。真正的可复用设计，需要对装备的工作原理进入深入分析，并充分借鉴成熟的设计模式（目前已成功地将10余种&lt;a href=&quot;https://jznudt.github.io/2016/07/22/CLP6DOFSim/&quot;&gt;设计模式&lt;/a&gt;应用于实际系统的研发），它应该是一种解决方案层面的可复用，对同类系统应具有指导意义。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160723_RadarEWDemo.jpg&quot; alt=&quot;RadarEWSimGUIDemo&quot;&gt;&lt;/p&gt;
+&lt;p&gt;对雷达电子战仿真领域中存在的一些问题进行简要分析，并给出了相应的建议。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+    
+    
+      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+  </entry>
   
   <entry>
     <title>适配器模式的妙用？</title>
@@ -67,9 +287,9 @@
       <category term="奇思妙想" scheme="http://jznudt.github.io/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/"/>
     
     
-      <category term="VR" scheme="http://jznudt.github.io/tags/VR/"/>
-    
       <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+      <category term="VR" scheme="http://jznudt.github.io/tags/VR/"/>
     
   </entry>
   
@@ -135,9 +355,9 @@
       <category term="代码分享" scheme="http://jznudt.github.io/categories/%E4%BB%A3%E7%A0%81%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="MFC控件" scheme="http://jznudt.github.io/tags/MFC%E6%8E%A7%E4%BB%B6/"/>
-    
       <category term="C++" scheme="http://jznudt.github.io/tags/C/"/>
+    
+      <category term="MFC控件" scheme="http://jznudt.github.io/tags/MFC%E6%8E%A7%E4%BB%B6/"/>
     
   </entry>
   
@@ -180,13 +400,13 @@
       <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
     
     
+      <category term="CUDA" scheme="http://jznudt.github.io/tags/CUDA/"/>
+    
       <category term="信号级仿真" scheme="http://jznudt.github.io/tags/%E4%BF%A1%E5%8F%B7%E7%BA%A7%E4%BB%BF%E7%9C%9F/"/>
     
       <category term="时效性" scheme="http://jznudt.github.io/tags/%E6%97%B6%E6%95%88%E6%80%A7/"/>
     
       <category term="多线程" scheme="http://jznudt.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-      <category term="CUDA" scheme="http://jznudt.github.io/tags/CUDA/"/>
     
   </entry>
   
@@ -257,11 +477,11 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
+      <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
       <category term="六自由度" scheme="http://jznudt.github.io/tags/%E5%85%AD%E8%87%AA%E7%94%B1%E5%BA%A6/"/>
     
       <category term="闭环仿真" scheme="http://jznudt.github.io/tags/%E9%97%AD%E7%8E%AF%E4%BB%BF%E7%9C%9F/"/>
-    
-      <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -550,673 +770,6 @@
       <category term="并行仿真" scheme="http://jznudt.github.io/tags/%E5%B9%B6%E8%A1%8C%E4%BB%BF%E7%9C%9F/"/>
     
       <category term="仿真引擎" scheme="http://jznudt.github.io/tags/%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单例模式中的静态变量冲突</title>
-    <link href="http://jznudt.github.io/2016/07/21/SingletonStatic/"/>
-    <id>http://jznudt.github.io/2016/07/21/SingletonStatic/</id>
-    <published>2016-07-21T04:24:53.000Z</published>
-    <updated>2016-07-21T04:40:33.983Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h2&gt;&lt;p&gt;采用模块化设计思想，把XX仿真模型拆分成了若干个分系统，在每个分系统中可能都会使用到初始化参数（即INITPATAM），所以用单例模式构建了一个“&lt;strong&gt;全局可见、全局唯一&lt;/strong&gt;”的参数集合（除了INITPATAM外，还包含其它很多公共参数，不再赘述），同时为了进一步提升安全性，采用了操作接口（即Set/Get函数），如下面的代码段。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
- &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//初始化参数定义&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;struct&lt;/span&gt; INITPATAM&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;double&lt;/span&gt;    Longitude; &lt;span class=&quot;comment&quot;&gt;//WGS-84系下的经度值，rad&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//采用单例模式构建的全局可见参数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; GlobalParam&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; ~GlobalParam();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;  GlobalParam* &lt;span class=&quot;title&quot;&gt;Instance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//初始化参数操作接口&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;    &lt;span class=&quot;title&quot;&gt;SetInitParam&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; INITPATAM&amp;amp; &lt;span class=&quot;number&quot;&gt;_&lt;/span&gt;param)&lt;/span&gt; &lt;/span&gt;&amp;#123;param = &lt;span class=&quot;number&quot;&gt;_&lt;/span&gt;param;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;    &lt;span class=&quot;title&quot;&gt;GetInitParam&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(INITPATAM&amp;amp; &lt;span class=&quot;number&quot;&gt;_&lt;/span&gt;param)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;span class=&quot;number&quot;&gt;_&lt;/span&gt;param = param;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//其它全局函数操作接口&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    GlobalParam();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; GlobalParam*    &lt;span class=&quot;number&quot;&gt;_&lt;/span&gt;state;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    INITPATAM            param;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;全局变量&quot;&gt;&lt;a href=&quot;#全局变量&quot; class=&quot;headerlink&quot; title=&quot;全局变量&quot;&gt;&lt;/a&gt;全局变量&lt;/h2&gt;&lt;p&gt;在上述仿真模型的初始化函数中，完成全局变量设置；在时间迭代步进操作中，其它的子系统调用了该全局可见参数，即：&lt;/p&gt;
- &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;44&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;45&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;46&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//利用模块化思想设计的XX仿真模型&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; CAntenna;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; RADAR_API RADARDLL&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    RADARDLL();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//其它构造函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; ~RADARDLL();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//执行初始化操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt;    &lt;span class=&quot;title&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; INITPATAM&amp;amp; param)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        GlobalParam::Instance()-&amp;gt;SetInitParam(param);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//其它初始化操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//执行时间迭代步进操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;    &lt;span class=&quot;title&quot;&gt;Advance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    CAntenna*    m_Antenna;        &lt;span class=&quot;comment&quot;&gt;//天线分系统&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; RADARDLL::Advance()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//各分系统逐一执行迭代&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    m_Antenna-&amp;gt;Advance();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; CAntenna::Advance()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    INITPATAM InitParam;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    GlobalParam::Instance()-&amp;gt;GetInitParam(InitParam);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//其它操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;多次实例化&quot;&gt;&lt;a href=&quot;#多次实例化&quot; class=&quot;headerlink&quot; title=&quot;多次实例化&quot;&gt;&lt;/a&gt;多次实例化&lt;/h2&gt;&lt;p&gt;设计外部应用程序，调用上述设计的RADARDLL仿真模型，因为考虑了多个对象，所以进行了多次示例化，它们具有&lt;strong&gt;不同&lt;/strong&gt;的初始化参数，即&lt;/p&gt;
- &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;44&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;45&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;46&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;47&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;48&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//主执行线程函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;UINT &lt;span class=&quot;title&quot;&gt;SimMainProc&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(LPVOID param)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    INITPATAM *InitParam = (INITPATAM*)param;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    RADARDLL *pRadar = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; RADARDLL();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pRadar-&amp;gt;Initialize();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pRadar-&amp;gt;Advance();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//退出线程&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; != pRadar)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;delete&lt;/span&gt; pRadar, pRadar = &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//外部应用系统,假定是响应了某个按钮的事件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; RadarSimDemo::OnSimBegin()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;define&lt;/span&gt;        RADARNUM    2&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//设置第一个参数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    INITPATAM Param1;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//设置第二个参数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    INITPATAM Param2;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    CWinThread* Radar1Thread = AfxBeginThread(SimMainProc, (LPVOID)&amp;amp;Param1,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        THREAD_PRIORITY_BELOW_NORMAL, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, CREATE_SUSPENDED);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//其它初始化操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Radar1Thread-&amp;gt;ResumeThread();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    CWinThread* Radar2Thread = AfxBeginThread(SimMainProc, (LPVOID)&amp;amp;Param2,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        THREAD_PRIORITY_BELOW_NORMAL, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, CREATE_SUSPENDED);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Radar2Thread-&amp;gt;ResumeThread();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;静态变量冲突&quot;&gt;&lt;a href=&quot;#静态变量冲突&quot; class=&quot;headerlink&quot; title=&quot;静态变量冲突&quot;&gt;&lt;/a&gt;静态变量冲突&lt;/h2&gt;&lt;p&gt;问题出现了：由于RADARDLL仿真模型中的单例全局参数中含有静态变量，而在RADARDLL仿真模型的内部子系统中均是采用同样的GlobalParam::Instance()形式调用单例全局参数，造成了冲突，从而导致了程序运行结果不符合预期。&lt;/p&gt;
-&lt;p&gt;如何才能够有效地解决上述冲突，或者有没有什么更优的技术手段，可以回避这个问题。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;单例模式&quot;&gt;&lt;a href=&quot;#单例模式&quot; class=&quot;headerlink&quot; title=&quot;单例模式&quot;&gt;&lt;/a&gt;单例模式&lt;/h2&gt;&lt;p&gt;采用模块化设计思想，把XX仿真模型拆分成了若干个分系统，在每个分系统中可能都会使用到初始化参数（即INITPATAM），所以用单例模式构建了一个“&lt;strong&gt;全局可见、全局唯一&lt;/strong&gt;”的参数集合（除了INITPATAM外，还包含其它很多公共参数，不再赘述），同时为了进一步提升安全性，采用了操作接口（即Set/Get函数），如下面的代码段。
-    
-    </summary>
-    
-      <category term="编程杂感" scheme="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
-    
-    
-      <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="C++" scheme="http://jznudt.github.io/tags/C/"/>
-    
-      <category term="单例模式" scheme="http://jznudt.github.io/tags/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="静态变量" scheme="http://jznudt.github.io/tags/%E9%9D%99%E6%80%81%E5%8F%98%E9%87%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>闭源库的功能扩展与完善</title>
-    <link href="http://jznudt.github.io/2016/07/21/DLLModify/"/>
-    <id>http://jznudt.github.io/2016/07/21/DLLModify/</id>
-    <published>2016-07-21T04:09:01.000Z</published>
-    <updated>2016-07-21T04:22:03.823Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;功能库构建&quot;&gt;&lt;a href=&quot;#功能库构建&quot; class=&quot;headerlink&quot; title=&quot;功能库构建&quot;&gt;&lt;/a&gt;功能库构建&lt;/h2&gt;&lt;p&gt;利用策略与工厂模式，构建了某闭源的功能模型库，主要用于无人飞行器上的自主寻的制导。现将骨干程序抽离如下：首先定义了导引律接口（Interface），在C++中采用了纯虚函数来实现，然后采用公有继承的方法，实现了三种典型的导引律，包括：比例导引律（PN）、修正比例导引律（APN）和追踪法导引律（TPN）。相关代码如下图所示：&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
- &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//导引律枚举&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;enum&lt;/span&gt; HOMINGLAW&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	PN,		&lt;span class=&quot;comment&quot;&gt;//比例导引律&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	APN,	&lt;span class=&quot;comment&quot;&gt;//修正比例导引律&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	TPN,	&lt;span class=&quot;comment&quot;&gt;//追踪法导引律&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; GuidanceLaw&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	GuidanceLaw();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; ~GuidanceLaw();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt;	BOOL &lt;span class=&quot;title&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt;	&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Advance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//其它代码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	…………&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; PNGuidanceLaw : &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; GuidanceLaw&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//具体实现&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;BOOL &lt;span class=&quot;title&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Advance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; APNGuidanceLaw : &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; GuidanceLaw&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//具体实现&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;BOOL &lt;span class=&quot;title&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Advance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; TPNGuidanceLaw : &lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; GuidanceLaw&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//具体实现&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;BOOL &lt;span class=&quot;title&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Advance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;策略模式&quot;&gt;&lt;a href=&quot;#策略模式&quot; class=&quot;headerlink&quot; title=&quot;策略模式&quot;&gt;&lt;/a&gt;策略模式&lt;/h2&gt;&lt;p&gt;在实现了上述三种典型的导引律基础上，采用策略与简单工厂模式，完成了自主寻的制导功能模型的开发，概述如下：&lt;br&gt; &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; Guidance&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	Guidance() : pGuidanceLaw(&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	Guidance(HOMINGLAW law)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;switch&lt;/span&gt;(law)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; PN:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			pGuidanceLaw = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; PNGuidanceLaw;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; APN:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			pGuidanceLaw = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; APNGuidanceLaw;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; TPN;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			pGuidanceLaw = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TPNGuidanceLaw;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			pGuidanceLaw = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; PNGuidanceLaw; &lt;span class=&quot;comment&quot;&gt;//默认采用比例导引律&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; ~Guidance();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//其它操作代码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	…………&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	GuidanceLaw*	pGuidanceLaw;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	…………&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h2 id=&quot;功能扩展完善&quot;&gt;&lt;a href=&quot;#功能扩展完善&quot; class=&quot;headerlink&quot; title=&quot;功能扩展完善&quot;&gt;&lt;/a&gt;功能扩展完善&lt;/h2&gt;&lt;p&gt;在实际使用上述闭源模型过程中，用户提出需要新增一至两种导引律（也就是要增加GuidanceLaw的若干种具体实现）。因为提供的功能库仅为二进制形式，无法直接修改源码，造成了功能扩展的不便。那么，应该如何才能够便捷地实现上述功能呢？或者说，在设计功能模型时，应该如何优化实现方案，以便满足用户实际使用过程中的快捷功能扩展？&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;功能库构建&quot;&gt;&lt;a href=&quot;#功能库构建&quot; class=&quot;headerlink&quot; title=&quot;功能库构建&quot;&gt;&lt;/a&gt;功能库构建&lt;/h2&gt;&lt;p&gt;利用策略与工厂模式，构建了某闭源的功能模型库，主要用于无人飞行器上的自主寻的制导。现将骨干程序抽离如下：首先定义了导引律接口（Interface），在C++中采用了纯虚函数来实现，然后采用公有继承的方法，实现了三种典型的导引律，包括：比例导引律（PN）、修正比例导引律（APN）和追踪法导引律（TPN）。相关代码如下图所示：
-    
-    </summary>
-    
-      <category term="编程杂感" scheme="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
-    
-    
-      <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="策略模式" scheme="http://jznudt.github.io/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>屏蔽C++开发的功能模型API中的实现细节</title>
-    <link href="http://jznudt.github.io/2016/07/20/APIDesign/"/>
-    <id>http://jznudt.github.io/2016/07/20/APIDesign/</id>
-    <published>2016-07-20T14:38:02.000Z</published>
-    <updated>2016-07-20T15:08:36.545Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;屏蔽C-开发的功能模型API中的实现细节&quot;&gt;&lt;a href=&quot;#屏蔽C-开发的功能模型API中的实现细节&quot; class=&quot;headerlink&quot; title=&quot;屏蔽C++开发的功能模型API中的实现细节&quot;&gt;&lt;/a&gt;屏蔽C++开发的功能模型API中的实现细节&lt;/h1&gt;&lt;p&gt;最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
- &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; CAntenna;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; CReciver;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; CDigitalProcessor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; RADAR_API RADARDLL&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	RADARDLL();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//其它构造函数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; ~RADARDLL();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//执行初始化操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;bool&lt;/span&gt;	&lt;span class=&quot;title&quot;&gt;Initialize&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; INITPATAM&amp;amp; param)&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//执行时间迭代步进操作&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;	&lt;span class=&quot;title&quot;&gt;Advance&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	CAntenna*		m_Antenna;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	CReciver*			m_Receiver;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	CDigitalProcessor*	m_DigitalProcessor;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	……&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;感觉在头文件中暴露了太多的实现细节，例如把XX仿真模型拆分成了&lt;strong&gt;天线&lt;/strong&gt;等多个子系统。有没有一种设计思路，能尽量在头文件&lt;em&gt;屏蔽实现细节&lt;/em&gt;？最理想的情况是，除了暴露出来的公有接口外，基本上不包含任何的私有变量。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;屏蔽C-开发的功能模型API中的实现细节&quot;&gt;&lt;a href=&quot;#屏蔽C-开发的功能模型API中的实现细节&quot; class=&quot;headerlink&quot; title=&quot;屏蔽C++开发的功能模型API中的实现细节&quot;&gt;&lt;/a&gt;屏蔽C++开发的功能模型API中的实现细节&lt;/h1&gt;&lt;p&gt;最近承担了利用C++开发某仿真模型的任务，最终提交形式为DLL，以及对应的.h头文件（按照划分粒度，可能有多个）及lib文件，采用面向对象和模块化的设计思路，已经完成了大体框架设计，概述如下：
-    
-    </summary>
-    
-      <category term="编程杂感" scheme="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
-    
-    
-      <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="C++" scheme="http://jznudt.github.io/tags/C/"/>
-    
-      <category term="API设计" scheme="http://jznudt.github.io/tags/API%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>电子战系统仿真与测试的发展</title>
-    <link href="http://jznudt.github.io/2016/07/20/EWSimTest/"/>
-    <id>http://jznudt.github.io/2016/07/20/EWSimTest/</id>
-    <published>2016-07-20T14:13:28.000Z</published>
-    <updated>2016-07-20T15:07:04.676Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;a href=&quot;#电子战系统仿真与测试的发展&quot; class=&quot;headerlink&quot; title=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;/a&gt;电子战系统仿真与测试的发展&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://p14.qhimg.com/t01f0a3251589b147df.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-&lt;p&gt;电子战系统的测试一直以来都是一项举足轻重的工程挑战，并且随着电子战系统的技术水平和预期性能的提高以及不断增强的相控阵（AESA）雷达威胁而迅速发展。每种新型电子战系统都将在试验靶场上面临最后一关，在这里必须测试系统在实际作战使用中可能面临的各种情况。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;但是，电子战系统在进入试验靶场前，首先要在具有复杂威胁环境模拟器的安装系统测试设备中进行全面的评估。甚至在电子战系统达到这些测试处理阶段前，还必须先在系统集成实验室和半实物的测试设备中完成许多测试。这些测试阶段极其重要，因为测试期间能发现问题并使研发人员在转向上述更昂贵的测试阶段前解决问题。其目的就是要经常进行测试和早期测试，特别是在实验室里进行测试。幸好，软件仿真工具和商用现货测试系统日趋成熟，现在已经成为成本高度敏感的电子战开发环境的必备工具。&lt;/p&gt;
-&lt;h2 id=&quot;电子战测试机制&quot;&gt;&lt;a href=&quot;#电子战测试机制&quot; class=&quot;headerlink&quot; title=&quot;电子战测试机制&quot;&gt;&lt;/a&gt;电子战测试机制&lt;/h2&gt;&lt;p&gt;由于试验靶场非常少，几乎一直处于&lt;em&gt;使用中&lt;/em&gt;状态，&lt;em&gt;预订&lt;/em&gt;测试时间如同预约顶级医疗专家一样难。因此，美国国防部、主承包商和测试设备制造商迫于压力，只好将仿真与测试尽量从试验靶场转移回实验室。这就推动了对实验室具备更复杂先进测试能力的需求。不管怎样，由于这些基于商用现货的仿真与测试平台已经取得了长足的进步，所以现在的电子战系统在面临最终的验证挑战前就能得到更全面更好的评估。&lt;/p&gt;
-&lt;p&gt;上述想法旨在利用仿真软件和商用测试设备，在设计过程的早期进行绝大多数的仿真、测试和分析。必须进行大量测试，让电子战系统在最大带宽范围内经受最大容量信号的考验，包括信号环境中频繁变化的波形、干扰、已知的威胁以及其他动态变化的因素。&lt;/p&gt;
-&lt;p&gt;这种测试系统的能力是全面的，必须能正确模拟实时雷达脉冲特征、干扰和传播异常，包括如下方面：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;脉冲上升沿和下降沿时间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;脉冲宽度, 脉冲重复频率及模式&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;每个脉冲的调制&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;频率和频谱特征&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;信号幅度&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;雷达天线方向图&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;天线扫描方式&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这些测试系统还必须能产生和动态改变辐射源类型，对模式的变化进行仿真并实现其他功能，与先进威胁系统（例如相控阵雷达）不断增强的能力同步发展。&lt;/p&gt;
-&lt;p&gt;对于仿真测试工程师来说幸运的是，这种需要大型数/模数据库、射频和微波测试装备（大多数为用户定制并且专用于特殊项目）的情况正在慢慢改变。这是由于美国国防部缩减预算引起的成本限制需要一种新途径，另外美国国防部还希望尽快扭转电子战技术多年以来在研究开发和采办预算中不受重视的局面。时间就是生命，而测试是系统研发耗时较多并且价格高企的部分之一，因此，业界加强了简化测试的开发工作。想要通过增强实验室部分的测试来达到目的，就必须了解需求是什么。&lt;/p&gt;
-&lt;h2 id=&quot;基于商用现货的方法&quot;&gt;&lt;a href=&quot;#基于商用现货的方法&quot; class=&quot;headerlink&quot; title=&quot;基于商用现货的方法&quot;&gt;&lt;/a&gt;基于商用现货的方法&lt;/h2&gt;&lt;p&gt;一种典型的基于实验室的闭环电子战仿真与评估系统包括以下主要特征：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;信号波形的宽频带序列，产生新波形的软件，用于回放信号波形的一个或多个矢量信号发生器，其频率可以是从高频到&lt;strong&gt;18GHz&lt;/strong&gt; (有时更高)且调制带宽超过&lt;strong&gt;1GHz&lt;/strong&gt;的任意频率。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;系统能在尽可能短的反应时间内对波形进行数字化、记录、存储和回放。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;软件工具能快速对几小时的波形文件进行分类整理，识别出感兴趣的部分并加以修改，产生只包含特定波形的文件，最终生成了仿真但却是很“真”的信号环境。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;截获威胁并对其分类是一项艰巨的工作，需要经年累月对信号情报进行搜集、利用与分析，从而构建包含了特定雷达系统的极其详细信息的数据库，如友方的、敌方的和疑似敌方的雷达系统信息。所幸由于美国国防部长期致力于数据搜集，这样的数据库已经建成并持续更新。&lt;/p&gt;
-&lt;p&gt;然而，威胁“前景”处于持续变化的状态，因为世界先进军事技术不断产生新的威胁雷达和雷达波形，一些先进雷达在作战期间能够实时（脉冲到脉冲）改变现有波形。因此，识别出全部可能存在的威胁是不现实的，先进电子战系统必须依靠高速数字信号处理能力和软件实时动态生成对抗手段。&lt;/p&gt;
-&lt;p&gt;为了产生能反映实际情况的仿真威胁环境，必须考虑所有因素，例如信号传播和干扰的各种变化。利用信号生成和通道仿真软件来产生信号波形或波形序列，可以非常有效地仿真威胁环境。离散的任意波形发生器(AWG)或矢量信号发生器(VSG)可以实现合成信号的重构。&lt;/p&gt;
-&lt;p&gt;在电子战系统仿真与评估的所有阶段中，实验室方法花费最少，虽然AVG和VSG通常只具备有限的多辐射源评估能力，却减轻了在较复杂威胁环境发生器上以及在安装系统测试设备上和开放空间试验靶场中进行测试所需要的工作量，还减少了重新设计和重编程所需要的工作量。就这一点来说，AVG和VSG是早期的评估系统，是试验靶场的补充而不是替换。他们的好处是闭环系统，使设计者们能完全控制研发期间所需要的测试、评估及“优化”，并且以很小的代价或者无需额外的费用就能重用或另作他用。&lt;/p&gt;
-&lt;h2 id=&quot;像变色龙一样的相控阵雷达&quot;&gt;&lt;a href=&quot;#像变色龙一样的相控阵雷达&quot; class=&quot;headerlink&quot; title=&quot;像变色龙一样的相控阵雷达&quot;&gt;&lt;/a&gt;像变色龙一样的相控阵雷达&lt;/h2&gt;&lt;p&gt;由于两种不可控变数的存在，任何测试设备制造商、软件销售商、主承包商或其他机构都不可能产生针对电子战系统仿真与测试的理想解决方案。第一个变数是技术的变革，这种变革是如此之快，以至于今天的尖端科技明天就成了标准配置。主导这些进步的是所有电子战和雷达系统的核心组件：模-数转换器(ADC)、数-模转换器(DAC)、FPGA、GPU和通用处理器。&lt;/p&gt;
-&lt;p&gt;第二个变数是对手们每年也在加速取得技术进步。尤其是相控阵雷达。多模式相控阵雷达正在进入世界上许多国家的军队。这些雷达常常表现出相似于变色龙的能力，这种能力使他们成为强大的威胁。除了具有许多其他雷达的功能外，相控阵雷达还能同时工作于许多不同的频率，采用有源波束形成方式产生多个子波束（每个子波束在不同频率上发射信号），随机改变每个脉冲的频率和其他特征，增大或减小每个天线单元的发射功率以免受到探测，采用包括各种扩谱技术在内的多种调制样式，在一些扇区以被动方式工作而在其他扇区以主动方式工作，还有许多其他特征。&lt;/p&gt;
-&lt;p&gt;也许最令人惊异的是相控阵雷达日益增强的这种能力：搜集到足够多的目标相关信息就能推算出该目标的雷达截面积，从接收到的回波信号可得出发动机调制和通道效应，能有效产生目标的三维图像。相控阵雷达利用存储的已知目标信息，能识别出正在跟踪的飞机类型以及飞机配置的电子战和电子对抗能力。这一切使得相控阵雷达具有明显的优势。&lt;/p&gt;
-&lt;h2 id=&quot;带宽的挑战&quot;&gt;&lt;a href=&quot;#带宽的挑战&quot; class=&quot;headerlink&quot; title=&quot;带宽的挑战&quot;&gt;&lt;/a&gt;带宽的挑战&lt;/h2&gt;&lt;p&gt;电子战测试中使用的大多数先进商用现货仪器的性能通常必须等于或优于待测的电子战系统，达到这个要求是仪器制造商的首要目标。最使人畏缩的挑战之一是带宽似乎将无限增大。电子战系统覆盖了宽广的频率范围，雷达与之相比以前一直是窄带的，工作频率范围只有几百兆赫兹。如今这种情况已经显著改变了，因为现在的雷达系统带宽一般能达到1GHz或甚至2GHz，预计2020年前带宽将扩大到&lt;strong&gt;4GHz&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;雷达信号和工作带宽的每次进步都会全面影响电子战系统，波及到系统的所有功能。例如，较大的带宽和较快的采样率明显增加了电子战系统必须采集和处理的样本数，而系统的处理容量和速度是有限的。电子战系统采集的数据（即I/Q采样）不仅要进行处理，还必须能够存储，这就需要超高性能（价格昂贵）的固态存储器和高速系统总线。&lt;/p&gt;
-&lt;p&gt;记录带宽为2GHz的信号，即使时间很短也会产生几百万兆字节数据，唯一有效的处理办法就是利用FPGA和（或）GPU这样的高速信号处理工具。这种硬件在软件的协助下能分选出感兴趣的信号，只传送那些选中了（数量更少因此数据量更小）的信号到其他的信号处理器进行更详细处理。然后，电子战系统必须做出响应，这就需要更多的分析和处理。通常必须近实时完成这一切处理，因为响应时间“窗口”受控于敌方威胁系统。因此，不管电子战系统必须处理多少数据，它仍然只有相同的限定时间来进行处理。&lt;/p&gt;
-&lt;p&gt;反应时间是影响电子战系统性能的另一个关键因素，它对于模拟电子战系统性能的测试系统同样重要。反应时间来源于信号处理设备引起的延时和将数据从一个功能模块传输到另一个功能模块（或从一台仪器到另一台仪器）引起的延时。在电子战系统设计中，尽可能缩短反应时间是绝对有必要的，因为响应时间是以微秒为测量单位。所以，即使逐渐缩短反应时间也是受欢迎的。缩短电子战测试系统的反应时间也很关键，通过选择高速通信总线以实现系统内点对点数据传输可以极大缩短反应时间。目前有代表性的是PCI快速总线(PCI)，它已经发展成能更好地集成进PC环境并能提供高达几千兆字节/秒的通用传输率。&lt;/p&gt;
-&lt;p&gt;有效应对更大带宽和更短反应时间提出的挑战，以及对其他诸如无杂散动态范围(SFDR)和转换器分辨率这样很重要参数的测量，对于电子战仿真系统设计与电子战系统自身设计来说都同样重要。&lt;/p&gt;
-&lt;h2 id=&quot;结语&quot;&gt;&lt;a href=&quot;#结语&quot; class=&quot;headerlink&quot; title=&quot;结语&quot;&gt;&lt;/a&gt;结语&lt;/h2&gt;&lt;p&gt;通过在试验靶场上和在即将部署的平台上评估电子战系统（或者说雷达系统），全仪器控制的开放空间试验靶场是最有效的评估手段，这一说法是经得起论证的。然而，在设计和开发过程的早期，试验靶场并不是理想的评估场所，利用商用现货测试设备和仿真软件结合起来进行评估能够提供更强的灵活性、可重复性及进行特殊测试的能力。&lt;/p&gt;
-&lt;p&gt;任何基于商用现货的测试解决方案都不是完美无缺的，虽然使用了设备和软件，这种测试系统还是像待评估系统一样复杂。然而，这种方案与五角大楼实现更高性价比的研究、测试、开发与评估（RTD&amp;amp;E）的目标是一致的,因为测试系统是一次性购买并在多次测试电子战和雷达系统时分期付款的，所以必定会在未来得到更广泛的使用。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;原作者简介：JohnHansen，现为&lt;a href=&quot;http://www.keysight.com/main/home.jspx?cc=CN&amp;amp;lc=chi&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;是德技术公司（Keysight）&lt;/a&gt;解决方案规划工程师，在无线电、微波电子及防御行业内的系统工程和新产品开发领域拥有30多年的经验。&lt;/em&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;a href=&quot;#电子战系统仿真与测试的发展&quot; class=&quot;headerlink&quot; title=&quot;电子战系统仿真与测试的发展&quot;&gt;&lt;/a&gt;电子战系统仿真与测试的发展&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://p14.qhimg.com/t01f0a3251589b147df.jpg&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-&lt;p&gt;电子战系统的测试一直以来都是一项举足轻重的工程挑战，并且随着电子战系统的技术水平和预期性能的提高以及不断增强的相控阵（AESA）雷达威胁而迅速发展。每种新型电子战系统都将在试验靶场上面临最后一关，在这里必须测试系统在实际作战使用中可能面临的各种情况。
-    
-    </summary>
-    
-      <category term="行业综述" scheme="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
-    
-    
-      <category term="电子战仿真" scheme="http://jznudt.github.io/tags/%E7%94%B5%E5%AD%90%E6%88%98%E4%BB%BF%E7%9C%9F/"/>
-    
-      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Markdown文件语法学习</title>
-    <link href="http://jznudt.github.io/2016/07/20/MarkDownSyntax/"/>
-    <id>http://jznudt.github.io/2016/07/20/MarkDownSyntax/</id>
-    <published>2016-07-20T05:08:24.000Z</published>
-    <updated>2016-07-20T14:58:59.780Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;Markdown-文件&quot;&gt;&lt;a href=&quot;#Markdown-文件&quot; class=&quot;headerlink&quot; title=&quot;Markdown 文件&quot;&gt;&lt;/a&gt;Markdown 文件&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://markdown.tw/images/208x128.png&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Simplified Chinese Edition Document of&lt;br&gt;Markdown Syntax. If you are seeking for English Edition&lt;br&gt;Document. Please refer to &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Markdown: Syntax&lt;/a&gt;.&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h1 id=&quot;Markdown-Syntax&quot;&gt;&lt;a href=&quot;#Markdown-Syntax&quot; class=&quot;headerlink&quot; title=&quot;Markdown: Syntax&quot;&gt;&lt;/a&gt;Markdown: Syntax&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#overview&quot;&gt;概述&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#philosophy&quot;&gt;哲学&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#html&quot;&gt;行内 HTML&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#autoescape&quot;&gt;特殊字符自动转换&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#block&quot;&gt;区块元素&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#p&quot;&gt;段落和换行&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#header&quot;&gt;标题&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#blockquote&quot;&gt;区块引言&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#list&quot;&gt;清单&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#precode&quot;&gt;程序代码区块&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#hr&quot;&gt;分隔线&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#span&quot;&gt;区段元素&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#link&quot;&gt;连结&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#em&quot;&gt;强调&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#code&quot;&gt;程序代码&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#img&quot;&gt;图片&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#misc&quot;&gt;其它&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;#backslash&quot;&gt;跳脱字符&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#autolink&quot;&gt;自动连结&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#acknowledgement&quot;&gt;感谢&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;这份文件是用 Markdown 写的，你可以&lt;a href=&quot;https://github.com/othree/markdown-syntax-zhtw/blob/master/syntax.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;看看它的原始档&lt;/a&gt; 。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;overview&quot;&gt;概述&lt;/h2&gt;
-
-&lt;h3 id=&quot;philosophy&quot;&gt;哲学&lt;/h3&gt;
-
-&lt;p&gt;Markdown 的目标是实现「易读易写」。&lt;/p&gt;
-&lt;p&gt;不过最需要强调的便是它的可读性。一份使用 Markdown 格式撰写的文件应该可以直接以纯文本发布，并且看起来不会像是由许多卷标或是格式指令所构成。Markdown 语法受到一些既有 text-to-HTML 格式的影响，包括 &lt;a href=&quot;http://docutils.sourceforge.net/mirror/setext.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Setext&lt;/a&gt;、&lt;a href=&quot;http://www.aaronsw.com/2002/atx/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;atx&lt;/a&gt;、&lt;a href=&quot;http://textism.com/tools/textile/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Textile&lt;/a&gt;、&lt;a href=&quot;http://docutils.sourceforge.net/rst.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;reStructuredText&lt;/a&gt;、&lt;a href=&quot;http://www.triptico.com/software/grutatxt.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Grutatext&lt;/a&gt; 和 &lt;a href=&quot;http://ettext.taint.org/doc/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;EtText&lt;/a&gt;，然而最大灵感来源其实是纯文本的电子邮件格式。&lt;/p&gt;
-&lt;p&gt;因此 Markdown 的语法全由标点符号所组成，并经过严谨慎选，是为了让它们看起来就像所要表达的意思。像是在文字两旁加上星号，看起来就像*强调*。Markdown 的列表看起来，嗯，就是清单。假如你有使用过电子邮件，区块引言看起来就真的像是引用一段文字。&lt;/p&gt;
-&lt;h3 id=&quot;html&quot;&gt;行内 HTML&lt;/h3&gt;
-
-&lt;p&gt;Markdown 的语法有个主要的目的：用来作为一种网络内容的&lt;em&gt;写作&lt;/em&gt;用语言。&lt;/p&gt;
-&lt;p&gt;Markdown 不是要来取代 HTML，甚至也没有要和它相似，它的语法种类不多，只和 HTML 的一部分有关系，重点&lt;em&gt;不是&lt;/em&gt;要创造一种更容易写作 HTML 文件的语法，我认为 HTML 已经很容易写了，Markdown 的重点在于，它能让文件更容易阅读、编写。HTML 是一种&lt;em&gt;发布&lt;/em&gt;的格式，Markdown 是一种&lt;em&gt;编写&lt;/em&gt;的格式，因此，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。&lt;/p&gt;
-&lt;p&gt;不在 Markdown 涵盖范围之外的标签，都可以直接在文件里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。&lt;/p&gt;
-&lt;p&gt;只有区块元素──比如 &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;table&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 等标签，必须在前后加上空行，以利与内容区隔。而且这些（元素）的开始与结尾标签，不可以用 tab 或是空白来缩排。Markdown 的产生器有智能型判断，可以避免在区块标签前后加上没有必要的 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 标签。&lt;/p&gt;
-&lt;p&gt;举例来说，在 Markdown 文件里加上一段 HTML 表格：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is a regular paragraph.
-
-&amp;lt;table&amp;gt;
-    &amp;lt;tr&amp;gt;
-        &amp;lt;td&amp;gt;Foo&amp;lt;/td&amp;gt;
-    &amp;lt;/tr&amp;gt;
-&amp;lt;/table&amp;gt;
-
-This is another regular paragraph.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;请注意，Markdown 语法在 HTML 区块卷标中将不会被进行处理。例如，你无法在 HTML 区块内使用 Markdown 形式的&lt;code&gt;*强调*&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;HTML 的区段标签如 &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;、&lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; 则不受限制，可以在 Markdown 的段落、清单或是标题里任意使用。依照个人习惯，甚至可以不用Markdown 格式，而采用 HTML 标签来格式化。举例说明：如果比较喜欢 HTML 的  &lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt; 或 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; 标签，可以直接使用这些标签，而不用 Markdown 提供的链接或是影像标示语法。&lt;/p&gt;
-&lt;p&gt;HTML 区段卷标和区块卷标不同，在区段标签的范围内， Markdown 的语法是有效的。&lt;/p&gt;
-&lt;h3 id=&quot;autoescape&quot;&gt;特殊字符自动转换&lt;/h3&gt;
-
-&lt;p&gt;在 HTML 文件中，有两个字符需要特殊处理： &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;&lt;/code&gt; 。 &lt;code&gt;&amp;lt;&lt;/code&gt; 符号用于起始卷标，&lt;code&gt;&amp;amp;&lt;/code&gt; 符号则用于标记 HTML 实体，如果你只是想要使用这些符号，你必须要使用实体的形式，像是 &lt;code&gt;&amp;amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;amp;&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;&amp;amp;&lt;/code&gt; 符号其实很容易让写作网络文件的人感到困扰，如果你要打「AT&amp;amp;T」 ，你必须要写成「&lt;code&gt;AT&amp;amp;amp;T&lt;/code&gt;」 ，还得转换网址内的 &lt;code&gt;&amp;amp;&lt;/code&gt; 符号，如果你要链接到：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;http://images.google.com/images?num=30&amp;amp;q=larry+bird
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你必须要把网址转成：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;http://images.google.com/images?num=30&amp;amp;amp;q=larry+bird
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;才能放到链接卷标的 &lt;code&gt;href&lt;/code&gt; 属性里。不用说也知道这很容易忘记，这也可能是 HTML 标准检查所检查到的错误中，数量最多的。&lt;/p&gt;
-&lt;p&gt;Markdown 允许你直接使用这些符号，但是你要小心跳脱字符的使用，如果你是在HTML 实体中使用 &lt;code&gt;&amp;amp;&lt;/code&gt; 符号的话，它不会被转换，而在其它情形下，它则会被转换成 &lt;code&gt;&amp;amp;amp;&lt;/code&gt;。所以你如果要在文件中插入一个著作权的符号，你可以这样写：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;amp;copy;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 将不会对这段文字做修改，但是如果你这样写：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;AT&amp;amp;T
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 就会将它转为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;AT&amp;amp;amp;T
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;类似的状况也会发生在 &lt;code&gt;&amp;lt;&lt;/code&gt; 符号上，因为 Markdown 支持 &lt;a href=&quot;#html&quot;&gt;行内 HTML&lt;/a&gt; ，如果你是使用 &lt;code&gt;&amp;lt;&lt;/code&gt; 符号作为 HTML 卷标使用，那 Markdown 也不会对它做任何转换，但是如果你是写：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;4 &amp;lt; 5
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 将会把它转换为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;4 &amp;amp;lt; 5
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;不过需要注意的是，code 范围内，不论是行内还是区块， &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;&lt;/code&gt; 两个符号都&lt;em&gt;一定&lt;/em&gt;会被转换成 HTML 实体，这项特性让你可以很容易地用 Markdown 写 HTML code （和 HTML 相对而言， HTML 语法中，你要把所有的 &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;amp;&lt;/code&gt; 都转换为 HTML 实体，才能在 HTML 文件里面写出 HTML code。）&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;block&quot;&gt;区块元素&lt;/h2&gt;
-
-
-&lt;h3 id=&quot;p&quot;&gt;段落和换行&lt;/h3&gt;
-
-&lt;p&gt;一个段落是由一个以上相连接的行句组成，而一个以上的空行则会切分出不同的段落（空行的定义是显示上看起来像是空行，便会被视为空行。比方说，若某一行只包含空白和 tab，则该行也会被视为空行），一般的段落不需要用空白或断行缩排。&lt;/p&gt;
-&lt;p&gt;「一个以上相连接的行句组成」这句话其实暗示了 Markdown 允许段落内的强迫断行，这个特性和其他大部分的 text-to-HTML 格式不一样（包括 MovableType 的「Convert Line Breaks」选项），其它的格式会把每个断行都转成 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; 标签。&lt;/p&gt;
-&lt;p&gt;如果你&lt;em&gt;真的&lt;/em&gt;想要插入 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; 标签的话，在行尾加上两个以上的空白，然后按 enter。&lt;/p&gt;
-&lt;p&gt;是的，这确实需要花比较多功夫来插入 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt; ，但是「每个换行都转换为 &lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;」的方法在 Markdown 中并不适合， Markdown 中 email 式的 &lt;a href=&quot;#blockquote&quot;&gt;区块引言&lt;/a&gt; 和多段落的 &lt;a href=&quot;#list&quot;&gt;清单&lt;/a&gt; 在使用换行来排版的时候，不但更好用，还更好阅读。&lt;/p&gt;
-&lt;h3 id=&quot;header&quot;&gt;标题&lt;/h3&gt;
-
-&lt;p&gt;Markdown 支持两种标题的语法，&lt;a href=&quot;http://docutils.sourceforge.net/mirror/setext.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Setext&lt;/a&gt; 和 &lt;a href=&quot;http://www.aaronsw.com/2002/atx/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;atx&lt;/a&gt; 形式。&lt;/p&gt;
-&lt;p&gt;Setext 形式是用底线的形式，利用 &lt;code&gt;=&lt;/code&gt; （最高阶标题）和 &lt;code&gt;-&lt;/code&gt; （第二阶标题），例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is an H1
-=============
-
-This is an H2
--------------
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;任何数量的 &lt;code&gt;=&lt;/code&gt; 和 &lt;code&gt;-&lt;/code&gt; 都可以有效果。&lt;/p&gt;
-&lt;p&gt;Atx 形式则是在行首插入 1 到 6 个 &lt;code&gt;#&lt;/code&gt; ，对应到标题 1 到 6 阶，例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# This is an H1
-
-## This is an H2
-
-###### This is an H6
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你可以选择性地「关闭」atx 样式的标题，这纯粹只是美观用的，若是觉得这样看起来比较舒适，你就可以在行尾加上 &lt;code&gt;#&lt;/code&gt;，而行尾的 &lt;code&gt;#&lt;/code&gt; 数量也不用和开头一样（行首的井字数量决定标题的阶数）：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;# This is an H1 #
-
-## This is an H2 ##
-
-### This is an H3 ######
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;blockquote&quot;&gt;Blockquotes&lt;/h3&gt;
-
-&lt;p&gt;Markdown 使用 email 形式的区块引言，如果你很熟悉如何在 email 信件中引言，你就知道怎么在 Markdown 文件中建立一个区块引言，那会看起来像是你强迫断行，然后在每行的最前面加上 &lt;code&gt;&amp;gt;&lt;/code&gt; ：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-&amp;gt; consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-&amp;gt; Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-&amp;gt; 
-&amp;gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-&amp;gt; id sem consectetuer libero luctus adipiscing.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 也允许你只在整个段落的第一行最前面加上 &lt;code&gt;&amp;gt;&lt;/code&gt; ：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
-Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
-
-&amp;gt; Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse
-id sem consectetuer libero luctus adipiscing.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;区块引言可以有阶层（例如：引言内的引言），只要根据层数加上不同数量的 &lt;code&gt;&amp;gt;&lt;/code&gt; ：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; This is the first level of quoting.
-&amp;gt;
-&amp;gt; &amp;gt; This is nested blockquote.
-&amp;gt;
-&amp;gt; Back to the first level.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;引言的区块内也可以使用其他的 Markdown 语法，包括标题、列表、程序代码区块等：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;gt; ## This is a header.
-&amp;gt; 
-&amp;gt; 1.   This is the first list item.
-&amp;gt; 2.   This is the second list item.
-&amp;gt; 
-&amp;gt; Here&amp;apos;s some example code:
-&amp;gt; 
-&amp;gt;     return shell_exec(&amp;quot;echo $input | $markdown_script&amp;quot;);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;任何标准的文本编辑器都能简单地建立 email 样式的引言，例如 BBEdit ，你可以选取文字后然后从选单中选择&lt;em&gt;增加引言阶层&lt;/em&gt;。&lt;/p&gt;
-&lt;h3 id=&quot;list&quot;&gt;清单&lt;/h3&gt;
-
-&lt;p&gt;Markdown 支持有序列表和无序列表。&lt;/p&gt;
-&lt;p&gt;无序清单使用星号、加号或是减号作为列表标记：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   Red
-*   Green
-*   Blue
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;等同于：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;+   Red
-+   Green
-+   Blue
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;也等同于：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;-   Red
--   Green
--   Blue
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;有序列表则使用数字接着一个英文句点：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1.  Bird
-2.  McHale
-3.  Parish
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;很重要的一点是，你在列表标记上使用的数字并不会影响输出的 HTML 结果，上面的列表所产生的 HTML 标记为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;ol&amp;gt;
-&amp;lt;li&amp;gt;Bird&amp;lt;/li&amp;gt;
-&amp;lt;li&amp;gt;McHale&amp;lt;/li&amp;gt;
-&amp;lt;li&amp;gt;Parish&amp;lt;/li&amp;gt;
-&amp;lt;/ol&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你的列表标记写成：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1.  Bird
-1.  McHale
-1.  Parish
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;或甚至是：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;3. Bird
-1. McHale
-8. Parish
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你都会得到完全相同的 HTML 输出。重点在于，你可以让 Markdown 文件的列表数字和输出的结果相同，或是你懒一点，你可以完全不用在意数字的正确性。&lt;/p&gt;
-&lt;p&gt;如果你使用懒惰的写法，建议第一个项目最好还是从 1. 开始，因为 Markdown 未来可能会支持有序列表的 start 属性。&lt;/p&gt;
-&lt;p&gt;列表项目标记通常是放在最左边，但是其实也可以缩排，最多三个空白，项目标记后面则一定要接着至少一个空白或 tab。&lt;/p&gt;
-&lt;p&gt;要让清单看起来更漂亮，你可以把内容用固定的缩排整理好：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-    viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-    Suspendisse id sem consectetuer libero luctus adipiscing.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是如果你很懒，那也不一定需要：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi,
-viverra nec, fringilla in, laoreet vitae, risus.
-*   Donec sit amet nisl. Aliquam semper ipsum sit amet velit.
-Suspendisse id sem consectetuer libero luctus adipiscing.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果列表项目间用空行分开， Markdown 会把项目的内容在输出时用 &lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;&lt;br&gt;标签包起来，举例来说：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   Bird
-*   Magic
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会被转换为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;ul&amp;gt;
-&amp;lt;li&amp;gt;Bird&amp;lt;/li&amp;gt;
-&amp;lt;li&amp;gt;Magic&amp;lt;/li&amp;gt;
-&amp;lt;/ul&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是这个：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   Bird
-
-*   Magic
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会被转换为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;ul&amp;gt;
-&amp;lt;li&amp;gt;&amp;lt;p&amp;gt;Bird&amp;lt;/p&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;li&amp;gt;&amp;lt;p&amp;gt;Magic&amp;lt;/p&amp;gt;&amp;lt;/li&amp;gt;
-&amp;lt;/ul&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;列表项目可以包含多个段落，每个项目下的段落都必须缩排 4 个空白或是一个 tab ：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1.  This is a list item with two paragraphs. Lorem ipsum dolor
-    sit amet, consectetuer adipiscing elit. Aliquam hendrerit
-    mi posuere lectus.
-
-    Vestibulum enim wisi, viverra nec, fringilla in, laoreet
-    vitae, risus. Donec sit amet nisl. Aliquam semper ipsum
-    sit amet velit.
-
-2.  Suspendisse id sem consectetuer libero luctus adipiscing.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你每行都有缩排，看起来会看好很多，当然，再次地，如果你很懒惰，Markdown 也允许：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   This is a list item with two paragraphs.
-
-    This is the second paragraph in the list item. You&amp;apos;re
-only required to indent the first line. Lorem ipsum dolor
-sit amet, consectetuer adipiscing elit.
-
-*   Another item in the same list.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果要在列表项目内放进引言，那 &lt;code&gt;&amp;gt;&lt;/code&gt; 就需要缩排：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   A list item with a blockquote:
-
-    &amp;gt; This is a blockquote
-    &amp;gt; inside a list item.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果要放程序代码区块的话，该区块就需要缩排&lt;em&gt;两次&lt;/em&gt;，也就是 8 个空白或是两个 tab：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*   A list item with a code block:
-
-        &amp;lt;code goes here&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;当然，项目列表很可能会不小心产生，像是下面这样的写法：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1986. What a great season.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;换句话说，也就是在行首出现&lt;em&gt;数字-句点-空白&lt;/em&gt;，要避免这样的状况，你可以在句点前面加上反斜杠。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;1986\. What a great season.
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;precode&quot;&gt;程序代码区块&lt;/h3&gt;
-
-&lt;p&gt;和程序相关的写作或是卷标语言原始码通常会有已经排版好的程序代码区块，通常这些区块我们并不希望它以一般段落文件的方式去排版，而是照原来的样子显示，Markdown 会用 &lt;code&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; 和 &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; 标签来把程序代码区块包起来。&lt;/p&gt;
-&lt;p&gt;要在 Markdown 中建立程序代码区块很简单，只要简单地缩排 4 个空白或是 1 个 tab 就可以，例如，下面的输入：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is a normal paragraph:
-
-    This is a code block.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 会转换成：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This is a normal paragraph:&amp;lt;/p&amp;gt;
-
-&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;This is a code block.
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这个每行一阶的缩排（4 个空白或是 1 个 tab），都会被移除，例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Here is an example of AppleScript:
-
-    tell application &amp;quot;Foo&amp;quot;
-        beep
-    end tell
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会被转换为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Here is an example of AppleScript:&amp;lt;/p&amp;gt;
-
-&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;tell application &amp;quot;Foo&amp;quot;
-    beep
-end tell
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;一个程序代码区块会一直持续到没有缩排的那一行（或是文件结尾）。&lt;/p&gt;
-&lt;p&gt;在程序代码区块里面， &lt;code&gt;&amp;amp;&lt;/code&gt; 、 &lt;code&gt;&amp;lt;&lt;/code&gt; 和 &lt;code&gt;&amp;gt;&lt;/code&gt; 会自动转成 HTML 实体，这样的方式让你非常容易使用 Markdown 插入范例用的 HTML 原始码，只需要复制贴上，再加上缩排就可以了，剩下的 Markdown 都会帮你处理，例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;footer&amp;quot;&amp;gt;
-    &amp;amp;copy; 2004 Foo Corporation
-&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会被转换为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;pre&amp;gt;&amp;lt;code&amp;gt;&amp;amp;lt;div class=&amp;quot;footer&amp;quot;&amp;amp;gt;
-    &amp;amp;amp;copy; 2004 Foo Corporation
-&amp;amp;lt;/div&amp;amp;gt;
-&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;程序代码区块中，一般的 Markdown 语法不会被转换，像是星号便只是星号，这表示你可以很容易地以 Markdown 语法撰写 Markdown 语法相关的文件。&lt;/p&gt;
-&lt;h3 id=&quot;hr&quot;&gt;分隔线&lt;/h3&gt;
-
-&lt;p&gt;你可以在一行中用三个或以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号中间插入空白。下面每种写法都可以建立分隔线：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;* * *
-
-***
-
-*****
-
-- - -
-
----------------------------------------
-&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
-&lt;h2 id=&quot;span&quot;&gt;区段元素&lt;/h2&gt;
-
-&lt;h3 id=&quot;link&quot;&gt;连结&lt;/h3&gt;
-
-&lt;p&gt;Markdown 支持两种形式的链接语法： &lt;em&gt;行内&lt;/em&gt;和&lt;em&gt;参考&lt;/em&gt;两种形式。&lt;/p&gt;
-&lt;p&gt;不管是哪一种，链接的文字都是用 [方括号] 来标记。&lt;/p&gt;
-&lt;p&gt;要建立一个行内形式的连结，只要在方块括号后面马上接着括号并插入网址连结即可，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可，例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is [an example](http://example.com/ &amp;quot;Title&amp;quot;) inline link.
-
-[This link](http://example.net/) has no title attribute.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会产生：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;This is &amp;lt;a href=&amp;quot;http://example.com/&amp;quot; title=&amp;quot;Title&amp;quot;&amp;gt;
-an example&amp;lt;/a&amp;gt; inline link.&amp;lt;/p&amp;gt;
-
-&amp;lt;p&amp;gt;&amp;lt;a href=&amp;quot;http://example.net/&amp;quot;&amp;gt;This link&amp;lt;/a&amp;gt; has no
-title attribute.&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果你是要链接到同样主机的资源，你可以使用相对路径：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;See my [About](/about/) page for details.   
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参考形式的连结使用另外一个方括号接在链接文字的括号后面，而在第二个方括号里面要填入用以辨识链接的标签：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is [an example][id] reference-style link.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你也可以选择性地在两个方括号中间加上空白：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;This is [an example] [id] reference-style link.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;接着，在文件的任意处，你可以把这个标签的链接内容定义出来：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[id]: http://example.com/  &amp;quot;Optional Title Here&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;连结定义的形式为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;方括号，里面输入链接的辨识用标签&lt;/li&gt;
-&lt;li&gt;接着一个冒号&lt;/li&gt;
-&lt;li&gt;接着一个以上的空白或 tab&lt;/li&gt;
-&lt;li&gt;接着连结的网址&lt;/li&gt;
-&lt;li&gt;选择性地接着 title 内容，可以用单引号、双引号或是括号包着&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;下面这三种连结的定义都是相同：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[foo]: http://example.com/  &amp;quot;Optional Title Here&amp;quot;
-[foo]: http://example.com/  &amp;apos;Optional Title Here&amp;apos;
-[foo]: http://example.com/  (Optional Title Here)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;请注意：&lt;/strong&gt;有一个已知的问题是 Markdown.pl 1.0.1 会忽略单引号包起来的连结 title。&lt;/p&gt;
-&lt;p&gt;连结网址也可以用方括号包起来：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[id]: &amp;lt;http://example.com/&amp;gt;  &amp;quot;Optional Title Here&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你也可以把 title 属性放到下一行，也可以加一些缩排，网址太长的话，这样会比较好看：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[id]: http://example.com/longish/path/to/resource/here
-    &amp;quot;Optional Title Here&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;网址定义只有在产生连结的时候用到，并不会直接出现在文件之中。&lt;/p&gt;
-&lt;p&gt;链接辨识卷标可以有字母、数字、空白和标点符号，但是并&lt;em&gt;不&lt;/em&gt;区分大小写，因此下面两个连结是一样的：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[link text][a]
-[link text][A]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;em&gt;默认的链接卷标&lt;/em&gt;功能让你可以省略指定链接标签，这种情形下，链接卷标和链接文字会视为相同，要用默认链接卷标只要在链接文字后面加上一个空的方括号，如果你要让 “Google” 连结到 google.com，你可以简化成：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[Google][]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后定义连结内容：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[Google]: http://google.com/
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;由于链接文字可能包含空白，所以这种简化的标签内也可以包含多个文字：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Visit [Daring Fireball][] for more information.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后接着定义连结：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[Daring Fireball]: http://daringfireball.net/
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;连结的定义可以放在文件中的任何一个地方，我比较偏好直接放在连结出现段落的后面，你也可以把它放在文件最后面，就像是批注一样。&lt;/p&gt;
-&lt;p&gt;下面是一个参考式链接的范例：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;I get 10 times more traffic from [Google] [1] than from
-[Yahoo] [2] or [MSN] [3].
-
-  [1]: http://google.com/        &amp;quot;Google&amp;quot;
-  [2]: http://search.yahoo.com/  &amp;quot;Yahoo Search&amp;quot;
-  [3]: http://search.msn.com/    &amp;quot;MSN Search&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果改成用连结名称的方式写：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;I get 10 times more traffic from [Google][] than from
-[Yahoo][] or [MSN][].
-
-  [google]: http://google.com/        &amp;quot;Google&amp;quot;
-  [yahoo]:  http://search.yahoo.com/  &amp;quot;Yahoo Search&amp;quot;
-  [msn]:    http://search.msn.com/    &amp;quot;MSN Search&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;上面两种写法都会产生下面的 HTML。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;I get 10 times more traffic from &amp;lt;a href=&amp;quot;http://google.com/&amp;quot;
-title=&amp;quot;Google&amp;quot;&amp;gt;Google&amp;lt;/a&amp;gt; than from
-&amp;lt;a href=&amp;quot;http://search.yahoo.com/&amp;quot; title=&amp;quot;Yahoo Search&amp;quot;&amp;gt;Yahoo&amp;lt;/a&amp;gt;
-or &amp;lt;a href=&amp;quot;http://search.msn.com/&amp;quot; title=&amp;quot;MSN Search&amp;quot;&amp;gt;MSN&amp;lt;/a&amp;gt;.&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;下面是用行内形式写的同样一段内容的 Markdown 文件，提供作为比较之用：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;I get 10 times more traffic from [Google](http://google.com/ &amp;quot;Google&amp;quot;)
-than from [Yahoo](http://search.yahoo.com/ &amp;quot;Yahoo Search&amp;quot;) or
-[MSN](http://search.msn.com/ &amp;quot;MSN Search&amp;quot;).
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;参考式的连结其实重点不在于它比较好写，而是它比较好读，比较一下上面的范例，使用参考式的文章本身只有 81 个字符，但是用行内形式的连结却会增加到 176 个字符，如果是用纯 HTML 格式来写，会有 234 个字符，在 HTML 格式中，卷标比文字还要多。&lt;/p&gt;
-&lt;p&gt;使用 Markdown 的参考式连结，可以让文件更像是浏览器最后产生的结果，让你可以把一些标记相关的信息移到段落文字之外，你就可以增加连结而不让文章的阅读感觉被打断。&lt;/p&gt;
-&lt;h3 id=&quot;em&quot;&gt;强调&lt;/h3&gt;
-
-&lt;p&gt;Markdown 使用星号（&lt;code&gt;*&lt;/code&gt;）和底线（&lt;code&gt;_&lt;/code&gt;）作为标记强调字词的符号，被 &lt;code&gt;*&lt;/code&gt; 或 &lt;code&gt;_&lt;/code&gt; 包围的字词会被转成用 &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt; 标签包围，用两个 &lt;code&gt;*&lt;/code&gt; 或 &lt;code&gt;_&lt;/code&gt; 包起来的话，则会被转成 &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;，例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;*single asterisks*
-
-_single underscores_
-
-**double asterisks**
-
-__double underscores__
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会转成：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;em&amp;gt;single asterisks&amp;lt;/em&amp;gt;
-
-&amp;lt;em&amp;gt;single underscores&amp;lt;/em&amp;gt;
-
-&amp;lt;strong&amp;gt;double asterisks&amp;lt;/strong&amp;gt;
-
-&amp;lt;strong&amp;gt;double underscores&amp;lt;/strong&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你可以随便用你喜欢的样式，唯一的限制是，你用什么符号开启卷标，就要用什么符号结束。&lt;/p&gt;
-&lt;p&gt;强调也可以直接插在文字中间：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;un*frigging*believable
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;但是如果你的 &lt;code&gt;*&lt;/code&gt; 和 &lt;code&gt;_&lt;/code&gt; 两边都有空白的话，它们就只会被当成普通的符号。&lt;/p&gt;
-&lt;p&gt;如果要在文字前后直接插入普通的星号或底线，你可以用反斜杠：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;\*this text is surrounded by literal asterisks\*
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;code&quot;&gt;程序代码&lt;/h3&gt;
-
-&lt;p&gt;如果要标记一小段行内程序代码，你可以用反引号把它包起来（&lt;code&gt;` &lt;/code&gt;），例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Use the `printf()` function.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会产生：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Use the &amp;lt;code&amp;gt;printf()&amp;lt;/code&amp;gt; function.&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果要在程序代码区段内插入反引号，你可以用多个反引号来开启和结束程序代码区段：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;``There is a literal backtick (`) here.``
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这段语法会产生：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;There is a literal backtick (`) here.&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;程序代码区段的起始和结束端都可以放入一个空白，起始端后面一个，结束端前面一个，这样你就可以在区段的一开始就插入反引号：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;A single backtick in a code span: `` ` ``
-
-A backtick-delimited string in a code span: `` `foo` ``
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;会产生：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;A single backtick in a code span: &amp;lt;code&amp;gt;`&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
-
-&amp;lt;p&amp;gt;A backtick-delimited string in a code span: &amp;lt;code&amp;gt;`foo`&amp;lt;/code&amp;gt;&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在程序代码区段内，&lt;code&gt;&amp;amp;&lt;/code&gt; 和方括号都会被转成 HTML 实体，这样会比较容易插入 HTML 原始码，Markdown 会把下面这段：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Please don&amp;apos;t use any `&amp;lt;blink&amp;gt;` tags.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;转为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;Please don&amp;apos;t use any &amp;lt;code&amp;gt;&amp;amp;lt;blink&amp;amp;gt;&amp;lt;/code&amp;gt; tags.&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;你也可以这样写：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;`&amp;amp;#8212;` is the decimal-encoded equivalent of `&amp;amp;mdash;`.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以产生：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p&amp;gt;&amp;lt;code&amp;gt;&amp;amp;amp;#8212;&amp;lt;/code&amp;gt; is the decimal-encoded
-equivalent of &amp;lt;code&amp;gt;&amp;amp;amp;mdash;&amp;lt;/code&amp;gt;.&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;img&quot;&gt;图片&lt;/h3&gt;
-
-&lt;p&gt;很明显地，要在纯文本应用中设计一个 「自然」的语法来插入图片是有一定难度的。&lt;/p&gt;
-&lt;p&gt;Markdown 使用一种和链接很相似的语法来标记图片，同样也允许两种样式： &lt;em&gt;行内&lt;/em&gt;和&lt;em&gt;参考&lt;/em&gt;。&lt;/p&gt;
-&lt;p&gt;行内图片的语法看起来像是：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;![Alt text](/path/to/img.jpg)
-
-![Alt text](/path/to/img.jpg &amp;quot;Optional title&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;详细叙述如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一个惊叹号 &lt;code&gt;!&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;接着一对方括号，里面放上图片的替换文字&lt;/li&gt;
-&lt;li&gt;接着一对普通括号，里面放上图片的网址，最后还可以用引号包住并加上&lt;br&gt;选择性的 ‘title’ 文字。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;参考式的图片语法则长得像这样：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;![Alt text][id]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;「id」是图片参考的名称，图片参考的定义方式则和连结参考一样：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[id]: url/to/image  &amp;quot;Optional title attribute&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;到目前为止， Markdown 还没有办法指定图片的宽高，如果你需要的话，你可以使用普通的 &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; 标签。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&quot;misc&quot;&gt;其它&lt;/h2&gt;
-
-&lt;h3 id=&quot;autolink&quot;&gt;自动连结&lt;/h3&gt;
-
-&lt;p&gt;Markdown 支持比较简短的自动连结形式来处理网址和电子邮件信箱，只要是用方括号包起来， Markdown 就会自动把它转成链接，链接的文字就和链接位置一样，例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;http://example.com/&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 会转为：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;http://example.com/&amp;quot;&amp;gt;http://example.com/&amp;lt;/a&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;自动的邮件连结也很类似，只是 Markdown 会先做一个编码转换的过程，把文字字符转成 16 进位码的 HTML 实体，这样的格式可以混淆一些不好的信箱地址收集机器人，例如：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;address@example.com&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 会转成：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;a href=&amp;quot;&amp;amp;#x6D;&amp;amp;#x61;i&amp;amp;#x6C;&amp;amp;#x74;&amp;amp;#x6F;:&amp;amp;#x61;&amp;amp;#x64;&amp;amp;#x64;&amp;amp;#x72;&amp;amp;#x65;
-&amp;amp;#115;&amp;amp;#115;&amp;amp;#64;&amp;amp;#101;&amp;amp;#120;&amp;amp;#x61;&amp;amp;#109;&amp;amp;#x70;&amp;amp;#x6C;e&amp;amp;#x2E;&amp;amp;#99;&amp;amp;#111;
-&amp;amp;#109;&amp;quot;&amp;gt;&amp;amp;#x61;&amp;amp;#x64;&amp;amp;#x64;&amp;amp;#x72;&amp;amp;#x65;&amp;amp;#115;&amp;amp;#115;&amp;amp;#64;&amp;amp;#101;&amp;amp;#120;&amp;amp;#x61;
-&amp;amp;#109;&amp;amp;#x70;&amp;amp;#x6C;e&amp;amp;#x2E;&amp;amp;#99;&amp;amp;#111;&amp;amp;#109;&amp;lt;/a&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在浏览器里面，这段字符串会变成一个可以点击的「address@example.com」连结。&lt;/p&gt;
-&lt;p&gt;（这种作法虽然可以混淆不少的机器人，但并无法全部挡下来，不过这样也比什么都不做好些。无论如何，公开你的信箱终究会引来广告信件的。）&lt;/p&gt;
-&lt;h3 id=&quot;backslash&quot;&gt;跳脱字符&lt;/h3&gt;
-
-&lt;p&gt;Markdown 可以利用反斜杠来插入一些在语法中有其它意义的符号，例如：如果你想要用星号加在文字旁边的方式来做出强调效果（但不用 &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt; 标签），你可以在星号的前面加上反斜杠：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;\*literal asterisks\*
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Markdown 支持在下面这些符号前面加上反斜杠来帮助插入普通的符号：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;\   反斜杠
-`   反引号
-*   星号
-_   底线
-{}  大括号
-[]  方括号
-()  括号
-#   井字号
-+    加号
--    减号
-.   英文句点
-!   惊叹号
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;acknowledgement&quot;&gt;感谢&lt;/h2&gt;
-
-&lt;p&gt;感谢 &lt;a href=&quot;https://twitter.com/#!/leafy7382&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;leafy7382&lt;/a&gt; 协助翻译，&lt;a href=&quot;http://iamhlb.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hlb&lt;/a&gt;、&lt;a href=&quot;http://twitter.com/randylien&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Randylien&lt;/a&gt; 帮忙润稿，&lt;a href=&quot;https://twitter.com/#!/ethantw&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ethantw&lt;/a&gt; 的&lt;a href=&quot;http://ethantw.net/projects/han/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;汉字标准格式・CSS Reset&lt;/a&gt;， &lt;a href=&quot;http://kidwm.net/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;WM&lt;/a&gt; 回报文字错误。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Markdown-文件&quot;&gt;&lt;a href=&quot;#Markdown-文件&quot; class=&quot;headerlink&quot; title=&quot;Markdown 文件&quot;&gt;&lt;/a&gt;Markdown 文件&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://markdown.tw/images/208x128.png&quot; alt=&quot;Markdown&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This is Simplified Chinese Edition Document of&lt;br&gt;Markdown Syntax. If you are seeking for English Edition&lt;br&gt;Document. Please refer to &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown: Syntax&lt;/a&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="基础学习" scheme="http://jznudt.github.io/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="Markdown" scheme="http://jznudt.github.io/tags/Markdown/"/>
     
   </entry>
   

@@ -1,0 +1,619 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>模型数据验证概述 | 品创信联</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Zhao Jing">
+    
+
+    
+    <meta name="description" content="从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模型数据验证概述">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/index.html">
+<meta property="og:site_name" content="品创信联">
+<meta property="og:description" content="从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。">
+<meta property="og:updated_time" content="2016-07-23T02:23:17.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模型数据验证概述">
+<meta name="twitter:description" content="从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。">
+
+    
+    <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/RecoveryMgr.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/F22.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/F22.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/Fighter.gif" alt="品创信联" title="品创信联"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="品创信联">品创信联</a></h1>
+				<h2 class="blog-motto">品创世界，信联天下</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:jznudt.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2016/07/23/ModelVVAIntroduction/" title="模型数据验证概述" itemprop="url">模型数据验证概述</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
+		
+  <p class="article-time">
+    <time datetime="2016-07-23T02:04:14.000Z" itemprop="datePublished"> 发表于 2016-07-23</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#影响模型有效性的因素分析"><span class="toc-number">1.</span> <span class="toc-text">影响模型有效性的因素分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建模过程中忽略了部分次要因素"><span class="toc-number">1.1.</span> <span class="toc-text">建模过程中忽略了部分次要因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前尚无一套完整评价方法来检验哪些约束可忽略"><span class="toc-number">1.2.</span> <span class="toc-text">目前尚无一套完整评价方法来检验哪些约束可忽略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型仿真实验时间过短"><span class="toc-number">1.3.</span> <span class="toc-text">模型仿真实验时间过短</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型初始数据确定失误"><span class="toc-number">1.4.</span> <span class="toc-text">模型初始数据确定失误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入随机数据分布的确定"><span class="toc-number">1.5.</span> <span class="toc-text">输入随机数据分布的确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型输出结果的统计误差"><span class="toc-number">1.6.</span> <span class="toc-text">模型输出结果的统计误差</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型数据验证工作的难点"><span class="toc-number">2.</span> <span class="toc-text">模型数据验证工作的难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型的验证是一个逐步迭代的过程"><span class="toc-number">2.1.</span> <span class="toc-text">模型的验证是一个逐步迭代的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型数据验证工作具有模糊性"><span class="toc-number">2.2.</span> <span class="toc-text">模型数据验证工作具有模糊性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证工作受到多种因素影响"><span class="toc-number">2.3.</span> <span class="toc-text">模型验证工作受到多种因素影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证过程中往往存在大量的统计分析与计算"><span class="toc-number">2.4.</span> <span class="toc-text">模型验证过程中往往存在大量的统计分析与计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#难以得到或者得不到实际系统输出行为的可靠结果"><span class="toc-number">2.5.</span> <span class="toc-text">难以得到或者得不到实际系统输出行为的可靠结果</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。</p>
+<a id="more"></a>
+<h2 id="影响模型有效性的因素分析"><a href="#影响模型有效性的因素分析" class="headerlink" title="影响模型有效性的因素分析"></a>影响模型有效性的因素分析</h2><p>模型与实际系统无法完全吻合的主要因素总结如下：</p>
+<h3 id="建模过程中忽略了部分次要因素"><a href="#建模过程中忽略了部分次要因素" class="headerlink" title="建模过程中忽略了部分次要因素"></a>建模过程中忽略了部分次要因素</h3><p>一些因素因为对所研究的系统（建模对象），或对研究的目标相关性较小，因此在建模中可以忽略。这种忽略在一定程度上具有潜在的危险。</p>
+<h3 id="目前尚无一套完整评价方法来检验哪些约束可忽略"><a href="#目前尚无一套完整评价方法来检验哪些约束可忽略" class="headerlink" title="目前尚无一套完整评价方法来检验哪些约束可忽略"></a>目前尚无一套完整评价方法来检验哪些约束可忽略</h3><p>在建模过程中，常常是凭经验取舍，这不可避免地造成了模型与现实系统的差异。</p>
+<h3 id="模型仿真实验时间过短"><a href="#模型仿真实验时间过短" class="headerlink" title="模型仿真实验时间过短"></a>模型仿真实验时间过短</h3><p>模型所描述的系统通常是复杂、慢变过程，该类模型的实验、测试等往往需要许多时间。因各种条件限制，无法获取足够大的统计样本，导致输出数据严重不足，进而导致模型输出结果不可信。</p>
+<h3 id="模型初始数据确定失误"><a href="#模型初始数据确定失误" class="headerlink" title="模型初始数据确定失误"></a>模型初始数据确定失误</h3><p>模型的初始状态对其输出结果有着直接影响，特别是在运行时间较短的情况下，模型输出结果将具有较大的偏差。</p>
+<h3 id="输入随机数据分布的确定"><a href="#输入随机数据分布的确定" class="headerlink" title="输入随机数据分布的确定"></a>输入随机数据分布的确定</h3><p>模型中多含有一定数量的随机变量，它们分布确定的正确与否直接影响模型的质量。</p>
+<h3 id="模型输出结果的统计误差"><a href="#模型输出结果的统计误差" class="headerlink" title="模型输出结果的统计误差"></a>模型输出结果的统计误差</h3><p>对特定测试条件下模型输出结果的收集和统计有严格的要求。实际中，许多模型很难得到大量输出数据，因此导致其统计结果失效。</p>
+<h2 id="模型数据验证工作的难点"><a href="#模型数据验证工作的难点" class="headerlink" title="模型数据验证工作的难点"></a>模型数据验证工作的难点</h2><p>总体上看，模型数据校验工作的难点体现在以下方面：</p>
+<h3 id="模型的验证是一个逐步迭代的过程"><a href="#模型的验证是一个逐步迭代的过程" class="headerlink" title="模型的验证是一个逐步迭代的过程"></a>模型的验证是一个逐步迭代的过程</h3><p>模型是建模者依据特定目的，按照相似原理对实际系统的科学抽象与简化描述，它反映了建模者对实际系统由感性到理性人事的阶段，这种认识的正确、精确与否，需要经过实践检验。因此，模型验证工作实际上是“实践——理论——实践”的循环过程。</p>
+<h3 id="模型数据验证工作具有模糊性"><a href="#模型数据验证工作具有模糊性" class="headerlink" title="模型数据验证工作具有模糊性"></a>模型数据验证工作具有模糊性</h3><p>模型是原型的相似系统，这种相似具有一定的不确定性。这种不确定性不仅与建模者对原型认识的深刻程度有关，而且与他采用的方法、技巧等有关。</p>
+<h3 id="模型验证工作受到多种因素影响"><a href="#模型验证工作受到多种因素影响" class="headerlink" title="模型验证工作受到多种因素影响"></a>模型验证工作受到多种因素影响</h3><p>首先是模型本身的因素。一个完整的模型包含两个方面的内容：一方面是它的结构，另一方面是它的参数。结构往往可以代表某一类模型的共性，而参数的加入，体现的是模型的个性。这两方面是模型能否代表原型的决定因素，是内因。</p>
+<p>其次是模型运行的环境即外因，其中最基本的是给模型系统施加的输入作用。这种作用应与给实际系统施加的作用相似，只有这样，才能为分析判断模型的有效性创造条件。</p>
+<h3 id="模型验证过程中往往存在大量的统计分析与计算"><a href="#模型验证过程中往往存在大量的统计分析与计算" class="headerlink" title="模型验证过程中往往存在大量的统计分析与计算"></a>模型验证过程中往往存在大量的统计分析与计算</h3><p>假设检验、统计判断、置信区间估计等都要涉及到复杂的计算。因此，模型验证工作需要付出很高的代价，特别是对于复杂的大型军用软件更是如此，以致模型的全面验证实际上成为不可能。</p>
+<h3 id="难以得到或者得不到实际系统输出行为的可靠结果"><a href="#难以得到或者得不到实际系统输出行为的可靠结果" class="headerlink" title="难以得到或者得不到实际系统输出行为的可靠结果"></a>难以得到或者得不到实际系统输出行为的可靠结果</h3><p>比如导弹武器系统，尽管可以通过打靶试验获得有关真实系统的一些行为特征数据，但这些参考数据是极其有限的，对进行全面的验证来说是不充分的。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/关键技术/">关键技术</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/模型验证/">模型验证</a><a href="/tags/数据验证/">数据验证</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/" data-title="模型数据验证概述 | 品创信联" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2016/07/23/ModelVVABasicConcepts/"  title="模型数据校核基础概念">
+ <strong>下一篇：</strong><br/> 
+ <span>模型数据校核基础概念
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2016/07/23/ModelVVAIntroduction/" data-title="模型数据验证概述" data-url="http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#影响模型有效性的因素分析"><span class="toc-number">1.</span> <span class="toc-text">影响模型有效性的因素分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建模过程中忽略了部分次要因素"><span class="toc-number">1.1.</span> <span class="toc-text">建模过程中忽略了部分次要因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前尚无一套完整评价方法来检验哪些约束可忽略"><span class="toc-number">1.2.</span> <span class="toc-text">目前尚无一套完整评价方法来检验哪些约束可忽略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型仿真实验时间过短"><span class="toc-number">1.3.</span> <span class="toc-text">模型仿真实验时间过短</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型初始数据确定失误"><span class="toc-number">1.4.</span> <span class="toc-text">模型初始数据确定失误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入随机数据分布的确定"><span class="toc-number">1.5.</span> <span class="toc-text">输入随机数据分布的确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型输出结果的统计误差"><span class="toc-number">1.6.</span> <span class="toc-text">模型输出结果的统计误差</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型数据验证工作的难点"><span class="toc-number">2.</span> <span class="toc-text">模型数据验证工作的难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型的验证是一个逐步迭代的过程"><span class="toc-number">2.1.</span> <span class="toc-text">模型的验证是一个逐步迭代的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型数据验证工作具有模糊性"><span class="toc-number">2.2.</span> <span class="toc-text">模型数据验证工作具有模糊性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证工作受到多种因素影响"><span class="toc-number">2.3.</span> <span class="toc-text">模型验证工作受到多种因素影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证过程中往往存在大量的统计分析与计算"><span class="toc-number">2.4.</span> <span class="toc-text">模型验证过程中往往存在大量的统计分析与计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#难以得到或者得不到实际系统输出行为的可靠结果"><span class="toc-number">2.5.</span> <span class="toc-text">难以得到或者得不到实际系统输出行为的可靠结果</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="jznudt" data-width="220" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/代码分享/" title="代码分享">代码分享<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/关键技术/" title="关键技术">关键技术<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/基础学习/" title="基础学习">基础学习<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/奇思妙想/" title="奇思妙想">奇思妙想<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/技术前沿/" title="技术前沿">技术前沿<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/深沉思索/" title="深沉思索">深沉思索<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/点滴随笔/" title="点滴随笔">点滴随笔<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/编程杂感/" title="编程杂感">编程杂感<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/行业综述/" title="行业综述">行业综述<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/防务观察/" title="防务观察">防务观察<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/设计模式/" title="设计模式">设计模式<sup>5</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/C/" title="C++">C++<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/发展综述/" title="发展综述">发展综述<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/雷达电子战/" title="雷达电子战">雷达电子战<sup>3</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/导引头/" title="导引头">导引头<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/功能扩展/" title="功能扩展">功能扩展<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CUDA/" title="CUDA">CUDA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/多线程/" title="多线程">多线程<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MFC控件/" title="MFC控件">MFC控件<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/六自由度/" title="六自由度">六自由度<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/重构/" title="重构">重构<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面向对象分析与设计/" title="面向对象分析与设计">面向对象分析与设计<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信号级仿真/" title="信号级仿真">信号级仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/时效性/" title="时效性">时效性<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/闭环仿真/" title="闭环仿真">闭环仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/缓冲器/" title="缓冲器">缓冲器<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计与实现/" title="设计与实现">设计与实现<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/策略模式/" title="策略模式">策略模式<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模型校验/" title="模型校验">模型校验<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  
+  <div class="archiveslist">
+    <p class="asidetitle"><a href="/archives">归档</a></p>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">25</span></li></ul>
+  </div>
+
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">标签云</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/AIM-120/" style="font-size: 10px;">AIM-120</a> <a href="/tags/API设计/" style="font-size: 10px;">API设计</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-源码/" style="font-size: 10px;">C++源码</a> <a href="/tags/CUDA/" style="font-size: 12.5px;">CUDA</a> <a href="/tags/GDI/" style="font-size: 10px;">GDI</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/MFC控件/" style="font-size: 10px;">MFC控件</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/VR/" style="font-size: 10px;">VR</a> <a href="/tags/云计算/" style="font-size: 10px;">云计算</a> <a href="/tags/仿真引擎/" style="font-size: 10px;">仿真引擎</a> <a href="/tags/仿真评估/" style="font-size: 10px;">仿真评估</a> <a href="/tags/信号级仿真/" style="font-size: 10px;">信号级仿真</a> <a href="/tags/六自由度/" style="font-size: 10px;">六自由度</a> <a href="/tags/功能扩展/" style="font-size: 12.5px;">功能扩展</a> <a href="/tags/半实物仿真/" style="font-size: 10px;">半实物仿真</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/反舰导弹/" style="font-size: 10px;">反舰导弹</a> <a href="/tags/发展综述/" style="font-size: 15px;">发展综述</a> <a href="/tags/多线程/" style="font-size: 12.5px;">多线程</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/导引头/" style="font-size: 12.5px;">导引头</a> <a href="/tags/导航/" style="font-size: 10px;">导航</a> <a href="/tags/并行仿真/" style="font-size: 10px;">并行仿真</a> <a href="/tags/战术导弹/" style="font-size: 10px;">战术导弹</a> <a href="/tags/抗干扰/" style="font-size: 10px;">抗干扰</a> <a href="/tags/数据校验/" style="font-size: 10px;">数据校验</a> <a href="/tags/数据验证/" style="font-size: 10px;">数据验证</a> <a href="/tags/时效性/" style="font-size: 10px;">时效性</a> <a href="/tags/模型校验/" style="font-size: 10px;">模型校验</a> <a href="/tags/模型验证/" style="font-size: 10px;">模型验证</a> <a href="/tags/电子战仿真/" style="font-size: 10px;">电子战仿真</a> <a href="/tags/电磁环境/" style="font-size: 10px;">电磁环境</a> <a href="/tags/空空导弹/" style="font-size: 10px;">空空导弹</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/缓冲器/" style="font-size: 10px;">缓冲器</a> <a href="/tags/脉冲多普勒/" style="font-size: 10px;">脉冲多普勒</a> <a href="/tags/设计与实现/" style="font-size: 10px;">设计与实现</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/试验鉴定/" style="font-size: 10px;">试验鉴定</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a> <a href="/tags/闭环仿真/" style="font-size: 10px;">闭环仿真</a> <a href="/tags/雷达P显/" style="font-size: 10px;">雷达P显</a> <a href="/tags/雷达电子战/" style="font-size: 15px;">雷达电子战</a> <a href="/tags/静态变量/" style="font-size: 10px;">静态变量</a> <a href="/tags/面向对象分析与设计/" style="font-size: 10px;">面向对象分析与设计</a>
+    </div>
+  </div>
+
+
+  
+
+<div class="doubanshow">
+<p class="asidetitle">豆瓣秀</p>
+<div>
+<script type="text/javascript" src="http://www.douban.com/service/badge/jznudt/?show=collection&amp;n=12&amp;columns=3&amp;hidelogo=yes&amp;hideself=yes&amp;cat=book|movie" ></script>
+</div>
+</div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	
+	<section class="info">
+		<p> 致力于雷达电子战仿真评估 <br/>
+			Sweat is the lubricant of success</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		<a href="https://github.com/jznudt" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://www.douban.com/people/jznudt" target="_blank" class="icon-douban" title="豆瓣"></a>
+		
+		
+		<a href="http://www.zhihu.com/people/jznudt" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:jznudt@126.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2016 
+		
+		<a href="/about" target="_blank" title="Zhao Jing">Zhao Jing</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"jznudt"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
