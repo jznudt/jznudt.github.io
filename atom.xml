@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-23T02:23:17.282Z</updated>
+  <updated>2016-07-23T07:06:08.540Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将线程池技术应用于并行仿真引擎设计？</title>
+    <link href="http://jznudt.github.io/2016/07/23/ThreadPoolIntro/"/>
+    <id>http://jznudt.github.io/2016/07/23/ThreadPoolIntro/</id>
+    <published>2016-07-23T06:47:22.000Z</published>
+    <updated>2016-07-23T07:06:08.540Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_ThreadPoolPrincipal.png&quot; alt=&quot;ThreadPoolPrincipal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;为了充分利用多核的优势，我们利用多线程来进行进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;线程本身存在开销，系统必须为每个线程分配如栈、TLS（线程局部存储）、寄存器等；&lt;/li&gt;
+&lt;li&gt;系统管理会给系统带来开销，上下文切换同样会给系统带来成本；&lt;/li&gt;
+&lt;li&gt;线程本身是可重用的资源，不需要每次都进行初始化操作。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以往往在使用中，我们无需把线程和&lt;code&gt;Task任务&lt;/code&gt;进行一对一的映射，只需要预先初始化有效的线程个数来处理无限的任务即可。相应地，&lt;strong&gt;线程池技术&lt;/strong&gt;应运而生，原理也就是如此。&lt;/p&gt;
+&lt;p&gt;从图中可看出，线程池中主要含有三个队列：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;工作队列&lt;/li&gt;
+&lt;li&gt;工作线程队列&lt;/li&gt;
+&lt;li&gt;忙碌线程队列&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;工作队列是一个阻塞队列，任务（仿函数）不断地被添加进来（自动地阻塞获取的工作线程），工作线程队列（一直不变）则从该队列中获取任务执行（当任务队列为空时阻塞等待通知），如果获取到任务，则将线程送入到忙碌线程队列中，执行任务的仿函数，当任务完成时，重新移出工作线程队列。&lt;/p&gt;
+&lt;p&gt;上述线程池技术有效地实现了线程、任务的解耦，并且能够有效地管理多个线程，在进行并行仿真引擎设计时，将起到良好的效果。下一步将进行这样的尝试，在线程池技术的基础上，设计出一个良好的并行仿真引擎。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_ThreadPoolPrincipal.png&quot; alt=&quot;ThreadPoolPrincipal&quot;&gt;&lt;/p&gt;
+&lt;p&gt;为了充分利用多核的优势，我们利用多线程来进行进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：
+    
+    </summary>
+    
+      <category term="点滴随笔" scheme="http://jznudt.github.io/categories/%E7%82%B9%E6%BB%B4%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="多线程" scheme="http://jznudt.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="并行仿真" scheme="http://jznudt.github.io/tags/%E5%B9%B6%E8%A1%8C%E4%BB%BF%E7%9C%9F/"/>
+    
+      <category term="线程池" scheme="http://jznudt.github.io/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>模型数据验证概述</title>
@@ -124,9 +167,9 @@
       <category term="行业综述" scheme="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
     
     
-      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
-    
       <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
     
   </entry>
   
@@ -229,9 +272,9 @@
       <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
     
     
-      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
-    
       <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
     
   </entry>
   
@@ -735,41 +778,6 @@
       <category term="雷达P显" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BEP%E6%98%BE/"/>
     
       <category term="C++源码" scheme="http://jznudt.github.io/tags/C-%E6%BA%90%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>多线程控制问题</title>
-    <link href="http://jznudt.github.io/2016/07/21/MultiThreadCtrl/"/>
-    <id>http://jznudt.github.io/2016/07/21/MultiThreadCtrl/</id>
-    <published>2016-07-21T04:32:35.000Z</published>
-    <updated>2016-07-21T04:38:08.242Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;自组织线程设计&quot;&gt;&lt;a href=&quot;#自组织线程设计&quot; class=&quot;headerlink&quot; title=&quot;自组织线程设计&quot;&gt;&lt;/a&gt;自组织线程设计&lt;/h2&gt;&lt;p&gt;在开发某业务系统过程中，遇到了多线程开发的问题。由于业务逻辑较为复杂，系统中使用了接近50个线程，它们有着不同的业务逻辑和线程执行函数（ProcFunction），所以无法通过for循环方式来创建。由于每个线程的创建、同步、退出/销毁等操作都需要外部手动控制，造成了代码的混乱和重复。为了避免上述问题，想到了设计一个自组织、功能完善的工作线程类WorkThread，它的骨干代码如下所示：&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
- &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;42&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;44&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;45&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;46&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;47&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;48&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;49&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;50&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;51&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;52&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;53&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;54&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;55&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;56&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;57&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//设计完善的自组织工作线程&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; WorkThread&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    WorkThread() : m_hThread(&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        m_hEvent = CreateEvent(&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, TRUE, FALSE, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//初始无信号状态&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; ~WorkThread()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        CloseHandle(m_hEvent);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; != m_hThread)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            CloseHandle(m_hThread);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            m_hThread = &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt;    BOOL    &lt;span class=&quot;title&quot;&gt;Create&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        DWORD dw;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        m_hThread = ::CreateThread(&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, ProcFunction, &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt;, &amp;amp;dw);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;comment&quot;&gt;//控制线程暂时不执行相关代码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; == m_hThread) ? FALSE : TRUE;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; BOOL    &lt;span class=&quot;title&quot;&gt;Start&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt;        &lt;span class=&quot;title&quot;&gt;Execute&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//业务相关&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; BOOL    &lt;span class=&quot;title&quot;&gt;Pause&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; BOOL    &lt;span class=&quot;title&quot;&gt;Resume&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; BOOL    &lt;span class=&quot;title&quot;&gt;Terminate&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;virtual&lt;/span&gt; BOOL    &lt;span class=&quot;title&quot;&gt;Destroy&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;BOOL            &lt;span class=&quot;title&quot;&gt;IsActive&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;BOOL            &lt;span class=&quot;title&quot;&gt;IsExit&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;protected&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    HANDLE    m_hThread;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    HANDLE  m_hEvent;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;private&lt;/span&gt;:&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; DWORD WINAPI &lt;span class=&quot;title&quot;&gt;ProcFunction&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(LPVOID lParam)&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        WorkThread* pThread = (WorkThread*)lParam;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(&lt;span class=&quot;literal&quot;&gt;NULL&lt;/span&gt; == pThread)     &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        DWORD dw = pThread-&amp;gt;Execute();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; dw;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;设计问题&quot;&gt;&lt;a href=&quot;#设计问题&quot; class=&quot;headerlink&quot; title=&quot;设计问题&quot;&gt;&lt;/a&gt;设计问题&lt;/h2&gt;&lt;p&gt;在上述代码的实现过程中，有下面一些疑问，具体包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;工作线程类中采用何种方式进行同步较为便捷，例如互斥、事件、信号量或者是临界区？&lt;/li&gt;
-&lt;li&gt;如果想实现线程创建后暂不执行，应该如何实现？在MFC中可以通过AfxBeginThread()函数实现，但不知晓具体的实现方式。&lt;/li&gt;
-&lt;li&gt;在线程函数执行完毕后不自动销毁，因为要执行额外的清理操作，那么应该如何实现？&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;自组织线程设计&quot;&gt;&lt;a href=&quot;#自组织线程设计&quot; class=&quot;headerlink&quot; title=&quot;自组织线程设计&quot;&gt;&lt;/a&gt;自组织线程设计&lt;/h2&gt;&lt;p&gt;在开发某业务系统过程中，遇到了多线程开发的问题。由于业务逻辑较为复杂，系统中使用了接近50个线程，它们有着不同的业务逻辑和线程执行函数（ProcFunction），所以无法通过for循环方式来创建。由于每个线程的创建、同步、退出/销毁等操作都需要外部手动控制，造成了代码的混乱和重复。为了避免上述问题，想到了设计一个自组织、功能完善的工作线程类WorkThread，它的骨干代码如下所示：&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="编程杂感" scheme="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
-    
-    
-      <category term="多线程" scheme="http://jznudt.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
-      <category term="并行仿真" scheme="http://jznudt.github.io/tags/%E5%B9%B6%E8%A1%8C%E4%BB%BF%E7%9C%9F/"/>
-    
-      <category term="仿真引擎" scheme="http://jznudt.github.io/tags/%E4%BB%BF%E7%9C%9F%E5%BC%95%E6%93%8E/"/>
     
   </entry>
   

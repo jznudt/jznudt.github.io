@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/ThreadPoolIntro/</loc>
+    <lastmod>2016-07-23T07:06:08.540Z</lastmod>
+    <data>
+        <display>
+        <title>将线程池技术应用于并行仿真引擎设计？</title>
+        <pubTime>2016-07-23T06:47:22.000Z</pubTime>
+        
+        <tag>多线程</tag>
+         
+        <tag>并行仿真</tag>
+         
+        <tag>线程池</tag>
+         
+         
+           
+             
+              <breadCrumb title="点滴随笔" url="http://jznudt.github.io/categories/%E7%82%B9%E6%BB%B4%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/</loc>
+    <lastmod>2016-07-23T02:37:28.945Z</lastmod>
+    <data>
+        <display>
+        <title>脉冲多普勒导引头抗干扰技术概述</title>
+        <pubTime>2016-07-23T01:31:04.000Z</pubTime>
+        
+        <tag>导引头</tag>
+         
+        <tag>脉冲多普勒</tag>
+         
+        <tag>抗干扰</tag>
+         
+         
+           
+             
+              <breadCrumb title="关键技术" url="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/CloudBigDataThinking/</loc>
+    <lastmod>2016-07-23T02:33:48.706Z</lastmod>
+    <data>
+        <display>
+        <title>关于云计算与大数据的一些思考</title>
+        <pubTime>2016-07-23T01:20:25.000Z</pubTime>
+        
+        <tag>云计算</tag>
+         
+        <tag>大数据</tag>
+         
+         
+           
+             
+              <breadCrumb title="深沉思索" url="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/RadarEWProblems/</loc>
+    <lastmod>2016-07-23T02:31:20.817Z</lastmod>
+    <data>
+        <display>
+        <title>雷达电子战仿真若干思考</title>
+        <pubTime>2016-07-23T00:52:22.000Z</pubTime>
+        
+        <tag>雷达电子战</tag>
+         
+        <tag>发展综述</tag>
+         
+         
+           
+             
+              <breadCrumb title="深沉思索" url="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/</loc>
+    <lastmod>2016-07-23T02:23:17.282Z</lastmod>
+    <data>
+        <display>
+        <title>模型数据验证概述</title>
+        <pubTime>2016-07-23T02:04:14.000Z</pubTime>
+        
+        <tag>模型验证</tag>
+         
+        <tag>数据验证</tag>
+         
+         
+           
+             
+              <breadCrumb title="关键技术" url="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/ModelVVABasicConcepts/</loc>
+    <lastmod>2016-07-23T02:16:11.035Z</lastmod>
+    <data>
+        <display>
+        <title>模型数据校核基础概念</title>
+        <pubTime>2016-07-23T02:04:00.000Z</pubTime>
+        
+        <tag>模型校验</tag>
+         
+        <tag>数据校验</tag>
+         
+         
+           
+             
+              <breadCrumb title="关键技术" url="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/RadarEWSimDevelopment/</loc>
+    <lastmod>2016-07-23T02:00:47.599Z</lastmod>
+    <data>
+        <display>
+        <title>雷达电子战仿真系统发展现状</title>
+        <pubTime>2016-07-23T01:43:05.000Z</pubTime>
+        
+        <tag>雷达电子战</tag>
+         
+        <tag>发展综述</tag>
+         
+         
+           
+             
+              <breadCrumb title="行业综述" url="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/VRRadarEWWorld/</loc>
+    <lastmod>2016-07-22T05:29:42.762Z</lastmod>
+    <data>
+        <display>
+        <title>VR技术与雷达电子战领域结合畅想</title>
+        <pubTime>2016-07-22T05:04:41.000Z</pubTime>
+        
+        <tag>雷达电子战</tag>
+         
+        <tag>VR</tag>
+         
+         
+           
+             
+              <breadCrumb title="奇思妙想" url="http://jznudt.github.io/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/AdapterModeDEV/</loc>
+    <lastmod>2016-07-22T05:29:33.277Z</lastmod>
+    <data>
+        <display>
+        <title>适配器模式的妙用？</title>
+        <pubTime>2016-07-22T05:14:11.000Z</pubTime>
+        
+        <tag>设计模式</tag>
+         
+        <tag>功能扩展</tag>
+         
+         
+           
+             
+              <breadCrumb title="奇思妙想" url="http://jznudt.github.io/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/CTreeCtrlExpand/</loc>
+    <lastmod>2016-07-22T05:29:21.811Z</lastmod>
+    <data>
+        <display>
+        <title>展开CTreeCtrl控件全部节点</title>
+        <pubTime>2016-07-22T02:45:12.000Z</pubTime>
+        
+        <tag>C++</tag>
+         
+        <tag>MFC控件</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码分享" url="http://jznudt.github.io/categories/%E4%BB%A3%E7%A0%81%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/SeaBattlefieldEM/</loc>
+    <lastmod>2016-07-22T05:29:10.735Z</lastmod>
+    <data>
+        <display>
+        <title>海战场电磁环境初步认知</title>
+        <pubTime>2016-07-22T01:47:47.000Z</pubTime>
+        
+        <tag>电磁环境</tag>
+         
+        <tag>反舰导弹</tag>
+         
+         
+           
+             
+              <breadCrumb title="深沉思索" url="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/SelectedBooksList/</loc>
+    <lastmod>2016-07-22T05:03:29.292Z</lastmod>
+    <data>
+        <display>
+        <title>精选书目</title>
+        <pubTime>2016-07-22T04:58:47.000Z</pubTime>
+        
+        <tag>仿真评估</tag>
+         
+        <tag>试验鉴定</tag>
+         
+         
+           
+             
+              <breadCrumb title="点滴随笔" url="http://jznudt.github.io/categories/%E7%82%B9%E6%BB%B4%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/EWCVLevelMS/</loc>
+    <lastmod>2016-07-22T04:54:10.163Z</lastmod>
+    <data>
+        <display>
+        <title>信号级仿真中的时效性问题初探</title>
+        <pubTime>2016-07-22T02:15:12.000Z</pubTime>
+        
+        <tag>CUDA</tag>
+         
+        <tag>信号级仿真</tag>
+         
+        <tag>时效性</tag>
+         
+        <tag>多线程</tag>
+         
+         
+           
+             
+              <breadCrumb title="深沉思索" url="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/CLP6DOFSim/</loc>
+    <lastmod>2016-07-22T04:50:59.240Z</lastmod>
+    <data>
+        <display>
+        <title>六自由度闭环仿真</title>
+        <pubTime>2016-07-22T01:17:47.000Z</pubTime>
+        
+        <tag>设计模式</tag>
+         
+        <tag>六自由度</tag>
+         
+        <tag>闭环仿真</tag>
+         
+         
+           
+             
+              <breadCrumb title="关键技术" url="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/22/CircleBuffer/</loc>
+    <lastmod>2016-07-22T04:26:23.180Z</lastmod>
+    <data>
+        <display>
+        <title>环形缓冲器的设计与C++实现</title>
+        <pubTime>2016-07-22T00:36:28.000Z</pubTime>
+        
+        <tag>C++</tag>
+         
+        <tag>缓冲器</tag>
+         
+        <tag>设计与实现</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码分享" url="http://jznudt.github.io/categories/%E4%BB%A3%E7%A0%81%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/USAFAAMAcqiure/</loc>
+    <lastmod>2016-07-21T12:44:26.323Z</lastmod>
+    <data>
+        <display>
+        <title>美空军启动下一代空空导弹采办</title>
+        <pubTime>2016-07-21T11:14:46.000Z</pubTime>
+        
+        <tag>空空导弹</tag>
+         
+        <tag>AIM-120</tag>
+         
+         
+           
+             
+              <breadCrumb title="防务观察" url="http://jznudt.github.io/categories/%E9%98%B2%E5%8A%A1%E8%A7%82%E5%AF%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/NovelPNTMethod/</loc>
+    <lastmod>2016-07-21T12:29:42.094Z</lastmod>
+    <data>
+        <display>
+        <title>美陆军提出新型导航方式</title>
+        <pubTime>2016-07-21T12:25:52.000Z</pubTime>
+        
+        <tag>导航</tag>
+         
+        <tag>GPS</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术前沿" url="http://jznudt.github.io/categories/%E6%8A%80%E6%9C%AF%E5%89%8D%E6%B2%BF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/HWILSeekerSim/</loc>
+    <lastmod>2016-07-21T12:24:11.090Z</lastmod>
+    <data>
+        <display>
+        <title>国外战术导弹导引头半实物仿真系统发展</title>
+        <pubTime>2016-07-21T12:13:47.000Z</pubTime>
+        
+        <tag>导引头</tag>
+         
+        <tag>半实物仿真</tag>
+         
+        <tag>战术导弹</tag>
+         
+         
+           
+             
+              <breadCrumb title="行业综述" url="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/CUDACodeTrans/</loc>
+    <lastmod>2016-07-21T11:11:45.809Z</lastmod>
+    <data>
+        <display>
+        <title>CUDA加速旧代码与OOAD的兼容性</title>
+        <pubTime>2016-07-21T11:09:29.000Z</pubTime>
+        
+        <tag>CUDA</tag>
+         
+        <tag>重构</tag>
+         
+        <tag>面向对象分析与设计</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程杂感" url="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/RadarPPIDisp/</loc>
+    <lastmod>2016-07-21T11:08:12.089Z</lastmod>
+    <data>
+        <display>
+        <title>利用GDI绘制雷达P显关键代码</title>
+        <pubTime>2016-07-21T10:57:47.000Z</pubTime>
+        
+        <tag>GDI</tag>
+         
+        <tag>雷达P显</tag>
+         
+        <tag>C++源码</tag>
+         
+         
+           
+             
+              <breadCrumb title="代码分享" url="http://jznudt.github.io/categories/%E4%BB%A3%E7%A0%81%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/SingletonStatic/</loc>
+    <lastmod>2016-07-21T04:40:33.983Z</lastmod>
+    <data>
+        <display>
+        <title>单例模式中的静态变量冲突</title>
+        <pubTime>2016-07-21T04:24:53.000Z</pubTime>
+        
+        <tag>C++</tag>
+         
+        <tag>设计模式</tag>
+         
+        <tag>单例模式</tag>
+         
+        <tag>静态变量</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程杂感" url="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/MultiThreadCtrl/</loc>
+    <lastmod>2016-07-21T04:38:08.242Z</lastmod>
+    <data>
+        <display>
+        <title>多线程控制问题</title>
+        <pubTime>2016-07-21T04:32:35.000Z</pubTime>
+        
+        <tag>多线程</tag>
+         
+        <tag>并行仿真</tag>
+         
+        <tag>仿真引擎</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程杂感" url="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/DLLModify/</loc>
+    <lastmod>2016-07-21T04:22:03.823Z</lastmod>
+    <data>
+        <display>
+        <title>闭源库的功能扩展与完善</title>
+        <pubTime>2016-07-21T04:09:01.000Z</pubTime>
+        
+        <tag>设计模式</tag>
+         
+        <tag>功能扩展</tag>
+         
+        <tag>策略模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程杂感" url="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/20/APIDesign/</loc>
+    <lastmod>2016-07-20T15:08:36.545Z</lastmod>
+    <data>
+        <display>
+        <title>屏蔽C++开发的功能模型API中的实现细节</title>
+        <pubTime>2016-07-20T14:38:02.000Z</pubTime>
+        
+        <tag>API设计</tag>
+         
+        <tag>C++</tag>
+         
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程杂感" url="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/20/EWSimTest/</loc>
+    <lastmod>2016-07-20T15:07:04.676Z</lastmod>
+    <data>
+        <display>
+        <title>电子战系统仿真与测试的发展</title>
+        <pubTime>2016-07-20T14:13:28.000Z</pubTime>
+        
+        <tag>发展综述</tag>
+         
+        <tag>电子战仿真</tag>
+         
+         
+           
+             
+              <breadCrumb title="行业综述" url="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/20/MarkDownSyntax/</loc>
+    <lastmod>2016-07-20T14:58:59.780Z</lastmod>
+    <data>
+        <display>
+        <title>Markdown文件语法学习</title>
+        <pubTime>2016-07-20T05:08:24.000Z</pubTime>
+        
+        <tag>Markdown</tag>
+         
+         
+           
+             
+              <breadCrumb title="基础学习" url="http://jznudt.github.io/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+</urlset>
