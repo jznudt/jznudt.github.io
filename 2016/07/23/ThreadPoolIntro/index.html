@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="为了充分利用多核的优势，我们利用多线程来进行进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：">
+    <meta name="description" content="为了充分利用多核的优势，我们利用多线程来进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="将线程池技术应用于并行仿真引擎设计？">
 <meta property="og:url" content="http://jznudt.github.io/2016/07/23/ThreadPoolIntro/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="为了充分利用多核的优势，我们利用多线程来进行进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：">
+<meta property="og:description" content="为了充分利用多核的优势，我们利用多线程来进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：">
 <meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_ThreadPoolPrincipal.png">
-<meta property="og:updated_time" content="2016-07-23T07:06:08.540Z">
+<meta property="og:updated_time" content="2016-07-24T00:08:34.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="将线程池技术应用于并行仿真引擎设计？">
-<meta name="twitter:description" content="为了充分利用多核的优势，我们利用多线程来进行进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：">
+<meta name="twitter:description" content="为了充分利用多核的优势，我们利用多线程来进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：">
 <meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_ThreadPoolPrincipal.png">
 
     
@@ -104,13 +104,13 @@
 		</div>
 		
 		<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_ThreadPoolPrincipal.png" alt="ThreadPoolPrincipal"></p>
-<p>为了充分利用多核的优势，我们利用多线程来进行进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：<a id="more"></a></p>
+<p>为了充分利用多核的优势，我们利用多线程来进行任务处理，但是线程也同样不能够滥用，它会带来下面的问题：<a id="more"></a></p>
 <ul>
 <li>线程本身存在开销，系统必须为每个线程分配如栈、TLS（线程局部存储）、寄存器等；</li>
-<li>系统管理会给系统带来开销，上下文切换同样会给系统带来成本；</li>
+<li>线程管理会给系统带来开销，上下文切换同样会给系统带来成本；</li>
 <li>线程本身是可重用的资源，不需要每次都进行初始化操作。</li>
 </ul>
-<p>所以往往在使用中，我们无需把线程和<code>Task任务</code>进行一对一的映射，只需要预先初始化有效的线程个数来处理无限的任务即可。相应地，<strong>线程池技术</strong>应运而生，原理也就是如此。</p>
+<p>所以往往在使用中，我们无需把线程和<code>Task任务</code>进行一对一的映射，只需要预先初始化有限的线程个数来处理无限的任务即可。相应地，<strong>线程池技术</strong>应运而生，原理也就是如此。</p>
 <p>从图中可看出，线程池中主要含有三个队列：</p>
 <ol>
 <li>工作队列</li>
@@ -154,6 +154,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2016/07/24/DLLDevThought/" title="功能模型开发中的一些问题">
+  <strong>上一篇：</strong><br/>
+  <span>
+  功能模型开发中的一些问题</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2016/07/23/ModelVVAIntroduction/"  title="模型数据验证概述">
@@ -225,7 +233,7 @@
 		  
 		
 		  
-			<li><a href="/categories/点滴随笔/" title="点滴随笔">点滴随笔<sup>2</sup></a></li>
+			<li><a href="/categories/点滴随笔/" title="点滴随笔">点滴随笔<sup>3</sup></a></li>
 		  
 		
 		  
@@ -258,7 +266,7 @@
 			
 		
 			
-				<li><a href="/tags/多线程/" title="多线程">多线程<sup>3</sup></a></li>
+				<li><a href="/tags/发展综述/" title="发展综述">发展综述<sup>3</sup></a></li>
 			
 		
 			
@@ -266,11 +274,15 @@
 			
 		
 			
-				<li><a href="/tags/发展综述/" title="发展综述">发展综述<sup>3</sup></a></li>
+				<li><a href="/tags/多线程/" title="多线程">多线程<sup>3</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/CUDA/" title="CUDA">CUDA<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/设计与实现/" title="设计与实现">设计与实现<sup>2</sup></a></li>
 			
 		
 			
@@ -286,7 +298,7 @@
 			
 		
 			
-				<li><a href="/tags/GPS/" title="GPS">GPS<sup>1</sup></a></li>
+				<li><a href="/tags/Markdown/" title="Markdown">Markdown<sup>1</sup></a></li>
 			
 		
 			
@@ -298,23 +310,7 @@
 			
 		
 			
-				<li><a href="/tags/缓冲器/" title="缓冲器">缓冲器<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/设计与实现/" title="设计与实现">设计与实现<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/策略模式/" title="策略模式">策略模式<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/信号级仿真/" title="信号级仿真">信号级仿真<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/时效性/" title="时效性">时效性<sup>1</sup></a></li>
+				<li><a href="/tags/六自由度/" title="六自由度">六自由度<sup>1</sup></a></li>
 			
 		
 			
@@ -322,11 +318,23 @@
 			
 		
 			
-				<li><a href="/tags/API设计/" title="API设计">API设计<sup>1</sup></a></li>
+				<li><a href="/tags/策略模式/" title="策略模式">策略模式<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/半实物仿真/" title="半实物仿真">半实物仿真<sup>1</sup></a></li>
+				<li><a href="/tags/电子战仿真/" title="电子战仿真">电子战仿真<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/面向对象分析与设计/" title="面向对象分析与设计">面向对象分析与设计<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/模型验证/" title="模型验证">模型验证<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/数据验证/" title="数据验证">数据验证<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -336,7 +344,7 @@
   
   <div class="archiveslist">
     <p class="asidetitle"><a href="/archives">归档</a></p>
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">26</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">27</span></li></ul>
   </div>
 
 
@@ -344,7 +352,7 @@
   <div class="tagcloudlist">
     <p class="asidetitle">标签云</p>
     <div class="tagcloudlist clearfix">
-       <a href="/tags/AIM-120/" style="font-size: 10px;">AIM-120</a> <a href="/tags/API设计/" style="font-size: 10px;">API设计</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-源码/" style="font-size: 10px;">C++源码</a> <a href="/tags/CUDA/" style="font-size: 12.5px;">CUDA</a> <a href="/tags/GDI/" style="font-size: 10px;">GDI</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/MFC控件/" style="font-size: 10px;">MFC控件</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/VR/" style="font-size: 10px;">VR</a> <a href="/tags/云计算/" style="font-size: 10px;">云计算</a> <a href="/tags/仿真引擎/" style="font-size: 10px;">仿真引擎</a> <a href="/tags/仿真评估/" style="font-size: 10px;">仿真评估</a> <a href="/tags/信号级仿真/" style="font-size: 10px;">信号级仿真</a> <a href="/tags/六自由度/" style="font-size: 10px;">六自由度</a> <a href="/tags/功能扩展/" style="font-size: 12.5px;">功能扩展</a> <a href="/tags/半实物仿真/" style="font-size: 10px;">半实物仿真</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/反舰导弹/" style="font-size: 10px;">反舰导弹</a> <a href="/tags/发展综述/" style="font-size: 15px;">发展综述</a> <a href="/tags/多线程/" style="font-size: 15px;">多线程</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/导引头/" style="font-size: 12.5px;">导引头</a> <a href="/tags/导航/" style="font-size: 10px;">导航</a> <a href="/tags/并行仿真/" style="font-size: 12.5px;">并行仿真</a> <a href="/tags/战术导弹/" style="font-size: 10px;">战术导弹</a> <a href="/tags/抗干扰/" style="font-size: 10px;">抗干扰</a> <a href="/tags/数据校验/" style="font-size: 10px;">数据校验</a> <a href="/tags/数据验证/" style="font-size: 10px;">数据验证</a> <a href="/tags/时效性/" style="font-size: 10px;">时效性</a> <a href="/tags/模型校验/" style="font-size: 10px;">模型校验</a> <a href="/tags/模型验证/" style="font-size: 10px;">模型验证</a> <a href="/tags/电子战仿真/" style="font-size: 10px;">电子战仿真</a> <a href="/tags/电磁环境/" style="font-size: 10px;">电磁环境</a> <a href="/tags/空空导弹/" style="font-size: 10px;">空空导弹</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/线程池/" style="font-size: 10px;">线程池</a> <a href="/tags/缓冲器/" style="font-size: 10px;">缓冲器</a> <a href="/tags/脉冲多普勒/" style="font-size: 10px;">脉冲多普勒</a> <a href="/tags/设计与实现/" style="font-size: 10px;">设计与实现</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/试验鉴定/" style="font-size: 10px;">试验鉴定</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a> <a href="/tags/闭环仿真/" style="font-size: 10px;">闭环仿真</a> <a href="/tags/雷达P显/" style="font-size: 10px;">雷达P显</a> <a href="/tags/雷达电子战/" style="font-size: 15px;">雷达电子战</a> <a href="/tags/静态变量/" style="font-size: 10px;">静态变量</a> <a href="/tags/面向对象分析与设计/" style="font-size: 10px;">面向对象分析与设计</a>
+       <a href="/tags/AIM-120/" style="font-size: 10px;">AIM-120</a> <a href="/tags/API设计/" style="font-size: 10px;">API设计</a> <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/C-源码/" style="font-size: 10px;">C++源码</a> <a href="/tags/CUDA/" style="font-size: 12.5px;">CUDA</a> <a href="/tags/GDI/" style="font-size: 10px;">GDI</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/MFC控件/" style="font-size: 10px;">MFC控件</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/VR/" style="font-size: 10px;">VR</a> <a href="/tags/云计算/" style="font-size: 10px;">云计算</a> <a href="/tags/仿真引擎/" style="font-size: 10px;">仿真引擎</a> <a href="/tags/仿真评估/" style="font-size: 10px;">仿真评估</a> <a href="/tags/信号级仿真/" style="font-size: 10px;">信号级仿真</a> <a href="/tags/六自由度/" style="font-size: 10px;">六自由度</a> <a href="/tags/功能扩展/" style="font-size: 12.5px;">功能扩展</a> <a href="/tags/功能模型/" style="font-size: 10px;">功能模型</a> <a href="/tags/半实物仿真/" style="font-size: 10px;">半实物仿真</a> <a href="/tags/单例模式/" style="font-size: 10px;">单例模式</a> <a href="/tags/反舰导弹/" style="font-size: 10px;">反舰导弹</a> <a href="/tags/发展综述/" style="font-size: 15px;">发展综述</a> <a href="/tags/多线程/" style="font-size: 15px;">多线程</a> <a href="/tags/大数据/" style="font-size: 10px;">大数据</a> <a href="/tags/导引头/" style="font-size: 12.5px;">导引头</a> <a href="/tags/导航/" style="font-size: 10px;">导航</a> <a href="/tags/并行仿真/" style="font-size: 12.5px;">并行仿真</a> <a href="/tags/战术导弹/" style="font-size: 10px;">战术导弹</a> <a href="/tags/抗干扰/" style="font-size: 10px;">抗干扰</a> <a href="/tags/数据校验/" style="font-size: 10px;">数据校验</a> <a href="/tags/数据验证/" style="font-size: 10px;">数据验证</a> <a href="/tags/时效性/" style="font-size: 10px;">时效性</a> <a href="/tags/模型校验/" style="font-size: 10px;">模型校验</a> <a href="/tags/模型验证/" style="font-size: 10px;">模型验证</a> <a href="/tags/电子战仿真/" style="font-size: 10px;">电子战仿真</a> <a href="/tags/电磁环境/" style="font-size: 10px;">电磁环境</a> <a href="/tags/空空导弹/" style="font-size: 10px;">空空导弹</a> <a href="/tags/策略模式/" style="font-size: 10px;">策略模式</a> <a href="/tags/线程池/" style="font-size: 10px;">线程池</a> <a href="/tags/缓冲器/" style="font-size: 10px;">缓冲器</a> <a href="/tags/脉冲多普勒/" style="font-size: 10px;">脉冲多普勒</a> <a href="/tags/设计与实现/" style="font-size: 12.5px;">设计与实现</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a> <a href="/tags/试验鉴定/" style="font-size: 10px;">试验鉴定</a> <a href="/tags/重构/" style="font-size: 10px;">重构</a> <a href="/tags/闭环仿真/" style="font-size: 10px;">闭环仿真</a> <a href="/tags/雷达P显/" style="font-size: 10px;">雷达P显</a> <a href="/tags/雷达电子战/" style="font-size: 15px;">雷达电子战</a> <a href="/tags/静态变量/" style="font-size: 10px;">静态变量</a> <a href="/tags/面向对象分析与设计/" style="font-size: 10px;">面向对象分析与设计</a>
     </div>
   </div>
 

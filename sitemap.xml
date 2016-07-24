@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jznudt.github.io/2016/07/24/DLLDevThought/</loc>
+    
+    <lastmod>2016-07-24T01:09:03.989Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jznudt.github.io/2016/07/21/RadarPPIDisp/</loc>
+    
+    <lastmod>2016-07-24T00:12:29.131Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://jznudt.github.io/2016/07/23/ThreadPoolIntro/</loc>
+    
+    <lastmod>2016-07-24T00:08:34.922Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jznudt.github.io/search/index.html</loc>
     
     <lastmod>2016-07-23T08:54:39.352Z</lastmod>
@@ -26,13 +47,6 @@
     <loc>http://jznudt.github.io/googlee6dd0751e7aa9e33.html</loc>
     
     <lastmod>2016-07-23T07:16:45.691Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jznudt.github.io/2016/07/23/ThreadPoolIntro/</loc>
-    
-    <lastmod>2016-07-23T07:06:08.540Z</lastmod>
     
   </url>
   
@@ -166,13 +180,6 @@
     <loc>http://jznudt.github.io/2016/07/21/CUDACodeTrans/</loc>
     
     <lastmod>2016-07-21T11:11:45.809Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jznudt.github.io/2016/07/21/RadarPPIDisp/</loc>
-    
-    <lastmod>2016-07-21T11:08:12.089Z</lastmod>
     
   </url>
   

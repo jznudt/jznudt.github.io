@@ -4,23 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>CUDA加速旧代码与OOAD的兼容性 | 品创信联</title>
+    <title>功能模型开发中的一些问题 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="最近刚上手GPU并行计算，考虑用其加速原来编写的通信信号处理库。改写过程中，发现CUDA基本上属于“面向过程”式编程，和通用的面向对象（OO）编程兼容性不是很好。它只能应用于具体算法的改进，而无法与封装、多态、继承和设计模式等OOAD（面向对象分析与设计）中的基本原则融合起来吗？">
+    <meta name="description" content="随着开发工作的逐步深入，有必要系统地总结下目前在开发过程中遇到的问题，并找出针对性的解决方案。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CUDA加速旧代码与OOAD的兼容性">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/21/CUDACodeTrans/index.html">
+<meta property="og:title" content="功能模型开发中的一些问题">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/24/DLLDevThought/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="最近刚上手GPU并行计算，考虑用其加速原来编写的通信信号处理库。改写过程中，发现CUDA基本上属于“面向过程”式编程，和通用的面向对象（OO）编程兼容性不是很好。它只能应用于具体算法的改进，而无法与封装、多态、继承和设计模式等OOAD（面向对象分析与设计）中的基本原则融合起来吗？">
-<meta property="og:updated_time" content="2016-07-21T11:11:45.809Z">
+<meta property="og:description" content="随着开发工作的逐步深入，有必要系统地总结下目前在开发过程中遇到的问题，并找出针对性的解决方案。">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160723_DLLDevThought.jpg">
+<meta property="og:updated_time" content="2016-07-24T01:09:03.989Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CUDA加速旧代码与OOAD的兼容性">
-<meta name="twitter:description" content="最近刚上手GPU并行计算，考虑用其加速原来编写的通信信号处理库。改写过程中，发现CUDA基本上属于“面向过程”式编程，和通用的面向对象（OO）编程兼容性不是很好。它只能应用于具体算法的改进，而无法与封装、多态、继承和设计模式等OOAD（面向对象分析与设计）中的基本原则融合起来吗？">
+<meta name="twitter:title" content="功能模型开发中的一些问题">
+<meta name="twitter:description" content="随着开发工作的逐步深入，有必要系统地总结下目前在开发过程中遇到的问题，并找出针对性的解决方案。">
+<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160723_DLLDevThought.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -81,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/21/CUDACodeTrans/" title="CUDA加速旧代码与OOAD的兼容性" itemprop="url">CUDA加速旧代码与OOAD的兼容性</a>
+      <a href="/2016/07/24/DLLDevThought/" title="功能模型开发中的一些问题" itemprop="url">功能模型开发中的一些问题</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-21T11:09:29.000Z" itemprop="datePublished"> 发表于 2016-07-21</time>
+    <time datetime="2016-07-24T00:38:01.000Z" itemprop="datePublished"> 发表于 2016-07-24</time>
     
   </p>
 </header>
@@ -97,11 +99,26 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本控制"><span class="toc-number">1.</span> <span class="toc-text">版本控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORM"><span class="toc-number">3.</span> <span class="toc-text">ORM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Doxygen"><span class="toc-number">4.</span> <span class="toc-text">Doxygen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动代码生成"><span class="toc-number">5.</span> <span class="toc-text">自动代码生成</span></a></li></ol>
 		
 		</div>
 		
-		<p>最近刚上手GPU并行计算，考虑用其加速原来编写的通信信号处理库。改写过程中，发现CUDA基本上属于“<strong>面向过程</strong>”式编程，和通用的面向对象（OO）编程<strong>兼容性</strong>不是很好。它只能应用于具体算法的改进，而无法与封装、多态、继承和设计模式等OOAD（面向对象分析与设计）中的基本原则融合起来吗？</p>
+		<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160723_DLLDevThought.jpg" alt="DLLDevelopmentThinking"></p>
+<p>随着开发工作的逐步深入，有必要系统地总结下目前在开发过程中遇到的<em>问题</em>，并找出针对性的解决方案。</p>
+<a id="more"></a>
+<h3 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h3><p>之前在开发时，多采用“小作坊”模式，没有过多地考虑团队协作，对版本控制这块儿考虑较少，例如最明显的是采用丑陋无比的“硬备份方式”，用不了多久硬盘中便充斥着各种打上时间戳的备份，时间一长根本无法记起各个版本之前的差别。随着模型、系统体量的逐渐扩大，对版本控制的需求逐渐地迫切起来。因为开发软件自身的性质，不便于使用Git这样的工具，目前采用的是<a href="https://tortoisesvn.net/" target="_blank" rel="external">TortoiseSVN</a>这种轻量级的工具，并结合<a href="https://www.visualsvn.com/" target="_blank" rel="external">VisualSVN</a>进行仓库控制。这种基于版本控制的开发思路，一定要坚定不移地贯彻到后续的开发过程中。</p>
+<h3 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h3><p>设计模式是软件工程领域中一套经过充分验证的<strong>经验、模式和策略的集合</strong>。在解决实际问题前，首先要思考一下，能否用这些成熟的设计模式来进行解决？有时候可能会略嫌啰嗦，比如可能会增加项目中类的数量、判决逻辑分散等，但从后期维护、功能扩展的角度来看，这些前期的工作都是值得的。目前，已经成功地将十余种设计模式应用于相关模型的开发，积累了一定的经验。</p>
+<h3 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h3><p>目前，面向对象分析与设计（OOAD）技术已经广泛地应用于模型、程序开发过程中，但与之对应的是，关系数据库的开发却进展较为缓慢。采用SQL语句来操作数据库会遇到各种不便，最为繁琐的是会出现很多意想不到的错误。</p>
+<p>对象-关系映射（OBJECT/RELATIONALMAPPING，ORM），是随着面向对象的软件开发方法发展而产生的。面向对象的开发方法是当今企业级应用开发环境中的主流开发方法，关系数据库是企业级应用环境中永久存放数据的主流数据存储系统。对象和关系数据是业务实体的两种表现形式，业务实体在内存中表现为对象，在数据库中表现为关系数据。内存中的对象之间存在关联和继承关系，而在数据库中，关系数据无法直接表达多对多关联和继承关系。因此，对象-关系映射(ORM)系统一般以中间件的形式存在，主要实现程序对象到关系数据库数据的映射。面向对象是从软件工程基本原则(如耦合、聚合、封装)的基础上发展起来的，而关系数据库则是从数学理论发展而来的，两套理论存在显著的区别。为了解决这个不匹配的现象,对象关系映射技术应运而生。目前，有一些较为成熟的框架，例如<a href="http://hibernate.org/" target="_blank" rel="external">Hibernate</a>，<a href="https://technet.microsoft.com/zh-cn/bb386976" target="_blank" rel="external">LINQ TO SQL</a>等，应该尽快熟悉这种技术，并将其应用于实际系统的开发。</p>
+<h3 id="Doxygen"><a href="#Doxygen" class="headerlink" title="Doxygen"></a>Doxygen</h3><p>对于程序员来说，撰写注释和文档往往是一件头疼的事情，自动化文档生成工具应运而生。虽然还无法生成目前项目研发中需要的各种文档，但至少可以为我们提供一份最为详尽的开发手册。<a href="http://www.doxygen.nl/" target="_blank" rel="external">Doxygen</a>就是其中的佼佼者。</p>
+<p>Doxygen是一种开源跨平台的，以类似JavaDoc风格描述的文档系统，完全支持C、C++、Java、Objective-C和IDL语言，部分支持PHP、C#。注释的语法与Qt-Doc、KDoc和JavaDoc兼容。Doxygen可以从一套归档源文件开始，生成HTML格式的在线类浏览器，或离线的LATEX、RTF参考手册。</p>
+<p>Doxygen 是一个程序的文件产生工具，可将程序中的特定批注转换成为说明文件。通常我们在写程序时，或多或少都会写上批注，但是对于其它人而言，要直接探索程序里的批注，与打捞泰坦尼克号同样的辛苦。大部分有用的批注都是属于针对函数、类型等等的说明。所以，如果能依据程序本身的结构，将批注经过处理重新整理成为一个纯粹的参考手册，对于后面利用您的程序代码的人而言将会减少许多的负担。不过，反过来说，整理文件的工作对于您来说，就是沉重的负担。</p>
+<p>对于未归档的源文件，也可以通过配置Doxygen来提取代码结构。或者借助自动生成的包含依赖图（includedependency graphs）、继承图（inheritance diagram）以及协作图（collaborationdiagram）来可视化文档之间的关系。Doxygen生成的帮助文档的格式可以是CHM、RTF、PostScript、PDF、HTML和Unixman page等。</p>
+<p>一个好的程序设计师，在写程序时，都会在适当的地方加上合适的批注。如果，能够在撰写批注时，稍微符合某种格式，接着就可以透过一个工具程序依据程序结构及您的批注产生出漂亮的文件。这将令许多工作繁重的程序设计师有时间多喝几杯咖啡。</p>
+<p>Doxygen 就是这样的一个工具。在您写批注时，稍微按照一些它所制订的规则。接着，他就可以帮您产生出漂亮的文件了。因此，Doxygen 的使用可分为两大部分。首先是特定格式的批注撰写，第二便是利用Doxygen的工具来产生文件。</p>
+<h3 id="自动代码生成"><a href="#自动代码生成" class="headerlink" title="自动代码生成"></a>自动代码生成</h3><p>UML（统一建模语言）是目前面向对象分析与设计的强力工具，最理想的情形是直接利用UML工具完成设计，然后通过框架自动生成代码。当前现在还没有办法完整地实现这个功能。</p>
+<p><a href="http://blog.csdn.net/losophy/article/details/12417531" target="_blank" rel="external">Rational Rose</a>包括了统一建模语言（UML），OOSE，以及OMT。其中统一建模语言（UML）由Rational公司3位世界级面向对象技术专家Grady Booch、Ivar Jacobson、和Jim Rumbaugh通过对早期面向对象研究和设计方法的进一步扩展而得来的，它为可视化建模软件奠定了坚实的理论基础。同时这样的渊源也使Rational Rose力挫当前市场上很多基于UML可视化建模的工具，例如Microsoft的Visio、Oracle的Designer，还有PlayCase 、CA BPWin、CA ERWin、Sybase PowerDesigner等等。</p>
+<p>Rational Rose 是一个完全的、具有能满足所有建模环境（Web开发，数据建模，Visual Studio和 C++ ）灵活性需求的一套解决方案。Rose 允许开发人员，项目经理，系统工程师和分析人员在软件开发周期内在将需求和系统的体系架构转换成代码，消除浪费的消耗，对需求和系统的体系架构进行可视化，理解和精练。通过在软件开发周期内使用同一种建模工具可以确保更快更好的创建满足客户需求的可扩展的、灵活的并且可靠的应用系统。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -109,13 +126,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/编程杂感/">编程杂感</a>
+  <a class="article-category-link" href="/categories/点滴随笔/">点滴随笔</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CUDA/">CUDA</a><a href="/tags/重构/">重构</a><a href="/tags/面向对象分析与设计/">面向对象分析与设计</a>
+  <span></span> <a href="/tags/设计与实现/">设计与实现</a><a href="/tags/功能模型/">功能模型</a>
   </div>
 
 </div>
@@ -124,7 +141,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/21/CUDACodeTrans/" data-title="CUDA加速旧代码与OOAD的兼容性 | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/07/24/DLLDevThought/" data-title="功能模型开发中的一些问题 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -137,19 +154,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/07/21/USAFAAMAcqiure/" title="美空军启动下一代空空导弹采办">
-  <strong>上一篇：</strong><br/>
-  <span>
-  美空军启动下一代空空导弹采办</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/07/21/RadarPPIDisp/"  title="利用GDI绘制雷达P显关键代码">
+<a href="/2016/07/23/ThreadPoolIntro/"  title="将线程池技术应用于并行仿真引擎设计？">
  <strong>下一篇：</strong><br/> 
- <span>利用GDI绘制雷达P显关键代码
+ <span>将线程池技术应用于并行仿真引擎设计？
 </span>
 </a>
 </div>
@@ -158,7 +167,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/21/CUDACodeTrans/" data-title="CUDA加速旧代码与OOAD的兼容性" data-url="http://jznudt.github.io/2016/07/21/CUDACodeTrans/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/24/DLLDevThought/" data-title="功能模型开发中的一些问题" data-url="http://jznudt.github.io/2016/07/24/DLLDevThought/"></div>
 </section>
 
 
@@ -168,7 +177,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#版本控制"><span class="toc-number">1.</span> <span class="toc-text">版本控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设计模式"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORM"><span class="toc-number">3.</span> <span class="toc-text">ORM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Doxygen"><span class="toc-number">4.</span> <span class="toc-text">Doxygen</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动代码生成"><span class="toc-number">5.</span> <span class="toc-text">自动代码生成</span></a></li></ol>
  
   </div>
 
