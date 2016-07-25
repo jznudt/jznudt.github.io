@@ -616,11 +616,11 @@
     
       <category term="CUDA" scheme="http://jznudt.github.io/tags/CUDA/"/>
     
-      <category term="多线程" scheme="http://jznudt.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
-    
       <category term="信号级仿真" scheme="http://jznudt.github.io/tags/%E4%BF%A1%E5%8F%B7%E7%BA%A7%E4%BB%BF%E7%9C%9F/"/>
     
       <category term="时效性" scheme="http://jznudt.github.io/tags/%E6%97%B6%E6%95%88%E6%80%A7/"/>
+    
+      <category term="多线程" scheme="http://jznudt.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
