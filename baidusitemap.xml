@@ -4,16 +4,16 @@
 
     
   <url>
-    <loc>http://jznudt.github.io/2016/07/25/ModelVVAApproaches/</loc>
-    <lastmod>2016-07-25T13:01:15.250Z</lastmod>
+    <loc>http://jznudt.github.io/2016/07/25/ModelVVAMethodIntros/</loc>
+    <lastmod>2016-07-25T13:10:54.448Z</lastmod>
     <data>
         <display>
-        <title>常用模型验证方法及适用性总结</title>
-        <pubTime>2016-07-25T12:24:02.000Z</pubTime>
+        <title>模型数据验证的一般方法概述</title>
+        <pubTime>2016-07-25T12:13:36.000Z</pubTime>
         
-        <tag>模型校验</tag>
-         
         <tag>数据验证</tag>
+         
+        <tag>模型验证</tag>
          
          
            
@@ -26,16 +26,16 @@
 
     
   <url>
-    <loc>http://jznudt.github.io/2016/07/25/ModelVVAMethodIntros/</loc>
-    <lastmod>2016-07-25T12:23:37.761Z</lastmod>
+    <loc>http://jznudt.github.io/2016/07/25/ModelVVAApproaches/</loc>
+    <lastmod>2016-07-25T13:01:15.250Z</lastmod>
     <data>
         <display>
-        <title>模型数据验证的一般方法概述</title>
-        <pubTime>2016-07-25T12:13:36.000Z</pubTime>
+        <title>常用模型验证方法及适用性总结</title>
+        <pubTime>2016-07-25T12:24:02.000Z</pubTime>
         
-        <tag>数据验证</tag>
+        <tag>模型校验</tag>
          
-        <tag>模型验证</tag>
+        <tag>数据验证</tag>
          
          
            
