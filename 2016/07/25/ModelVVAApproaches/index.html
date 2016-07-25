@@ -4,56 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>精选书目 | 品创信联</title>
+    <title>常用模型验证方法及适用性总结 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="最近较为系统地整理了本领域内的精读书目，和大家分享一下：
-
-《现代雷达装备综合试验与评价》
-《战争复杂系统仿真分析与实验》
-《复杂系统建模与仿真》
-《武器装备作战效能仿真与评估》
-《装备作战试验理论与方法》
-《武器装备综合试验与评估》
-《机载导弹武器系统作战效能评估》
-《战场环境概论》
-《反舰导弹战场电磁环境仿真及试验鉴定技术》
-《联合作战中的空军司令部》">
+    <meta name="description" content="在模型校验过程中，不同校验方法的选择，与校验对象的具体特点紧密相关。在MIS（军用信息系统）的开发过程中，除了最终得到软件系统外，主要的中间产品包括功能需求、概念模型、数学模型、物理效应模型、系统方案、软件程序、系统设备、测试及试验数据等。在上述产品中，功能需求、概念模型、数学模型、物理效应模型、系统方案大都以文档形式存在，一般情况下可将其统称为文档类产品。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="精选书目">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/22/SelectedBooksList/index.html">
+<meta property="og:title" content="常用模型验证方法及适用性总结">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/25/ModelVVAApproaches/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="最近较为系统地整理了本领域内的精读书目，和大家分享一下：
-
-《现代雷达装备综合试验与评价》
-《战争复杂系统仿真分析与实验》
-《复杂系统建模与仿真》
-《武器装备作战效能仿真与评估》
-《装备作战试验理论与方法》
-《武器装备综合试验与评估》
-《机载导弹武器系统作战效能评估》
-《战场环境概论》
-《反舰导弹战场电磁环境仿真及试验鉴定技术》
-《联合作战中的空军司令部》">
-<meta property="og:updated_time" content="2016-07-22T05:03:29.292Z">
+<meta property="og:description" content="在模型校验过程中，不同校验方法的选择，与校验对象的具体特点紧密相关。在MIS（军用信息系统）的开发过程中，除了最终得到软件系统外，主要的中间产品包括功能需求、概念模型、数学模型、物理效应模型、系统方案、软件程序、系统设备、测试及试验数据等。在上述产品中，功能需求、概念模型、数学模型、物理效应模型、系统方案大都以文档形式存在，一般情况下可将其统称为文档类产品。">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_BasicVVAChart.png">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_AnalysisVVAClassChart.png">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_AnalysisVVAUsageChart.png">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_StaticVVAClassChart.png">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_DynamicVVAClassChart.png">
+<meta property="og:updated_time" content="2016-07-25T13:01:15.250Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="精选书目">
-<meta name="twitter:description" content="最近较为系统地整理了本领域内的精读书目，和大家分享一下：
-
-《现代雷达装备综合试验与评价》
-《战争复杂系统仿真分析与实验》
-《复杂系统建模与仿真》
-《武器装备作战效能仿真与评估》
-《装备作战试验理论与方法》
-《武器装备综合试验与评估》
-《机载导弹武器系统作战效能评估》
-《战场环境概论》
-《反舰导弹战场电磁环境仿真及试验鉴定技术》
-《联合作战中的空军司令部》">
+<meta name="twitter:title" content="常用模型验证方法及适用性总结">
+<meta name="twitter:description" content="在模型校验过程中，不同校验方法的选择，与校验对象的具体特点紧密相关。在MIS（军用信息系统）的开发过程中，除了最终得到软件系统外，主要的中间产品包括功能需求、概念模型、数学模型、物理效应模型、系统方案、软件程序、系统设备、测试及试验数据等。在上述产品中，功能需求、概念模型、数学模型、物理效应模型、系统方案大都以文档形式存在，一般情况下可将其统称为文档类产品。">
+<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_BasicVVAChart.png">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -114,14 +87,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/22/SelectedBooksList/" title="精选书目" itemprop="url">精选书目</a>
+      <a href="/2016/07/25/ModelVVAApproaches/" title="常用模型验证方法及适用性总结" itemprop="url">常用模型验证方法及适用性总结</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-22T04:58:47.000Z" itemprop="datePublished"> 发表于 2016-07-22</time>
+    <time datetime="2016-07-25T12:24:02.000Z" itemprop="datePublished"> 发表于 2016-07-25</time>
     
   </p>
 </header>
@@ -130,23 +103,72 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础型校验方法"><span class="toc-number">1.</span> <span class="toc-text">基础型校验方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析测试型校验方法"><span class="toc-number">2.</span> <span class="toc-text">分析测试型校验方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略型方法"><span class="toc-number">2.1.</span> <span class="toc-text">策略型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构型方法"><span class="toc-number">2.2.</span> <span class="toc-text">结构型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能型方法"><span class="toc-number">2.3.</span> <span class="toc-text">功能型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析方法"><span class="toc-number">2.4.</span> <span class="toc-text">静态分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态分析方法"><span class="toc-number">2.5.</span> <span class="toc-text">动态分析方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据处理型校验方法"><span class="toc-number">3.</span> <span class="toc-text">数据处理型校验方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态数据处理方法"><span class="toc-number">3.1.</span> <span class="toc-text">静态数据处理方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态数据处理方法"><span class="toc-number">3.2.</span> <span class="toc-text">动态数据处理方法</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>最近较为系统地整理了本领域内的<strong>精读书目</strong>，和大家分享一下：</p>
-<ol>
-<li>《现代雷达装备综合试验与评价》</li>
-<li>《战争复杂系统仿真分析与实验》</li>
-<li>《复杂系统建模与仿真》</li>
-<li>《武器装备作战效能仿真与评估》</li>
-<li>《装备作战试验理论与方法》</li>
-<li>《武器装备综合试验与评估》</li>
-<li>《机载导弹武器系统作战效能评估》</li>
-<li>《战场环境概论》</li>
-<li>《反舰导弹战场电磁环境仿真及试验鉴定技术》</li>
-<li>《联合作战中的空军司令部》</li>
-</ol>
+		<p>在模型校验过程中，不同校验方法的选择，与校验对象的具体特点紧密相关。在<strong>MIS</strong>（军用信息系统）的开发过程中，除了最终得到软件系统外，主要的中间产品包括功能需求、概念模型、数学模型、物理效应模型、系统方案、软件程序、系统设备、测试及试验数据等。在上述产品中，功能需求、概念模型、数学模型、物理效应模型、系统方案大都以文档形式存在，一般情况下可将其统称为文档类产品。</p>
+<a id="more"></a>
+<p>通过总结发现，适用于上述系统的模型数据校验方法主要分为三类：<code>基础型</code>、<code>分析测试型</code>、<code>数据处理型</code>方法。本节将对这三类模型测试方法进行具体分析，并对其适用性进行简要分析。</p>
+<h2 id="基础型校验方法"><a href="#基础型校验方法" class="headerlink" title="基础型校验方法"></a>基础型校验方法</h2><p>基础型模型校验方法主要包括<strong>非形式化</strong>、<strong>形式化</strong>方法两大类。</p>
+<blockquote>
+<p>非形式化方法上要包括图灵测试、当面验证、桌面核查、专家评审法等，其中专家评审法又可具体分为审核、检查、审查、顶演等多种不同方法。</p>
+</blockquote>
+<p>非形式化校验方法是军用软件系统模型校验常用的方法，它适用于各个校验的环节。对于文档类产品，由于具有专业性强和非可测性的特点，其主要的校验手段就是由领域专家参与，基于非形式化方法对其进行评估。对于软件程序、系统设备、测试及试验数据、乃至整个软件系统，可以使用桌面核查方法对其进行校核；在仿真测试或试验之后，基于测试或试验结果，将当面验证、图灵测试等方法与其它校验相结合，可以有效地评估试验对象的可信性。</p>
+<blockquote>
+<p>形式化方法较为通用的形式化方法包括归纳、推理、逻辑演绎、归纳断言、λ运算、谓词运算、谓词转换、正确性证明等。</p>
+</blockquote>
+<p>一般地，形式化方法很难直接使用，但归纳、推理等部分方法的思想已在数学模型、物理效应模型等产品的评估过程中得到了应用。下图给出了上述两种基础型校验方法的适用性。</p>
+<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_BasicVVAChart.png" alt="基础型模型校验方法的适用性分析示意图"></p>
+<h2 id="分析测试型校验方法"><a href="#分析测试型校验方法" class="headerlink" title="分析测试型校验方法"></a>分析测试型校验方法</h2><p>分析测试型方法是在模型校验过程中，用于对各类模型进行分析、测试的方法统称。</p>
+<p>从方法的应用目的来分，可分为<em>策略型</em>、<em>结构型</em>、<em>功能型</em>方法三类；从方法是否需要运行模型的角度考虑，主要分为<strong>静态分析</strong>、<strong>动态测试</strong>方法两大类。下面进行详细地描述。</p>
+<h3 id="策略型方法"><a href="#策略型方法" class="headerlink" title="策略型方法"></a>策略型方法</h3><p>为系统或模型测试计划提供理论支持，根据模型自身特点及开发过程的不同，主要包括自底向上测试、自顶向下测试、子模型/模块测试、多级验证等方法。</p>
+<h3 id="结构型方法"><a href="#结构型方法" class="headerlink" title="结构型方法"></a>结构型方法</h3><p>类似于软件上程中的白箱测试方法，利用数据流图和控制流图，通过检查模型元素如语句、分支、条件、循环、内部逻辑、内部数据表示、子模型接口以及模型运行路径等，对模型内部结构的正确性进行评估。</p>
+<h3 id="功能型方法"><a href="#功能型方法" class="headerlink" title="功能型方法"></a>功能型方法</h3><p>类似于软件工程中的黑箱测试方法，在了解模型的功能、性能指标前提下，通过测试来考察各项功能是否正确实现。换句话说，功能型方法上要用于评估模型输入输出转换的正确性，通过向模型输入数据井评估对应输出结果的正确性来完成对模型各项功能的测试。</p>
+<h3 id="静态分析方法"><a href="#静态分析方法" class="headerlink" title="静态分析方法"></a>静态分析方法</h3><p>静态分析方法不需要运行模型，主要通过人工分析或借助工具来评估模型设计或源代码，以考察其正确性。</p>
+<h3 id="动态分析方法"><a href="#动态分析方法" class="headerlink" title="动态分析方法"></a>动态分析方法</h3><p>基于不同的测试目的，在给定的输入条件下执行模型，主要通过考察模型的运行过程和运行结果来评估模型的可信性。动态测试方法一般需与数据处理型方法相结合，以便对测试结果数据进行分析和评估，最终得到针对模型的评估结果。</p>
+<p>需要强调的是：</p>
+<blockquote>
+<p>由于是按照不同的方式进行划分，上述五种方法在一定程度上有所交叉。例如，结构型方法与功能型方法又分别包含静态分析、动态测试方法。</p>
+</blockquote>
+<p>常见的分析测试型模型校验方法如下图所示。</p>
+<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_AnalysisVVAClassChart.png" alt="分析测试型模型校验方法分类图"></p>
+<p>分析测试型方法的主要应用对象是数学模型、物理效应模型、软件程序、系统设备、软件系统等。由于数学模型和物理效应模型<strong>不能</strong>直接运行，所以其验证方法主要包括功能型、结构型方法中的静态分析方法；对于软件程序、系统设备、软件系统等，上述各类方法均可使用。</p>
+<p>分析测试型方法的适用性分析参见下图。</p>
+<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_AnalysisVVAUsageChart.png" alt="分析测试型方法的适用性示意图"></p>
+<h2 id="数据处理型校验方法"><a href="#数据处理型校验方法" class="headerlink" title="数据处理型校验方法"></a>数据处理型校验方法</h2><p>数据处理型验证方法的应用对象即为测试或试验数据，通过对其分析、处理和评估，实现：</p>
+<ul>
+<li>基于实际试验的测试数据，验证相应模块的数学模型（模型程序）；</li>
+<li>在相同试验条件下，比较和检验实际试验结果与模型输出结果之间的一致性（或称相容性），从而评估模型或系统的可信度。</li>
+</ul>
+<blockquote>
+<p>以某型导弹的仿真模型为例，其性能特征分为：动态性能、静态性能。动态性能如位置、速度、加速度、航向、姿态、过载、舵偏角等，均可视为随机过程；静态性能如终端脱靶量、单发杀伤概率、有效毁伤半径等，可视为随机变量。与之相对应，飞行试验结果、模型输出结果可视为随机过程或随机变量的观测样本，即动态数据（表现为时间序列）和静态数据。二者具有不同的处理方法。</p>
+</blockquote>
+<h3 id="静态数据处理方法"><a href="#静态数据处理方法" class="headerlink" title="静态数据处理方法"></a>静态数据处理方法</h3><p>静态数据处理方法可简单分为静态数据<em>分析</em>方法、静态数据<em>验证</em>方法。静态数据分析方法的上要用途是通过模型/设备误差、控制参数、试验条件等各种因素对静态试验结果的影响分析，找出影响仿真试验精度的主要因素，井对其进行修正和改进。</p>
+<blockquote>
+<p>常用的静态数据分析方法包括统计分析方法和假设检验方法两大类，其中常用的统计分析方法包括回归分析、方差分析、相关分析、主成分分析、判别分析、聚类分析等。假设检验方法则主要用于检验静态试验数据的统计分布特性，一般重点考察试验数据是否服从正态分布，常用方法上要包括W检验、D检验、偏度检验、峰度检验、K氏检验等。具体方法参见下图。</p>
+</blockquote>
+<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_StaticVVAClassChart.png" alt="静态数据处理方法分类图"></p>
+<p>静态数据验证方法的主要用途是通过验证模型输出与实际试验（如导弹系统的实际飞行试验）中静态数据的相容性来评估模型输出结果、系统的可信度。在实际工程中应用如图4所列的方法进行数据处理时，应当尽可能采用多种方法进行检验，以提高检验结果的可信性和可靠性。</p>
+<h3 id="动态数据处理方法"><a href="#动态数据处理方法" class="headerlink" title="动态数据处理方法"></a>动态数据处理方法</h3><p>动态数据处理方法的核心是动态数据验证方法，用于检验模型输出数据与实际试验数据（如导弹系统的飞行试验数据，或其它标准数据）的相容性，进而对模型输出结果的可信性进行评估。此外，动态数据处理方法还包括数据预处理方法，主要用于消除动态数据序列中存在的时间偏差、丢点、重点、单个或成片野值点、噪声干扰等多种误差。</p>
+<p>从方法的原理上看，动态数据验证方法主要分为：相似比较法、特征比较法。常见的动态数据处理方法参见下图中的总结。</p>
+<ul>
+<li><p>相似比较法的主要特点是不一定关注动态数据的统计特性，主要通过考察动态性能随时间或频率的变化趋势，评估模型输出数据与实际试验数据的相似程度。常见的相似比较方法包括：误差分析法、灰色关联系数法、相关系数（如评价欧氏距离、相关系数、TIC系数）等。</p>
+</li>
+<li><p>特征比较法的主要思想是从动态数据中估计出动态性能的典型特征，再利用假设检验等方法，来检验模型输出数据与实际试验数据的相容性。</p>
+</li>
+</ul>
+<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_DynamicVVAClassChart.png" alt="动态数据处理方法分类图"></p>
+<blockquote>
+<p>从理论上说，模型动态性能(随机过程)的统计性质都包含在其概率分布中，两个时间序列的比较可通过比较二者的概率分布来进行。但是，要想通过动态数据确定分布函数或概率密度非常困难，一般上要通过估计动态数据的典型特性来实施相容性检验。</p>
+</blockquote>
+<ul>
+<li><p>从时域分析，随机过程的典型特征如均值函数、方差函数、协方差函数、自相关函数等，都具有明确的实际物理意义，某些特殊情况下恰恰是这些特性决定了全部过程。因此，通过比较这些特征来验证仿真结果或模型虽不充分，却很有实际意义，而且可操作性强。</p>
+</li>
+<li><p>从频域分析，功率谱密度函数可以表征随机过程的统计平均谱特性，是随机过程的重要频域特征。因此，首先进行功率谱估计，然后基于功率谱数据进行统计分析，是特征比较方法中最常用、最重要的方法。</p>
+</li>
+</ul>
+<p>功率谱估计方法上要包括以下几种：周期图方法、窗谱估计方法、现代谱估计方法。得到功率谱数据之后，可以基于其统计特性进行假设检验，考察不同动态数据之间的相容性；但是，由于功率谱估计方法的不同，功率谱数据的统计特性也不同，有时仅在大样本情况下成立甚至难以确定，因此实际中进行相容性检验时，经常使用非参数检验方法。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -154,13 +176,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/点滴随笔/">点滴随笔</a>
+  <a class="article-category-link" href="/categories/关键技术/">关键技术</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/仿真评估/">仿真评估</a><a href="/tags/试验鉴定/">试验鉴定</a>
+  <span></span> <a href="/tags/模型校验/">模型校验</a><a href="/tags/数据验证/">数据验证</a>
   </div>
 
 </div>
@@ -169,7 +191,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/22/SelectedBooksList/" data-title="精选书目 | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/07/25/ModelVVAApproaches/" data-title="常用模型验证方法及适用性总结 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -182,19 +204,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/07/22/VRRadarEWWorld/" title="VR技术与雷达电子战领域结合畅想">
-  <strong>上一篇：</strong><br/>
-  <span>
-  VR技术与雷达电子战领域结合畅想</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/07/22/CTreeCtrlExpand/"  title="展开CTreeCtrl控件全部节点">
+<a href="/2016/07/25/ModelVVAMethodIntros/"  title="模型数据验证的一般方法概述">
  <strong>下一篇：</strong><br/> 
- <span>展开CTreeCtrl控件全部节点
+ <span>模型数据验证的一般方法概述
 </span>
 </a>
 </div>
@@ -203,7 +217,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/22/SelectedBooksList/" data-title="精选书目" data-url="http://jznudt.github.io/2016/07/22/SelectedBooksList/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/25/ModelVVAApproaches/" data-title="常用模型验证方法及适用性总结" data-url="http://jznudt.github.io/2016/07/25/ModelVVAApproaches/"></div>
 </section>
 
 
@@ -213,7 +227,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础型校验方法"><span class="toc-number">1.</span> <span class="toc-text">基础型校验方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析测试型校验方法"><span class="toc-number">2.</span> <span class="toc-text">分析测试型校验方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#策略型方法"><span class="toc-number">2.1.</span> <span class="toc-text">策略型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#结构型方法"><span class="toc-number">2.2.</span> <span class="toc-text">结构型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能型方法"><span class="toc-number">2.3.</span> <span class="toc-text">功能型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#静态分析方法"><span class="toc-number">2.4.</span> <span class="toc-text">静态分析方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态分析方法"><span class="toc-number">2.5.</span> <span class="toc-text">动态分析方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据处理型校验方法"><span class="toc-number">3.</span> <span class="toc-text">数据处理型校验方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态数据处理方法"><span class="toc-number">3.1.</span> <span class="toc-text">静态数据处理方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态数据处理方法"><span class="toc-number">3.2.</span> <span class="toc-text">动态数据处理方法</span></a></li></ol></li></ol>
  
   </div>
 

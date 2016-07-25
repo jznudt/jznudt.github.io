@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-24T01:09:03.989Z</updated>
+  <updated>2016-07-25T13:01:15.250Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -14,6 +14,136 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>常用模型验证方法及适用性总结</title>
+    <link href="http://jznudt.github.io/2016/07/25/ModelVVAApproaches/"/>
+    <id>http://jznudt.github.io/2016/07/25/ModelVVAApproaches/</id>
+    <published>2016-07-25T12:24:02.000Z</published>
+    <updated>2016-07-25T13:01:15.250Z</updated>
+    
+    <content type="html">&lt;p&gt;在模型校验过程中，不同校验方法的选择，与校验对象的具体特点紧密相关。在&lt;strong&gt;MIS&lt;/strong&gt;（军用信息系统）的开发过程中，除了最终得到软件系统外，主要的中间产品包括功能需求、概念模型、数学模型、物理效应模型、系统方案、软件程序、系统设备、测试及试验数据等。在上述产品中，功能需求、概念模型、数学模型、物理效应模型、系统方案大都以文档形式存在，一般情况下可将其统称为文档类产品。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;通过总结发现，适用于上述系统的模型数据校验方法主要分为三类：&lt;code&gt;基础型&lt;/code&gt;、&lt;code&gt;分析测试型&lt;/code&gt;、&lt;code&gt;数据处理型&lt;/code&gt;方法。本节将对这三类模型测试方法进行具体分析，并对其适用性进行简要分析。&lt;/p&gt;
+&lt;h2 id=&quot;基础型校验方法&quot;&gt;&lt;a href=&quot;#基础型校验方法&quot; class=&quot;headerlink&quot; title=&quot;基础型校验方法&quot;&gt;&lt;/a&gt;基础型校验方法&lt;/h2&gt;&lt;p&gt;基础型模型校验方法主要包括&lt;strong&gt;非形式化&lt;/strong&gt;、&lt;strong&gt;形式化&lt;/strong&gt;方法两大类。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;非形式化方法上要包括图灵测试、当面验证、桌面核查、专家评审法等，其中专家评审法又可具体分为审核、检查、审查、顶演等多种不同方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;非形式化校验方法是军用软件系统模型校验常用的方法，它适用于各个校验的环节。对于文档类产品，由于具有专业性强和非可测性的特点，其主要的校验手段就是由领域专家参与，基于非形式化方法对其进行评估。对于软件程序、系统设备、测试及试验数据、乃至整个软件系统，可以使用桌面核查方法对其进行校核；在仿真测试或试验之后，基于测试或试验结果，将当面验证、图灵测试等方法与其它校验相结合，可以有效地评估试验对象的可信性。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;形式化方法较为通用的形式化方法包括归纳、推理、逻辑演绎、归纳断言、λ运算、谓词运算、谓词转换、正确性证明等。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;一般地，形式化方法很难直接使用，但归纳、推理等部分方法的思想已在数学模型、物理效应模型等产品的评估过程中得到了应用。下图给出了上述两种基础型校验方法的适用性。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_BasicVVAChart.png&quot; alt=&quot;基础型模型校验方法的适用性分析示意图&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;分析测试型校验方法&quot;&gt;&lt;a href=&quot;#分析测试型校验方法&quot; class=&quot;headerlink&quot; title=&quot;分析测试型校验方法&quot;&gt;&lt;/a&gt;分析测试型校验方法&lt;/h2&gt;&lt;p&gt;分析测试型方法是在模型校验过程中，用于对各类模型进行分析、测试的方法统称。&lt;/p&gt;
+&lt;p&gt;从方法的应用目的来分，可分为&lt;em&gt;策略型&lt;/em&gt;、&lt;em&gt;结构型&lt;/em&gt;、&lt;em&gt;功能型&lt;/em&gt;方法三类；从方法是否需要运行模型的角度考虑，主要分为&lt;strong&gt;静态分析&lt;/strong&gt;、&lt;strong&gt;动态测试&lt;/strong&gt;方法两大类。下面进行详细地描述。&lt;/p&gt;
+&lt;h3 id=&quot;策略型方法&quot;&gt;&lt;a href=&quot;#策略型方法&quot; class=&quot;headerlink&quot; title=&quot;策略型方法&quot;&gt;&lt;/a&gt;策略型方法&lt;/h3&gt;&lt;p&gt;为系统或模型测试计划提供理论支持，根据模型自身特点及开发过程的不同，主要包括自底向上测试、自顶向下测试、子模型/模块测试、多级验证等方法。&lt;/p&gt;
+&lt;h3 id=&quot;结构型方法&quot;&gt;&lt;a href=&quot;#结构型方法&quot; class=&quot;headerlink&quot; title=&quot;结构型方法&quot;&gt;&lt;/a&gt;结构型方法&lt;/h3&gt;&lt;p&gt;类似于软件上程中的白箱测试方法，利用数据流图和控制流图，通过检查模型元素如语句、分支、条件、循环、内部逻辑、内部数据表示、子模型接口以及模型运行路径等，对模型内部结构的正确性进行评估。&lt;/p&gt;
+&lt;h3 id=&quot;功能型方法&quot;&gt;&lt;a href=&quot;#功能型方法&quot; class=&quot;headerlink&quot; title=&quot;功能型方法&quot;&gt;&lt;/a&gt;功能型方法&lt;/h3&gt;&lt;p&gt;类似于软件工程中的黑箱测试方法，在了解模型的功能、性能指标前提下，通过测试来考察各项功能是否正确实现。换句话说，功能型方法上要用于评估模型输入输出转换的正确性，通过向模型输入数据井评估对应输出结果的正确性来完成对模型各项功能的测试。&lt;/p&gt;
+&lt;h3 id=&quot;静态分析方法&quot;&gt;&lt;a href=&quot;#静态分析方法&quot; class=&quot;headerlink&quot; title=&quot;静态分析方法&quot;&gt;&lt;/a&gt;静态分析方法&lt;/h3&gt;&lt;p&gt;静态分析方法不需要运行模型，主要通过人工分析或借助工具来评估模型设计或源代码，以考察其正确性。&lt;/p&gt;
+&lt;h3 id=&quot;动态分析方法&quot;&gt;&lt;a href=&quot;#动态分析方法&quot; class=&quot;headerlink&quot; title=&quot;动态分析方法&quot;&gt;&lt;/a&gt;动态分析方法&lt;/h3&gt;&lt;p&gt;基于不同的测试目的，在给定的输入条件下执行模型，主要通过考察模型的运行过程和运行结果来评估模型的可信性。动态测试方法一般需与数据处理型方法相结合，以便对测试结果数据进行分析和评估，最终得到针对模型的评估结果。&lt;/p&gt;
+&lt;p&gt;需要强调的是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;由于是按照不同的方式进行划分，上述五种方法在一定程度上有所交叉。例如，结构型方法与功能型方法又分别包含静态分析、动态测试方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;常见的分析测试型模型校验方法如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_AnalysisVVAClassChart.png&quot; alt=&quot;分析测试型模型校验方法分类图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;分析测试型方法的主要应用对象是数学模型、物理效应模型、软件程序、系统设备、软件系统等。由于数学模型和物理效应模型&lt;strong&gt;不能&lt;/strong&gt;直接运行，所以其验证方法主要包括功能型、结构型方法中的静态分析方法；对于软件程序、系统设备、软件系统等，上述各类方法均可使用。&lt;/p&gt;
+&lt;p&gt;分析测试型方法的适用性分析参见下图。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_AnalysisVVAUsageChart.png&quot; alt=&quot;分析测试型方法的适用性示意图&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;数据处理型校验方法&quot;&gt;&lt;a href=&quot;#数据处理型校验方法&quot; class=&quot;headerlink&quot; title=&quot;数据处理型校验方法&quot;&gt;&lt;/a&gt;数据处理型校验方法&lt;/h2&gt;&lt;p&gt;数据处理型验证方法的应用对象即为测试或试验数据，通过对其分析、处理和评估，实现：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;基于实际试验的测试数据，验证相应模块的数学模型（模型程序）；&lt;/li&gt;
+&lt;li&gt;在相同试验条件下，比较和检验实际试验结果与模型输出结果之间的一致性（或称相容性），从而评估模型或系统的可信度。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;以某型导弹的仿真模型为例，其性能特征分为：动态性能、静态性能。动态性能如位置、速度、加速度、航向、姿态、过载、舵偏角等，均可视为随机过程；静态性能如终端脱靶量、单发杀伤概率、有效毁伤半径等，可视为随机变量。与之相对应，飞行试验结果、模型输出结果可视为随机过程或随机变量的观测样本，即动态数据（表现为时间序列）和静态数据。二者具有不同的处理方法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;静态数据处理方法&quot;&gt;&lt;a href=&quot;#静态数据处理方法&quot; class=&quot;headerlink&quot; title=&quot;静态数据处理方法&quot;&gt;&lt;/a&gt;静态数据处理方法&lt;/h3&gt;&lt;p&gt;静态数据处理方法可简单分为静态数据&lt;em&gt;分析&lt;/em&gt;方法、静态数据&lt;em&gt;验证&lt;/em&gt;方法。静态数据分析方法的上要用途是通过模型/设备误差、控制参数、试验条件等各种因素对静态试验结果的影响分析，找出影响仿真试验精度的主要因素，井对其进行修正和改进。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;常用的静态数据分析方法包括统计分析方法和假设检验方法两大类，其中常用的统计分析方法包括回归分析、方差分析、相关分析、主成分分析、判别分析、聚类分析等。假设检验方法则主要用于检验静态试验数据的统计分布特性，一般重点考察试验数据是否服从正态分布，常用方法上要包括W检验、D检验、偏度检验、峰度检验、K氏检验等。具体方法参见下图。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_StaticVVAClassChart.png&quot; alt=&quot;静态数据处理方法分类图&quot;&gt;&lt;/p&gt;
+&lt;p&gt;静态数据验证方法的主要用途是通过验证模型输出与实际试验（如导弹系统的实际飞行试验）中静态数据的相容性来评估模型输出结果、系统的可信度。在实际工程中应用如图4所列的方法进行数据处理时，应当尽可能采用多种方法进行检验，以提高检验结果的可信性和可靠性。&lt;/p&gt;
+&lt;h3 id=&quot;动态数据处理方法&quot;&gt;&lt;a href=&quot;#动态数据处理方法&quot; class=&quot;headerlink&quot; title=&quot;动态数据处理方法&quot;&gt;&lt;/a&gt;动态数据处理方法&lt;/h3&gt;&lt;p&gt;动态数据处理方法的核心是动态数据验证方法，用于检验模型输出数据与实际试验数据（如导弹系统的飞行试验数据，或其它标准数据）的相容性，进而对模型输出结果的可信性进行评估。此外，动态数据处理方法还包括数据预处理方法，主要用于消除动态数据序列中存在的时间偏差、丢点、重点、单个或成片野值点、噪声干扰等多种误差。&lt;/p&gt;
+&lt;p&gt;从方法的原理上看，动态数据验证方法主要分为：相似比较法、特征比较法。常见的动态数据处理方法参见下图中的总结。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;相似比较法的主要特点是不一定关注动态数据的统计特性，主要通过考察动态性能随时间或频率的变化趋势，评估模型输出数据与实际试验数据的相似程度。常见的相似比较方法包括：误差分析法、灰色关联系数法、相关系数（如评价欧氏距离、相关系数、TIC系数）等。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;特征比较法的主要思想是从动态数据中估计出动态性能的典型特征，再利用假设检验等方法，来检验模型输出数据与实际试验数据的相容性。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160725_DynamicVVAClassChart.png&quot; alt=&quot;动态数据处理方法分类图&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;从理论上说，模型动态性能(随机过程)的统计性质都包含在其概率分布中，两个时间序列的比较可通过比较二者的概率分布来进行。但是，要想通过动态数据确定分布函数或概率密度非常困难，一般上要通过估计动态数据的典型特性来实施相容性检验。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;从时域分析，随机过程的典型特征如均值函数、方差函数、协方差函数、自相关函数等，都具有明确的实际物理意义，某些特殊情况下恰恰是这些特性决定了全部过程。因此，通过比较这些特征来验证仿真结果或模型虽不充分，却很有实际意义，而且可操作性强。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;从频域分析，功率谱密度函数可以表征随机过程的统计平均谱特性，是随机过程的重要频域特征。因此，首先进行功率谱估计，然后基于功率谱数据进行统计分析，是特征比较方法中最常用、最重要的方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;功率谱估计方法上要包括以下几种：周期图方法、窗谱估计方法、现代谱估计方法。得到功率谱数据之后，可以基于其统计特性进行假设检验，考察不同动态数据之间的相容性；但是，由于功率谱估计方法的不同，功率谱数据的统计特性也不同，有时仅在大样本情况下成立甚至难以确定，因此实际中进行相容性检验时，经常使用非参数检验方法。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在模型校验过程中，不同校验方法的选择，与校验对象的具体特点紧密相关。在&lt;strong&gt;MIS&lt;/strong&gt;（军用信息系统）的开发过程中，除了最终得到软件系统外，主要的中间产品包括功能需求、概念模型、数学模型、物理效应模型、系统方案、软件程序、系统设备、测试及试验数据等。在上述产品中，功能需求、概念模型、数学模型、物理效应模型、系统方案大都以文档形式存在，一般情况下可将其统称为文档类产品。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="模型校验" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E6%A0%A1%E9%AA%8C/"/>
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>模型数据验证的一般方法概述</title>
+    <link href="http://jznudt.github.io/2016/07/25/ModelVVAMethodIntros/"/>
+    <id>http://jznudt.github.io/2016/07/25/ModelVVAMethodIntros/</id>
+    <published>2016-07-25T12:13:36.000Z</published>
+    <updated>2016-07-25T12:23:37.761Z</updated>
+    
+    <content type="html">&lt;p&gt;按照前述&lt;a href=&quot;https://jznudt.github.io/2016/07/23/ModelVVABasicConcepts/&quot;&gt;模型校验&lt;/a&gt;的定义，模型校验具有两方面的含义：一是检查概念模型是否充分、准确地描述了实际系统，二是考察模型输出是否充分接近实际系统的行为过程。&lt;/p&gt;
+&lt;p&gt;&amp;lt;!–more&amp;gt;&lt;/p&gt;
+&lt;p&gt;上述第一点实际上是考察演绎过程中的可信性，可以通过以下两个途径进行分析：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;通过对系统前提条件(各种假设条件)是否真实的研究，来验证模型本身是否可信；&lt;/li&gt;
+&lt;li&gt;通过对推理过程是否符合思维规律、规则，即推理的形式是否正确的研究来检验模型的可信性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;模型验证含义中的第二点是考察在归纳中的&lt;strong&gt;可信性&lt;/strong&gt;，往往主要是通过考察在相同输入条件下，仿真模型输出结果与实际系统输出结果是否一致，以及一致性的程度如何来做出判断，从而发展了以下一些主观或客观、定性或定量判断方法：&lt;/p&gt;
+&lt;h3 id=&quot;专家经验评估法&quot;&gt;&lt;a href=&quot;#专家经验评估法&quot; class=&quot;headerlink&quot; title=&quot;专家经验评估法&quot;&gt;&lt;/a&gt;专家经验评估法&lt;/h3&gt;&lt;p&gt;请有经验的领域专家、行业工程师和项目主管对模型输出和实际系统输出进行比较判断，如果他们认为两类输出相差无几或者根本就区分不开，那么就认为模型精度可以接受。&lt;/p&gt;
+&lt;h3 id=&quot;动态关联分析法&quot;&gt;&lt;a href=&quot;#动态关联分析法&quot; class=&quot;headerlink&quot; title=&quot;动态关联分析法&quot;&gt;&lt;/a&gt;动态关联分析法&lt;/h3&gt;&lt;p&gt;根据先验知识，提出某一关联性能指标，利用该性能指标对模型输出与实际系统输出进行定性分析、比较，据此给出二者一致性的定性结论。&lt;/p&gt;
+&lt;h3 id=&quot;系统分解法-子系统分析法&quot;&gt;&lt;a href=&quot;#系统分解法-子系统分析法&quot; class=&quot;headerlink&quot; title=&quot;系统分解法(子系统分析法)&quot;&gt;&lt;/a&gt;系统分解法(子系统分析法)&lt;/h3&gt;&lt;p&gt;把复杂的大系统分解成若干个小子系统，对每个子模型进行分析、验证，然后根据子系统组成大系统的方式(串联、并联等)考察整个系统模型的有效性。&lt;/p&gt;
+&lt;h3 id=&quot;灵敏度分析法&quot;&gt;&lt;a href=&quot;#灵敏度分析法&quot; class=&quot;headerlink&quot; title=&quot;灵敏度分析法&quot;&gt;&lt;/a&gt;灵敏度分析法&lt;/h3&gt;&lt;p&gt;通过考察模型中一组灵敏度系数变化给模型输出造成的影响情况来分析判断模型的有效性。&lt;/p&gt;
+&lt;h3 id=&quot;参数估计法&quot;&gt;&lt;a href=&quot;#参数估计法&quot; class=&quot;headerlink&quot; title=&quot;参数估计法&quot;&gt;&lt;/a&gt;参数估计法&lt;/h3&gt;&lt;p&gt;对于某些性能指标参数(如武器系统的杀伤概率、命中精度等)，考察其仿真输出可信域是否与相应的参考（期望）输出可信域重合，或者落入期望的可信域内。&lt;/p&gt;
+&lt;h3 id=&quot;假设检验法&quot;&gt;&lt;a href=&quot;#假设检验法&quot; class=&quot;headerlink&quot; title=&quot;假设检验法&quot;&gt;&lt;/a&gt;假设检验法&lt;/h3&gt;&lt;p&gt;利用假设检验理论来判断仿真结果和参考结果是否在统计意义下一致以及一致性的程度如何。有不少软件工程研制部门均采用此方法对仿真模型进行验证和对仿真精度进行评估。&lt;/p&gt;
+&lt;h3 id=&quot;时间序列与频谱分析&quot;&gt;&lt;a href=&quot;#时间序列与频谱分析&quot; class=&quot;headerlink&quot; title=&quot;时间序列与频谱分析&quot;&gt;&lt;/a&gt;时间序列与频谱分析&lt;/h3&gt;&lt;p&gt;把仿真模型输出与相应的参考输出（比如实际的飞行试验获取的样本序列）看作时间序列，对它们进行预处理后用时间序列理论和频谱分析方法考察二者在频域内的统计一致性。&lt;/p&gt;
+&lt;h3 id=&quot;综合方法&quot;&gt;&lt;a href=&quot;#综合方法&quot; class=&quot;headerlink&quot; title=&quot;综合方法&quot;&gt;&lt;/a&gt;综合方法&lt;/h3&gt;&lt;p&gt;上述方法两种或两种以上的综合使用，以便从多个侧面考察仿真模型的有效性。&lt;/p&gt;
+&lt;p&gt;需要强调的是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;模型验证方法&lt;em&gt;远不止&lt;/em&gt;以上几种，还有其它一些方法。如基于Kalman滤波理论的模型检验与校正方法，决策理论在系统概念模型有效性确认中的应用，模糊数学在模型验证中的应用等。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;按照前述&lt;a href=&quot;https://jznudt.github.io/2016/07/23/ModelVVABasicConcepts/&quot;&gt;模型校验&lt;/a&gt;的定义，模型校验具有两方面的含义：一是检查概念模型是否充分、准确地描述了实际系统，二是考察模型输出是否充分接近实
+    
+    </summary>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
+    
+  </entry>
   
   <entry>
     <title>功能模型开发中的一些问题</title>
@@ -133,9 +263,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -611,9 +741,9 @@
       <category term="代码分享" scheme="http://jznudt.github.io/categories/%E4%BB%A3%E7%A0%81%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="缓冲器" scheme="http://jznudt.github.io/tags/%E7%BC%93%E5%86%B2%E5%99%A8/"/>
-    
       <category term="C++" scheme="http://jznudt.github.io/tags/C/"/>
+    
+      <category term="缓冲器" scheme="http://jznudt.github.io/tags/%E7%BC%93%E5%86%B2%E5%99%A8/"/>
     
       <category term="设计与实现" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
     
@@ -694,81 +824,6 @@
       <category term="半实物仿真" scheme="http://jznudt.github.io/tags/%E5%8D%8A%E5%AE%9E%E7%89%A9%E4%BB%BF%E7%9C%9F/"/>
     
       <category term="战术导弹" scheme="http://jznudt.github.io/tags/%E6%88%98%E6%9C%AF%E5%AF%BC%E5%BC%B9/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>美空军启动下一代空空导弹采办</title>
-    <link href="http://jznudt.github.io/2016/07/21/USAFAAMAcqiure/"/>
-    <id>http://jznudt.github.io/2016/07/21/USAFAAMAcqiure/</id>
-    <published>2016-07-21T11:14:46.000Z</published>
-    <updated>2016-07-21T12:44:26.323Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160721_AirDominance.jpg&quot; alt=&quot;AirDominance&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2016年7月11日，在英国范堡罗航展上，美国空军空中作战司令部司令官霍克·卡莱尔上将（Gen. Hawk Carlisle）透露：为了保持空中优势，美国空军将很快启动一个下一代空空导弹在册采办项目；与此同时，还需要更快速地扩大五代机机队规模。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt; 
-&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160721_AirFormation.jpg&quot; alt=&quot;AirFormation&quot;&gt;&lt;/p&gt;
-&lt;p&gt;美国空军F-22战斗机（上方两架）与F-35A战斗机（下方两架）编队飞行。F-22已在2007年形成全面作战能力，正在实施增量3.2机队升级改造；F-35A很快将形成初始作战能力，将从2018年开始首次形成作战能力之后的升级改造（第4批次）。目前，美国空军拥有的生产型F-22和F-35A数量达到近300架（其中F-22为187架，F-35A约110架），此外美国海军和美国海军陆战队拥有的生产型F-35B/C数量近90架，美国空军或美军五代机总数已远超其他国家（含订购F-35的国家）总和。按照目前的装备计划，美军最终的五代机总数也仍然会超过世界其他国家五代机装备数量的总和（&lt;em&gt;美国空军图片&lt;/em&gt;）&lt;/p&gt;
-&lt;p&gt;卡莱尔上将表示，美国空军迫切地需要一型全新的空空导弹。他说，&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;由F-22和F-35战斗机组成的“五代机组合，以及某种第五代武器，是我们必须发展的下一个重器”。美国空军刚刚完成的“空中优势2030”分析表明，“我们必须提高F-35飞机的采购速度”，并且，“我们必须获得一型新型导弹”&lt;/p&gt;
-&lt;p&gt;（&lt;em&gt;评注：实际上，在美国空军发布的公开版《2030年空中优势飞行规划》文件中并没有直接提及这两点，因此，卡莱尔所引述的可能是该文件的保密版&lt;/em&gt;）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;2016年5月31日，美国空军正式发布了脱密版《2030年空中优势飞行规划》，图为该规划文件的封面（美国空军图片）&lt;br&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160721_AirSuperiority.jpg&quot; alt=&quot;AirSuperiority&quot;&gt;&lt;/p&gt;
-&lt;p&gt;对于扩大五代机规模，卡莱尔上将宣称为了达成空中优势，F-22飞机的机队规模应扩大一倍（现有187架），而F-35飞机每年的装备数量应增至100架（目前为48架）。他还说，F-35飞机在空战中“表现极好”，是一种“让人大为吃惊的空对空平台”。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160721_F35Deployment.jpg&quot; alt=&quot;F35Deployment&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2016年6月，美国空军使用F-35A战斗机在本国国内进行了首次部署演习，图为美国空军空中作战司令部在6月21日发布的该演习的一些统计数据，显示出此次演习共出动7架飞机、181名支持人员，完成了全部计划的88次出击，任务包含进攻性防空作战、压制敌防空、防御性防空作战和近距空中支援，在与扮演“红军”的F-15E战斗机的格斗中做到领损失，共投掷16枚激光制导炸弹，命中15枚（命中率94%）。按计划，2017年，美国空军的F-35A将进行首次海外部署，地点为日本冲绳嘉手纳空军基地；美国海军陆战队的F-35B也将进行首次成建制海外陆上部署，地点为日本岩国基地（&lt;em&gt;美国空军图片&lt;/em&gt;）&lt;/p&gt;
-&lt;p&gt;对于新型导弹，卡莱尔上将透露美国空军将“马上”启动一个在册项目，但并未给出具体时间节点。他还表示：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;AIM-120D导弹升级项目“进行得很好”，但“它不是我们需要的下一代导弹”；为了跟上“我们所看到的威胁”，新型空空导弹将必须有更大的射程和更好的电子战环境弹性。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160721_Missile.jpg&quot; alt=&quot;Missile&quot;&gt;&lt;/p&gt;
-&lt;p&gt;美国国防部国防高级研究计划局（DARPA）、美国空军研究实验室（AFRL）已为探索未来空空导弹开展过多个科研项目，其中既包括导弹概念，也包括诸多关键技术。上图上部为DARPA“三类目标终结者”（T3）项目示意图，旨在系统性突破可打击隐身飞机、巡航导弹、先进防空系统三类目标的双用途导弹关键技术，目前已知波音公司、雷神公司分别获得过该项目的合同，其中波音公司的试验弹尺寸与AIM-120接近，但飞行速度和射程均高于AIM-120，进行了4次试飞；下部为AFRL曾研究的与未来空空导弹相关的“空中主宰技术”，其中包括制导引信一体化、定向战斗部和可以实现远程飞行的火箭发动机等。美国空军曾实施“联合双用途空中优势导弹/下一代导弹”（JDRADM/NGM，本文顶图为美国空军在2009年发布的两种JDRADM想象图）采办项目，试图研制一型双用途弹来同时取代AIM-120和AGM-88（反辐射导弹），但在2012年宣布“出于经济可承受性原因”取消该项目（&lt;em&gt;DARPA、AFRL图片&lt;/em&gt;）&lt;/p&gt;
-&lt;p&gt;此前，卡莱尔曾经说过AIM-120导弹的后继弹应具有更小的体积以增加每架战斗机的携载量，并具有更好的敏捷性（&lt;em&gt;评注：在美国空军发布的公开版《2030年空中优势飞行规划》文件中，曾提出“远程的和大携载量的武器都将增强整个‘空中优势2030’能力簇的效能”，因此在美国空军的实际规划中，射程更远的未来空空导弹和可更多携载的未来空空导弹可能并不是同一种弹&lt;/em&gt;）。这次他还说，如果配装新型导弹，F-35飞机还将更好，但是“我们必须先研制出一种新型导弹”。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160721_SACMAttackJ20.jpg&quot; alt=&quot;SACMAttackJ20&quot;&gt;&lt;/p&gt;
-&lt;p&gt;AFRL目前正在实施“小型先进能力导弹”（SACM）和“微型防御弹药”（MSDM）项目，图为SACM跟踪打击我国歼20战斗机想象图，表明美国空军要求该导弹具备对隐身目标的跟踪和打击能力。美国空军设想该导弹采用超敏捷弹体、高比冲推进、经济上可承受的导引头、抗干扰的制导引信一体化等技术；另外，美国空军目前总是将SACM和MSDM两个概念一起提及，并曾展示SACM拦截来袭导弹的想象图，因此两者可能至少具有通用性。由于体积小，F-35战斗机每个弹舱预计可携带多达6枚SACM/MSDM，比最大有可能携带的AIM-120导弹数量多一倍（&lt;em&gt;美国空军图片&lt;/em&gt;）&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160721_AirDominance.jpg&quot; alt=&quot;AirDominance&quot;&gt;&lt;/p&gt;
-&lt;p&gt;2016年7月11日，在英国范堡罗航展上，美国空军空中作战司令部司令官霍克·卡莱尔上将（Gen. Hawk Carlisle）透露：为了保持空中优势，美国空军将很快启动一个下一代空空导弹在册采办项目；与此同时，还需要更快速地扩大五代机机队规模。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="防务观察" scheme="http://jznudt.github.io/categories/%E9%98%B2%E5%8A%A1%E8%A7%82%E5%AF%9F/"/>
-    
-    
-      <category term="空空导弹" scheme="http://jznudt.github.io/tags/%E7%A9%BA%E7%A9%BA%E5%AF%BC%E5%BC%B9/"/>
-    
-      <category term="AIM-120" scheme="http://jznudt.github.io/tags/AIM-120/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CUDA加速旧代码与OOAD的兼容性</title>
-    <link href="http://jznudt.github.io/2016/07/21/CUDACodeTrans/"/>
-    <id>http://jznudt.github.io/2016/07/21/CUDACodeTrans/</id>
-    <published>2016-07-21T11:09:29.000Z</published>
-    <updated>2016-07-21T11:11:45.809Z</updated>
-    
-    <content type="html">&lt;p&gt;最近刚上手GPU并行计算，考虑用其加速原来编写的通信信号处理库。改写过程中，发现CUDA基本上属于“&lt;strong&gt;面向过程&lt;/strong&gt;”式编程，和通用的面向对象（OO）编程&lt;strong&gt;兼容性&lt;/strong&gt;不是很好。它只能应用于具体算法的改进，而无法与封装、多态、继承和设计模式等OOAD（面向对象分析与设计）中的基本原则融合起来吗？&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近刚上手GPU并行计算，考虑用其加速原来编写的通信信号处理库。改写过程中，发现CUDA基本上属于“&lt;strong&gt;面向过程&lt;/strong&gt;”式编程，和通用的面向对象（OO）编程&lt;strong&gt;兼容性&lt;/strong&gt;不是很好。它只能应用于具体算法的改进，而无法与封装、多
-    
-    </summary>
-    
-      <category term="编程杂感" scheme="http://jznudt.github.io/categories/%E7%BC%96%E7%A8%8B%E6%9D%82%E6%84%9F/"/>
-    
-    
-      <category term="CUDA" scheme="http://jznudt.github.io/tags/CUDA/"/>
-    
-      <category term="重构" scheme="http://jznudt.github.io/tags/%E9%87%8D%E6%9E%84/"/>
-    
-      <category term="面向对象分析与设计" scheme="http://jznudt.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
