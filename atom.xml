@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-26T15:41:54.772Z</updated>
+  <updated>2016-07-26T16:19:25.239Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>海鸥与大雁</title>
+    <link href="http://jznudt.github.io/2016/07/27/SeaGullAndGoose/"/>
+    <id>http://jznudt.github.io/2016/07/27/SeaGullAndGoose/</id>
+    <published>2016-07-26T16:17:51.000Z</published>
+    <updated>2016-07-26T16:19:25.239Z</updated>
+    
+    <content type="html">&lt;p&gt;人们很喜欢海鸥，这很容易理解。假想，俯视着礁石嶙峋的海港，一只海鸥在空中自由地翱翔：它的双翼强劲地向后拍打，越升越高，划出一个美丽的弧线，消失在天际，如此地优雅、让人心往神驰。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;然而，在海鸥群里面，就是截然不同的一副画面，所有的优雅和庄严蜕化为肮脏和残忍。同样还是那只海鸥，似炸弹般从高空呼啸而下，冲入海鸥群中，为得是抢走一点点的肉屑，激起了四散的羽毛和愤怒的嘶叫。在海鸥群中，没有分享和礼让，只有凶残的竞争和赤裸裸的争斗。如果，你给一只海鸥系上一根红绳，这几乎等于宣判了它的死刑。它在海鸥群中将寸步难行，其它的海鸥会用最凶狠的方式，用爪子和嘴猛烈地攻击它，直到它皮开肉绽，最终它将在地上变为血肉模糊的一团，往昔的高贵早已烟消云散。&lt;/p&gt;
+&lt;p&gt;如果我们一定要选取一种鸟，来作为我们人类的榜样，那么海鸥绝对不是个好的选择。供选择的答案很多，而大雁就是一个很不错的选择。秋日的天空，飞过一群南迁的大雁，它们很多时候都排成V字型，而恰恰就是这个“V”字，明白地体现除了雁群的紧密无间。&lt;/p&gt;
+&lt;p&gt;在这个队形中，处于V字顶端领头的大雁需要承受的空气阻力最大，消耗的体能也就最多，所以这个位置一般由雁群中最为强壮的大雁占据，而且需要几分钟便轮换一次；同时，在队尾的两个位置上，则对体能要求最低，大雁们便把它们交给了雁群中的老弱病残着。在飞行的时候，领头的大雁会不停地鸣叫，提醒并鼓励队尾的同伴。如果一只大雁由于过度疲劳而不能继续飞行时，雁群也不会抛弃它，而会留下一只强健的大雁，陪伴着它直到体力恢复。&lt;/p&gt;
+&lt;p&gt;这种亲密无间的融洽和谐，保证了雁群的生存和发展。对照它们，我们的社会更像是亿万只孤独海鸥的集合。人们往往是为了自己的利益而疯狂争斗，而往往不得不吞下苦果……&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;人们很喜欢海鸥，这很容易理解。假想，俯视着礁石嶙峋的海港，一只海鸥在空中自由地翱翔：它的双翼强劲地向后拍打，越升越高，划出一个美丽的弧线，消失在天际，如此地优雅、让人心往神驰。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="心情日记" scheme="http://jznudt.github.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
+    
+    
+      <category term="心灵感悟" scheme="http://jznudt.github.io/tags/%E5%BF%83%E7%81%B5%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>VR+中国制造</title>
@@ -816,45 +844,6 @@
       <category term="缓冲器" scheme="http://jznudt.github.io/tags/%E7%BC%93%E5%86%B2%E5%99%A8/"/>
     
       <category term="设计与实现" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>美陆军提出新型导航方式</title>
-    <link href="http://jznudt.github.io/2016/07/21/NovelPNTMethod/"/>
-    <id>http://jznudt.github.io/2016/07/21/NovelPNTMethod/</id>
-    <published>2016-07-21T12:25:52.000Z</published>
-    <updated>2016-07-21T12:29:42.094Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://i7.qhimg.com/t0130e1ec41471817b4.jpg&quot; alt=&quot;GPSChart&quot;&gt;&lt;/p&gt;
-&lt;p&gt;根据美国陆军士兵及地面平台定位、导航、授时的需求，美国陆军通信电子研发工程中心将通过资金和研发备份导航方案来支持PM PNT发展，这将会解决士兵不同战术环境下的PNT挑战。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;由于GPS信号容易受干扰或其他破坏，美国军方一直在寻求GPS备份导航方式。美陆军研究人员最新提出了一种导航方式——利用像眼睛一样的先进敏感相机帮助用户确定目标的相对运动。&lt;/p&gt;
-&lt;p&gt;美国陆军通信电子研究开发与工程中心（CERDEC）采用可以捕捉微小运动的微型相机，使用户可以追踪到某一个人的相对位置或移动。这将作为GPS信号削弱时增强定位、导航与授时（PNT）信息的一种手段。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;美国陆军通信电子研究开发与工程中心PNT分部研发了一种视觉辅助导航系统，装有单目摄像机，可以捕捉旋转和平移运动，但是不能捕捉纵向深度变化。此外，该系统还具有惯性测量单元组件，如陀螺仪、加速器和其它传感器等，用以传递运动和方向数据。结合单目摄像机和惯性测量组件，该系统提供了类似人眼的立体视觉，用以识别距离和运动。&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;PNT分部工程师艾瑞克·比克福德说：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;视觉辅助导航系统依靠对目标快速帧速率拍照的相机，通过对比每一帧目标的特征来判断目标相对运动的距离和方向。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;美国陆军通信电子研发工程中心称，该视觉辅助导航系统很有可能会在地面战车中首次使用，一些研究人员已在高速公路上做了试验，相机即便以高速行驶也能够拍到看到的一切事物，包括汽车、信号标志、树。&lt;/p&gt;
-&lt;p&gt;目前许多商业机构依然使用GPS，且极度依赖GPS获取定位和导航信息。随着电磁频谱获取越来越紧张以及对手技术能力的增强，美国军方加快步伐寻求GPS备份导航方式。&lt;/p&gt;
-&lt;p&gt;美国陆军通信电子研发工程中心计划研发“伪卫星”，这是一种能够在只有小几千英尺（几百米）的低高度轨道运行的卫星，信号会增强且不易被干扰。该中心还在研制“芯片级原子钟”，用以对GPS接收端提供精确授时，且具有反欺骗功能。同时，美国国防先期研究计划局（DARPA）“对抗性环境中的空间、时间和方位信息”（STOIC）项目，旨在开发能够提供GPS同等性能导航质量的PNT系统。&lt;/p&gt;
-&lt;p&gt;战场上GPS有效性已显著提升了士兵们的导航能力，但是GPS极易受干扰。根据美国陆军士兵及地面平台定位、导航、授时的需求，美国陆军通信电子研发工程中心将通过资金和研发备份导航方案来支持PM PNT发展，这将会解决士兵不同战术环境下的PNT挑战。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://i7.qhimg.com/t0130e1ec41471817b4.jpg&quot; alt=&quot;GPSChart&quot;&gt;&lt;/p&gt;
-&lt;p&gt;根据美国陆军士兵及地面平台定位、导航、授时的需求，美国陆军通信电子研发工程中心将通过资金和研发备份导航方案来支持PM PNT发展，这将会解决士兵不同战术环境下的PNT挑战。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="技术前沿" scheme="http://jznudt.github.io/categories/%E6%8A%80%E6%9C%AF%E5%89%8D%E6%B2%BF/"/>
-    
-    
-      <category term="导航" scheme="http://jznudt.github.io/tags/%E5%AF%BC%E8%88%AA/"/>
-    
-      <category term="GPS" scheme="http://jznudt.github.io/tags/GPS/"/>
     
   </entry>
   

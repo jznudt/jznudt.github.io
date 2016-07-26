@@ -4,23 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>单例模式中的静态变量冲突 | 品创信联</title>
+    <title>海鸥与大雁 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="单例模式采用模块化设计思想，把XX仿真模型拆分成了若干个分系统，在每个分系统中可能都会使用到初始化参数（即INITPATAM），所以用单例模式构建了一个“全局可见、全局唯一”的参数集合（除了INITPATAM外，还包含其它很多公共参数，不再赘述），同时为了进一步提升安全性，采用了操作接口（即Set/Get函数），如下面的代码段。">
+    <meta name="description" content="人们很喜欢海鸥，这很容易理解。假想，俯视着礁石嶙峋的海港，一只海鸥在空中自由地翱翔：它的双翼强劲地向后拍打，越升越高，划出一个美丽的弧线，消失在天际，如此地优雅、让人心往神驰。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例模式中的静态变量冲突">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/21/SingletonStatic/index.html">
+<meta property="og:title" content="海鸥与大雁">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/27/SeaGullAndGoose/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="单例模式采用模块化设计思想，把XX仿真模型拆分成了若干个分系统，在每个分系统中可能都会使用到初始化参数（即INITPATAM），所以用单例模式构建了一个“全局可见、全局唯一”的参数集合（除了INITPATAM外，还包含其它很多公共参数，不再赘述），同时为了进一步提升安全性，采用了操作接口（即Set/Get函数），如下面的代码段。">
-<meta property="og:updated_time" content="2016-07-21T04:40:33.983Z">
+<meta property="og:description" content="人们很喜欢海鸥，这很容易理解。假想，俯视着礁石嶙峋的海港，一只海鸥在空中自由地翱翔：它的双翼强劲地向后拍打，越升越高，划出一个美丽的弧线，消失在天际，如此地优雅、让人心往神驰。">
+<meta property="og:updated_time" content="2016-07-26T16:19:25.239Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例模式中的静态变量冲突">
-<meta name="twitter:description" content="单例模式采用模块化设计思想，把XX仿真模型拆分成了若干个分系统，在每个分系统中可能都会使用到初始化参数（即INITPATAM），所以用单例模式构建了一个“全局可见、全局唯一”的参数集合（除了INITPATAM外，还包含其它很多公共参数，不再赘述），同时为了进一步提升安全性，采用了操作接口（即Set/Get函数），如下面的代码段。">
+<meta name="twitter:title" content="海鸥与大雁">
+<meta name="twitter:description" content="人们很喜欢海鸥，这很容易理解。假想，俯视着礁石嶙峋的海港，一只海鸥在空中自由地翱翔：它的双翼强劲地向后拍打，越升越高，划出一个美丽的弧线，消失在天际，如此地优雅、让人心往神驰。">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -81,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/21/SingletonStatic/" title="单例模式中的静态变量冲突" itemprop="url">单例模式中的静态变量冲突</a>
+      <a href="/2016/07/27/SeaGullAndGoose/" title="海鸥与大雁" itemprop="url">海鸥与大雁</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-21T04:24:53.000Z" itemprop="datePublished"> 发表于 2016-07-21</time>
+    <time datetime="2016-07-26T16:17:51.000Z" itemprop="datePublished"> 发表于 2016-07-27</time>
     
   </p>
 </header>
@@ -97,18 +97,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">1.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量"><span class="toc-number">2.</span> <span class="toc-text">全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多次实例化"><span class="toc-number">3.</span> <span class="toc-text">多次实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态变量冲突"><span class="toc-number">4.</span> <span class="toc-text">静态变量冲突</span></a></li></ol>
+			
 		
 		</div>
 		
-		<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p>采用模块化设计思想，把XX仿真模型拆分成了若干个分系统，在每个分系统中可能都会使用到初始化参数（即INITPATAM），所以用单例模式构建了一个“<strong>全局可见、全局唯一</strong>”的参数集合（除了INITPATAM外，还包含其它很多公共参数，不再赘述），同时为了进一步提升安全性，采用了操作接口（即Set/Get函数），如下面的代码段。<a id="more"></a></p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//初始化参数定义</span></div><div class="line"><span class="keyword">struct</span> INITPATAM</div><div class="line">&#123;</div><div class="line">    <span class="keyword">double</span>    Longitude; <span class="comment">//WGS-84系下的经度值，rad</span></div><div class="line">    ……</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="comment">//采用单例模式构建的全局可见参数</span></div><div class="line"><span class="keyword">class</span> GlobalParam</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">virtual</span> ~GlobalParam();</div><div class="line">    <span class="function"><span class="keyword">static</span>  GlobalParam* <span class="title">Instance</span><span class="params">()</span></span>;</div><div class="line"> </div><div class="line">    <span class="comment">//初始化参数操作接口</span></div><div class="line">    <span class="function"><span class="keyword">void</span>    <span class="title">SetInitParam</span><span class="params">(<span class="keyword">const</span> INITPATAM&amp; <span class="number">_</span>param)</span> </span>&#123;param = <span class="number">_</span>param;&#125;</div><div class="line">    <span class="function"><span class="keyword">void</span>    <span class="title">GetInitParam</span><span class="params">(INITPATAM&amp; <span class="number">_</span>param)</span> </span>&#123;<span class="number">_</span>param = param;&#125;</div><div class="line"> </div><div class="line">    <span class="comment">//其它全局函数操作接口</span></div><div class="line">    ……</div><div class="line"> </div><div class="line"><span class="keyword">protected</span>:</div><div class="line">    GlobalParam();</div><div class="line"> </div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="keyword">static</span> GlobalParam*    <span class="number">_</span>state;</div><div class="line">    INITPATAM            param;</div><div class="line">    ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><p>在上述仿真模型的初始化函数中，完成全局变量设置；在时间迭代步进操作中，其它的子系统调用了该全局可见参数，即：</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//利用模块化思想设计的XX仿真模型</span></div><div class="line"><span class="keyword">class</span> CAntenna;</div><div class="line"><span class="keyword">class</span> RADAR_API RADARDLL</div><div class="line">&#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    RADARDLL();</div><div class="line">    <span class="comment">//其它构造函数</span></div><div class="line">    ……</div><div class="line">    <span class="keyword">virtual</span> ~RADARDLL();</div><div class="line"> </div><div class="line">    <span class="comment">//执行初始化操作</span></div><div class="line">    <span class="function"><span class="keyword">bool</span>    <span class="title">Initialize</span><span class="params">(<span class="keyword">const</span> INITPATAM&amp; param)</span></span></div><div class="line">    &#123;</div><div class="line">        GlobalParam::Instance()-&gt;SetInitParam(param);</div><div class="line"> </div><div class="line">        <span class="comment">//其它初始化操作</span></div><div class="line">        ……</div><div class="line"> </div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="comment">//执行时间迭代步进操作</span></div><div class="line">    <span class="function"><span class="keyword">void</span>    <span class="title">Advance</span><span class="params">()</span></span>;</div><div class="line"> </div><div class="line"><span class="keyword">protected</span>:</div><div class="line">    ……</div><div class="line"> </div><div class="line"><span class="keyword">private</span>:</div><div class="line">    CAntenna*    m_Antenna;        <span class="comment">//天线分系统</span></div><div class="line">    ……</div><div class="line">&#125;;</div><div class="line"> </div><div class="line"><span class="keyword">void</span> RADARDLL::Advance()</div><div class="line">&#123;</div><div class="line">    <span class="comment">//各分系统逐一执行迭代</span></div><div class="line">    m_Antenna-&gt;Advance();</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="keyword">void</span> CAntenna::Advance()</div><div class="line">&#123;</div><div class="line">    INITPATAM InitParam;</div><div class="line">    GlobalParam::Instance()-&gt;GetInitParam(InitParam);</div><div class="line"> </div><div class="line">    <span class="comment">//其它操作</span></div><div class="line">    ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="多次实例化"><a href="#多次实例化" class="headerlink" title="多次实例化"></a>多次实例化</h2><p>设计外部应用程序，调用上述设计的RADARDLL仿真模型，因为考虑了多个对象，所以进行了多次示例化，它们具有<strong>不同</strong>的初始化参数，即</p>
- <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//主执行线程函数</span></div><div class="line"><span class="function">UINT <span class="title">SimMainProc</span><span class="params">(LPVOID param)</span></span></div><div class="line">&#123;</div><div class="line">    INITPATAM *InitParam = (INITPATAM*)param;</div><div class="line"> </div><div class="line">    RADARDLL *pRadar = <span class="keyword">new</span> RADARDLL();</div><div class="line">    pRadar-&gt;Initialize();</div><div class="line"> </div><div class="line">    ……</div><div class="line"> </div><div class="line">    pRadar-&gt;Advance();</div><div class="line"> </div><div class="line">    <span class="comment">//退出线程</span></div><div class="line">    <span class="keyword">if</span>(<span class="literal">NULL</span> != pRadar)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">delete</span> pRadar, pRadar = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"> </div><div class="line"><span class="comment">//外部应用系统,假定是响应了某个按钮的事件</span></div><div class="line"><span class="keyword">void</span> RadarSimDemo::OnSimBegin()</div><div class="line">&#123;</div><div class="line">    <span class="meta">#<span class="meta-keyword">define</span>        RADARNUM    2</span></div><div class="line">    ……</div><div class="line"> </div><div class="line">    <span class="comment">//设置第一个参数</span></div><div class="line">    INITPATAM Param1;</div><div class="line">    ……</div><div class="line"> </div><div class="line">    <span class="comment">//设置第二个参数</span></div><div class="line">    INITPATAM Param2;</div><div class="line">    ……</div><div class="line"> </div><div class="line">    CWinThread* Radar1Thread = AfxBeginThread(SimMainProc, (LPVOID)&amp;Param1,</div><div class="line">        THREAD_PRIORITY_BELOW_NORMAL, <span class="number">0</span>, CREATE_SUSPENDED);</div><div class="line">    <span class="comment">//其它初始化操作</span></div><div class="line">    ……</div><div class="line">    Radar1Thread-&gt;ResumeThread();</div><div class="line"> </div><div class="line">    CWinThread* Radar2Thread = AfxBeginThread(SimMainProc, (LPVOID)&amp;Param2,</div><div class="line">        THREAD_PRIORITY_BELOW_NORMAL, <span class="number">0</span>, CREATE_SUSPENDED);</div><div class="line">    ……</div><div class="line">    Radar2Thread-&gt;ResumeThread();</div><div class="line"> </div><div class="line">    ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="静态变量冲突"><a href="#静态变量冲突" class="headerlink" title="静态变量冲突"></a>静态变量冲突</h2><p>问题出现了：由于RADARDLL仿真模型中的单例全局参数中含有静态变量，而在RADARDLL仿真模型的内部子系统中均是采用同样的GlobalParam::Instance()形式调用单例全局参数，造成了冲突，从而导致了程序运行结果不符合预期。</p>
-<p>如何才能够有效地解决上述冲突，或者有没有什么更优的技术手段，可以回避这个问题。</p>
+		<p>人们很喜欢海鸥，这很容易理解。假想，俯视着礁石嶙峋的海港，一只海鸥在空中自由地翱翔：它的双翼强劲地向后拍打，越升越高，划出一个美丽的弧线，消失在天际，如此地优雅、让人心往神驰。</p>
+<a id="more"></a>
+<p>然而，在海鸥群里面，就是截然不同的一副画面，所有的优雅和庄严蜕化为肮脏和残忍。同样还是那只海鸥，似炸弹般从高空呼啸而下，冲入海鸥群中，为得是抢走一点点的肉屑，激起了四散的羽毛和愤怒的嘶叫。在海鸥群中，没有分享和礼让，只有凶残的竞争和赤裸裸的争斗。如果，你给一只海鸥系上一根红绳，这几乎等于宣判了它的死刑。它在海鸥群中将寸步难行，其它的海鸥会用最凶狠的方式，用爪子和嘴猛烈地攻击它，直到它皮开肉绽，最终它将在地上变为血肉模糊的一团，往昔的高贵早已烟消云散。</p>
+<p>如果我们一定要选取一种鸟，来作为我们人类的榜样，那么海鸥绝对不是个好的选择。供选择的答案很多，而大雁就是一个很不错的选择。秋日的天空，飞过一群南迁的大雁，它们很多时候都排成V字型，而恰恰就是这个“V”字，明白地体现除了雁群的紧密无间。</p>
+<p>在这个队形中，处于V字顶端领头的大雁需要承受的空气阻力最大，消耗的体能也就最多，所以这个位置一般由雁群中最为强壮的大雁占据，而且需要几分钟便轮换一次；同时，在队尾的两个位置上，则对体能要求最低，大雁们便把它们交给了雁群中的老弱病残着。在飞行的时候，领头的大雁会不停地鸣叫，提醒并鼓励队尾的同伴。如果一只大雁由于过度疲劳而不能继续飞行时，雁群也不会抛弃它，而会留下一只强健的大雁，陪伴着它直到体力恢复。</p>
+<p>这种亲密无间的融洽和谐，保证了雁群的生存和发展。对照它们，我们的社会更像是亿万只孤独海鸥的集合。人们往往是为了自己的利益而疯狂争斗，而往往不得不吞下苦果……</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,13 +114,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/编程杂感/">编程杂感</a>
+  <a class="article-category-link" href="/categories/心情日记/">心情日记</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/C/">C++</a><a href="/tags/设计模式/">设计模式</a><a href="/tags/单例模式/">单例模式</a><a href="/tags/静态变量/">静态变量</a>
+  <span></span> <a href="/tags/心灵感悟/">心灵感悟</a>
   </div>
 
 </div>
@@ -131,7 +129,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/21/SingletonStatic/" data-title="单例模式中的静态变量冲突 | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/07/27/SeaGullAndGoose/" data-title="海鸥与大雁 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -144,19 +142,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/07/21/MultiThreadCtrl/" title="多线程控制问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  多线程控制问题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/07/21/DLLModify/"  title="闭源库的功能扩展与完善">
+<a href="/2016/07/26/MakeReal3DVSPIntro/"  title="VR+中国制造">
  <strong>下一篇：</strong><br/> 
- <span>闭源库的功能扩展与完善
+ <span>VR+中国制造
 </span>
 </a>
 </div>
@@ -165,7 +155,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/21/SingletonStatic/" data-title="单例模式中的静态变量冲突" data-url="http://jznudt.github.io/2016/07/21/SingletonStatic/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/27/SeaGullAndGoose/" data-title="海鸥与大雁" data-url="http://jznudt.github.io/2016/07/27/SeaGullAndGoose/"></div>
 </section>
 
 
@@ -175,7 +165,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#单例模式"><span class="toc-number">1.</span> <span class="toc-text">单例模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量"><span class="toc-number">2.</span> <span class="toc-text">全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多次实例化"><span class="toc-number">3.</span> <span class="toc-text">多次实例化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态变量冲突"><span class="toc-number">4.</span> <span class="toc-text">静态变量冲突</span></a></li></ol>
+ 
  
   </div>
 

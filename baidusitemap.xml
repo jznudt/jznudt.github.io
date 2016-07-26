@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://jznudt.github.io/2016/07/27/SeaGullAndGoose/</loc>
+    <lastmod>2016-07-26T16:19:25.239Z</lastmod>
+    <data>
+        <display>
+        <title>海鸥与大雁</title>
+        <pubTime>2016-07-26T16:17:51.000Z</pubTime>
+        
+        <tag>心灵感悟</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情日记" url="http://jznudt.github.io/categories/%E5%BF%83%E6%83%85%E6%97%A5%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jznudt.github.io/2016/07/26/MakeReal3DVSPIntro/</loc>
     <lastmod>2016-07-26T15:41:54.772Z</lastmod>
     <data>
@@ -560,9 +580,9 @@
         <title>单例模式中的静态变量冲突</title>
         <pubTime>2016-07-21T04:24:53.000Z</pubTime>
         
-        <tag>设计模式</tag>
-         
         <tag>C++</tag>
+         
+        <tag>设计模式</tag>
          
         <tag>单例模式</tag>
          
@@ -634,11 +654,11 @@
         <title>屏蔽C++开发的功能模型API中的实现细节</title>
         <pubTime>2016-07-20T14:38:02.000Z</pubTime>
         
-        <tag>设计模式</tag>
-         
         <tag>API设计</tag>
          
         <tag>C++</tag>
+         
+        <tag>设计模式</tag>
          
          
            
