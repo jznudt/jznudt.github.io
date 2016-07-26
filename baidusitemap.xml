@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://jznudt.github.io/2016/07/26/MakeReal3DVSPIntro/</loc>
+    <lastmod>2016-07-26T15:41:54.772Z</lastmod>
+    <data>
+        <display>
+        <title>VR+中国制造</title>
+        <pubTime>2016-07-26T15:21:40.000Z</pubTime>
+        
+        <tag>虚拟现实</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术前沿" url="http://jznudt.github.io/categories/%E6%8A%80%E6%9C%AF%E5%89%8D%E6%B2%BF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jznudt.github.io/2016/07/25/ModelVVAMethodIntros/</loc>
     <lastmod>2016-07-25T13:10:54.448Z</lastmod>
     <data>
@@ -540,9 +560,9 @@
         <title>单例模式中的静态变量冲突</title>
         <pubTime>2016-07-21T04:24:53.000Z</pubTime>
         
-        <tag>C++</tag>
-         
         <tag>设计模式</tag>
+         
+        <tag>C++</tag>
          
         <tag>单例模式</tag>
          
@@ -614,11 +634,11 @@
         <title>屏蔽C++开发的功能模型API中的实现细节</title>
         <pubTime>2016-07-20T14:38:02.000Z</pubTime>
         
+        <tag>设计模式</tag>
+         
         <tag>API设计</tag>
          
         <tag>C++</tag>
-         
-        <tag>设计模式</tag>
          
          
            
