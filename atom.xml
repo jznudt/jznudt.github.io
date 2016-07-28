@@ -310,9 +310,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -434,9 +434,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -740,9 +740,9 @@
       <category term="代码分享" scheme="http://jznudt.github.io/categories/%E4%BB%A3%E7%A0%81%E5%88%86%E4%BA%AB/"/>
     
     
-      <category term="MFC控件" scheme="http://jznudt.github.io/tags/MFC%E6%8E%A7%E4%BB%B6/"/>
-    
       <category term="C++" scheme="http://jznudt.github.io/tags/C/"/>
+    
+      <category term="MFC控件" scheme="http://jznudt.github.io/tags/MFC%E6%8E%A7%E4%BB%B6/"/>
     
   </entry>
   
@@ -787,11 +787,11 @@
     
       <category term="CUDA" scheme="http://jznudt.github.io/tags/CUDA/"/>
     
+      <category term="多线程" scheme="http://jznudt.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
       <category term="信号级仿真" scheme="http://jznudt.github.io/tags/%E4%BF%A1%E5%8F%B7%E7%BA%A7%E4%BB%BF%E7%9C%9F/"/>
     
       <category term="时效性" scheme="http://jznudt.github.io/tags/%E6%97%B6%E6%95%88%E6%80%A7/"/>
-    
-      <category term="多线程" scheme="http://jznudt.github.io/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
   </entry>
   
