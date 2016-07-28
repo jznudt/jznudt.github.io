@@ -4,25 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>关于云计算与大数据的一些思考 | 品创信联</title>
+    <title>雷达电磁环境信号模拟系统概述 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="云计算和大数据正在深刻地影响、改变着我们身处的社会，如何将云计算和大数据应用于军事仿真领域，值得我们深入地思考。">
+    <meta name="description" content="雷达电磁环境信号模拟系统能够模拟一定的作战区域内多部’雷达’和’干扰机’同时工作时辐射的电磁辐射信号，在实验室环境下构建一个复杂和动态变换的电磁环境，支持待测的导引系统在模拟出来的环境下进行相关试验。它是各类电子装备开发、鉴定等过程中重要的内场试验平台，具有很高的使用率。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于云计算与大数据的一些思考">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/23/CloudBigDataThinking/index.html">
+<meta property="og:title" content="雷达电磁环境信号模拟系统概述">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/28/RadEMSignalSim/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="云计算和大数据正在深刻地影响、改变着我们身处的社会，如何将云计算和大数据应用于军事仿真领域，值得我们深入地思考。">
-<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_CloudBigDataInMil.jpg">
-<meta property="og:updated_time" content="2016-07-23T02:33:48.706Z">
+<meta property="og:description" content="雷达电磁环境信号模拟系统能够模拟一定的作战区域内多部’雷达’和’干扰机’同时工作时辐射的电磁辐射信号，在实验室环境下构建一个复杂和动态变换的电磁环境，支持待测的导引系统在模拟出来的环境下进行相关试验。它是各类电子装备开发、鉴定等过程中重要的内场试验平台，具有很高的使用率。">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/20160728_RadarEMailSignal.jpg">
+<meta property="og:updated_time" content="2016-07-28T05:18:40.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于云计算与大数据的一些思考">
-<meta name="twitter:description" content="云计算和大数据正在深刻地影响、改变着我们身处的社会，如何将云计算和大数据应用于军事仿真领域，值得我们深入地思考。">
-<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_CloudBigDataInMil.jpg">
+<meta name="twitter:title" content="雷达电磁环境信号模拟系统概述">
+<meta name="twitter:description" content="雷达电磁环境信号模拟系统能够模拟一定的作战区域内多部’雷达’和’干扰机’同时工作时辐射的电磁辐射信号，在实验室环境下构建一个复杂和动态变换的电磁环境，支持待测的导引系统在模拟出来的环境下进行相关试验。它是各类电子装备开发、鉴定等过程中重要的内场试验平台，具有很高的使用率。">
+<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/20160728_RadarEMailSignal.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/23/CloudBigDataThinking/" title="关于云计算与大数据的一些思考" itemprop="url">关于云计算与大数据的一些思考</a>
+      <a href="/2016/07/28/RadEMSignalSim/" title="雷达电磁环境信号模拟系统概述" itemprop="url">雷达电磁环境信号模拟系统概述</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-23T01:20:25.000Z" itemprop="datePublished"> 发表于 2016-07-23</time>
+    <time datetime="2016-07-28T05:03:38.000Z" itemprop="datePublished"> 发表于 2016-07-28</time>
     
   </p>
 </header>
@@ -99,19 +99,21 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据价值挖掘"><span class="toc-number">1.</span> <span class="toc-text">数据价值挖掘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#私有云"><span class="toc-number">2.</span> <span class="toc-text">私有云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务辅助"><span class="toc-number">3.</span> <span class="toc-text">业务辅助</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据可视化"><span class="toc-number">4.</span> <span class="toc-text">数据可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络爬虫"><span class="toc-number">5.</span> <span class="toc-text">网络爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据采集与处理"><span class="toc-number">6.</span> <span class="toc-text">数据采集与处理</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务的技术特点和难点"><span class="toc-number">1.</span> <span class="toc-text">任务的技术特点和难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统的复杂性"><span class="toc-number">1.1.</span> <span class="toc-text">系统的复杂性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时变场景特性"><span class="toc-number">1.2.</span> <span class="toc-text">时变场景特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟环境的信号密集性"><span class="toc-number">1.3.</span> <span class="toc-text">模拟环境的信号密集性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟环境的真实性"><span class="toc-number">1.4.</span> <span class="toc-text">模拟环境的真实性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟器系统的稳定和成熟性"><span class="toc-number">1.5.</span> <span class="toc-text">模拟器系统的稳定和成熟性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现有条件分析及条件差距"><span class="toc-number">2.</span> <span class="toc-text">现有条件分析及条件差距</span></a></li></ol>
 		
 		</div>
 		
-		<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_CloudBigDataInMil.jpg" alt="BDataInMilitary"></p>
-<p>云计算和大数据正在深刻地影响、改变着我们身处的社会，如何将云计算和大数据应用于军事仿真领域，值得我们深入地思考。</p>
+		<p><img src="http://oaneuh4rf.bkt.clouddn.com/20160728_RadarEMailSignal.jpg" alt="典型雷达电磁环境示意图"></p>
+<p>雷达电磁环境信号模拟系统能够模拟一定的作战区域内多部’雷达’和’干扰机’同时工作时辐射的电磁辐射信号，在<strong>实验室</strong>环境下构建一个复杂和<em>动态变换</em>的电磁环境，支持待测的导引系统在模拟出来的环境下进行相关试验。它是各类电子装备开发、鉴定等过程中重要的内场试验平台，具有很高的使用率。</p>
 <a id="more"></a>
-<h2 id="数据价值挖掘"><a href="#数据价值挖掘" class="headerlink" title="数据价值挖掘"></a>数据价值挖掘</h2><p>大数据着力于解决海量数据的采集、存储、检索、处理和挖掘，它是业务领域发展的必然产物。对于军事模拟、训练与测试领域，是否存在着这样的大数据？这是首先需要回答的问题。相较采集与存储而言，对已有数据的充分挖掘与揭示，可能更为重要，更能发挥数据本身蕴含的价值。</p>
-<h2 id="私有云"><a href="#私有云" class="headerlink" title="私有云"></a>私有云</h2><p>受各种条件限制，对于军事领域应用而言，私有云更为适合。如果要筹备一个情报数据中心，目前较好的整体解决方案有哪些？类似于<a href="http://www.supermap.com.cn/" target="_blank" rel="external">超图公司</a>提供的云GIS一体机（将云计算与GIS融合一体，对外呈现形式为一台机柜，以虚拟机形式对外部用户提供服务），这是否为发展的趋势？</p>
-<h2 id="业务辅助"><a href="#业务辅助" class="headerlink" title="业务辅助"></a>业务辅助</h2><p>以无人飞行器的航路规划为研究案例——业务人员在规划过程中需要考虑飞行器本身的飞行性能约束（高度、速度、转弯半径、制导方式、续航能力等），还需要考虑它面临的各类自然与人为环境。总体而言，其航路规划是需要大量实践经验的。那么，有没有可能通过大数据的相关理论与方法，从前期已保存的航路规划成果中，有效地提取一条优质航路的若干特征，从而实现自动规划辅助？这在实际应用中是个非常迫切的需求，而且对很多类似的<code>经验密集型</code>业务领域都有极好的参考价值。现在火热的深度学习、机器学习等理论是否能够利用进来？</p>
-<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><p>可视化是释放大数据价值的<code>最后一公里</code>，对于我们关注的军事模拟、训练与测试业务领域，有必要设计一套完整的<a href="http://www.digihail.com/" target="_blank" rel="external">可视化展现方式</a>。一般而言，展示方式的设计是需要与用户密切沟通后完成的。</p>
-<h2 id="网络爬虫"><a href="#网络爬虫" class="headerlink" title="网络爬虫"></a>网络爬虫</h2><p>身处信息时代，对于我们关注业务领域内数据的长期搜集整理至关重要，有助于我们把握动态、了解前沿。除了传统的搜索引擎外，是否需要我们自己编写网络爬虫，来满足定制化的需要？是否已有成熟的爬虫可供使用，我们仅用关注于业务领域的本身？</p>
-<h2 id="数据采集与处理"><a href="#数据采集与处理" class="headerlink" title="数据采集与处理"></a>数据采集与处理</h2><p>关于数据采集的问题：很多时候，原始数据是通过多种渠道获取（例如态势数据可能由各类雷达、光电、声学等传感器搜集），不可避免地存在时空失配、野值、器件误差等因素。那么是否意味着我们研发的应用系统需要具备较强的原始数据处理能力（野值剔除、时空配置等），乃至多传感器信息融合能力？</p>
+<h2 id="任务的技术特点和难点"><a href="#任务的技术特点和难点" class="headerlink" title="任务的技术特点和难点"></a>任务的技术特点和难点</h2><p>电子对抗复杂电磁环境模拟系统的技术特点和难点体现在以下几个方面：</p>
+<h3 id="系统的复杂性"><a href="#系统的复杂性" class="headerlink" title="系统的复杂性"></a>系统的复杂性</h3><p>不同的雷达具有不同的脉间和脉内调制波形，这要求模拟系统的每个通道都能够支持所有各种雷达发射信号的脉内波形编辑，以确保所模拟的各种雷达信号的参数的真实性和完整性。另外一方面，现在的ECM技术越来越先进，干扰策略和形式多种多样，这要求模拟器系统能够利用<strong>DRFM</strong>（数字射频存储）技术对待测的电子装备模拟出包括最先进干扰技术的大多数干扰信号。</p>
+<h3 id="时变场景特性"><a href="#时变场景特性" class="headerlink" title="时变场景特性"></a>时变场景特性</h3><p>时变特性是指模拟出来的雷达信号和干扰信号的频率，幅度，相位等参数都是在实时变化的。同时干扰信号根据不同的干扰体制也是动态变化得。</p>
+<h3 id="模拟环境的信号密集性"><a href="#模拟环境的信号密集性" class="headerlink" title="模拟环境的信号密集性"></a>模拟环境的信号密集性</h3><p>当前实际作战中的电磁环境，交战双方会同时采用远距离支援式干扰、自卫式干扰以及箔条干扰。在电子装备的工作频带范围内存在很多高功率密度的信号，因此需要模拟设备能够产生非常高密度的脉冲信号群。</p>
+<h3 id="模拟环境的真实性"><a href="#模拟环境的真实性" class="headerlink" title="模拟环境的真实性"></a>模拟环境的真实性</h3><p>电子对抗复杂电磁环境模拟系统的应用核心是在实验室环境下模拟出一个真实的环境提供给被测电子装备。为了保证仿真出来的环境和真实环境的一致性，除了要求所模拟的雷达信号、干扰信号的特性逼真，还能按照场景定义的各个平台的运行轨迹和特性叠加特定传输特性在模拟的信号上。</p>
+<h3 id="模拟器系统的稳定和成熟性"><a href="#模拟器系统的稳定和成熟性" class="headerlink" title="模拟器系统的稳定和成熟性"></a>模拟器系统的稳定和成熟性</h3><p>电子对抗复杂电磁环境模拟系统需要有很高的稳定性和成熟性。</p>
+<h2 id="现有条件分析及条件差距"><a href="#现有条件分析及条件差距" class="headerlink" title="现有条件分析及条件差距"></a>现有条件分析及条件差距</h2><p>随着ECM技术的不断发展，各类电子装备在实战中面临的干扰环境也越来越复杂，给电子装备的抗干扰设计带来各种严峻的挑战。目前国内厂家开发的同类产品相对于国外进口的设备，在最新的干扰样式方面还有所不足，很难验证装备在真实战场环境下的抗干扰能力。另外国内厂家的方案采用多路独立的信号源，当模拟复杂的多路电磁环境的时候，很难保证整个系统的幅度和相位的相关性和准确性。比如模拟相控阵天线波束指向的就是要模拟不同阵元之间信号到达的相差，当脉内信号带宽比较大的时候，很难保证不同通道信号之间信号相差。</p>
+<p>目前国外的先进技术都是通过FPGA在从雷达波形的产生到上变频的全过程中使用专用算法进行并行控制和补偿，以确保每个通道的信号的相为和幅度的准确相关性。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,13 +121,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/深沉思索/">深沉思索</a>
+  <a class="article-category-link" href="/categories/关键技术/">关键技术</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/云计算/">云计算</a><a href="/tags/大数据/">大数据</a>
+  <span></span> <a href="/tags/半实物仿真/">半实物仿真</a><a href="/tags/电磁环境/">电磁环境</a><a href="/tags/环境构建/">环境构建</a>
   </div>
 
 </div>
@@ -134,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/23/CloudBigDataThinking/" data-title="关于云计算与大数据的一些思考 | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/07/28/RadEMSignalSim/" data-title="雷达电磁环境信号模拟系统概述 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -147,19 +149,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/07/23/PDSeekerECCMAnalysis/" title="脉冲多普勒导引头抗干扰技术概述">
-  <strong>上一篇：</strong><br/>
-  <span>
-  脉冲多普勒导引头抗干扰技术概述</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/07/23/RadarEWProblems/"  title="雷达电子战仿真若干思考">
+<a href="/2016/07/28/RadarEWSimNowadays/"  title="雷达电子战仿真系统发展现状概述">
  <strong>下一篇：</strong><br/> 
- <span>雷达电子战仿真若干思考
+ <span>雷达电子战仿真系统发展现状概述
 </span>
 </a>
 </div>
@@ -168,7 +162,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/23/CloudBigDataThinking/" data-title="关于云计算与大数据的一些思考" data-url="http://jznudt.github.io/2016/07/23/CloudBigDataThinking/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/28/RadEMSignalSim/" data-title="雷达电磁环境信号模拟系统概述" data-url="http://jznudt.github.io/2016/07/28/RadEMSignalSim/"></div>
 </section>
 
 
@@ -178,7 +172,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据价值挖掘"><span class="toc-number">1.</span> <span class="toc-text">数据价值挖掘</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#私有云"><span class="toc-number">2.</span> <span class="toc-text">私有云</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#业务辅助"><span class="toc-number">3.</span> <span class="toc-text">业务辅助</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据可视化"><span class="toc-number">4.</span> <span class="toc-text">数据可视化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络爬虫"><span class="toc-number">5.</span> <span class="toc-text">网络爬虫</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据采集与处理"><span class="toc-number">6.</span> <span class="toc-text">数据采集与处理</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#任务的技术特点和难点"><span class="toc-number">1.</span> <span class="toc-text">任务的技术特点和难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统的复杂性"><span class="toc-number">1.1.</span> <span class="toc-text">系统的复杂性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时变场景特性"><span class="toc-number">1.2.</span> <span class="toc-text">时变场景特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟环境的信号密集性"><span class="toc-number">1.3.</span> <span class="toc-text">模拟环境的信号密集性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟环境的真实性"><span class="toc-number">1.4.</span> <span class="toc-text">模拟环境的真实性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模拟器系统的稳定和成熟性"><span class="toc-number">1.5.</span> <span class="toc-text">模拟器系统的稳定和成熟性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#现有条件分析及条件差距"><span class="toc-number">2.</span> <span class="toc-text">现有条件分析及条件差距</span></a></li></ol>
  
   </div>
 

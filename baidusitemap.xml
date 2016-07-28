@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://jznudt.github.io/2016/07/28/RadEMSignalSim/</loc>
+    <lastmod>2016-07-28T05:18:40.269Z</lastmod>
+    <data>
+        <display>
+        <title>雷达电磁环境信号模拟系统概述</title>
+        <pubTime>2016-07-28T05:03:38.000Z</pubTime>
+        
+        <tag>半实物仿真</tag>
+         
+        <tag>电磁环境</tag>
+         
+        <tag>环境构建</tag>
+         
+         
+           
+             
+              <breadCrumb title="关键技术" url="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jznudt.github.io/2016/07/28/RadarEWSimNowadays/</loc>
+    <lastmod>2016-07-28T04:56:34.771Z</lastmod>
+    <data>
+        <display>
+        <title>雷达电子战仿真系统发展现状概述</title>
+        <pubTime>2016-07-28T04:57:05.000Z</pubTime>
+        
+        <tag>发展综述</tag>
+         
+        <tag>雷达电子战</tag>
+         
+         
+           
+             
+              <breadCrumb title="行业综述" url="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jznudt.github.io/2016/07/27/SeaGullAndGoose/</loc>
     <lastmod>2016-07-26T16:19:25.239Z</lastmod>
     <data>
@@ -51,9 +97,9 @@
         <title>模型数据验证的一般方法概述</title>
         <pubTime>2016-07-25T12:13:36.000Z</pubTime>
         
-        <tag>数据验证</tag>
-         
         <tag>模型验证</tag>
+         
+        <tag>数据验证</tag>
          
          
            
@@ -73,9 +119,9 @@
         <title>常用模型验证方法及适用性总结</title>
         <pubTime>2016-07-25T12:24:02.000Z</pubTime>
         
-        <tag>模型校验</tag>
-         
         <tag>数据验证</tag>
+         
+        <tag>模型校验</tag>
          
          
            
@@ -95,9 +141,9 @@
         <title>功能模型开发中的一些问题</title>
         <pubTime>2016-07-24T00:38:01.000Z</pubTime>
         
-        <tag>设计与实现</tag>
-         
         <tag>功能模型</tag>
+         
+        <tag>设计与实现</tag>
          
          
            
@@ -238,9 +284,9 @@
         <title>模型数据验证概述</title>
         <pubTime>2016-07-23T02:04:14.000Z</pubTime>
         
-        <tag>数据验证</tag>
-         
         <tag>模型验证</tag>
+         
+        <tag>数据验证</tag>
          
          
            
@@ -268,28 +314,6 @@
            
              
               <breadCrumb title="关键技术" url="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jznudt.github.io/2016/07/23/RadarEWSimDevelopment/</loc>
-    <lastmod>2016-07-23T02:00:47.599Z</lastmod>
-    <data>
-        <display>
-        <title>雷达电子战仿真系统发展现状</title>
-        <pubTime>2016-07-23T01:43:05.000Z</pubTime>
-        
-        <tag>发展综述</tag>
-         
-        <tag>雷达电子战</tag>
-         
-         
-           
-             
-              <breadCrumb title="行业综述" url="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
           
         </display>
     </data>
@@ -466,9 +490,9 @@
         
         <tag>C++</tag>
          
-        <tag>缓冲器</tag>
-         
         <tag>设计与实现</tag>
+         
+        <tag>缓冲器</tag>
          
          
            
@@ -580,9 +604,9 @@
         <title>单例模式中的静态变量冲突</title>
         <pubTime>2016-07-21T04:24:53.000Z</pubTime>
         
-        <tag>C++</tag>
-         
         <tag>设计模式</tag>
+         
+        <tag>C++</tag>
          
         <tag>单例模式</tag>
          
@@ -654,11 +678,11 @@
         <title>屏蔽C++开发的功能模型API中的实现细节</title>
         <pubTime>2016-07-20T14:38:02.000Z</pubTime>
         
+        <tag>设计模式</tag>
+         
         <tag>API设计</tag>
          
         <tag>C++</tag>
-         
-        <tag>设计模式</tag>
          
          
            
