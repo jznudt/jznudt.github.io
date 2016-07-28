@@ -481,41 +481,6 @@
   </entry>
   
   <entry>
-    <title>雷达电子战仿真系统发展现状</title>
-    <link href="http://jznudt.github.io/2016/07/23/RadarEWSimDevelopment/"/>
-    <id>http://jznudt.github.io/2016/07/23/RadarEWSimDevelopment/</id>
-    <published>2016-07-23T01:43:05.000Z</published>
-    <updated>2016-07-23T02:00:47.599Z</updated>
-    
-    <content type="html">&lt;p&gt;近些，随着雷达电子战技术的发展，雷达电子战综合仿真系统、仿真实验室及环境仿真技术在国内外得到了广泛的关注，并迅速发展起来。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;美国国防部的先进电子对抗实验室由实时和非实时网络组成，采用的是开放性和高弹性架构，并大量采用商用产品，不但降低了成本还能够提高系统的更新换代速度。实验室提供对电子战系统性能评估、电子对抗战术评估和人员训练等多项功能。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_RadarEWForeignCorps.png&quot; alt=&quot;RadarEWForeignCorps&quot;&gt;&lt;/p&gt;
-&lt;p&gt;例如，美国阿莫斯特公司的作战电磁环境模拟系统可以模拟动态的作战环境，包括电子战系统在执行任务时会面临的敌方和友方电磁辐射；可以模拟各种辐射源类型，包括电子战/捕获/地面控制截获、地对空、地对地、导弹制导寻的器、机载电子战截获器、防空高炮、敌我识别及大气和导航雷达；目的是为雷达告警接收机、电子情报系统和干扰机等电子战系统提供激励，支持装备的研究、试验和操作员的训练。&lt;/p&gt;
-&lt;p&gt;南非科学工业研究理事会（CSIR）的雷达电子战仿真系统主要有三个产品，分别为通用雷达与电子战环境仿真系统（GREES），这是一个硬件在回路的仿真系统，为测试和评估雷达与电子战系统提供一个闭环仿真系统；雷达目标与电子对抗仿真系统（ENIGMA IV），该系统主要是用来生成雷达表面回波和先进对抗措施的场景；传感器与电子战作战仿真系统（&lt;strong&gt;SEWES&lt;/strong&gt;），这是一个多对多的电子战仿真环境，能够支持任意数量传感器和电子战系统在仿真环境中交战对抗。用户可以使用SEWES来仿真“如果……将会怎样”的问题，用以完善和评估被测系统的性能。&lt;/p&gt;
-&lt;p&gt;2005年安捷伦公司收购Elanix公司，将原先的SystemView软件改名为&lt;em&gt;SyetemVue&lt;/em&gt;，完善了功能组件库。内含大量可复用的雷达组件库，可以用于闭环的雷达仿真。&lt;/p&gt;
-&lt;p&gt;国内近些年，以弹道导弹攻防对抗、防空反导、区域防空、战略预警、体系对抗等为背景，在雷达电子战仿真领域也取得了众多进展。国防科技大学、西安电子科技大学、电子科技大学等单位都相继研发出了多套雷达仿真系统。其中国防科技大学电子科学与工程学院所研制的功能级和信号级雷达仿真系统已经大范围覆盖地基、舰载和机载雷达，以及美国NMD和TMD中的关键雷达系统和国内多种先进体制雷达系统，对于雷达系统仿真具备了丰富的经验和技术积累。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_RadarEWDomInsts.png&quot; alt=&quot;RadarEWDomesticCampus&quot;&gt;&lt;/p&gt;
-&lt;p&gt;此外，目前国内有许多从事的军事仿真科技方面的公司，经过多年的发展,也积累了大量的战役、战术级别的雷达电子战仿真系统成果。在开发过程中，尤其注重模型的可复用性。可复用的雷达仿真系统可以充分利用过去雷达仿真系统开发中积累的成果，减少重复开发的过程，从而能够保证仿真系统开发质量、降低开发成本。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/png/20160723_RadarEWDomCorps.png&quot; alt=&quot;RadarEWDomesticCorps&quot;&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;近些，随着雷达电子战技术的发展，雷达电子战综合仿真系统、仿真实验室及环境仿真技术在国内外得到了广泛的关注，并迅速发展起来。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="行业综述" scheme="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
-    
-    
-      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
-    
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>脉冲多普勒导引头抗干扰技术概述</title>
     <link href="http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/"/>
     <id>http://jznudt.github.io/2016/07/23/PDSeekerECCMAnalysis/</id>
@@ -829,6 +794,44 @@
       <category term="电磁环境" scheme="http://jznudt.github.io/tags/%E7%94%B5%E7%A3%81%E7%8E%AF%E5%A2%83/"/>
     
       <category term="反舰导弹" scheme="http://jznudt.github.io/tags/%E5%8F%8D%E8%88%B0%E5%AF%BC%E5%BC%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>六自由度闭环仿真</title>
+    <link href="http://jznudt.github.io/2016/07/22/CLP6DOFSim/"/>
+    <id>http://jznudt.github.io/2016/07/22/CLP6DOFSim/</id>
+    <published>2016-07-22T01:17:47.000Z</published>
+    <updated>2016-07-22T04:50:59.240Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;模式驱动的六自由度闭环解算平台&quot;&gt;&lt;a href=&quot;#模式驱动的六自由度闭环解算平台&quot; class=&quot;headerlink&quot; title=&quot;模式驱动的六自由度闭环解算平台&quot;&gt;&lt;/a&gt;模式驱动的六自由度闭环解算平台&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_6DOFFlightSim.jpg&quot; alt=&quot;6DOFCLPSim&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;区别于地基固定雷达，雷达导引头（末制导雷达）部署于弹体头部，它面临的实际作用环境除了目标、人为干扰以及自然背景等，还面临着&lt;em&gt;弹载环境&lt;/em&gt;的影响。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;一般雷达导引头天线安装在角度稳定平台上，虽然可以通过角速率稳定回路实现天线指向与弹体高频运动的解耦（即：无论弹体做何种质心平动与转动，天线空间指向保持不变），但受各种误差因素影响，导弹的运动不可避免地会对搭载于其上的电子设备（此处特指末制导雷达）产生影响。直观上看，末制导雷达需要探测目标相对于弹体的实时运动状态，包括弹目距离、斜距率、弹目视线角、视线角速率等，提取的弹目测量信息被送往制导律生成环节，生成相应的导引指令送往弹体的自动驾驶仪环节，进而通过操纵机构（主要是舵机）来改变弹体的空气动力学特性，从而将导弹成功地导向目标；与此同时，弹体运动状态的时变特性对雷达导引头的实时探测产生了耦合和交联，这也是末制导雷达与地基固定雷达最大的&lt;strong&gt;差异&lt;/strong&gt;所在。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/gif/20160722_6DOFPlatformConfig.gif&quot; alt=&quot;6DOFPlatformConfig&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;制导控制回路&quot;&gt;&lt;a href=&quot;#制导控制回路&quot; class=&quot;headerlink&quot; title=&quot;制导控制回路&quot;&gt;&lt;/a&gt;制导控制回路&lt;/h2&gt;&lt;p&gt;下图给出了导弹制导控制回路的一般结构，从中可看出，末制导雷达（雷达导引头）&lt;em&gt;仅是&lt;/em&gt;整个闭环回路中的一个环节。整个导弹制导控制回路可分为内环、外环两个回路，前者用于稳定弹体，后者则完成对目标的闭环跟踪，通过两个回路的密切协作，控制导弹&lt;strong&gt;稳定地转向目标&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GNCLoopChart.png&quot; alt=&quot;GNCLoopDemo&quot;&gt;&lt;/p&gt;
+&lt;p&gt;末制导雷达作为整个导弹制导控制回路中的一个环节，对它的科学、全面的性能评估，不可避免地需要建立一个可用的闭环解算平台。从上图中看出，完整的导弹制导控制回路涵盖的分系统非常广，而且横跨了目标特性、电子、自动化、控制、机械等多个领域，要想构建一个完整的导弹制导控制闭环平台难度非常大。&lt;/p&gt;
+&lt;h2 id=&quot;模式驱动建模仿真&quot;&gt;&lt;a href=&quot;#模式驱动建模仿真&quot; class=&quot;headerlink&quot; title=&quot;模式驱动建模仿真&quot;&gt;&lt;/a&gt;模式驱动建模仿真&lt;/h2&gt;&lt;p&gt;针对此现状，创造性地把软件工程领域中的“设计模式”的思想引入到导弹制导控制回路建模仿真的过程中。借助于成熟的设计模式，来分析在构建通用的闭环解算平台中遇到的实际问题，并提供一个优雅的、鲁棒的解决方案。具体的步骤分为下面三步：&lt;br&gt;首先，详细地分析导弹制导控制回路的各个关键环节，例如目标机动、导引头探测、角度滤波（数据处理）、制导律生成、PID控制器、操纵机构、舵面、惯性测量器件、空气动力学特性、弹体动力学、导弹运动学等，深入地了解其工作原理，尤其关注信号、信息流在整个链路中的流动，即各关键环节的输入输出关系。&lt;br&gt;其次，以设计模型中的“外观模式”为指导思想，制定导弹制导控制回路建模仿真的总体用例图（实际上也就是模块划分图），如下图所示。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GNCLoopModelUML.png&quot; alt=&quot;GNCLoopModelUML&quot;&gt;&lt;/p&gt;
+&lt;p&gt;在上图所示的用例图中，导弹飞行解算较为复杂，它包含导弹目标探测、制导控制解算、导弹气动特性、导弹动力计算、导弹运动计算、导航系统计算等。其中制导控制解算又包含制导指令计算、控制指令计算和舵偏角计算；导弹气动特性包含气动力和气动力矩计算；导弹动力计算包含发动机推力计算、质量流变计算和转动惯量计算。&lt;br&gt;最后，综合应用&lt;strong&gt;单例模式、策略模式、模板模式、工厂模式&lt;/strong&gt;等十余种成熟的设计模式，完成导弹制导控制回路建模的总体设计。&lt;/p&gt;
+&lt;p&gt;通过对导弹制导控制回路仿真模型进行子系统划分，可以将不同子系统进行解耦，这样每个子系统发生变化时，对其余子系统无影响或影响不大，只需对发生变化的子系统按照新的需求进行重新设计即可。划分了子系统后，交互接口中的各个功能函数就可以通过调用子系统的相关接口来完成。例如，对于初始化函数&lt;code&gt;Initialize()&lt;/code&gt;，它包含七个子系统的初始化过程，也就是说初始化函数&lt;code&gt;Initialize()&lt;/code&gt;的实现过程就是委托子系系统执行初始化函数，传递的参数不同而已。&lt;/p&gt;
+&lt;h2 id=&quot;总结&quot;&gt;&lt;a href=&quot;#总结&quot; class=&quot;headerlink&quot; title=&quot;总结&quot;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;通过上述三个步骤，完成了导弹制导控制回路仿真模型的设计，并用C++语言进行了实现，从而构建了较为完善的导弹制导控制回路，为开展闭环条件下的末制导雷达效能评估试验奠定了坚实的基础。&lt;br&gt;总体上看，因为导弹制导控制回路涵盖分系统众多、涉及专业领域广，对其进行建模仿真的难度非常大，造成了目前通用的导弹制导控制仿真平台极为缺乏。针对这一迫切需求，创新地将软件设计领域中的成熟原则应用于导弹制导控制回路建模仿真的具体实践中，真正地实现了“&lt;strong&gt;组件化、易扩展、细粒度&lt;/strong&gt;”的通用六自由度闭环弹道解算平台。该成果不仅可应用于对海场景，它可以便捷地扩展至防空、地地、反辐射等多种典型应用场景中，因而具有极强的实际应用价值。该思路有助于解决长期困扰导弹武器装备鉴定与评估人员的难题——构建通用的六自由度闭环弹道解算平台。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;模式驱动的六自由度闭环解算平台&quot;&gt;&lt;a href=&quot;#模式驱动的六自由度闭环解算平台&quot; class=&quot;headerlink&quot; title=&quot;模式驱动的六自由度闭环解算平台&quot;&gt;&lt;/a&gt;模式驱动的六自由度闭环解算平台&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_6DOFFlightSim.jpg&quot; alt=&quot;6DOFCLPSim&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;区别于地基固定雷达，雷达导引头（末制导雷达）部署于弹体头部，它面临的实际作用环境除了目标、人为干扰以及自然背景等，还面临着&lt;em&gt;弹载环境&lt;/em&gt;的影响。
+    
+    </summary>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="六自由度" scheme="http://jznudt.github.io/tags/%E5%85%AD%E8%87%AA%E7%94%B1%E5%BA%A6/"/>
+    
+      <category term="闭环仿真" scheme="http://jznudt.github.io/tags/%E9%97%AD%E7%8E%AF%E4%BB%BF%E7%9C%9F/"/>
     
   </entry>
   
