@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-30T01:07:06.130Z</updated>
+  <updated>2016-07-31T12:35:11.356Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -14,6 +14,96 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>10天100小时学习数据科学</title>
+    <link href="http://jznudt.github.io/2016/07/31/TenDaysToLearnDataScience/"/>
+    <id>http://jznudt.github.io/2016/07/31/TenDaysToLearnDataScience/</id>
+    <published>2016-07-31T12:12:56.000Z</published>
+    <updated>2016-07-31T12:35:11.356Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160731_MachineLearning.jpg&quot; alt=&quot;机器学习与人工智能&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果你有10天空闲时间，每天想花十个小时学习数据科学入门知识，那么应该学点什么呢？具体如何操作？&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;blockquote&gt;
+&lt;p&gt;本文转自伯乐在线，&lt;a href=&quot;http://python.jobbole.com/85704/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;由XiaoxiaoLi翻译&lt;/a&gt;，英文出处为&lt;a href=&quot;https://www.quora.com/What-should-I-learn-in-data-science-in-100-hours/answer/Roman-Trusov&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Roman Trusov&lt;/a&gt;，对上述作者表示感谢。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;10天100小时的学习时间里应该分配给尽量多样化的知识。这也算是一大笔投资，所以应当严肃对待，根据学出来的结果可以把拿到实习 offer、完成一个相关的小项目之类的当做目标。&lt;/p&gt;
+&lt;p&gt;说实话，我不觉得学习在线课程对你这次的学习有什么用，上课也不过就能给你点成就感罢了。如果你有不错的数学和编程基础，那么直接上手写代码、跑数据、看结果，比上在线课程有意思得多。那可是&lt;em&gt;一百个小时&lt;/em&gt;呀！如果你真能在接下来十天的一百个小时里尽自己最大的努力学习，就能学到世界级专家所需知识的百分之一。时间紧任务重，你，准备好了嘛？&lt;/p&gt;
+&lt;p&gt;库和算法的内部实现之类的将来有得是时间学，你现在还用不上。我下面列出的任务量巨大，需要你全身心投入，目标是让你能够广泛地接触到这个领域的一些主要工具。&lt;/p&gt;
+&lt;h2 id=&quot;第一天和第二天&quot;&gt;&lt;a href=&quot;#第一天和第二天&quot; class=&quot;headerlink&quot; title=&quot;第一天和第二天&quot;&gt;&lt;/a&gt;第一天和第二天&lt;/h2&gt;&lt;p&gt;下载&lt;code&gt;StackExchange&lt;/code&gt;的公开数据：&lt;a href=&quot;https://archive.org/details/stackexchange&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下载链接在这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;处理数据需要关系数据库管理系统，第一天大概要干这些：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;安装&lt;code&gt;MySQL&lt;/code&gt;配置好后把上面下载的数据导入数据库&lt;/li&gt;
+&lt;li&gt;阅读SQL基础知识。花点时间做几个小练习题来熟悉数据操作。比如说，写个能够抽取所有满足下面条件的提问的脚本：提问是关于Python和 SQL的、回答多于三个、最佳回答的作者在这两个主题下拥有大于十个被选中的回答。你有可能会发现脚本性能有问题。&lt;/li&gt;
+&lt;li&gt;阅读SQL索引知识，了解哈希和排序等。修改上面的脚本让它能立刻马上跑出结果。&lt;/li&gt;
+&lt;li&gt;写个能处理上面查询语句的Python类。这就需要学习&lt;code&gt;Python MySQL driver&lt;/code&gt;。你需要一个工具，能帮助你从数据库中抽取数据并且能把它们以比较方便的形式呈现出来。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;虽不清楚具体水平怎么样，但我觉得上面的任务即使对菜鸟来说也是完全能够完成的。你只要有些基础的Python知识就足够了。&lt;/p&gt;
+&lt;p&gt;第二天可以用来了解用&lt;code&gt;pandas&lt;/code&gt;来读取数据，以及用&lt;code&gt;numpy&lt;/code&gt;来对数值型数据进行操作。这些库的文档看起来页数多很吓人，但不用都读。只要学会导入 CSV 文件、添加提取数据列、合并两个数据库这些操作就行了。&lt;/p&gt;
+&lt;h2 id=&quot;第三天&quot;&gt;&lt;a href=&quot;#第三天&quot; class=&quot;headerlink&quot; title=&quot;第三天&quot;&gt;&lt;/a&gt;第三天&lt;/h2&gt;&lt;p&gt;虽然实际工作中通常都是在整个数据库上做查询，但学习如何在小量级的数据做操作并且得到有意义的结果也是相当重要的。比如说，可以试着从整个数据集中自己随机抽取一些数据，然后把它们的得分的分布和整个数据集上的得分分布做比较。&lt;/p&gt;
+&lt;p&gt;现在可以再进一步了。虽然手握整个&lt;code&gt;Stack Exchange&lt;/code&gt;的数据库，但是因为我对&lt;code&gt;StackOverflow&lt;/code&gt;里面的数据比较熟悉一点，下面只会用到 &lt;code&gt;StackOverflow&lt;/code&gt;的数据。我能想到的一个有意思的练习：根据时间看编程语言的流行程度。&lt;/p&gt;
+&lt;p&gt;为什么这个练习有用呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如何抽取与仅仅编程语言本身有关的提问而不抽取只与技术有关的提问呢？（比如我想要和Python语法有关的提问，而不想要那种问如何在 &lt;code&gt;Django&lt;/code&gt;中用&lt;code&gt;MangoDB&lt;/code&gt;的提问）&lt;/li&gt;
+&lt;li&gt;提问的标签数量非常大，为了最后将结果可视化需要谨慎挑选输入数据&lt;/li&gt;
+&lt;li&gt;可以学习到至少一个可视化框架&lt;/li&gt;
+&lt;li&gt;可以生成很多美图&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;会做上面的例子，自然而然就可以探寻更多数据里有意思的属性了。学会问问题是一个很重要的能力。&lt;/p&gt;
+&lt;h2 id=&quot;第四天和第五天&quot;&gt;&lt;a href=&quot;#第四天和第五天&quot; class=&quot;headerlink&quot; title=&quot;第四天和第五天&quot;&gt;&lt;/a&gt;第四天和第五天&lt;/h2&gt;&lt;p&gt;数据科学家曾被评为“&lt;em&gt;21世纪最性感的职业&lt;/em&gt;”。你知道还有什么很性感么？图论！&lt;/p&gt;
+&lt;p&gt;问题标签之间是如何联系在一起的？是否能仅仅用&lt;code&gt;StackOverflow&lt;/code&gt;上的回答就构建一个和技术有关的图？该选哪个标准来计算两个标签有多相似？图的可视化该如何做？试&lt;code&gt;Gephi&lt;/code&gt;了吗？&lt;/p&gt;
+&lt;p&gt;都做好了之后，需要给上面生成的图添加描述。仅仅一张图本身能提供的价值有限，你需要一直盯着它看，直到理解它背后所代表的意义。&lt;/p&gt;
+&lt;p&gt;学习聚类算法（至少要学&lt;code&gt;k-means&lt;/code&gt;和&lt;code&gt;DBSCAN&lt;/code&gt;）和K近邻算法。要是愿意钻研的话，还可以试试各种图论算法，算图的各项指标。建议使用 &lt;code&gt;networkx&lt;/code&gt;这个库和&lt;code&gt;scikit-learn&lt;/code&gt;库里的一些相关部分，这些库能大大简化任务的难度。&lt;/p&gt;
+&lt;p&gt;做这个有什么用？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;可以接触到不同格式的数据，比如 CSV， GEPHI， 边的集合等。&lt;/li&gt;
+&lt;li&gt;K-means 是一个有用的算法，学了不吃亏，以后用得上&lt;/li&gt;
+&lt;li&gt;研究数据的时候，发掘有意义的聚类是最重要的任务之一&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;可以根据自己的情况在这两天之中分配任务。我会推荐头一天玩玩&lt;code&gt;networkx&lt;/code&gt;和&lt;code&gt;Gephi&lt;/code&gt;。第二天我会做聚类分析，因为做聚类的时候会有一些有挑战的问题，比如你需要思考：到底该用怎样的向量来表示问题标签才能保留它们之间的距离呢？！&lt;/p&gt;
+&lt;h2 id=&quot;第六天&quot;&gt;&lt;a href=&quot;#第六天&quot; class=&quot;headerlink&quot; title=&quot;第六天&quot;&gt;&lt;/a&gt;第六天&lt;/h2&gt;&lt;p&gt;到了第六天应该已经基本明白数据库部分了。&lt;/p&gt;
+&lt;p&gt;今天应该用来简单学点文本分析。学学潜在语义索引就够了，所有需要的东西在 scikit-learn 库里都有，还需要用一些 SQL。一般的流程是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;选出想用的数据&lt;/li&gt;
+&lt;li&gt;用 scikit 来抽取文本特征 （建议用 scikit 里的&lt;code&gt;TF-IDF Vectorizer&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;给文本加标签。你可以做一个简单的练习：根据回答的文本来预测它会得多少分。这里文本的得分就是它的标签，&lt;strong&gt;TF-IDF&lt;/strong&gt;可以作为特征向量。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;最好是能用&lt;code&gt;numpy&lt;/code&gt;格式来为每个假设准备一个数据集。比如：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一个用来预测回答的得分&lt;/li&gt;
+&lt;li&gt;对回答按主题分类 （可以选择二十种编程语言的一些回答作为样本）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一定要注意搜集到的数据集要清理干净，你要确切地知道里面都有些什么。说起来简单做起来难。&lt;/p&gt;
+&lt;h2 id=&quot;第七、八、九天&quot;&gt;&lt;a href=&quot;#第七、八、九天&quot; class=&quot;headerlink&quot; title=&quot;第七、八、九天&quot;&gt;&lt;/a&gt;第七、八、九天&lt;/h2&gt;&lt;p&gt;前一天中已经得到了干净的数据集。假设一个用于分类一个用于预测（在第五天时已经学过它们的区别了）。在这几天该集中学习回归模型了。scikit 库里提供了很全面的工具。应该上手试试下面提到的方法里至少三种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;线性模型。线性模型的种类浩如烟海。首先要比较它们的性能，然后读读最好的线性模型的相关知识，了解不同模型的区别。提示：好好学学 &lt;code&gt;ElasticNet&lt;/code&gt;回归。如果你数学还行的话可以读读&lt;strong&gt;Bishop&lt;/strong&gt;的《&lt;em&gt;模式识别与机器学习&lt;/em&gt;》一书。书里很好地讲解了&lt;code&gt;ElasticNet&lt;/code&gt;回归模型好用的原因。如果没时间的话可以不看。&lt;/li&gt;
+&lt;li&gt;回归树。&lt;/li&gt;
+&lt;li&gt;KNN 回归。KNN 通常很好用，不要瞧不起这些简单的方法。&lt;/li&gt;
+&lt;li&gt;集成学习模型如随机森林和自适应增强学习。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;学习的主要目标并不是立刻变成这些算法的专家，而应该先跑起来代码，好用了之后然后再问问题。同样的方法也适用于分类问题。思考应该用什么指标才能衡量结果的好坏。假设要建立一个给新闻排序的智能信息平台，该如何评估它的好坏呢？&lt;/p&gt;
+&lt;p&gt;对所有的模型做交叉验证是必不可少的。阅读k折（k-fold）交叉验证有关内容，研究如何用&lt;code&gt;scikit&lt;/code&gt;来做 k 折交叉验证，然后对所有你之前建立过的模型都做一遍交叉验证。&lt;/p&gt;
+&lt;h2 id=&quot;第十天&quot;&gt;&lt;a href=&quot;#第十天&quot; class=&quot;headerlink&quot; title=&quot;第十天&quot;&gt;&lt;/a&gt;第十天&lt;/h2&gt;&lt;p&gt;既然你想做一个数据科学家，这次经历不能落下它最有意思的部分，那就是展示结果。&lt;/p&gt;
+&lt;p&gt;无论你想选什么样的形式来展示它们都无所谓（将来很难有这样自由选择展示形式的机会了）。无论是半学术论文形式、PPT 展示、博客文章，还是一个手机App都可以，任君选择。把你的故事分享给大家。写写你在数据集里发现了什么、都做了些什么假设，分析假设能否成立的原因、简单描述下用到的算法、用简洁明了的形式来展示交叉验证的结果等，并且一定要多多放些图表。&lt;/p&gt;
+&lt;p&gt;这部分无论做到什么程度都不算用力过猛。我保证，如果你真能做一个好的展示并且展示给自己的伯乐看，相信成为本领域的专家指日可待。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160731_MachineLearning.jpg&quot; alt=&quot;机器学习与人工智能&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果你有10天空闲时间，每天想花十个小时学习数据科学入门知识，那么应该学点什么呢？具体如何操作？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="基础学习" scheme="http://jznudt.github.io/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://jznudt.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="数据挖掘" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"/>
+    
+  </entry>
   
   <entry>
     <title>VR技术与军事模拟训练结合中的两个问题</title>
@@ -45,61 +135,6 @@
       <category term="虚拟现实" scheme="http://jznudt.github.io/tags/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E/"/>
     
       <category term="电磁环境" scheme="http://jznudt.github.io/tags/%E7%94%B5%E7%A3%81%E7%8E%AF%E5%A2%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
-    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
-    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
-    <published>2016-07-28T06:57:05.000Z</published>
-    <updated>2016-07-28T09:57:08.029Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
-&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
-&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
-&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
-&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
-    
-    
-      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
-    
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
     
   </entry>
   
@@ -150,6 +185,61 @@
     
       &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_RadarSimGUIDemo.jpg&quot; alt=&quot;雷达电子战仿真模型与系统示例&quot;&gt;&lt;/p&gt;
 &lt;p&gt;经过前期积累，形成了一定体量的仿真模型/系统成果。随着开发工作的逐步深入，以及接触需求的日益复杂，在现有系统成果的基础上进行修改完善，遇到了许多问题。有必要对这些问题进行梳理，并提出有针对性的解决方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+    
+    
+      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
+    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
+    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
+    <published>2016-07-28T06:57:05.000Z</published>
+    <updated>2016-07-28T09:57:08.029Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
+&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
+&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
+&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
+&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
     
     </summary>
     
@@ -829,32 +919,6 @@
       <category term="仿真评估" scheme="http://jznudt.github.io/tags/%E4%BB%BF%E7%9C%9F%E8%AF%84%E4%BC%B0/"/>
     
       <category term="试验鉴定" scheme="http://jznudt.github.io/tags/%E8%AF%95%E9%AA%8C%E9%89%B4%E5%AE%9A/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>展开CTreeCtrl控件全部节点</title>
-    <link href="http://jznudt.github.io/2016/07/22/CTreeCtrlExpand/"/>
-    <id>http://jznudt.github.io/2016/07/22/CTreeCtrlExpand/</id>
-    <published>2016-07-22T02:45:12.000Z</published>
-    <updated>2016-07-22T05:29:21.811Z</updated>
-    
-    <content type="html">&lt;p&gt;最近在使用&lt;code&gt;MFC&lt;/code&gt;中的&lt;code&gt;CTreeCtrl&lt;/code&gt;控件时，遇到了“&lt;strong&gt;一次性展开所有子节点&lt;/strong&gt;”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的&lt;em&gt;递归函数&lt;/em&gt;方式，实现了上述功能，分享给大家。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
- &lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//MainFrame其它实现代码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;CTreeCtrl  m_TreeCtrl;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; MainFrame::ExpandTree(CTreeCtrl* pTreeCtrl, HTREEITEM hItem)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    HTREEITEM hChild, hNext;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;//如果存在，则展开节点&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pTreeCtrl-&amp;gt;Expand(hItem, TVE_EXPAND);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    hChild = pTreeCtrl-&amp;gt;GetNextItem(hItem, TVGN_CHILD);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt;(hChild)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        ExpandTree(pTreeCtrl, hChild);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        hChild = pTreeCtrl-&amp;gt;GetNextItem(hChild, TVGN_NEXT);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//调用方法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ExpandTree(&amp;amp;m_TreeCtrl, TVI_ROOT);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ExpandTree(&amp;amp;m_TreeCtrl, m_TreeCtrl.GetRootItem());&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近在使用&lt;code&gt;MFC&lt;/code&gt;中的&lt;code&gt;CTreeCtrl&lt;/code&gt;控件时，遇到了“&lt;strong&gt;一次性展开所有子节点&lt;/strong&gt;”的需求，原以为实现起来非常简单，实际编写时才发现有一定的困难。采用下面的&lt;em&gt;递归函数&lt;/em&gt;方式，实现了上述功能，分享给大家。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="代码分享" scheme="http://jznudt.github.io/categories/%E4%BB%A3%E7%A0%81%E5%88%86%E4%BA%AB/"/>
-    
-    
-      <category term="MFC控件" scheme="http://jznudt.github.io/tags/MFC%E6%8E%A7%E4%BB%B6/"/>
-    
-      <category term="C++" scheme="http://jznudt.github.io/tags/C/"/>
     
   </entry>
   
