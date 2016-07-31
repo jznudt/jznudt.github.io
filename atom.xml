@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-31T12:35:11.356Z</updated>
+  <updated>2016-07-31T13:12:55.619Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -14,6 +14,60 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分布式阵列相参合成雷达(DCAR)原理概述</title>
+    <link href="http://jznudt.github.io/2016/07/31/DCARadarPrinciple/"/>
+    <id>http://jznudt.github.io/2016/07/31/DCARadarPrinciple/</id>
+    <published>2016-07-31T12:39:50.000Z</published>
+    <updated>2016-07-31T13:12:55.619Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160731_DistributedCohetentRadar.jpg&quot; alt=&quot;分布式阵列相参合成雷达试验验证&quot;&gt;&lt;/p&gt;
+&lt;p&gt;随着人们对雷达探测为例、探测精度要求的不断提高，由此诞生了一批大口径雷达，例如美国的SBX雷达，其雷达的天线口径多达22.1m，系统总重量超过5万吨。如此庞大的雷达系统倘若布置在路基上，将难以机动部署，因此无法满足战时对雷达机动部署能力的要求。同时，大口径雷达还具有造假成本高、对器件的工艺要求高等缺点。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;为了客服大孔径雷达的这些固有缺点，美国麻省理工学院的&lt;a href=&quot;http://www.ll.mit.edu/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;林肯实验室&lt;/a&gt;在2003年提出了&lt;strong&gt;分布式孔径全相参雷达&lt;/strong&gt;的概念：将多个雷达或阵列分散布设，通过对多部雷达的回波进行信号层次的融合，以达到大孔径雷达的性能。通常地，一个有N部单元雷达所构成的分布式全相参雷达，相对于单部雷达而言，其最大输出信噪比可以提高N^3倍。&lt;/p&gt;
+&lt;p&gt;分布式全相参雷达相对于常规大口径雷达而言，由于其单元雷达天线口径的减小，因而更为容易地实现机动部署。同时，还降低了雷达成本以及对器件的工艺复杂度和精度的要求等。因而，它逐渐地引起了人们的重视。&lt;/p&gt;
+&lt;h2 id=&quot;发展现状&quot;&gt;&lt;a href=&quot;#发展现状&quot; class=&quot;headerlink&quot; title=&quot;发展现状&quot;&gt;&lt;/a&gt;发展现状&lt;/h2&gt;&lt;p&gt;2003年，林肯实验室首次提出将分布式阵列相参合成雷达（&lt;strong&gt;DCAR&lt;/strong&gt;）作为美国下一代或新一代弹道导弹防御雷达。截至目前，美国已经大力发展具有该技术特征的前置雷达（FBX-T）和宙斯盾反导系统（AEGIS BMDs）。其中，前置雷达规划了18部并已经部署了其中的三部，宙斯盾舰群已经全面开展了反导改造，目前已经完成了20余艘改造，并计划逐步完成剩下的80余艘宙斯盾舰的反导改造。前置雷达可以作为分布式阵列相参合成的单元雷达，首先进行地基分布式；而宙斯盾反导系统的舰载雷达也可作为分布式相参合成的单元雷达，进而拓展进行海基分布式。&lt;/p&gt;
+&lt;p&gt;目前，国内对分布式阵列相参合成雷达的研究尚处于起步阶段，但该技术的潜在优势和应用前景已经引起了航天二院23所、南京14所、清华大学、西安电子科技大学、北京理工大学、成都电子科技大学等国内各大研究所和高等院校的关注，并开展了前期概念研究，取得了一定的初步研究成果。&lt;/p&gt;
+&lt;h2 id=&quot;工作原理&quot;&gt;&lt;a href=&quot;#工作原理&quot; class=&quot;headerlink&quot; title=&quot;工作原理&quot;&gt;&lt;/a&gt;工作原理&lt;/h2&gt;&lt;p&gt;分布式阵列相参合成雷达系统由若干机动部署的单元雷达和一个中心控制处理系统组成，这些单元雷达按照一定方式进行阵列布局（可以一维布阵或者是二维布阵），其中波束指向相同的区域，并通过中心控制处理系统进行联合相参工作，从而实现信号级相参合成，等效成为一个大威力探测雷达。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;需要指出的是：分布式阵列相参合成雷达概念，狭义上指短基线（&amp;lt;100m），单元雷达基本上在一块阵地，也成为密集分布式；广义上指长基线（几公里、甚至是几十公里），单元雷达相距非常远，也成为分散分布式，即信号级组网。一般来说，大家更为关注的是密集分布式。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;分布式阵列相参合成雷达区别于常规雷达，每个单元雷达系统开始采用正交波形发射，每个单元雷达接收本雷达回波的同时，还接收其它单元雷达的回波，通过对所有发射波形分别同时进行匹配滤波接收处理，得到每个回波相对应的相位和延时，从而进行接收相参合成（receive coherence），从而获得N2的最大系统增益（其中N为单元雷达数目，下同），此时称之为接收相参模式；在接收相参模式的基础上，当相位和延时估计达到一定程度时，每个单元雷达开始发射同样的波形，并控制和调整多个单元雷达发射信号的时刻和相位，实现发射相参（transmit coherence），同时实现接收相参，这便是所谓的全相参（&lt;strong&gt;full coherence&lt;/strong&gt;），此时可以获取N3的最大系统增益，称之为收发相参模式。&lt;/p&gt;
+&lt;h2 id=&quot;技术优势&quot;&gt;&lt;a href=&quot;#技术优势&quot; class=&quot;headerlink&quot; title=&quot;技术优势&quot;&gt;&lt;/a&gt;技术优势&lt;/h2&gt;&lt;p&gt;分布式阵列相参合成雷达的主要技术优势包括：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;生存力强，该雷达系统可以快速移动，及时变换真滴，相对固定大孔径雷达生存力较强；&lt;/li&gt;
+&lt;li&gt;消费比高，该雷达系统既能够要地部署，也可以前沿部署；&lt;/li&gt;
+&lt;li&gt;角分辨高，可以实现非常高的角度分辨力，实现高质量矢量TOM图。&lt;/li&gt;
+&lt;li&gt;识别能力强，该雷达系统容易实现大扫描角宽带目标成像，大范围识别能力强；&lt;/li&gt;
+&lt;li&gt;扩展性强，很容易实现功能扩展和威力扩展；&lt;/li&gt;
+&lt;li&gt;实现性好，单元雷达规模小，技术成熟，工程实现性好。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;工作模式&quot;&gt;&lt;a href=&quot;#工作模式&quot; class=&quot;headerlink&quot; title=&quot;工作模式&quot;&gt;&lt;/a&gt;工作模式&lt;/h2&gt;&lt;p&gt;分布式阵列相参合成雷达的工作模式主要有三种：&lt;/p&gt;
+&lt;h3 id=&quot;独立工作模式&quot;&gt;&lt;a href=&quot;#独立工作模式&quot; class=&quot;headerlink&quot; title=&quot;独立工作模式&quot;&gt;&lt;/a&gt;独立工作模式&lt;/h3&gt;&lt;p&gt;每个单元雷达均独立工作，进行搜索、检测、跟踪和识别。该模式应用于目标距离小于单元雷达威力范围时，或加时间积累的远距离探测。&lt;/p&gt;
+&lt;h3 id=&quot;接收相参模式&quot;&gt;&lt;a href=&quot;#接收相参模式&quot; class=&quot;headerlink&quot; title=&quot;接收相参模式&quot;&gt;&lt;/a&gt;接收相参模式&lt;/h3&gt;&lt;p&gt;单元雷达发射正交波形，进行延时和相位估计，实现N2的最大系统增益。&lt;/p&gt;
+&lt;h3 id=&quot;收发相参模式（全相参）&quot;&gt;&lt;a href=&quot;#收发相参模式（全相参）&quot; class=&quot;headerlink&quot; title=&quot;收发相参模式（全相参）&quot;&gt;&lt;/a&gt;收发相参模式（全相参）&lt;/h3&gt;&lt;p&gt;在接收相参模式基础上，进行延时和相位精确控制，发射相同波形，实现收发相参，仍然进行参数估计和控制，实现N3的最大系统增益。&lt;br&gt;需要指出的是，这是分布式阵列相参合成雷达所独有的常态化模式，是MIMO等雷达所不具备和无法实现的，在这点上比MIMO雷达理论技术层次要高。&lt;br&gt;在全相参模式下，分布式阵列相参合成雷达的威力等效于一个同功率孔径积的打针面相控阵雷达的威力。或者是，它将一个大阵面雷达划分成为若干个小阵面雷达，“化整为零”，核心是空间积累。&lt;/p&gt;
+&lt;h2 id=&quot;关键技术&quot;&gt;&lt;a href=&quot;#关键技术&quot; class=&quot;headerlink&quot; title=&quot;关键技术&quot;&gt;&lt;/a&gt;关键技术&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;正交波形的设计与处理技术&lt;/li&gt;
+&lt;li&gt;延时与相位的估计与检测技术&lt;/li&gt;
+&lt;li&gt;分布式阵列优化布局与稀疏测角技术&lt;/li&gt;
+&lt;li&gt;分布式时间同步与本振相参技术&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160731_DistributedCohetentRadar.jpg&quot; alt=&quot;分布式阵列相参合成雷达试验验证&quot;&gt;&lt;/p&gt;
+&lt;p&gt;随着人们对雷达探测为例、探测精度要求的不断提高，由此诞生了一批大口径雷达，例如美国的SBX雷达，其雷达的天线口径多达22.1m，系统总重量超过5万吨。如此庞大的雷达系统倘若布置在路基上，将难以机动部署，因此无法满足战时对雷达机动部署能力的要求。同时，大口径雷达还具有造假成本高、对器件的工艺要求高等缺点。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术前沿" scheme="http://jznudt.github.io/categories/%E6%8A%80%E6%9C%AF%E5%89%8D%E6%B2%BF/"/>
+    
+    
+      <category term="分布式雷达" scheme="http://jznudt.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%B7%E8%BE%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>10天100小时学习数据科学</title>
@@ -139,6 +193,61 @@
   </entry>
   
   <entry>
+    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
+    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
+    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
+    <published>2016-07-28T06:57:05.000Z</published>
+    <updated>2016-07-28T09:57:08.029Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
+&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
+&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
+&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
+&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+    
+    
+      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>仿真模型/系统修改建议点滴总结</title>
     <link href="http://jznudt.github.io/2016/07/28/RadEWModelRevision/"/>
     <id>http://jznudt.github.io/2016/07/28/RadEWModelRevision/</id>
@@ -185,61 +294,6 @@
     
       &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_RadarSimGUIDemo.jpg&quot; alt=&quot;雷达电子战仿真模型与系统示例&quot;&gt;&lt;/p&gt;
 &lt;p&gt;经过前期积累，形成了一定体量的仿真模型/系统成果。随着开发工作的逐步深入，以及接触需求的日益复杂，在现有系统成果的基础上进行修改完善，遇到了许多问题。有必要对这些问题进行梳理，并提出有针对性的解决方法。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
-    
-    
-      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
-    
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
-    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
-    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
-    <published>2016-07-28T06:57:05.000Z</published>
-    <updated>2016-07-28T09:57:08.029Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
-&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
-&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
-&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
-&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
     
     </summary>
     
@@ -319,9 +373,9 @@
       <category term="行业综述" scheme="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
     
     
-      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
-    
       <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
     
   </entry>
   
@@ -503,9 +557,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="模型校验" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E6%A0%A1%E9%AA%8C/"/>
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -547,9 +601,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -671,9 +725,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -816,9 +870,9 @@
       <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
     
     
-      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
-    
       <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
     
   </entry>
   
@@ -877,48 +931,6 @@
       <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
     
       <category term="VR" scheme="http://jznudt.github.io/tags/VR/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>精选书目</title>
-    <link href="http://jznudt.github.io/2016/07/22/SelectedBooksList/"/>
-    <id>http://jznudt.github.io/2016/07/22/SelectedBooksList/</id>
-    <published>2016-07-22T04:58:47.000Z</published>
-    <updated>2016-07-22T05:03:29.292Z</updated>
-    
-    <content type="html">&lt;p&gt;最近较为系统地整理了本领域内的&lt;strong&gt;精读书目&lt;/strong&gt;，和大家分享一下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《现代雷达装备综合试验与评价》&lt;/li&gt;
-&lt;li&gt;《战争复杂系统仿真分析与实验》&lt;/li&gt;
-&lt;li&gt;《复杂系统建模与仿真》&lt;/li&gt;
-&lt;li&gt;《武器装备作战效能仿真与评估》&lt;/li&gt;
-&lt;li&gt;《装备作战试验理论与方法》&lt;/li&gt;
-&lt;li&gt;《武器装备综合试验与评估》&lt;/li&gt;
-&lt;li&gt;《机载导弹武器系统作战效能评估》&lt;/li&gt;
-&lt;li&gt;《战场环境概论》&lt;/li&gt;
-&lt;li&gt;《反舰导弹战场电磁环境仿真及试验鉴定技术》&lt;/li&gt;
-&lt;li&gt;《联合作战中的空军司令部》&lt;/li&gt;
-&lt;/ol&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;最近较为系统地整理了本领域内的&lt;strong&gt;精读书目&lt;/strong&gt;，和大家分享一下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;《现代雷达装备综合试验与评价》&lt;/li&gt;
-&lt;li&gt;《战争复杂系统仿真分析与实验》&lt;/li&gt;
-&lt;li&gt;《复杂系统建模与仿真》&lt;/li&gt;
-&lt;li&gt;《武器装备作战
-    
-    </summary>
-    
-      <category term="点滴随笔" scheme="http://jznudt.github.io/categories/%E7%82%B9%E6%BB%B4%E9%9A%8F%E7%AC%94/"/>
-    
-    
-      <category term="仿真评估" scheme="http://jznudt.github.io/tags/%E4%BB%BF%E7%9C%9F%E8%AF%84%E4%BC%B0/"/>
-    
-      <category term="试验鉴定" scheme="http://jznudt.github.io/tags/%E8%AF%95%E9%AA%8C%E9%89%B4%E5%AE%9A/"/>
     
   </entry>
   

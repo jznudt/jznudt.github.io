@@ -4,23 +4,25 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>模型数据验证概述 | 品创信联</title>
+    <title>分布式阵列相参合成雷达(DCAR)原理概述 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。">
+    <meta name="description" content="随着人们对雷达探测为例、探测精度要求的不断提高，由此诞生了一批大口径雷达，例如美国的SBX雷达，其雷达的天线口径多达22.1m，系统总重量超过5万吨。如此庞大的雷达系统倘若布置在路基上，将难以机动部署，因此无法满足战时对雷达机动部署能力的要求。同时，大口径雷达还具有造假成本高、对器件的工艺要求高等缺点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模型数据验证概述">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/index.html">
+<meta property="og:title" content="分布式阵列相参合成雷达(DCAR)原理概述">
+<meta property="og:url" content="http://jznudt.github.io/2016/07/31/DCARadarPrinciple/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。">
-<meta property="og:updated_time" content="2016-07-23T02:23:17.282Z">
+<meta property="og:description" content="随着人们对雷达探测为例、探测精度要求的不断提高，由此诞生了一批大口径雷达，例如美国的SBX雷达，其雷达的天线口径多达22.1m，系统总重量超过5万吨。如此庞大的雷达系统倘若布置在路基上，将难以机动部署，因此无法满足战时对雷达机动部署能力的要求。同时，大口径雷达还具有造假成本高、对器件的工艺要求高等缺点。">
+<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160731_DistributedCohetentRadar.jpg">
+<meta property="og:updated_time" content="2016-07-31T13:12:55.619Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模型数据验证概述">
-<meta name="twitter:description" content="从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。">
+<meta name="twitter:title" content="分布式阵列相参合成雷达(DCAR)原理概述">
+<meta name="twitter:description" content="随着人们对雷达探测为例、探测精度要求的不断提高，由此诞生了一批大口径雷达，例如美国的SBX雷达，其雷达的天线口径多达22.1m，系统总重量超过5万吨。如此庞大的雷达系统倘若布置在路基上，将难以机动部署，因此无法满足战时对雷达机动部署能力的要求。同时，大口径雷达还具有造假成本高、对器件的工艺要求高等缺点。">
+<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160731_DistributedCohetentRadar.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -81,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/23/ModelVVAIntroduction/" title="模型数据验证概述" itemprop="url">模型数据验证概述</a>
+      <a href="/2016/07/31/DCARadarPrinciple/" title="分布式阵列相参合成雷达(DCAR)原理概述" itemprop="url">分布式阵列相参合成雷达(DCAR)原理概述</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-23T02:04:14.000Z" itemprop="datePublished"> 发表于 2016-07-23</time>
+    <time datetime="2016-07-31T12:39:50.000Z" itemprop="datePublished"> 发表于 2016-07-31</time>
     
   </p>
 </header>
@@ -97,26 +99,41 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#影响模型有效性的因素分析"><span class="toc-number">1.</span> <span class="toc-text">影响模型有效性的因素分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建模过程中忽略了部分次要因素"><span class="toc-number">1.1.</span> <span class="toc-text">建模过程中忽略了部分次要因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前尚无一套完整评价方法来检验哪些约束可忽略"><span class="toc-number">1.2.</span> <span class="toc-text">目前尚无一套完整评价方法来检验哪些约束可忽略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型仿真实验时间过短"><span class="toc-number">1.3.</span> <span class="toc-text">模型仿真实验时间过短</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型初始数据确定失误"><span class="toc-number">1.4.</span> <span class="toc-text">模型初始数据确定失误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入随机数据分布的确定"><span class="toc-number">1.5.</span> <span class="toc-text">输入随机数据分布的确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型输出结果的统计误差"><span class="toc-number">1.6.</span> <span class="toc-text">模型输出结果的统计误差</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型数据验证工作的难点"><span class="toc-number">2.</span> <span class="toc-text">模型数据验证工作的难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型的验证是一个逐步迭代的过程"><span class="toc-number">2.1.</span> <span class="toc-text">模型的验证是一个逐步迭代的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型数据验证工作具有模糊性"><span class="toc-number">2.2.</span> <span class="toc-text">模型数据验证工作具有模糊性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证工作受到多种因素影响"><span class="toc-number">2.3.</span> <span class="toc-text">模型验证工作受到多种因素影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证过程中往往存在大量的统计分析与计算"><span class="toc-number">2.4.</span> <span class="toc-text">模型验证过程中往往存在大量的统计分析与计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#难以得到或者得不到实际系统输出行为的可靠结果"><span class="toc-number">2.5.</span> <span class="toc-text">难以得到或者得不到实际系统输出行为的可靠结果</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发展现状"><span class="toc-number">2.</span> <span class="toc-text">发展现状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作原理"><span class="toc-number">3.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术优势"><span class="toc-number">4.</span> <span class="toc-text">技术优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作模式"><span class="toc-number">5.</span> <span class="toc-text">工作模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#独立工作模式"><span class="toc-number">5.1.</span> <span class="toc-text">独立工作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接收相参模式"><span class="toc-number">5.2.</span> <span class="toc-text">接收相参模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收发相参模式（全相参）"><span class="toc-number">5.3.</span> <span class="toc-text">收发相参模式（全相参）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键技术"><span class="toc-number">6.</span> <span class="toc-text">关键技术</span></a></li></ol>
 		
 		</div>
 		
-		<p>从影响模型有效性的因素、模型数据验证工作的难点这两个方面，对模型数据验证工作进行概述。</p>
+		<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160731_DistributedCohetentRadar.jpg" alt="分布式阵列相参合成雷达试验验证"></p>
+<p>随着人们对雷达探测为例、探测精度要求的不断提高，由此诞生了一批大口径雷达，例如美国的SBX雷达，其雷达的天线口径多达22.1m，系统总重量超过5万吨。如此庞大的雷达系统倘若布置在路基上，将难以机动部署，因此无法满足战时对雷达机动部署能力的要求。同时，大口径雷达还具有造假成本高、对器件的工艺要求高等缺点。</p>
 <a id="more"></a>
-<h2 id="影响模型有效性的因素分析"><a href="#影响模型有效性的因素分析" class="headerlink" title="影响模型有效性的因素分析"></a>影响模型有效性的因素分析</h2><p>模型与实际系统无法完全吻合的主要因素总结如下：</p>
-<h3 id="建模过程中忽略了部分次要因素"><a href="#建模过程中忽略了部分次要因素" class="headerlink" title="建模过程中忽略了部分次要因素"></a>建模过程中忽略了部分次要因素</h3><p>一些因素因为对所研究的系统（建模对象），或对研究的目标相关性较小，因此在建模中可以忽略。这种忽略在一定程度上具有潜在的危险。</p>
-<h3 id="目前尚无一套完整评价方法来检验哪些约束可忽略"><a href="#目前尚无一套完整评价方法来检验哪些约束可忽略" class="headerlink" title="目前尚无一套完整评价方法来检验哪些约束可忽略"></a>目前尚无一套完整评价方法来检验哪些约束可忽略</h3><p>在建模过程中，常常是凭经验取舍，这不可避免地造成了模型与现实系统的差异。</p>
-<h3 id="模型仿真实验时间过短"><a href="#模型仿真实验时间过短" class="headerlink" title="模型仿真实验时间过短"></a>模型仿真实验时间过短</h3><p>模型所描述的系统通常是复杂、慢变过程，该类模型的实验、测试等往往需要许多时间。因各种条件限制，无法获取足够大的统计样本，导致输出数据严重不足，进而导致模型输出结果不可信。</p>
-<h3 id="模型初始数据确定失误"><a href="#模型初始数据确定失误" class="headerlink" title="模型初始数据确定失误"></a>模型初始数据确定失误</h3><p>模型的初始状态对其输出结果有着直接影响，特别是在运行时间较短的情况下，模型输出结果将具有较大的偏差。</p>
-<h3 id="输入随机数据分布的确定"><a href="#输入随机数据分布的确定" class="headerlink" title="输入随机数据分布的确定"></a>输入随机数据分布的确定</h3><p>模型中多含有一定数量的随机变量，它们分布确定的正确与否直接影响模型的质量。</p>
-<h3 id="模型输出结果的统计误差"><a href="#模型输出结果的统计误差" class="headerlink" title="模型输出结果的统计误差"></a>模型输出结果的统计误差</h3><p>对特定测试条件下模型输出结果的收集和统计有严格的要求。实际中，许多模型很难得到大量输出数据，因此导致其统计结果失效。</p>
-<h2 id="模型数据验证工作的难点"><a href="#模型数据验证工作的难点" class="headerlink" title="模型数据验证工作的难点"></a>模型数据验证工作的难点</h2><p>总体上看，模型数据校验工作的难点体现在以下方面：</p>
-<h3 id="模型的验证是一个逐步迭代的过程"><a href="#模型的验证是一个逐步迭代的过程" class="headerlink" title="模型的验证是一个逐步迭代的过程"></a>模型的验证是一个逐步迭代的过程</h3><p>模型是建模者依据特定目的，按照相似原理对实际系统的科学抽象与简化描述，它反映了建模者对实际系统由感性到理性人事的阶段，这种认识的正确、精确与否，需要经过实践检验。因此，模型验证工作实际上是“实践——理论——实践”的循环过程。</p>
-<h3 id="模型数据验证工作具有模糊性"><a href="#模型数据验证工作具有模糊性" class="headerlink" title="模型数据验证工作具有模糊性"></a>模型数据验证工作具有模糊性</h3><p>模型是原型的相似系统，这种相似具有一定的不确定性。这种不确定性不仅与建模者对原型认识的深刻程度有关，而且与他采用的方法、技巧等有关。</p>
-<h3 id="模型验证工作受到多种因素影响"><a href="#模型验证工作受到多种因素影响" class="headerlink" title="模型验证工作受到多种因素影响"></a>模型验证工作受到多种因素影响</h3><p>首先是模型本身的因素。一个完整的模型包含两个方面的内容：一方面是它的结构，另一方面是它的参数。结构往往可以代表某一类模型的共性，而参数的加入，体现的是模型的个性。这两方面是模型能否代表原型的决定因素，是内因。</p>
-<p>其次是模型运行的环境即外因，其中最基本的是给模型系统施加的输入作用。这种作用应与给实际系统施加的作用相似，只有这样，才能为分析判断模型的有效性创造条件。</p>
-<h3 id="模型验证过程中往往存在大量的统计分析与计算"><a href="#模型验证过程中往往存在大量的统计分析与计算" class="headerlink" title="模型验证过程中往往存在大量的统计分析与计算"></a>模型验证过程中往往存在大量的统计分析与计算</h3><p>假设检验、统计判断、置信区间估计等都要涉及到复杂的计算。因此，模型验证工作需要付出很高的代价，特别是对于复杂的大型军用软件更是如此，以致模型的全面验证实际上成为不可能。</p>
-<h3 id="难以得到或者得不到实际系统输出行为的可靠结果"><a href="#难以得到或者得不到实际系统输出行为的可靠结果" class="headerlink" title="难以得到或者得不到实际系统输出行为的可靠结果"></a>难以得到或者得不到实际系统输出行为的可靠结果</h3><p>比如导弹武器系统，尽管可以通过打靶试验获得有关真实系统的一些行为特征数据，但这些参考数据是极其有限的，对进行全面的验证来说是不充分的。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>为了客服大孔径雷达的这些固有缺点，美国麻省理工学院的<a href="http://www.ll.mit.edu/" target="_blank" rel="external">林肯实验室</a>在2003年提出了<strong>分布式孔径全相参雷达</strong>的概念：将多个雷达或阵列分散布设，通过对多部雷达的回波进行信号层次的融合，以达到大孔径雷达的性能。通常地，一个有N部单元雷达所构成的分布式全相参雷达，相对于单部雷达而言，其最大输出信噪比可以提高N^3倍。</p>
+<p>分布式全相参雷达相对于常规大口径雷达而言，由于其单元雷达天线口径的减小，因而更为容易地实现机动部署。同时，还降低了雷达成本以及对器件的工艺复杂度和精度的要求等。因而，它逐渐地引起了人们的重视。</p>
+<h2 id="发展现状"><a href="#发展现状" class="headerlink" title="发展现状"></a>发展现状</h2><p>2003年，林肯实验室首次提出将分布式阵列相参合成雷达（<strong>DCAR</strong>）作为美国下一代或新一代弹道导弹防御雷达。截至目前，美国已经大力发展具有该技术特征的前置雷达（FBX-T）和宙斯盾反导系统（AEGIS BMDs）。其中，前置雷达规划了18部并已经部署了其中的三部，宙斯盾舰群已经全面开展了反导改造，目前已经完成了20余艘改造，并计划逐步完成剩下的80余艘宙斯盾舰的反导改造。前置雷达可以作为分布式阵列相参合成的单元雷达，首先进行地基分布式；而宙斯盾反导系统的舰载雷达也可作为分布式相参合成的单元雷达，进而拓展进行海基分布式。</p>
+<p>目前，国内对分布式阵列相参合成雷达的研究尚处于起步阶段，但该技术的潜在优势和应用前景已经引起了航天二院23所、南京14所、清华大学、西安电子科技大学、北京理工大学、成都电子科技大学等国内各大研究所和高等院校的关注，并开展了前期概念研究，取得了一定的初步研究成果。</p>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><p>分布式阵列相参合成雷达系统由若干机动部署的单元雷达和一个中心控制处理系统组成，这些单元雷达按照一定方式进行阵列布局（可以一维布阵或者是二维布阵），其中波束指向相同的区域，并通过中心控制处理系统进行联合相参工作，从而实现信号级相参合成，等效成为一个大威力探测雷达。</p>
+<blockquote>
+<p>需要指出的是：分布式阵列相参合成雷达概念，狭义上指短基线（&lt;100m），单元雷达基本上在一块阵地，也成为密集分布式；广义上指长基线（几公里、甚至是几十公里），单元雷达相距非常远，也成为分散分布式，即信号级组网。一般来说，大家更为关注的是密集分布式。</p>
+</blockquote>
+<p>分布式阵列相参合成雷达区别于常规雷达，每个单元雷达系统开始采用正交波形发射，每个单元雷达接收本雷达回波的同时，还接收其它单元雷达的回波，通过对所有发射波形分别同时进行匹配滤波接收处理，得到每个回波相对应的相位和延时，从而进行接收相参合成（receive coherence），从而获得N2的最大系统增益（其中N为单元雷达数目，下同），此时称之为接收相参模式；在接收相参模式的基础上，当相位和延时估计达到一定程度时，每个单元雷达开始发射同样的波形，并控制和调整多个单元雷达发射信号的时刻和相位，实现发射相参（transmit coherence），同时实现接收相参，这便是所谓的全相参（<strong>full coherence</strong>），此时可以获取N3的最大系统增益，称之为收发相参模式。</p>
+<h2 id="技术优势"><a href="#技术优势" class="headerlink" title="技术优势"></a>技术优势</h2><p>分布式阵列相参合成雷达的主要技术优势包括：</p>
+<ol>
+<li>生存力强，该雷达系统可以快速移动，及时变换真滴，相对固定大孔径雷达生存力较强；</li>
+<li>消费比高，该雷达系统既能够要地部署，也可以前沿部署；</li>
+<li>角分辨高，可以实现非常高的角度分辨力，实现高质量矢量TOM图。</li>
+<li>识别能力强，该雷达系统容易实现大扫描角宽带目标成像，大范围识别能力强；</li>
+<li>扩展性强，很容易实现功能扩展和威力扩展；</li>
+<li>实现性好，单元雷达规模小，技术成熟，工程实现性好。</li>
+</ol>
+<h2 id="工作模式"><a href="#工作模式" class="headerlink" title="工作模式"></a>工作模式</h2><p>分布式阵列相参合成雷达的工作模式主要有三种：</p>
+<h3 id="独立工作模式"><a href="#独立工作模式" class="headerlink" title="独立工作模式"></a>独立工作模式</h3><p>每个单元雷达均独立工作，进行搜索、检测、跟踪和识别。该模式应用于目标距离小于单元雷达威力范围时，或加时间积累的远距离探测。</p>
+<h3 id="接收相参模式"><a href="#接收相参模式" class="headerlink" title="接收相参模式"></a>接收相参模式</h3><p>单元雷达发射正交波形，进行延时和相位估计，实现N2的最大系统增益。</p>
+<h3 id="收发相参模式（全相参）"><a href="#收发相参模式（全相参）" class="headerlink" title="收发相参模式（全相参）"></a>收发相参模式（全相参）</h3><p>在接收相参模式基础上，进行延时和相位精确控制，发射相同波形，实现收发相参，仍然进行参数估计和控制，实现N3的最大系统增益。<br>需要指出的是，这是分布式阵列相参合成雷达所独有的常态化模式，是MIMO等雷达所不具备和无法实现的，在这点上比MIMO雷达理论技术层次要高。<br>在全相参模式下，分布式阵列相参合成雷达的威力等效于一个同功率孔径积的打针面相控阵雷达的威力。或者是，它将一个大阵面雷达划分成为若干个小阵面雷达，“化整为零”，核心是空间积累。</p>
+<h2 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h2><ol>
+<li>正交波形的设计与处理技术</li>
+<li>延时与相位的估计与检测技术</li>
+<li>分布式阵列优化布局与稀疏测角技术</li>
+<li>分布式时间同步与本振相参技术</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -124,13 +141,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/关键技术/">关键技术</a>
+  <a class="article-category-link" href="/categories/技术前沿/">技术前沿</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/数据验证/">数据验证</a><a href="/tags/模型验证/">模型验证</a>
+  <span></span> <a href="/tags/分布式雷达/">分布式雷达</a>
   </div>
 
 </div>
@@ -139,7 +156,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/" data-title="模型数据验证概述 | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/07/31/DCARadarPrinciple/" data-title="分布式阵列相参合成雷达(DCAR)原理概述 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -152,19 +169,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/07/23/ThreadPoolIntro/" title="将线程池技术应用于并行仿真引擎设计？">
-  <strong>上一篇：</strong><br/>
-  <span>
-  将线程池技术应用于并行仿真引擎设计？</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/07/23/ModelVVABasicConcepts/"  title="模型数据校核基础概念">
+<a href="/2016/07/31/TenDaysToLearnDataScience/"  title="10天100小时学习数据科学">
  <strong>下一篇：</strong><br/> 
- <span>模型数据校核基础概念
+ <span>10天100小时学习数据科学
 </span>
 </a>
 </div>
@@ -173,7 +182,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/23/ModelVVAIntroduction/" data-title="模型数据验证概述" data-url="http://jznudt.github.io/2016/07/23/ModelVVAIntroduction/"></div>
+	<div class="ds-thread" data-thread-key="2016/07/31/DCARadarPrinciple/" data-title="分布式阵列相参合成雷达(DCAR)原理概述" data-url="http://jznudt.github.io/2016/07/31/DCARadarPrinciple/"></div>
 </section>
 
 
@@ -183,7 +192,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#影响模型有效性的因素分析"><span class="toc-number">1.</span> <span class="toc-text">影响模型有效性的因素分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#建模过程中忽略了部分次要因素"><span class="toc-number">1.1.</span> <span class="toc-text">建模过程中忽略了部分次要因素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前尚无一套完整评价方法来检验哪些约束可忽略"><span class="toc-number">1.2.</span> <span class="toc-text">目前尚无一套完整评价方法来检验哪些约束可忽略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型仿真实验时间过短"><span class="toc-number">1.3.</span> <span class="toc-text">模型仿真实验时间过短</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型初始数据确定失误"><span class="toc-number">1.4.</span> <span class="toc-text">模型初始数据确定失误</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入随机数据分布的确定"><span class="toc-number">1.5.</span> <span class="toc-text">输入随机数据分布的确定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型输出结果的统计误差"><span class="toc-number">1.6.</span> <span class="toc-text">模型输出结果的统计误差</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模型数据验证工作的难点"><span class="toc-number">2.</span> <span class="toc-text">模型数据验证工作的难点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模型的验证是一个逐步迭代的过程"><span class="toc-number">2.1.</span> <span class="toc-text">模型的验证是一个逐步迭代的过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型数据验证工作具有模糊性"><span class="toc-number">2.2.</span> <span class="toc-text">模型数据验证工作具有模糊性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证工作受到多种因素影响"><span class="toc-number">2.3.</span> <span class="toc-text">模型验证工作受到多种因素影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型验证过程中往往存在大量的统计分析与计算"><span class="toc-number">2.4.</span> <span class="toc-text">模型验证过程中往往存在大量的统计分析与计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#难以得到或者得不到实际系统输出行为的可靠结果"><span class="toc-number">2.5.</span> <span class="toc-text">难以得到或者得不到实际系统输出行为的可靠结果</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#发展现状"><span class="toc-number">2.</span> <span class="toc-text">发展现状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作原理"><span class="toc-number">3.</span> <span class="toc-text">工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术优势"><span class="toc-number">4.</span> <span class="toc-text">技术优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作模式"><span class="toc-number">5.</span> <span class="toc-text">工作模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#独立工作模式"><span class="toc-number">5.1.</span> <span class="toc-text">独立工作模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#接收相参模式"><span class="toc-number">5.2.</span> <span class="toc-text">接收相参模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#收发相参模式（全相参）"><span class="toc-number">5.3.</span> <span class="toc-text">收发相参模式（全相参）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键技术"><span class="toc-number">6.</span> <span class="toc-text">关键技术</span></a></li></ol>
  
   </div>
 
