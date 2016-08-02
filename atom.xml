@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-07-31T13:12:55.619Z</updated>
+  <updated>2016-08-02T14:32:51.579Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -14,6 +14,91 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>应用于无线定位的TDOA算法总结</title>
+    <link href="http://jznudt.github.io/2016/08/02/TDOAIntroduction/"/>
+    <id>http://jznudt.github.io/2016/08/02/TDOAIntroduction/</id>
+    <published>2016-08-02T14:18:07.000Z</published>
+    <updated>2016-08-02T14:32:51.579Z</updated>
+    
+    <content type="html">&lt;p&gt;以蜂窝网中的无线定位为例，提供基于移动台位置的服务应用于各方面，例如公共安全服务紧急报警、基于移动台位置的计费、车辆和交通管理、导航、城市观光、网络规划与设计、网络QoS和无线资源管理等。在蜂窝网络中，需要定位的移动台通常是静止或者慢速移动的手机，因此定位通常利用蜂窝网络参与定位，依据需要也可以利用GPS、北斗等参与辅助定位。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;无源时差（&lt;strong&gt;TDOA&lt;/strong&gt;, Time Difference of Arrival）定位又称为双曲线定位，是一种重要的无源定位方法。它通过处理三个或者更多个接收站点采集到的信号到达时间数据，从而对移动目标（辐射源）进行定位。它具有精度高、定位快等优点，在无线定位的工程实践中得到了广泛的应用。TDOA定位法由于检测的是相对时间差，因此只需要各个&lt;em&gt;基站之间保持时间同步&lt;/em&gt;，而不需要基站和移动台保持同步，这降低了系统的复杂度，实现起来更为容易。&lt;/p&gt;
+&lt;h2 id=&quot;关键技术&quot;&gt;&lt;a href=&quot;#关键技术&quot; class=&quot;headerlink&quot; title=&quot;关键技术&quot;&gt;&lt;/a&gt;关键技术&lt;/h2&gt;&lt;p&gt;接下来，系统地总结TDOA定位法在实现过程中需要着重考虑的几点关键技术：&lt;/p&gt;
+&lt;h3 id=&quot;TOA测量方法&quot;&gt;&lt;a href=&quot;#TOA测量方法&quot; class=&quot;headerlink&quot; title=&quot;TOA测量方法&quot;&gt;&lt;/a&gt;TOA测量方法&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;基于时间的定位法要求基站从接收到的射频信号中提取准确的TOA。在蜂窝系统中，用户获取TOA估计值的方法有：相位测距法、脉冲测距法和扩频测距法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其中，扩频技术可以准确地测量出信号的到达时间，在CDMA蜂窝系统中通常采用扩频测距法，按照技术实现方式，又可以划分为两种：一是采用滑动相关器或匹配滤波器的时间粗探测方法，二是采用延迟锁相环（DLL）的精探测方法。&lt;/p&gt;
+&lt;h3 id=&quot;TDOA测量方法&quot;&gt;&lt;a href=&quot;#TDOA测量方法&quot; class=&quot;headerlink&quot; title=&quot;TDOA测量方法&quot;&gt;&lt;/a&gt;TDOA测量方法&lt;/h3&gt;&lt;p&gt;对于TDOA的估计方法，一般有两种，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TOA之差：求取两个基站测得的信号到达TOA之间的差值，从而获得TDOA；&lt;/li&gt;
+&lt;li&gt;相关法：将一个基站接收到的信号与另个从站接收到的信号进行互相关运算，以求取TDOA值，例如常用的GCC方法。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;非视距（NLOS）误差鉴别与抑制&quot;&gt;&lt;a href=&quot;#非视距（NLOS）误差鉴别与抑制&quot; class=&quot;headerlink&quot; title=&quot;非视距（NLOS）误差鉴别与抑制&quot;&gt;&lt;/a&gt;非视距（NLOS）误差鉴别与抑制&lt;/h3&gt;&lt;p&gt;在蜂窝系统覆盖区内，尤其是在大城市和多山地区，视距传播（LOS）一般较困难，更多的情况是非视距传播（NLOS）。在NLOS中，移动台（MS）发出的信号通过反射或者衍射到达基站（BS），传播的路径比直线路径长得多。即使在无多径效应和采用了高精度定时技术的情况下，NLOS传播也会引起TOA/TDOA的测量误差，导致定位结果错误，并且NLOS误差有随着MS与BS之间距离增大而线性增大的趋势。&lt;/p&gt;
+&lt;p&gt;目前，NLOS问题已经成为蜂窝网络移动台定位技术研究的重点问题，比较常用的鉴别和消除NLOS误差的两种算法为：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Wylie_Holtzman方法；&lt;/li&gt;
+&lt;li&gt;假设检验判别法；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;蜂窝网无线定位基本方法&quot;&gt;&lt;a href=&quot;#蜂窝网无线定位基本方法&quot; class=&quot;headerlink&quot; title=&quot;蜂窝网无线定位基本方法&quot;&gt;&lt;/a&gt;蜂窝网无线定位基本方法&lt;/h2&gt;&lt;p&gt;在无线定位系统中，一旦获取了TOA/TDOA的测量值，就可以得到移动台到基站的距离或者移动台到两个基站之间的距离差。多个TOA/TDOA的测量值就可以构成一组关于移动台位置的圆周曲线/双曲线方程组，求解该方程组就可以得到移动台的估计位置。由于圆周曲线/双曲线方程组并不是一组线性方程组，因此求解起来并不容易。目前，已经提出了多种具有不同精度和计算复杂度的算法，包括：&lt;/p&gt;
+&lt;h3 id=&quot;Fang算法&quot;&gt;&lt;a href=&quot;#Fang算法&quot; class=&quot;headerlink&quot; title=&quot;Fang算法&quot;&gt;&lt;/a&gt;Fang算法&lt;/h3&gt;&lt;p&gt;利用三个基站，对MS进行二维的位置定位。&lt;/p&gt;
+&lt;h3 id=&quot;Chan算法&quot;&gt;&lt;a href=&quot;#Chan算法&quot; class=&quot;headerlink&quot; title=&quot;Chan算法&quot;&gt;&lt;/a&gt;Chan算法&lt;/h3&gt;&lt;p&gt;这是一种具有解析表达式解的非递归的双曲线方程组解法，它的突出优点是计算量小，在测量噪声服从Gauss分布的环境下，定位精度高。但需要指出的是，在NLOS环境下，Chan算法的定位精度将显著地下降。&lt;/p&gt;
+&lt;p&gt;按照基站数目，Chan算法又可以分为下面两种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;三基站时的算法：当有效测量基站数目为3个时，可以得到两个TDOA值，与Fang算法类似，可以依据某些先验信息进行模糊性剔除；&lt;/li&gt;
+&lt;li&gt;四个基站以上时的算法：当有效测量基站数目为4个以上时，Chan算法能够利用网络提供的所有TDOA测量值并取得更好的计算效果。此时TDOA测量值数据将多于未知量的数目。一般的做法是：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;将初始非线性TDOA方程组首先转换为线性方程组，然后采用加权最小二乘（WLS）算法得到一个初始解，再利用第一次得到的估计位置坐标及其附加变量等已知的约束条件进行第二次WLS估计，最后便能够得到改进的估计位置。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;泰勒序列展开法&quot;&gt;&lt;a href=&quot;#泰勒序列展开法&quot; class=&quot;headerlink&quot; title=&quot;泰勒序列展开法&quot;&gt;&lt;/a&gt;泰勒序列展开法&lt;/h3&gt;&lt;p&gt;这是一种需要一个移动站初始估计位置的递归算法，在每一次递归过程中，通过求解TDOA测量误差的局部最小二乘（LS）解来改进对MS的估计位置。&lt;br&gt;需要指出的是，在实际应用中，泰勒序列展开法通过具有较好的定位性能。但是该方法需要递归求解，在基站近似于直线排列等非标准基站布局的情况下，会出现较多的不收敛情况，算法的计算量相对较大。&lt;/p&gt;
+&lt;h3 id=&quot;常用方法总结&quot;&gt;&lt;a href=&quot;#常用方法总结&quot; class=&quot;headerlink&quot; title=&quot;常用方法总结&quot;&gt;&lt;/a&gt;常用方法总结&lt;/h3&gt;&lt;p&gt;上述各种算法有其不同的应用前途，例如对TDOA测量值的误差特性有不同的要求，计算复杂度不尽相同，在不同的TDOA噪声特性下分别能够达到定位估计的最优或次优解等。另外，某些算法最初是为了解决声呐等无源定位系统的定位问题而提出的，它的应用环境与蜂窝网络环境有着较大区别，将其应用至蜂窝网络中移动台的定位时还需要解决一些具体问题。具体地，&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;泰勒序列展开法可以提供TDOA测量值误差的先验信息，能够应用于基于两个以上各种数目的TDOA测量值的定位估计问题，对TDOA误差的统计特性没有特殊要求，能在适当的TDOA噪声水平上提供较为准确的定位估计。当已知各TDOA测量值误差的先验信息（即Q矩阵）时，在每一次LS计算中采用Q矩阵进行加权将会有效地改进算法的性能。但是由于算法本身为递归算法，因此不能够提供明确的表达式解，其计算复杂度较高，并且需要一个与实际位置相距并不算太大的初始位置来保证算法的收敛性，在实际应用中还需要对不收敛的情况进行判断。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Fang算法无需提供TDOA测量值的先验信息，算法计算过程简单明确，在实际应用中，其定位估计值存在的模糊性可以通过蜂窝小区的有关信息进行去除。从理论上看，该方法能够得到基于TDOA测量数据的最优解，但该算法只能利用与位置坐标数目相同的TDOA测量值，不能利用蜂窝网络提供的冗余TDOA测量值。因此，如果选中的某一个TDOA测量值中具有较大的随机测量误差将会严重地影响算法性能。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ol&gt;
+&lt;li&gt;Chan算法能够利用蜂窝网络提供的所有TDOA测量值，因此能够降低个别较大的随机测量误差的影响，取得更好的定位结果。该算法中进行了两次WLS计算，是对最大似然估计器的近似，能够得到明确的表达式解，在TDOA测量噪声为零均值的高斯随机变量时其解能够达到CRLB。但是，该算法需要提供TDOA测量值误差的先验信息（Q矩阵），这在实际应用中往往具有一定的困难，该算法还需要提供一些有关MS位置的先验信息（比如小区覆盖区）以解决其解存在的模糊性。另外，算法的推导过程都是基于TDOA测量噪声为零均值的高斯随机变量这一假定条件，当实际信道环境中TDOA噪声为非高斯随机变量或者均值不为零（例如具有NLOS误差）时，可以预计算法的定位性能将会显著地下降。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;需要特别指出的是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;上述各种定位算法中，都采用了LS或者WLS算法，因此只有在TDOA测量值误差服从零均值高斯分布时，才可能取得最佳的定位性能。但是在实际蜂窝网络信道环境中，由于多种不利因素的影响效应，这一条件往往难以满足，使得各种算法的性能受到不同程度的影响。此外在实际系统中，上述各种TDOA双曲线定位算法的性能往往要受到基站地理位置（GDOP），TDOA测量精度等多种因素的影响。一个最优的定位算法应具备以最低代价（特指计算复杂度）得到最高定位精度的能力，并且具有良好的可靠性和健壮性。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;定位准确性评价指标&quot;&gt;&lt;a href=&quot;#定位准确性评价指标&quot; class=&quot;headerlink&quot; title=&quot;定位准确性评价指标&quot;&gt;&lt;/a&gt;定位准确性评价指标&lt;/h2&gt;&lt;p&gt;为了正确评价定位算法在实际蜂窝网络环境中的定位性能，需要首选确定评价定位准确率的指标。目前最常用的包括：定位解的均方误差（MSE）、均方根误差（RMSE）、与理论上基于CRLB的MSE之间的比较；另一种是圆误差概率（CEP），基站地理位置对定位准确率的影响由GDOP（几何精度因子）来度量，其中GDOP和CEP之间存在着一种简单的对应关系。此外，工程应用中往往还将定位误差的概率密度函数PDF和累积概率分布函数CDF作为评价指标。&lt;/p&gt;
+&lt;h2 id=&quot;影响定位精度主要原因与对策&quot;&gt;&lt;a href=&quot;#影响定位精度主要原因与对策&quot; class=&quot;headerlink&quot; title=&quot;影响定位精度主要原因与对策&quot;&gt;&lt;/a&gt;影响定位精度主要原因与对策&lt;/h2&gt;&lt;p&gt;在蜂窝网中由于非理想的信道环境，使得移动台和基站之间多径传播，NLOS传播普遍存在；在CDMA网络中，还普遍存在着多址干扰，这些因素都会使检测到的各种信号特征测量值出现误差，从而影响定位精度。如何采取适当措施来降低这些因素影响，得到准确的信号特征测量值，是提供定位精度的关键。归纳起来，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;多径传播是引起各种信号特征测量值出现误差的根本原因；&lt;/li&gt;
+&lt;li&gt;LOS传播是得到准确信号特征测量值的必要条件。目前降低NLOS传播的影响主要由下面几种方法：一是通过TOA测量值的标准差对LOS和NLOS传播进行区别，NLOS传播的测距标准差要比LOS传播高得多，利用测距误差统计的先验信息就可以将一段时间内的NLOS测量值调节到接近LOS的测量值；二是降低非线性最小二乘算法中NLOS测量值的权重；三是算法改进，利用在NLOS传播条件下距离测量值总是大于实际距离这一特点在非线性最小二乘算法中增加一个约束项，从而提高定位精度。&lt;/li&gt;
+&lt;li&gt;在CDMA系统中，用户通过不同的扩频码享有统一频带，这种高容量带来了远近效应和多址干扰。多址干扰会严重地影响TOA和TDOA的粗捕获，对DLL的时间测量也有较大影响。一般在CDMA系统中采用功率控制来克服远近效应。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;一种新的TDOA定位算法&quot;&gt;&lt;a href=&quot;#一种新的TDOA定位算法&quot; class=&quot;headerlink&quot; title=&quot;一种新的TDOA定位算法&quot;&gt;&lt;/a&gt;一种新的TDOA定位算法&lt;/h2&gt;&lt;p&gt;当存在多径传输（NLOS）时，实现了一种基于高阶累积量和基于循环平稳统计量的TDOA统计新方法。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;目前，该方法已经进行了若干的试验，应用于GSM系统的无线定位。试验表明，GSM系统中采用的GMSK调制，所提出的方法能够很好地检测出信号的时延，而且TDOA函数的峰值更为清晰、更容易辨别。关于该算法的细节，另外提供相应的算法说明文章。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;应用于移动定位的线性数据融合方法&quot;&gt;&lt;a href=&quot;#应用于移动定位的线性数据融合方法&quot; class=&quot;headerlink&quot; title=&quot;应用于移动定位的线性数据融合方法&quot;&gt;&lt;/a&gt;应用于移动定位的线性数据融合方法&lt;/h2&gt;&lt;p&gt;将数据融合技术应用于蜂窝网对MS的定位估计，实现了一种对独立检测的TOA和TDOA数据进行融合，以获取优于单独使用TDOA或TOA数据进定位估计的数据融合模型。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;该模型提供4种定位估计值以供选择，分别是单独由TDOA和TOA测量值得到的定位估计值；由TOA测量值转换而成的TDOA数据和TDOA测量值进行第一层数据融合得到的定位估计值。TOA测量值和TDOA测量值得到的定位估计值的第二层数据融合算出的定位估计值，四种定位估计值要在决策层数据融合中进行处理，选出最佳定位估计值。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;上述模型能够有效融合TOA和TDOA两种定位方法的优点，能够获取更为准确的定位结果。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以蜂窝网中的无线定位为例，提供基于移动台位置的服务应用于各方面，例如公共安全服务紧急报警、基于移动台位置的计费、车辆和交通管理、导航、城市观光、网络规划与设计、网络QoS和无线资源管理等。在蜂窝网络中，需要定位的移动台通常是静止或者慢速移动的手机，因此定位通常利用蜂窝网络参与定位，依据需要也可以利用GPS、北斗等参与辅助定位。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="TDOA" scheme="http://jznudt.github.io/tags/TDOA/"/>
+    
+      <category term="无源定位" scheme="http://jznudt.github.io/tags/%E6%97%A0%E6%BA%90%E5%AE%9A%E4%BD%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>分布式阵列相参合成雷达(DCAR)原理概述</title>
@@ -193,61 +278,6 @@
   </entry>
   
   <entry>
-    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
-    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
-    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
-    <published>2016-07-28T06:57:05.000Z</published>
-    <updated>2016-07-28T09:57:08.029Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
-&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
-&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
-&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
-&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
-    
-    
-      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
-    
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
-    
-  </entry>
-  
-  <entry>
     <title>仿真模型/系统修改建议点滴总结</title>
     <link href="http://jznudt.github.io/2016/07/28/RadEWModelRevision/"/>
     <id>http://jznudt.github.io/2016/07/28/RadEWModelRevision/</id>
@@ -294,6 +324,61 @@
     
       &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_RadarSimGUIDemo.jpg&quot; alt=&quot;雷达电子战仿真模型与系统示例&quot;&gt;&lt;/p&gt;
 &lt;p&gt;经过前期积累，形成了一定体量的仿真模型/系统成果。随着开发工作的逐步深入，以及接触需求的日益复杂，在现有系统成果的基础上进行修改完善，遇到了许多问题。有必要对这些问题进行梳理，并提出有针对性的解决方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+    
+    
+      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
+    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
+    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
+    <published>2016-07-28T06:57:05.000Z</published>
+    <updated>2016-07-28T09:57:08.029Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
+&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
+&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
+&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
+&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
     
     </summary>
     
@@ -373,9 +458,9 @@
       <category term="行业综述" scheme="http://jznudt.github.io/categories/%E8%A1%8C%E4%B8%9A%E7%BB%BC%E8%BF%B0/"/>
     
     
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
-    
       <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
     
   </entry>
   
@@ -601,9 +686,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -642,9 +727,9 @@
       <category term="点滴随笔" scheme="http://jznudt.github.io/categories/%E7%82%B9%E6%BB%B4%E9%9A%8F%E7%AC%94/"/>
     
     
-      <category term="设计与实现" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
-    
       <category term="功能模型" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%A8%A1%E5%9E%8B/"/>
+    
+      <category term="设计与实现" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/"/>
     
   </entry>
   
@@ -725,9 +810,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -870,9 +955,9 @@
       <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
     
     
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
-    
       <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
     
   </entry>
   
@@ -903,34 +988,6 @@
       <category term="设计模式" scheme="http://jznudt.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>VR技术与雷达电子战领域结合畅想</title>
-    <link href="http://jznudt.github.io/2016/07/22/VRRadarEWWorld/"/>
-    <id>http://jznudt.github.io/2016/07/22/VRRadarEWWorld/</id>
-    <published>2016-07-22T05:04:41.000Z</published>
-    <updated>2016-07-22T05:29:42.762Z</updated>
-    
-    <content type="html">&lt;p&gt;随着VR领域内软、硬件技术的不断成熟，目前VR技术逐步地迈向“&lt;strong&gt;内容为王&lt;/strong&gt;”的阶段。如何将大热的VR技术与雷达电子战综合仿真领域相结合，逐渐地引起了大家的关注。&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;以&lt;em&gt;第一视角&lt;/em&gt;的身份，用VR技术构建一个完全虚拟的信号/信息处理世界。以雷达系统建模仿真为例，“&lt;strong&gt;我&lt;/strong&gt;”可能就是一串由任意波形发生器生成的门信号，在这个虚拟的世界里，将模拟出我是如何一步步地被生成、传输、变换的，直至最终寿命终结。&lt;/p&gt;
-&lt;p&gt;如果能够实现上述功能，一方面可以做模拟训练用，让受训者深刻地理解信号/信息处理流程；另一方面，可以把它与实际的硬件设备相连接，这样能够快速地检测、定位、排查故障。&lt;/p&gt;
-&lt;p&gt;这只是个人脑洞大开的想法，想要实现这个目标，必要下一番苦功夫。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;随着VR领域内软、硬件技术的不断成熟，目前VR技术逐步地迈向“&lt;strong&gt;内容为王&lt;/strong&gt;”的阶段。如何将大热的VR技术与雷达电子战综合仿真领域相结合，逐渐地引起了大家的关注。
-    
-    </summary>
-    
-      <category term="奇思妙想" scheme="http://jznudt.github.io/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/"/>
-    
-    
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
-    
-      <category term="VR" scheme="http://jznudt.github.io/tags/VR/"/>
     
   </entry>
   
