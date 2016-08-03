@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jznudt.github.io/"/>
-  <updated>2016-08-03T04:55:02.869Z</updated>
+  <updated>2016-08-03T14:46:12.303Z</updated>
   <id>http://jznudt.github.io/</id>
   
   <author>
@@ -16,13 +16,46 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>合成孔径雷达导引头关键技术总结</title>
+    <link href="http://jznudt.github.io/2016/08/04/SARSeekerKeyTechniques/"/>
+    <id>http://jznudt.github.io/2016/08/04/SARSeekerKeyTechniques/</id>
+    <published>2016-08-03T23:30:26.000Z</published>
+    <updated>2016-08-03T14:46:12.303Z</updated>
+    
+    <content type="html">&lt;p&gt;弹载SAR技术的有效应用需要解决诸多问题，明确其中的关键技术，对于有针对性地开展后续研究无疑具有重要的意义。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;大斜视成像&quot;&gt;&lt;a href=&quot;#大斜视成像&quot; class=&quot;headerlink&quot; title=&quot;大斜视成像&quot;&gt;&lt;/a&gt;大斜视成像&lt;/h2&gt;&lt;p&gt;与星载和机载SAR单纯地以侦察为目的不同，弹载SAR往往在侦察后还需要实施攻击，为保证导弹具有一定的转弯机动提前时间，弹载SAR一般需要在大斜视乃至是前斜视的情形下成像，这对于常规的SAR成像算法而言，是一个不小的挑战。&lt;/p&gt;
+&lt;h2 id=&quot;非线性孔径SAR成像&quot;&gt;&lt;a href=&quot;#非线性孔径SAR成像&quot; class=&quot;headerlink&quot; title=&quot;非线性孔径SAR成像&quot;&gt;&lt;/a&gt;非线性孔径SAR成像&lt;/h2&gt;&lt;p&gt;传统SAR需要载机飞行路径为线性航迹，一般为等高度匀速直线飞行航迹，而导弹的垂直方向速度、大气湍流等自然扰动以及规避敌方防空阵地等战术飞行使得导弹航迹不能够满足以上要求，因此弹载SAR需要解决非线性孔径SAR成像的问题。&lt;/p&gt;
+&lt;h2 id=&quot;宽域成像&quot;&gt;&lt;a href=&quot;#宽域成像&quot; class=&quot;headerlink&quot; title=&quot;宽域成像&quot;&gt;&lt;/a&gt;宽域成像&lt;/h2&gt;&lt;p&gt;为保证制导末段的单脉冲前视跟踪阶段的分辨力和测角精度，SAR导引头的波束宽度一般只有3°~5°，受到弹载条件功率限制，主动导引头的作用距离大约只有十几到几十公里，其波束覆盖范围较为有限，因此弹载SAR需要解决如何在短时间内对大范围区域进行扫描成像的问题。&lt;/p&gt;
+&lt;h2 id=&quot;稳像&quot;&gt;&lt;a href=&quot;#稳像&quot; class=&quot;headerlink&quot; title=&quot;稳像&quot;&gt;&lt;/a&gt;稳像&lt;/h2&gt;&lt;p&gt;“稳像”包含两个方面的含义，一是要在导弹姿态、航迹变化的情况下稳定成像区域，二是要进行运动补偿，保证成像质量的稳定，而战术导弹效费比的考虑使得弹载惯性测量元件（Inertial Measurement Unit, IMU）精度相对较低，这就给“稳像”带来了一定的困难。&lt;/p&gt;
+&lt;h2 id=&quot;快视&quot;&gt;&lt;a href=&quot;#快视&quot; class=&quot;headerlink&quot; title=&quot;快视&quot;&gt;&lt;/a&gt;快视&lt;/h2&gt;&lt;p&gt;弹载SAR必须在弹载计算机上完成成像、景象匹配、弹体定位等一系列的处理，为了保证后续制导过程的正常进行，必须寻求“快视”的成像算法，以在规划的时间内完成成像。&lt;/p&gt;
+&lt;h2 id=&quot;抗干扰&quot;&gt;&lt;a href=&quot;#抗干扰&quot; class=&quot;headerlink&quot; title=&quot;抗干扰&quot;&gt;&lt;/a&gt;抗干扰&lt;/h2&gt;&lt;p&gt;SAR通过对目标回波信号的相干处理获得二维高分辨图像，其成像过程可以视为空变的二维匹配滤波，因而可以获得高脉冲压缩比，因此SAR对噪声调制干扰等传统压制干扰具有较强的抑制能力。但是随着&lt;code&gt;场景散射干扰&lt;/code&gt;、&lt;code&gt;有源欺骗干扰&lt;/code&gt;等针对SAR干扰技术的不断发展，如何在复杂的作战环境中对抗各种针对SAR的有源、无源干扰，将是弹载SAR的一个重要课题。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;弹载SAR技术的有效应用需要解决诸多问题，明确其中的关键技术，对于有针对性地开展后续研究无疑具有重要的意义。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="技术前沿" scheme="http://jznudt.github.io/categories/%E6%8A%80%E6%9C%AF%E5%89%8D%E6%B2%BF/"/>
+    
+    
+      <category term="合成孔径雷达" scheme="http://jznudt.github.io/tags/%E5%90%88%E6%88%90%E5%AD%94%E5%BE%84%E9%9B%B7%E8%BE%BE/"/>
+    
+      <category term="关键技术" scheme="http://jznudt.github.io/tags/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>弹载合成孔径雷达制导技术应用方向概述</title>
     <link href="http://jznudt.github.io/2016/08/03/SARSeekerIntroduction/"/>
     <id>http://jznudt.github.io/2016/08/03/SARSeekerIntroduction/</id>
     <published>2016-08-03T04:26:17.000Z</published>
-    <updated>2016-08-03T04:55:02.869Z</updated>
+    <updated>2016-08-03T14:47:17.303Z</updated>
     
-    <content type="html">&lt;p&gt;合成孔径雷达（Synthetic Aperture Radar， SAR）通过对载体飞行过程中不同位置的回波按照阵列汇报进行综合处理，提高宽带雷达的方位向分辨率，可在能见度极差的气象条件下得到高分辨率雷达图像。机载、星载SAR的应用已经较为广泛，在军用方面有战场侦察、目标识别、对地攻击等，而在民用方面则有地形测绘、海洋观测、灾情预报、农作物评估、天体观测等。随着信号处理技术的不断进步和处理器件性能的迅速提高，弹载SAR的研究也越来越收到重视，成为SAR技术应用的又一个重要方面。&lt;/p&gt;
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160803_SARImage.jpg&quot; alt=&quot;高精度合成孔径雷达图像&quot;&gt;&lt;/p&gt;
+&lt;p&gt;合成孔径雷达（Synthetic Aperture Radar， SAR）通过对载体飞行过程中不同位置的回波按照阵列回波进行综合处理，提高宽带雷达的方位向分辨率，可在能见度极差的气象条件下得到高分辨率雷达图像。机载、星载SAR的应用已经较为广泛，在军用方面有战场侦察、目标识别、对地攻击等，而在民用方面则有地形测绘、海洋观测、灾情预报、农作物评估、天体观测等。随着信号处理技术的不断进步和处理器件性能的迅速提高，弹载SAR的研究也越来越收到重视，成为SAR技术应用的又一个重要方面。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;理论上，SAR具有在任何时间、对任何地域进行高分辨率成像的能力，而且作用距离远，工作不受气候条件和太阳照射的限制，能够穿透植被和地表层，探测隐蔽目标。因此，采用SAR技术的主动雷达导引头可有效地提高其全天候、全天时的探测能力和精度。SAR导引头已经成为当前雷达导引头领域内的一个研究热点。&lt;/p&gt;
 &lt;h2 id=&quot;弹载SAR技术应用方向&quot;&gt;&lt;a href=&quot;#弹载SAR技术应用方向&quot; class=&quot;headerlink&quot; title=&quot;弹载SAR技术应用方向&quot;&gt;&lt;/a&gt;弹载SAR技术应用方向&lt;/h2&gt;&lt;p&gt;首先讨论弹载SAR技术主要的四个应用方向，包括：&lt;code&gt;修正惯导误差&lt;/code&gt;、&lt;code&gt;打击时敏目标&lt;/code&gt;、&lt;code&gt;攻击点选择&lt;/code&gt;、&lt;code&gt;打击效果毁伤评估&lt;/code&gt;。&lt;/p&gt;
@@ -42,7 +75,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;合成孔径雷达（Synthetic Aperture Radar， SAR）通过对载体飞行过程中不同位置的回波按照阵列汇报进行综合处理，提高宽带雷达的方位向分辨率，可在能见度极差的气象条件下得到高分辨率雷达图像。机载、星载SAR的应用已经较为广泛，在军用方面有战场侦察、目标识别、对地攻击等，而在民用方面则有地形测绘、海洋观测、灾情预报、农作物评估、天体观测等。随着信号处理技术的不断进步和处理器件性能的迅速提高，弹载SAR的研究也越来越收到重视，成为SAR技术应用的又一个重要方面。&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160803_SARImage.jpg&quot; alt=&quot;高精度合成孔径雷达图像&quot;&gt;&lt;/p&gt;
+&lt;p&gt;合成孔径雷达（Synthetic Aperture Radar， SAR）通过对载体飞行过程中不同位置的回波按照阵列回波进行综合处理，提高宽带雷达的方位向分辨率，可在能见度极差的气象条件下得到高分辨率雷达图像。机载、星载SAR的应用已经较为广泛，在军用方面有战场侦察、目标识别、对地攻击等，而在民用方面则有地形测绘、海洋观测、灾情预报、农作物评估、天体观测等。随着信号处理技术的不断进步和处理器件性能的迅速提高，弹载SAR的研究也越来越收到重视，成为SAR技术应用的又一个重要方面。&lt;/p&gt;
     
     </summary>
     
@@ -320,6 +354,61 @@
   </entry>
   
   <entry>
+    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
+    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
+    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
+    <published>2016-07-28T06:57:05.000Z</published>
+    <updated>2016-07-28T09:57:08.029Z</updated>
+    
+    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
+&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
+&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
+&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
+&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
+&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
+    
+    
+      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
+    
+      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
+    
+  </entry>
+  
+  <entry>
     <title>仿真模型/系统修改建议点滴总结</title>
     <link href="http://jznudt.github.io/2016/07/28/RadEWModelRevision/"/>
     <id>http://jznudt.github.io/2016/07/28/RadEWModelRevision/</id>
@@ -366,61 +455,6 @@
     
       &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_RadarSimGUIDemo.jpg&quot; alt=&quot;雷达电子战仿真模型与系统示例&quot;&gt;&lt;/p&gt;
 &lt;p&gt;经过前期积累，形成了一定体量的仿真模型/系统成果。随着开发工作的逐步深入，以及接触需求的日益复杂，在现有系统成果的基础上进行修改完善，遇到了许多问题。有必要对这些问题进行梳理，并提出有针对性的解决方法。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
-    
-    
-      <category term="功能扩展" scheme="http://jznudt.github.io/tags/%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95/"/>
-    
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一）</title>
-    <link href="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"/>
-    <id>http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/</id>
-    <published>2016-07-28T06:57:05.000Z</published>
-    <updated>2016-07-28T09:57:08.029Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这里只讨论有关于软杀伤的技术问题。它的定义为：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标&lt;strong&gt;10km&lt;/strong&gt;左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。&lt;/p&gt;
-&lt;h2 id=&quot;常规ECM技术评价&quot;&gt;&lt;a href=&quot;#常规ECM技术评价&quot; class=&quot;headerlink&quot; title=&quot;常规ECM技术评价&quot;&gt;&lt;/a&gt;常规ECM技术评价&lt;/h2&gt;&lt;p&gt;上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。&lt;/p&gt;
-&lt;h3 id=&quot;噪声干扰&quot;&gt;&lt;a href=&quot;#噪声干扰&quot; class=&quot;headerlink&quot; title=&quot;噪声干扰&quot;&gt;&lt;/a&gt;噪声干扰&lt;/h3&gt;&lt;p&gt;首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，据国外资料报道，其末制导雷达上均装置有&lt;code&gt;干扰源跟踪&lt;/code&gt;（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;距离拖引干扰&quot;&gt;&lt;a href=&quot;#距离拖引干扰&quot; class=&quot;headerlink&quot; title=&quot;距离拖引干扰&quot;&gt;&lt;/a&gt;距离拖引干扰&lt;/h3&gt;&lt;p&gt;在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;首先，雷达抗&lt;code&gt;距离波门拖引干扰&lt;/code&gt;（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。&lt;/p&gt;
-&lt;h2 id=&quot;ECM技术思考&quot;&gt;&lt;a href=&quot;#ECM技术思考&quot; class=&quot;headerlink&quot; title=&quot;ECM技术思考&quot;&gt;&lt;/a&gt;ECM技术思考&lt;/h2&gt;&lt;p&gt;从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即&lt;strong&gt;交叉眼干扰&lt;/strong&gt;（Cross-eye）和&lt;strong&gt;交叉极化干扰&lt;/strong&gt;（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。&lt;/p&gt;
-&lt;p&gt;交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg&quot; alt=&quot;Nulka干扰弹发射系统&quot;&gt;&lt;/p&gt;
-&lt;p&gt;目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“&lt;strong&gt;软杀伤+硬杀伤&lt;/strong&gt;”灵活组合的方法可能是上策。&lt;/p&gt;
     
     </summary>
     
@@ -728,9 +762,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -852,9 +886,9 @@
       <category term="关键技术" scheme="http://jznudt.github.io/categories/%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="模型验证" scheme="http://jznudt.github.io/tags/%E6%A8%A1%E5%9E%8B%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="数据验证" scheme="http://jznudt.github.io/tags/%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
@@ -966,40 +1000,6 @@
       <category term="云计算" scheme="http://jznudt.github.io/tags/%E4%BA%91%E8%AE%A1%E7%AE%97/"/>
     
       <category term="大数据" scheme="http://jznudt.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>雷达电子战仿真若干思考</title>
-    <link href="http://jznudt.github.io/2016/07/23/RadarEWProblems/"/>
-    <id>http://jznudt.github.io/2016/07/23/RadarEWProblems/</id>
-    <published>2016-07-23T00:52:22.000Z</published>
-    <updated>2016-07-23T02:31:20.817Z</updated>
-    
-    <content type="html">&lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160723_RadarEWDemo.jpg&quot; alt=&quot;RadarEWSimGUIDemo&quot;&gt;&lt;/p&gt;
-&lt;p&gt;对雷达电子战仿真领域中存在的一些问题进行简要分析，并给出了相应的建议。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h2 id=&quot;分布式仿真&quot;&gt;&lt;a href=&quot;#分布式仿真&quot; class=&quot;headerlink&quot; title=&quot;分布式仿真&quot;&gt;&lt;/a&gt;分布式仿真&lt;/h2&gt;&lt;p&gt;许多实际项目所采用的“分布式仿真”从&lt;em&gt;本质上&lt;/em&gt;讲是没有必要的。相比于分布式仿真系统的大投入、高成本、长周期，设计一套单机版的应用程序，无论是算法验证、数学仿真、半实物试验，还是外场试验，可能都更为有用，移植性也会更好。单机版程序的仿真时效性问题可通过优化算法、重构设计方案、高性能计算等方式进行提升与改进。&lt;/p&gt;
-&lt;h2 id=&quot;装备级模型&quot;&gt;&lt;a href=&quot;#装备级模型&quot; class=&quot;headerlink&quot; title=&quot;装备级模型&quot;&gt;&lt;/a&gt;装备级模型&lt;/h2&gt;&lt;p&gt;相对于战术、战役级仿真系统的高投入、高消耗，着眼于装备级模型的仿真，可能更为行之有效。无论是论证单位、生产部门、鉴定考核单位，还是实际使用部门，对细粒度内核模型的需求都非常迫切，尤其是模型的置信度，会直接影响装备的论证、研发、鉴定、训练和使用全寿命周期。&lt;/p&gt;
-&lt;h2 id=&quot;复杂战场环境&quot;&gt;&lt;a href=&quot;#复杂战场环境&quot; class=&quot;headerlink&quot; title=&quot;复杂战场环境&quot;&gt;&lt;/a&gt;复杂战场环境&lt;/h2&gt;&lt;p&gt;目前言必称“复杂电磁环境”，或是“复杂战场环境”，但对它们的认识大多停留在感性认识阶段，比如经常会引用的&lt;code&gt;时域密集、频域交叠、空域密度、功率参差&lt;/code&gt;等，但这种感性的认识对我们没并有实质的帮助。我们需要朝着“&lt;strong&gt;复杂战场环境定量化&lt;/strong&gt;”的方向努力，大致可分为三个层面，即：要素梳理、效应分析、改进措施。只有把握住了这个大的方向，研发出来的仿真系统才会真正地具备实用价值。但想要实现对复杂战场环境的量化分析并不容易，需要长期积累、持续投入。&lt;/p&gt;
-&lt;h2 id=&quot;仿真试验评估&quot;&gt;&lt;a href=&quot;#仿真试验评估&quot; class=&quot;headerlink&quot; title=&quot;仿真试验评估&quot;&gt;&lt;/a&gt;仿真试验评估&lt;/h2&gt;&lt;p&gt;仿真作为一种行之有效的手段，为有效地评估装备的实际效能提供了可行的技术实现方案，并不是仅有外场试验才能够用于装备的考核与鉴定。但目前仿真模型、仿真系统、仿真试验评估并未真正地得到广泛认可，究其原因可能有三点：模型置信度不够、仿真场景设置不合理、评估方法和指标体系不全面。有效地提升模型的置信度，还是有很多方法可资借鉴的。比如采用&lt;a href=&quot;https://jznudt.github.io/2016/07/22/EWCVLevelMS/&quot;&gt;相干视频信号级模型&lt;/a&gt;代替传统的功能级仿真模型，就能够充分地揭示各类环境因素对用频装备（如各类雷达导引头、制导雷达、监视雷达等）的影响机理，并能对影响效应进行定量评估。很多时候，模型置信度不高恰恰是因为我们在进行模型/系统的顶层设计时，没有赋予它们与实际装备相同的能力，比如各类抗干扰措施、状态切换逻辑等。仿真系统绝不应该是“金玉其外败絮其中”，而应该是内外兼修，这样才能真正地提升仿真的话语权。&lt;/p&gt;
-&lt;h2 id=&quot;粒度与时效性&quot;&gt;&lt;a href=&quot;#粒度与时效性&quot; class=&quot;headerlink&quot; title=&quot;粒度与时效性&quot;&gt;&lt;/a&gt;粒度与时效性&lt;/h2&gt;&lt;p&gt;&lt;code&gt;仿真粒度和时效性的结构性矛盾&lt;/code&gt;一度困扰了该领域内的大多数工程人员，直到现在都没有很好的解决方法，采用半实物仿真手段，将难以建模的部件或分系统直接用实物替代，这是一种非常有效的解决方案，但是实现难度非常大，对整个试验测试环境的要求也非常高。比如构建一整套射频制导半实物仿真系统，需要暗室、三轴转台、惯导、飞行模拟器等诸多条件的配合，系统复杂程度高。因此全数字仿真系统成为一种必须的解决方案（很多情况下甚至是唯一的方案）。多核多线程、面向GPU的高性能并行运算、硬件加速（DSP、FPGA或其它嵌入式硬件系统），是现在主流的三种解决方案，但目前该领域大体尚处于探索阶段，很少有成熟的设计方法和思路可供借鉴引用。尤其是面向GPU的高性能并行运算，虽然在信号处理、图像处理等领域得到了验证，但大多限于算法研究与验证，但将它完整地应用至应用系统中，还缺乏成熟的经验。&lt;/p&gt;
-&lt;h2 id=&quot;可复用性&quot;&gt;&lt;a href=&quot;#可复用性&quot; class=&quot;headerlink&quot; title=&quot;可复用性&quot;&gt;&lt;/a&gt;可复用性&lt;/h2&gt;&lt;p&gt;关于模型体系的可复用性，目前已经有很多类型的尝试，包括源码、函数、类库、组件、BOM等，但大多仅限于形式上的复用，并未带来任何&lt;strong&gt;实质上的可复用设计&lt;/strong&gt;。真正的可复用设计，需要对装备的工作原理进入深入分析，并充分借鉴成熟的设计模式（目前已成功地将10余种&lt;a href=&quot;https://jznudt.github.io/2016/07/22/CLP6DOFSim/&quot;&gt;设计模式&lt;/a&gt;应用于实际系统的研发），它应该是一种解决方案层面的可复用，对同类系统应具有指导意义。&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160723_RadarEWDemo.jpg&quot; alt=&quot;RadarEWSimGUIDemo&quot;&gt;&lt;/p&gt;
-&lt;p&gt;对雷达电子战仿真领域中存在的一些问题进行简要分析，并给出了相应的建议。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="深沉思索" scheme="http://jznudt.github.io/categories/%E6%B7%B1%E6%B2%89%E6%80%9D%E7%B4%A2/"/>
-    
-    
-      <category term="发展综述" scheme="http://jznudt.github.io/tags/%E5%8F%91%E5%B1%95%E7%BB%BC%E8%BF%B0/"/>
-    
-      <category term="雷达电子战" scheme="http://jznudt.github.io/tags/%E9%9B%B7%E8%BE%BE%E7%94%B5%E5%AD%90%E6%88%98/"/>
     
   </entry>
   

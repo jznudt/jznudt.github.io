@@ -4,25 +4,23 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>舰载ECM系统对抗单脉冲末制导雷达的思考（一） | 品创信联</title>
+    <title>合成孔径雷达导引头关键技术总结 | 品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“软杀伤+硬杀伤”灵活组合的方法可能是上策。">
+    <meta name="description" content="弹载SAR技术的有效应用需要解决诸多问题，明确其中的关键技术，对于有针对性地开展后续研究无疑具有重要的意义。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="舰载ECM系统对抗单脉冲末制导雷达的思考（一）">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/index.html">
+<meta property="og:title" content="合成孔径雷达导引头关键技术总结">
+<meta property="og:url" content="http://jznudt.github.io/2016/08/04/SARSeekerKeyTechniques/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“软杀伤+硬杀伤”灵活组合的方法可能是上策。">
-<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg">
-<meta property="og:updated_time" content="2016-07-28T09:57:08.029Z">
+<meta property="og:description" content="弹载SAR技术的有效应用需要解决诸多问题，明确其中的关键技术，对于有针对性地开展后续研究无疑具有重要的意义。">
+<meta property="og:updated_time" content="2016-08-03T14:46:12.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="舰载ECM系统对抗单脉冲末制导雷达的思考（一）">
-<meta name="twitter:description" content="目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“软杀伤+硬杀伤”灵活组合的方法可能是上策。">
-<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg">
+<meta name="twitter:title" content="合成孔径雷达导引头关键技术总结">
+<meta name="twitter:description" content="弹载SAR技术的有效应用需要解决诸多问题，明确其中的关键技术，对于有针对性地开展后续研究无疑具有重要的意义。">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -83,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/28/ShipECMvsMonopulseRadar/" title="舰载ECM系统对抗单脉冲末制导雷达的思考（一）" itemprop="url">舰载ECM系统对抗单脉冲末制导雷达的思考（一）</a>
+      <a href="/2016/08/04/SARSeekerKeyTechniques/" title="合成孔径雷达导引头关键技术总结" itemprop="url">合成孔径雷达导引头关键技术总结</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-28T06:57:05.000Z" itemprop="datePublished"> 发表于 2016-07-28</time>
+    <time datetime="2016-08-03T23:30:26.000Z" itemprop="datePublished"> 发表于 2016-08-04</time>
     
   </p>
 </header>
@@ -99,40 +97,18 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常规ECM技术评价"><span class="toc-number">2.</span> <span class="toc-text">常规ECM技术评价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#噪声干扰"><span class="toc-number">2.1.</span> <span class="toc-text">噪声干扰</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离拖引干扰"><span class="toc-number">2.2.</span> <span class="toc-text">距离拖引干扰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECM技术思考"><span class="toc-number">3.</span> <span class="toc-text">ECM技术思考</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#大斜视成像"><span class="toc-number">1.</span> <span class="toc-text">大斜视成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非线性孔径SAR成像"><span class="toc-number">2.</span> <span class="toc-text">非线性孔径SAR成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宽域成像"><span class="toc-number">3.</span> <span class="toc-text">宽域成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稳像"><span class="toc-number">4.</span> <span class="toc-text">稳像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快视"><span class="toc-number">5.</span> <span class="toc-text">快视</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抗干扰"><span class="toc-number">6.</span> <span class="toc-text">抗干扰</span></a></li></ol>
 		
 		</div>
 		
-		<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160728_AntiShipMissileECCMNulka.jpg" alt="Nulka干扰弹发射系统"></p>
-<p>目前世界各国主要的反舰导弹大都采用单脉冲雷达主动寻的制导方式，这对水面舰艇的生存带来了极大威胁。为了对抗这种威胁，采用“<strong>软杀伤+硬杀伤</strong>”灵活组合的方法可能是上策。</p>
+		<p>弹载SAR技术的有效应用需要解决诸多问题，明确其中的关键技术，对于有针对性地开展后续研究无疑具有重要的意义。</p>
 <a id="more"></a>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>目前，世界各国海军水面舰艇面临的最大威胁是空射、舰射、潜射以及岸射的各种反舰导弹（Anti-ship Missile）。今年以来，各国海军作战部门和科研机构为了对抗这种威胁做了广泛的论证和试验研究工作，在此基础上制造了大量的设备列装海军。纵观这些努力，可以得出下面的结论：</p>
-<blockquote>
-<p>对抗反舰导弹主要依靠速射火炮、反导拦截导弹等杀伤兵器组成的硬杀伤手段，以及以电子战为核心的软杀伤手段，尤其以软硬两种兵器结合的综合武器系统为上策。</p>
-</blockquote>
-<p>这里只讨论有关于软杀伤的技术问题。它的定义为：</p>
-<blockquote>
-<p>软杀伤是以ECM破坏反舰导弹获得和提取舰艇实际空间位置信息，从而使其丢失战斗目标。</p>
-</blockquote>
-<p>这项工作的关键在于如何扰乱导弹末制导雷达的工作。目前世界上装备了几十型反舰导弹，其末段制导方式包括：主动雷达制导、半主动雷达制导、红外寻的制导、无线电指令制导、驾束制导、有线制导等。就目前技术水平而言，软杀伤武器所能应对的主要是主动雷达制导这一种。具有这种制导方式的反舰导弹代表了目前反舰导弹的主流。最具有战斗力和装备最为广泛的品种正是这种到达。例如：法国的“飞鱼”系列（MM38、AM39、SM39），美国的“捕鲸叉”、“战斧”BGM-108B、意大利的“奥托马特”、德国的“鸬鹚”、瑞典的“企鹅”（RBS-15M）、以色列的“迦伯烈”（MKA/S）、德法合研的ANS，以及原苏联的SS-N-1、SS-N-2A、“沙道克”BSS-N-3B、SS-N-11、SS-N-19和SS-N-22（“马斯基特”）等。这些导弹的制导方式基本上相同，发射后依靠惯性制导（捷联惯导）或者自动驾驶仪飞完前半段。在距离目标<strong>10km</strong>左右的地方，主动雷达开机捕获目标，然后转入跟踪。舰载ECM系统必须具有迎战这类目标的可靠技术，才能够起到软武器的作用。</p>
-<h2 id="常规ECM技术评价"><a href="#常规ECM技术评价" class="headerlink" title="常规ECM技术评价"></a>常规ECM技术评价</h2><p>上述这些反舰导弹的末制导雷达大都是2cm或者3cm的单脉冲雷达，因此深入研究这一类雷达及其反干扰能力就成为了非常紧迫的任务。工作带宽、有效辐射功率、参数捷变和跟踪能力，以及方位跟踪精度（反舰导弹大多采用单平面跟踪，俯仰上则是采用LFMCW高度计控制）等对ECM系统固然是基础性的要求，这里主要探讨的是干扰样式和手段等兼顾技战术应用方面的问题。</p>
-<h3 id="噪声干扰"><a href="#噪声干扰" class="headerlink" title="噪声干扰"></a>噪声干扰</h3><p>首先应该研究的是噪声干扰的作用和战术效果。噪声干扰的机理较为复杂，很难从理论上进行精确地分析，只能够说有一定效果，但是前景未可乐观。由于单脉冲体制固有的优势，一旦它锁定目标，舰载自卫干扰机将很难使它脱离锁定，因此常常把希望寄托于末制导雷达的目标搜索阶段，希望在此阶段内向雷达释放噪声干扰，或者间断地释放这种干扰，以使导弹雷达始终处于搜索状态。但是这种技术的可靠性是值得怀疑的，因为：</p>
-<ul>
-<li><p>首先，舰载ECM系统未必能够及时地抓住雷达由搜索转为跟踪这一关键的时间点；</p>
-</li>
-<li><p>其次，据国外资料报道，其末制导雷达上均装置有<code>干扰源跟踪</code>（HOJ）的设备，例如意大利的“奥托马特”、“奥托马赫2”。实际上由于反辐射导弹的快速发展，干扰源跟踪技术早已经是非常成熟的技术。在这种情况下，舰载干扰机的大功率噪声干扰反而成为了潜在的信标信号。</p>
-</li>
-</ul>
-<h3 id="距离拖引干扰"><a href="#距离拖引干扰" class="headerlink" title="距离拖引干扰"></a>距离拖引干扰</h3><p>在反舰导弹已经转入跟踪状态时，舰载ECM系统的传统战术就是在距离上拖引导弹（不同于采用脉冲多普勒体制的末制导雷达）。目前，这项技术已经受到了极大的局限：</p>
-<ul>
-<li><p>首先，雷达抗<code>距离波门拖引干扰</code>（RGPO）技术已经较为成熟，例如前沿跟踪技术，这几乎已经成为了一种常规技术。上面提到的那些导弹几乎都装有这种电路；</p>
-</li>
-<li><p>其次，以“奥托马赫2”和ANS为代表的新一代导弹有超过2Ma的航速。这种到达在40km的距离上发起攻击，仅仅需要1分钟就能够达到目标位置，所以完全能够利用发射平台提供的初始距离信息，不断地计算扣减自己已经航行完的路程，从而准确地估计出目标的即使距离。在1分钟左右的时间内，舰船目标是不可能有明显机动的，累积误差将会非常小。</p>
-</li>
-</ul>
-<p>因此在这种情况下，导弹很容易靠近舰载干扰机的最小有效干扰范围，一旦进入这个范围，仅仅从功率对抗角度来看，ECM就处于劣势，此时雷达有源测距将占据优势。同时我们还要看到导弹引战系统的发展。直接命中引爆仍是各种导弹所具备的基本功能，但目前已经逐步出现一些“准近炸”技术。以法国的“飞鱼”导弹为例，这种导弹并没有传统的近炸引信，但其高度表能在飞过目标舰艇上方时进行起爆。因此距离拖引非但效果不佳，甚至有可能将导弹引至头顶爆炸，摧毁上层建筑。由此来看，距离拖引干扰已经是一项效果极为有限的技术。</p>
-<h2 id="ECM技术思考"><a href="#ECM技术思考" class="headerlink" title="ECM技术思考"></a>ECM技术思考</h2><p>从理论上看，真正地能对单脉冲雷达实施有效干扰的技术只有两种，即<strong>交叉眼干扰</strong>（Cross-eye）和<strong>交叉极化干扰</strong>（Cross-Polarization）。这两种技术都是以角度干扰为主要特征的。然而从实践角度看，交叉眼干扰对于舰船目标而言具有较大的难度。这种技术要求目标有着良好的天线安装空间。如果飞机目标采用这种技术，它将只有一个迎敌面（前方），而舰艇目标则要照顾左舷、右舷两个迎敌面，同时上层建筑较为复杂，容易遮挡天线，给安装带来了较大难度。另外，这种技术对两个干扰源的幅度一致性和相位相干性都有着极为严格的要求，例如幅度平衡为0.05dB，相位一致性为0.3°，这对目标的技术工艺水平来说非常困难。</p>
-<p>交叉极化干扰在数年前也仅仅是理论研究，但近年以来已经发现有关实际应用的报道。据报道，美国ARGO公司研制的APECS-II型舰载电子战系统的干扰机是一部具有全新的噪声/欺骗自适应交叉极化干扰机，并且使用了相控阵天线，其极化分集的多变干扰机通过相控阵就能够同时对付16个目标，这可能是世界上第一部以交叉极化为主要手段、以单脉冲主动雷达导引头为主要作战对象的ECM系统。因此应该引起我们的高度重视。这一事实告诉我们，交叉极化干扰已经进入了应用阶段，并有着较好的前景。基于这种考虑，我们有必要对这种技术的理论发展和技术开发历程进行回顾，以提供参考。这将在后续文章中进行讲述。</p>
+<h2 id="大斜视成像"><a href="#大斜视成像" class="headerlink" title="大斜视成像"></a>大斜视成像</h2><p>与星载和机载SAR单纯地以侦察为目的不同，弹载SAR往往在侦察后还需要实施攻击，为保证导弹具有一定的转弯机动提前时间，弹载SAR一般需要在大斜视乃至是前斜视的情形下成像，这对于常规的SAR成像算法而言，是一个不小的挑战。</p>
+<h2 id="非线性孔径SAR成像"><a href="#非线性孔径SAR成像" class="headerlink" title="非线性孔径SAR成像"></a>非线性孔径SAR成像</h2><p>传统SAR需要载机飞行路径为线性航迹，一般为等高度匀速直线飞行航迹，而导弹的垂直方向速度、大气湍流等自然扰动以及规避敌方防空阵地等战术飞行使得导弹航迹不能够满足以上要求，因此弹载SAR需要解决非线性孔径SAR成像的问题。</p>
+<h2 id="宽域成像"><a href="#宽域成像" class="headerlink" title="宽域成像"></a>宽域成像</h2><p>为保证制导末段的单脉冲前视跟踪阶段的分辨力和测角精度，SAR导引头的波束宽度一般只有3°~5°，受到弹载条件功率限制，主动导引头的作用距离大约只有十几到几十公里，其波束覆盖范围较为有限，因此弹载SAR需要解决如何在短时间内对大范围区域进行扫描成像的问题。</p>
+<h2 id="稳像"><a href="#稳像" class="headerlink" title="稳像"></a>稳像</h2><p>“稳像”包含两个方面的含义，一是要在导弹姿态、航迹变化的情况下稳定成像区域，二是要进行运动补偿，保证成像质量的稳定，而战术导弹效费比的考虑使得弹载惯性测量元件（Inertial Measurement Unit, IMU）精度相对较低，这就给“稳像”带来了一定的困难。</p>
+<h2 id="快视"><a href="#快视" class="headerlink" title="快视"></a>快视</h2><p>弹载SAR必须在弹载计算机上完成成像、景象匹配、弹体定位等一系列的处理，为了保证后续制导过程的正常进行，必须寻求“快视”的成像算法，以在规划的时间内完成成像。</p>
+<h2 id="抗干扰"><a href="#抗干扰" class="headerlink" title="抗干扰"></a>抗干扰</h2><p>SAR通过对目标回波信号的相干处理获得二维高分辨图像，其成像过程可以视为空变的二维匹配滤波，因而可以获得高脉冲压缩比，因此SAR对噪声调制干扰等传统压制干扰具有较强的抑制能力。但是随着<code>场景散射干扰</code>、<code>有源欺骗干扰</code>等针对SAR干扰技术的不断发展，如何在复杂的作战环境中对抗各种针对SAR的有源、无源干扰，将是弹载SAR的一个重要课题。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -140,13 +116,13 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/深沉思索/">深沉思索</a>
+  <a class="article-category-link" href="/categories/技术前沿/">技术前沿</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/功能扩展/">功能扩展</a><a href="/tags/雷达电子战/">雷达电子战</a>
+  <span></span> <a href="/tags/合成孔径雷达/">合成孔径雷达</a><a href="/tags/关键技术/">关键技术</a>
   </div>
 
 </div>
@@ -155,7 +131,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/" data-title="舰载ECM系统对抗单脉冲末制导雷达的思考（一） | 品创信联" data-tsina="null" class="share clearfix">
+	  <div data-url="http://jznudt.github.io/2016/08/04/SARSeekerKeyTechniques/" data-title="合成孔径雷达导引头关键技术总结 | 品创信联" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -168,19 +144,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/07/30/VRInMilitaryProblems/" title="VR技术与军事模拟训练结合中的两个问题">
-  <strong>上一篇：</strong><br/>
-  <span>
-  VR技术与军事模拟训练结合中的两个问题</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2016/07/28/RadEWModelRevision/"  title="仿真模型/系统修改建议点滴总结">
+<a href="/2016/08/03/SARSeekerIntroduction/"  title="弹载合成孔径雷达制导技术应用方向概述">
  <strong>下一篇：</strong><br/> 
- <span>仿真模型/系统修改建议点滴总结
+ <span>弹载合成孔径雷达制导技术应用方向概述
 </span>
 </a>
 </div>
@@ -189,7 +157,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/28/ShipECMvsMonopulseRadar/" data-title="舰载ECM系统对抗单脉冲末制导雷达的思考（一）" data-url="http://jznudt.github.io/2016/07/28/ShipECMvsMonopulseRadar/"></div>
+	<div class="ds-thread" data-thread-key="2016/08/04/SARSeekerKeyTechniques/" data-title="合成孔径雷达导引头关键技术总结" data-url="http://jznudt.github.io/2016/08/04/SARSeekerKeyTechniques/"></div>
 </section>
 
 
@@ -199,7 +167,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常规ECM技术评价"><span class="toc-number">2.</span> <span class="toc-text">常规ECM技术评价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#噪声干扰"><span class="toc-number">2.1.</span> <span class="toc-text">噪声干扰</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#距离拖引干扰"><span class="toc-number">2.2.</span> <span class="toc-text">距离拖引干扰</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ECM技术思考"><span class="toc-number">3.</span> <span class="toc-text">ECM技术思考</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#大斜视成像"><span class="toc-number">1.</span> <span class="toc-text">大斜视成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非线性孔径SAR成像"><span class="toc-number">2.</span> <span class="toc-text">非线性孔径SAR成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#宽域成像"><span class="toc-number">3.</span> <span class="toc-text">宽域成像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稳像"><span class="toc-number">4.</span> <span class="toc-text">稳像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快视"><span class="toc-number">5.</span> <span class="toc-text">快视</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#抗干扰"><span class="toc-number">6.</span> <span class="toc-text">抗干扰</span></a></li></ol>
  
   </div>
 
