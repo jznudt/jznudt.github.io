@@ -4,31 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>六自由度闭环仿真 | 品创信联</title>
+    <title>品创信联</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Zhao Jing">
     
 
     
-    <meta name="description" content="模式驱动的六自由度闭环解算平台
-引言区别于地基固定雷达，雷达导引头（末制导雷达）部署于弹体头部，它面临的实际作用环境除了目标、人为干扰以及自然背景等，还面临着弹载环境的影响。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="六自由度闭环仿真">
-<meta property="og:url" content="http://jznudt.github.io/2016/07/22/CLP6DOFSim/index.html">
+    <meta name="description" content="致力于雷达电子战仿真评估">
+<meta property="og:type" content="website">
+<meta property="og:title" content="品创信联">
+<meta property="og:url" content="http://jznudt.github.io/page/5/index.html">
 <meta property="og:site_name" content="品创信联">
-<meta property="og:description" content="模式驱动的六自由度闭环解算平台
-引言区别于地基固定雷达，雷达导引头（末制导雷达）部署于弹体头部，它面临的实际作用环境除了目标、人为干扰以及自然背景等，还面临着弹载环境的影响。">
-<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_6DOFFlightSim.jpg">
-<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/gif/20160722_6DOFPlatformConfig.gif">
-<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GNCLoopChart.png">
-<meta property="og:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GNCLoopModelUML.png">
-<meta property="og:updated_time" content="2016-07-22T04:50:59.240Z">
+<meta property="og:description" content="致力于雷达电子战仿真评估">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="六自由度闭环仿真">
-<meta name="twitter:description" content="模式驱动的六自由度闭环解算平台
-引言区别于地基固定雷达，雷达导引头（末制导雷达）部署于弹体头部，它面临的实际作用环境除了目标、人为干扰以及自然背景等，还面临着弹载环境的影响。">
-<meta name="twitter:image" content="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_6DOFFlightSim.jpg">
+<meta name="twitter:title" content="品创信联">
+<meta name="twitter:description" content="致力于雷达电子战仿真评估">
 
     
     <link rel="alternative" href="/atom.xml" title="品创信联" type="application/atom+xml">
@@ -83,112 +74,80 @@
 </div>
     </header>
     <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-  
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/07/22/CLP6DOFSim/" title="六自由度闭环仿真" itemprop="url">六自由度闭环仿真</a>
+      <a href="/2016/07/20/MarkDownSyntax/" title="Markdown文件语法学习" itemprop="url">Markdown文件语法学习</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Zhao Jing" target="_blank" itemprop="author">Zhao Jing</a>
 		
   <p class="article-time">
-    <time datetime="2016-07-22T01:17:47.000Z" itemprop="datePublished"> 发表于 2016-07-22</time>
+    <time datetime="2016-07-20T05:08:24.000Z" itemprop="datePublished"> 发表于 2016-07-20</time>
     
   </p>
 </header>
-	<div class="article-content">
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模式驱动的六自由度闭环解算平台"><span class="toc-number">1.</span> <span class="toc-text">模式驱动的六自由度闭环解算平台</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制导控制回路"><span class="toc-number">1.2.</span> <span class="toc-text">制导控制回路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模式驱动建模仿真"><span class="toc-number">1.3.</span> <span class="toc-text">模式驱动建模仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
-		
-		</div>
-		
-		<h1 id="模式驱动的六自由度闭环解算平台"><a href="#模式驱动的六自由度闭环解算平台" class="headerlink" title="模式驱动的六自由度闭环解算平台"></a>模式驱动的六自由度闭环解算平台</h1><p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_6DOFFlightSim.jpg" alt="6DOFCLPSim"></p>
-<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>区别于地基固定雷达，雷达导引头（末制导雷达）部署于弹体头部，它面临的实际作用环境除了目标、人为干扰以及自然背景等，还面临着<em>弹载环境</em>的影响。<a id="more"></a>一般雷达导引头天线安装在角度稳定平台上，虽然可以通过角速率稳定回路实现天线指向与弹体高频运动的解耦（即：无论弹体做何种质心平动与转动，天线空间指向保持不变），但受各种误差因素影响，导弹的运动不可避免地会对搭载于其上的电子设备（此处特指末制导雷达）产生影响。直观上看，末制导雷达需要探测目标相对于弹体的实时运动状态，包括弹目距离、斜距率、弹目视线角、视线角速率等，提取的弹目测量信息被送往制导律生成环节，生成相应的导引指令送往弹体的自动驾驶仪环节，进而通过操纵机构（主要是舵机）来改变弹体的空气动力学特性，从而将导弹成功地导向目标；与此同时，弹体运动状态的时变特性对雷达导引头的实时探测产生了耦合和交联，这也是末制导雷达与地基固定雷达最大的<strong>差异</strong>所在。</p>
-<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/gif/20160722_6DOFPlatformConfig.gif" alt="6DOFPlatformConfig"></p>
-<h2 id="制导控制回路"><a href="#制导控制回路" class="headerlink" title="制导控制回路"></a>制导控制回路</h2><p>下图给出了导弹制导控制回路的一般结构，从中可看出，末制导雷达（雷达导引头）<em>仅是</em>整个闭环回路中的一个环节。整个导弹制导控制回路可分为内环、外环两个回路，前者用于稳定弹体，后者则完成对目标的闭环跟踪，通过两个回路的密切协作，控制导弹<strong>稳定地转向目标</strong>。</p>
-<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GNCLoopChart.png" alt="GNCLoopDemo"></p>
-<p>末制导雷达作为整个导弹制导控制回路中的一个环节，对它的科学、全面的性能评估，不可避免地需要建立一个可用的闭环解算平台。从上图中看出，完整的导弹制导控制回路涵盖的分系统非常广，而且横跨了目标特性、电子、自动化、控制、机械等多个领域，要想构建一个完整的导弹制导控制闭环平台难度非常大。</p>
-<h2 id="模式驱动建模仿真"><a href="#模式驱动建模仿真" class="headerlink" title="模式驱动建模仿真"></a>模式驱动建模仿真</h2><p>针对此现状，创造性地把软件工程领域中的“设计模式”的思想引入到导弹制导控制回路建模仿真的过程中。借助于成熟的设计模式，来分析在构建通用的闭环解算平台中遇到的实际问题，并提供一个优雅的、鲁棒的解决方案。具体的步骤分为下面三步：<br>首先，详细地分析导弹制导控制回路的各个关键环节，例如目标机动、导引头探测、角度滤波（数据处理）、制导律生成、PID控制器、操纵机构、舵面、惯性测量器件、空气动力学特性、弹体动力学、导弹运动学等，深入地了解其工作原理，尤其关注信号、信息流在整个链路中的流动，即各关键环节的输入输出关系。<br>其次，以设计模型中的“外观模式”为指导思想，制定导弹制导控制回路建模仿真的总体用例图（实际上也就是模块划分图），如下图所示。</p>
-<p><img src="http://oaneuh4rf.bkt.clouddn.com/image/jpg/20160722_GNCLoopModelUML.png" alt="GNCLoopModelUML"></p>
-<p>在上图所示的用例图中，导弹飞行解算较为复杂，它包含导弹目标探测、制导控制解算、导弹气动特性、导弹动力计算、导弹运动计算、导航系统计算等。其中制导控制解算又包含制导指令计算、控制指令计算和舵偏角计算；导弹气动特性包含气动力和气动力矩计算；导弹动力计算包含发动机推力计算、质量流变计算和转动惯量计算。<br>最后，综合应用<strong>单例模式、策略模式、模板模式、工厂模式</strong>等十余种成熟的设计模式，完成导弹制导控制回路建模的总体设计。</p>
-<p>通过对导弹制导控制回路仿真模型进行子系统划分，可以将不同子系统进行解耦，这样每个子系统发生变化时，对其余子系统无影响或影响不大，只需对发生变化的子系统按照新的需求进行重新设计即可。划分了子系统后，交互接口中的各个功能函数就可以通过调用子系统的相关接口来完成。例如，对于初始化函数<code>Initialize()</code>，它包含七个子系统的初始化过程，也就是说初始化函数<code>Initialize()</code>的实现过程就是委托子系系统执行初始化函数，传递的参数不同而已。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过上述三个步骤，完成了导弹制导控制回路仿真模型的设计，并用C++语言进行了实现，从而构建了较为完善的导弹制导控制回路，为开展闭环条件下的末制导雷达效能评估试验奠定了坚实的基础。<br>总体上看，因为导弹制导控制回路涵盖分系统众多、涉及专业领域广，对其进行建模仿真的难度非常大，造成了目前通用的导弹制导控制仿真平台极为缺乏。针对这一迫切需求，创新地将软件设计领域中的成熟原则应用于导弹制导控制回路建模仿真的具体实践中，真正地实现了“<strong>组件化、易扩展、细粒度</strong>”的通用六自由度闭环弹道解算平台。该成果不仅可应用于对海场景，它可以便捷地扩展至防空、地地、反辐射等多种典型应用场景中，因而具有极强的实际应用价值。该思路有助于解决长期困扰导弹武器装备鉴定与评估人员的难题——构建通用的六自由度闭环弹道解算平台。</p>
-  
-	</div>
-		<footer class="article-footer clearfix">
+    <div class="article-content">
+        
+        <h1 id="Markdown-文件"><a href="#Markdown-文件" class="headerlink" title="Markdown 文件"></a>Markdown 文件</h1><p><img src="http://markdown.tw/images/208x128.png" alt="Markdown"></p>
+<p><strong>NOTE:</strong> This is Simplified Chinese Edition Document of<br>Markdown Syntax. If you are seeking for English Edition<br>Document. Please refer to <a href="http://daringfireball.net/projects/markdown/syntax">Markdown: Syntax</a>.</p>
+        
+        
+        <p class="article-more-link">
+          
+            <a href="/2016/07/20/MarkDownSyntax/#more">Read More</a>
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
 <div class="article-catetags">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/关键技术/">关键技术</a>
+  <a class="article-category-link" href="/categories/基础学习/">基础学习</a>
 </div>
 
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/设计模式/">设计模式</a><a href="/tags/六自由度/">六自由度</a><a href="/tags/闭环仿真/">闭环仿真</a>
+  <span></span> <a href="/tags/Markdown/">Markdown</a>
   </div>
 
 </div>
 
 
 
-	<div class="article-share" id="share">
-	
-	  <div data-url="http://jznudt.github.io/2016/07/22/CLP6DOFSim/" data-title="六自由度闭环仿真 | 品创信联" data-tsina="null" class="share clearfix">
-	  </div>
-	
-	</div>
 
+<div class="comments-count">
+	
+	  	<span></span>
+		<a href="/2016/07/20/MarkDownSyntax/#comments" class="ds-thread-count comments-count-link" data-thread-key="2016/07/20/MarkDownSyntax/" data-count-type="comments">&nbsp;</a>
+	
+</div>
 
 </footer>
 
-   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2016/07/22/SeaBattlefieldEM/" title="海战场电磁环境初步认知">
-  <strong>上一篇：</strong><br/>
-  <span>
-  海战场电磁环境初步认知</span>
-</a>
+
+    </article>
+
+
+
+
+
+
+
+  <nav id="page-nav" class="clearfix">
+    <a class="extend prev" rel="prev" href="/page/4/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
 </div>
-
-
-<div class="next">
-<a href="/2016/07/22/CircleBuffer/"  title="环形缓冲器的设计与C++实现">
- <strong>下一篇：</strong><br/> 
- <span>环形缓冲器的设计与C++实现
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-<section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2016/07/22/CLP6DOFSim/" data-title="六自由度闭环仿真" data-url="http://jznudt.github.io/2016/07/22/CLP6DOFSim/"></div>
-</section>
-
-
-</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#模式驱动的六自由度闭环解算平台"><span class="toc-number">1.</span> <span class="toc-text">模式驱动的六自由度闭环解算平台</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#引言"><span class="toc-number">1.1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#制导控制回路"><span class="toc-number">1.2.</span> <span class="toc-text">制导控制回路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#模式驱动建模仿真"><span class="toc-number">1.3.</span> <span class="toc-text">模式驱动建模仿真</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.4.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
- 
-  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -498,103 +457,14 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  c.click(function(){
-    ta.css('display', 'block').addClass('fadeIn');
-  });
-  o.click(function(){
-    ta.css('display', 'none');
-  });
-  $(window).scroll(function(){
-    ta.css("top",Math.max(140,320-$(this).scrollTop()));
-  });
-});
-</script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
-
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"jznudt"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
 
 
 
@@ -663,4 +533,4 @@ $(document).ready(function(){
 })();
 </script>
   </body>
-</html>
+ </html>
